@@ -1,0 +1,11 @@
+O que é um programa?
+Transformador de informação. (input -> output)
+
+O que é programação?
+Troca de informação input/output.
+
+O que é Programação Imperativa?
+Como obter o output, seguir instruções.
+
+O que é Programação Funcional?
+Descrição do resultado, criar uma relação entre a solução partindo do input.

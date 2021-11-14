@@ -1,0 +1,13 @@
+The MIT License
+The Apache License
+The GPL License
+Public Domain (Unlicense)
+The Unlicensed
+Mozilla Public License Version 2.0
+LGPL v3
+LGPL v2.1
+GPL v3
+Eclipse Public License v1.0
+BSD 2-Clause License
+Artistic License 2.0
+Affero GPL
