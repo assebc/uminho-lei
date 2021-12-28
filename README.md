@@ -1,2 +1,2 @@
 # uminho-lei
-All the curricular unitys that I had in my university journey!
+All the curricular unities that I had in my university journey!
