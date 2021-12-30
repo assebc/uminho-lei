@@ -58,3 +58,36 @@ instance Show (BTree a) where
     show Empty = "*"
     show (Node a l r) = "("++(show l)++" <-"++"a"++"-> "++(show r)++")"
         
+-- exercicio 5
+
+sortOn :: Ord b => (a->b) -> [a] -> [a]
+sortOn f [] = []
+sortOn f [x] = [x]
+sortOn f (x:xs) = [] -- to do
+
+-- exercicio 6 a)
+
+type Nome = String
+data FileSystem = File Nome | Dir Nome [FileSystem]
+
+fs1 = Dir "usr" [Dir "xxx" [File "abc.txt", File "readme", Dir "PF" [File "exemplo.hs"]], Dir "yyy" [], Dir "zzz" [Dir "tmp" [], File "teste.c"] ]
+
+-- abc.txt readme exemplo.hs teste.c
+
+fichs :: FileSystem -> [Nome]
+fichs (File n) = [n]  
+fichs (Dir n l) = foldl(\acc x -> acc ++ fichs x) [] l
+
+-- exercicio 6 b)
+
+-- abc.txt readme
+
+dirFiles :: FileSystem -> [Nome] -> Maybe [Nome]
+dirFiles (File n) [] = Just [n]
+dirFiles _ [] = Nothing
+dirFiles (Dir n fs) l = Nothing
+
+-- exercicio 6 c)
+
+listaFich :: FileSystem -> IO()
+listaFich (File n) = do print("ye")
