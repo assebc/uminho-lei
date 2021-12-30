@@ -1,43 +1,60 @@
 module PF2021_Teste where
 
-import Data.List
+-- exercicio 1
+deletes :: Eq a => a -> [a] -> [a]
+deletes x [] = []
+deletes x (y:ys) 
+    | x == y = ys
+    | otherwise = y : deletes x ys
 
---exercício 1
+remove1 :: Eq a => [a] -> [a] -> [a]
+remove1 l [] = l
+remove1 [] _ = []
+remove1 l (x:xs) = remove1 (deletes x l) xs
 
--- com import Data.List
-remove :: Eq a => [a] -> [a] -> [a]
-remove l [] = l
-remove [] _ = []
-remove l (x:xs) = remove (delete x l) xs
-
--- sem import Data.List
-remove' :: Eq a => [a] -> [a] -> [a]
-remove' l [] = l
-remove' [] _ = []
-remove' l (x:xs) = remove (delete' x l) xs
-    where
-        delete' :: Eq a => a -> [a] -> [a]
-        delete' _ [] = []
-        delete' n (x:xs)
-            | n == x = xs
-            | otherwise = n : delete' n xs
-
--- exercício 2
+-- exercicio 2 a)
 
 type MSet a = [(a,Int)]
 
--- 2 a)
+removeMSet :: Eq a => a -> MSet a -> MSet a
+removeMSet _ [] = []
+removeMSet x ((a,n):xs)
+    | x == a && n == 1 = xs
+    | x == a = (a,n-1):xs
+    | otherwise = (a,n) : removeMSet x xs
 
-removeMset :: Eq a => a -> MSet a -> MSet a
-removeMset n [] = []
-removeMset x ((a,n):as)
-    | x == a = as
-    | otherwise = (a,n) : removeMset x as
+-- exercicio 2 b)
 
--- exercício 3
+concats :: [a] -> a -> [a]
+concats [] a = [a]
+concats l@(x:xs) a = x : concats xs a
+
+calcula :: MSet a -> ([a],Int)
+calcula l = foldl(\(l,y) x -> (concats l (fst x),y+snd x) ) ([],0) l
+
+-- exercicio 3
 
 partes :: String -> Char -> [String]
-partes [] a = []
-partes l@(x:xs) a
-    | a == x = partes xs a
-    | otherwise = [[x]] ++ partes xs a
+partes string delim = foldl f [] string
+  where f (h:t) char | char == delim = undefined
+                     | otherwise = undefined
+
+-- exercicio 4 a)
+
+data BTree a = Empty | Node a (BTree a) (BTree a)
+
+a1 =  Node 5 (Node 3 Empty Empty) (Node 7 Empty (Node 9 Empty Empty))
+
+remove2 :: Ord a => a -> BTree a -> BTree a
+remove2 x Empty = Empty
+remove2 x b@(Node e l r) 
+    | x < e = Node e (remove2 x l) r
+    | x > e = Node e l (remove2 x r)
+    | otherwise = l
+
+-- exercicio 4 b)
+
+instance Show (BTree a) where
+    show Empty = "*"
+    show (Node a l r) = "("++(show l)++" <-"++"a"++"-> "++(show r)++")"
+        
