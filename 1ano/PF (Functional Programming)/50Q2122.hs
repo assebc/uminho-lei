@@ -44,6 +44,7 @@ mydrop n l@(x:xs)
 myzip :: [a] -> [b] -> [(a,b)]
 myzip [] _ = []
 myzip _ [] = []
+myzip (x:xs) (y:ys) = (x,y) : myzip xs ys
 
 myreplicate :: Int -> a -> [a] 
 myreplicate n x
@@ -111,14 +112,14 @@ isPrime n
                 | otherwise = primeCheck n (m + 1)
 
 sisPrefixOf :: Eq a => [a] -> [a] -> Bool
-sisPrefixOf [] [] = True
+sisPrefixOf [] _ = True
 sisPrefixOf _ [] = False
 sisPrefixOf (x:xs) (y:ys) = x == y && sisPrefixOf xs ys
 
 sisSuffixOf :: Eq a => [a] -> [a] -> Bool 
 sisSuffixOf _ [] = False
 sisSuffixOf [] _ = True
-sisSuffixOf l ls@(x:xs) = l == l || sisSuffixOf l xs
+sisSuffixOf l ls@(x:xs) = l == ls || sisSuffixOf l xs
 
 iasSubsequeceOf :: Eq a => [a] -> [a] -> Bool
 iasSubsequeceOf [] _ = True
@@ -154,7 +155,7 @@ union' l (x:xs)
 
 intersect' :: Eq a => [a] -> [a] -> [a]
 intersect' l [] = []
-intersect' [] l = l
+intersect' [] l = []
 intersect' (x:xs) l
     | elem x l = x : intersect' xs l
     | otherwise = intersect' xs l
