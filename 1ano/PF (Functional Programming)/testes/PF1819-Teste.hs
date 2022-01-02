@@ -109,7 +109,7 @@ linhasIguaisA n = foldl (\acc l -> sum l == n && acc) True
 
 colunasIguaisA :: Int -> Mat Int -> Bool
 colunasIguaisA n mat = foldl (\acc x -> sum (map (\l -> l !! x) mat) == n && acc) True [0..(length mat - 1)]
-
+ 
 diagonaisIguaisA :: Int -> Mat Int -> Bool
 diagonaisIguaisA n mat = sum (map (\n -> (mat !! n) !! n) [0..ln]) == n && sum (map (\n -> (mat !! n) !! (ln - n)) [0..ln]) == n
     where 
