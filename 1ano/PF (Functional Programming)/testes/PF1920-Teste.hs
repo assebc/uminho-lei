@@ -97,8 +97,8 @@ data RTree a = R a [RTree a] deriving (Show, Eq)
 -- 4 a)
 
 paths :: RTree a -> [[a]]
-paths (R node []) = [[node]]
-paths (R node branches) = [ node : x | x <- concat [paths branch | branch <- branches]]
+paths (R a []) = [[a]]
+paths (R a rs) = [ a : x | x <- concat [paths rs | rs <- r]]
 
 -- 4 b)
 
