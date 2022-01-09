@@ -87,13 +87,23 @@ quebraLinhav2 l (x:xs) = quebraLinha l x : quebraLinhav2 l xs
 fragmenta :: Eq a => [Int] -> [Int] -> Mat a -> [Mat a]
 fragmenta [] [] [] = []
 
+genList :: Int -> (Int,Int) -> IO [Int]
+genList 0 (_,_) = return []
+genList n (a,b) = do 
+            h <- randomRIO(a,b)
+            t <- genList (n-1) (a,b)
+            return (h:t)
 
---geraMat :: (Int,Int) -> (Int,Int) -> IO (Mat Int)
---geraMat (x,y) (a,b) = do
---                      r <- randomRIO(a,b)
---                      list <- replicate x r
---                      mat <- replicate y list
---                      return mat
+replicateM :: Int -> IO [Int] -> IO (Mat Int)
+replicateM 0 _ = return []
+replicateM n m = do
+                 h <- m
+                 t <- replicateM (n-1) m
+                 return (h:t)
+
+geraMat :: (Int,Int) -> (Int,Int) -> IO (Mat Int)
+geraMat (x,y) (a,b) = replicateM y (genList x (a,b))
+                     
                                        
                        
  
