@@ -1,93 +1,91 @@
-module PF2021_Teste where
+module PF2021_Exame where
 
--- exercicio 1
+import Data.List
+
 deletes :: Eq a => a -> [a] -> [a]
-deletes x [] = []
-deletes x (y:ys) 
-    | x == y = ys
-    | otherwise = y : deletes x ys
+deletes n [] = []
+deletes n (x:xs)
+    | n == x = xs
+    | otherwise = x : deletes n xs
 
-remove1 :: Eq a => [a] -> [a] -> [a]
-remove1 l [] = l
-remove1 [] _ = []
-remove1 l (x:xs) = remove1 (deletes x l) xs
-
--- exercicio 2 a)
+removes :: Eq a => [a] -> [a] -> [a]
+removes l [] = l 
+removes [] _ = []
+removes l (y:ys) = removes (deletes y l) ys
 
 type MSet a = [(a,Int)]
 
-removeMSet :: Eq a => a -> MSet a -> MSet a
+removeMSet :: Eq a => a -> [(a,Int)] -> [(a,Int)]
 removeMSet _ [] = []
 removeMSet x ((a,n):xs)
-    | x == a && n == 1 = xs
-    | x == a = (a,n-1):xs
+    | x == a && n > 1 = (a,n-1) : xs
+    | x == a = xs
     | otherwise = (a,n) : removeMSet x xs
-
--- exercicio 2 b)
 
 concats :: [a] -> a -> [a]
 concats [] a = [a]
 concats l@(x:xs) a = x : concats xs a
 
 calcula :: MSet a -> ([a],Int)
-calcula l = foldl(\(l,y) x -> (concats l (fst x),y+snd x) ) ([],0) l
-
--- exercicio 3
+calcula ms = foldl(\(l,n) m -> (concats l (fst m), n + (snd m)) ) ([],0) ms                  
 
 partes :: String -> Char -> [String]
-partes string delim = foldl f [] string
-  where f (h:t) char | char == delim = undefined
-                     | otherwise = undefined
-
--- exercicio 4 a)
+partes string delim = let 
+                        repl ';' = ' '
+                        repl c = c
+                      in words (map repl string)
 
 data BTree a = Empty | Node a (BTree a) (BTree a)
 
 a1 =  Node 5 (Node 3 Empty Empty) (Node 7 Empty (Node 9 Empty Empty))
 
-remove2 :: Ord a => a -> BTree a -> BTree a
-remove2 x Empty = Empty
-remove2 x b@(Node e l r) 
-    | x < e = Node e (remove2 x l) r
-    | x > e = Node e l (remove2 x r)
-    | otherwise = l
+minSmin :: Ord a => BTree a -> (a,BTree a)
+minSmin (Node e Empty _) = (e,Empty)
+minSmin (Node e l r) = (a,Node e b r)
+    where 
+        (a,b) = minSmin l
 
--- exercicio 4 b)
 
-instance Show (BTree a) where
+remove :: Ord a => a -> BTree a -> BTree a
+remove _ Empty = Empty
+remove x (Node e l r) 
+    | x < e = Node e (remove x l) r
+    | x > e = Node e l (remove x r)
+    | otherwise = aux x (Node e l r)
+        where
+            (g,h) = minSmin r
+            aux n (Node a b c) = case b of Empty -> c
+                                           otherwise -> case c of Empty -> b
+                                                                  otherwise -> Node g b h
+
+instance Show a => Show (BTree a) where
     show Empty = "*"
-    show (Node a l r) = "("++(show l)++" <-"++"a"++"-> "++(show r)++")"
-        
--- exercicio 5
-
-sortOn :: Ord b => (a->b) -> [a] -> [a]
-sortOn f [] = []
-sortOn f [x] = [x]
-sortOn f (x:xs) = [] -- to do
-
--- exercicio 6 a)
+    show (Node a l r) = "(" ++ (show l) ++ " <-" ++ show a ++ "-> " ++ (show r) ++ ")"
 
 type Nome = String
 data FileSystem = File Nome | Dir Nome [FileSystem]
 
 fs1 = Dir "usr" [Dir "xxx" [File "abc.txt", File "readme", Dir "PF" [File "exemplo.hs"]], Dir "yyy" [], Dir "zzz" [Dir "tmp" [], File "teste.c"] ]
 
--- abc.txt readme exemplo.hs teste.c
-
 fichs :: FileSystem -> [Nome]
-fichs (File n) = [n]  
-fichs (Dir n l) = foldl(\acc x -> acc ++ fichs x) [] l
+fichs (File n) = [n]
+fichs (Dir n l) = foldl(\acc f -> acc ++ fichs f) [] l
 
--- exercicio 6 b)
+firstJust :: Maybe a -> Maybe a -> Maybe a
+firstJust mb@(Just _) _ = mb
+firstJust _ mb' = mb'
 
--- abc.txt readme
+isFile :: FileSystem -> Bool
+isFile (File _) = True
+isFile _ = False
+
+getNome :: FileSystem -> Nome
+getNome (File n) = n
+getNome (Dir n _) = n
 
 dirFiles :: FileSystem -> [Nome] -> Maybe [Nome]
-dirFiles (File n) [] = Just [n]
-dirFiles _ [] = Nothing
-dirFiles (Dir n fs) l = Nothing
-
--- exercicio 6 c)
-
-listaFich :: FileSystem -> IO()
-listaFich (File n) = do print("ye")
+dirFiles (Dir n fs) [p] 
+    | n == p = Just $ map getNome $ filter isFile fs
+dirFiles (Dir n fs) (p:ps)
+    | n == p = foldr (\v acc -> firstJust acc (dirFiles v ps)) Nothing fs
+dirFiles _ _ = Nothing
