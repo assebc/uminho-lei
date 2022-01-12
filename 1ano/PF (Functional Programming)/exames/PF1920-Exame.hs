@@ -103,7 +103,3 @@ replicateM n m = do
 
 geraMat :: (Int,Int) -> (Int,Int) -> IO (Mat Int)
 geraMat (x,y) (a,b) = replicateM y (genList x (a,b))
-                     
-                                       
-                       
- 
