@@ -1,0 +1,54 @@
+# guiao-1 
+
+# docs 
+
+# libs
+
+# obj
+
+# entrada
+guiao-1/entrada/*.csv
+# saida
+guiao-1/saida/*.csv
+
+# guiao-2
+guiao-2/relatorio-2.doc
+guiao-2/commands.txt
+
+# docs 
+guiao-2/docs/html/
+guiao-2/docs/latex/
+guiao-2/docs/xml/
+guiao-2/docs/Doxyfile
+
+# libs
+
+# obj
+
+# entrada
+guiao-2/entrada/*.csv
+# saida
+guiao-2/saida/*.csv
+
+
+# guiao-3
+guiao-3/relatorio-3.doc
+guiao-3/commands2.txt
+guiao-3/tests.txt
+
+# docs 
+guiao-3/docs/html/
+guiao-3/docs/latex/
+guiao-3/docs/xml/
+guiao-3/docs/Doxyfile
+guiao-3/docs/guiao3.pdf
+
+# libs
+
+# obj
+
+# entrada
+guiao-3/entrada/*.csv
+# saida
+guiao-3/saida/*.csv
+
