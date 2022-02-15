@@ -17,6 +17,14 @@ void swap(Aluno v[], int i, int j){
 
 }
 
+void swap_2(int v[], int i, int j){
+
+	int tmp = v[i];
+	v[i] = v[j];
+	v[j] = tmp;
+
+}
+
 int nota (Aluno a){
 
 	int minit = 0;
@@ -58,23 +66,6 @@ void ordenaPorNum(Aluno t[], int N){
 	}
 }
 
-void criaIndPorNum(Aluno t[], int N, int ind[]){
-
-	int inds = 0, count = 0;
-
-	for(int i=0;i<N-1;i++){
-		for(int j=i+1;j<N;j++){
-			if(t[i].numero>t[j].numero) count = j;
-		}
-
-		if(count>0) ind[inds++] = count;
-		else ind[inds++] = i;
-		
-		count = 0;
-		
-	}
-}
-
 int main(){
 
 	Aluno andre = {4444, "Andre", {2,1,0,2,2,2}, 10.5};
@@ -95,11 +86,6 @@ int main(){
 	for(int i=0;i<4;i++) printf("%d ", as[i].numero);
 	printf("\n\n");
 
-	int ind[4];
-	criaIndPorNum(as,4,ind);
-	for(int j=0;j<4;j++) printf("%d ", ind[j]);
-	printf("\n\n");
-	
 
 	return 0;
 }
