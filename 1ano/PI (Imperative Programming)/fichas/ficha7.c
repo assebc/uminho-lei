@@ -124,7 +124,7 @@ int main () {
 
     Palavras dic = NULL;
 
-    char * canto1 [44] = {"as", "armas", "e", "os", "baroes", "assinalados",
+    char * canto1 [45] = {"as", "armas", "e", "os", "baroes", "assinalados",
                           "que", "da", "ocidental", "praia", "lusitana", 
                           "por", "mares", "nunca", "de", "antes", "navegados",
                           "passaram", "ainda", "alem", "da", "taprobana",
@@ -136,7 +136,7 @@ int main () {
     printf ("\n_____________ Testes _____________\n\n");
 
     int i; struct celula *p;
-    for (i=0;i<44;i++)
+    for (i=0;i<45;i++)
         dic = acrescentaInicio (dic, canto1[i]);
 
     printf ("Foram inseridas %d palavras\n", quantasP (dic));
