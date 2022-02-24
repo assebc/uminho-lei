@@ -153,6 +153,23 @@ int mystrcmp(char s1[], char s2[]){
 	return total;
 }
 
+char * mystrstr(char s1[], char s2[]){
+
+	char * start = s1;
+
+	int i =0, j = 0;
+	while(*start != '\0'){
+		if(start[i++] == s2[j++]) continue;
+		else{
+			j = 0;
+			if(start[i] == s2[j++]) continue;
+		}
+	}
+	if(j==strlen(s2)) return s2;
+
+	return NULL;
+}
+
 int main(){
 
 	//question1();
@@ -164,6 +181,7 @@ int main(){
 	//mystrcat("ar","roz");
 	//mystrcpy(NULL,"arroz");
 	//mystrcmp("araa","ara");
+	mystrstr("ara", "araabarcar");
 	
 	return 0;
 }
