@@ -63,21 +63,81 @@ public class Ficha01{
 	public static int MaximoNumeros(int a, int b){
 
 		if(a>b){
-			System.out.println("O maior é "+a);
+			//System.out.println("O maior é "+a);
 			return a;
 		} else if (b>a){
-			System.out.println("O maior é "+b);
+			//System.out.println("O maior é "+b);
 			return b;
 		} else {
-			System.out.println("São iguais");
+			//System.out.println("São iguais");
 			return a;
 		}
 
 	}
 
+	public static String CriaDescricaoConta(String nome, double saldo){
+
+		String res = nome + " " + saldo;
+		System.out.println(res);
+		return res;
+
+	}
+
+	public static double EurosParaLibras(double valor, double taxaConversao){
+
+		double res = valor * taxaConversao;
+		System.out.println(res);
+		return res;
+	}
+	public static void Readints(){
+
+		Scanner input = new Scanner(System.in);
+		int x = input.nextInt();
+		int y = input.nextInt();
+		float med = (float) (x+y)/2;
+		if (MaximoNumeros(x,y) == x){
+			String opt1 = x + " " + y;
+			System.out.println(opt1);
+			System.out.println("A média é "+med);
+		} else {
+			String opt2 = y + " " + x;
+			System.out.println(opt2);
+			System.out.println("A média é "+med);
+		}
+
+	}
+
+	public static long Factorial(String[] args){
+
+		int num = Integer.parseInt(args[0]);
+		long res = 1;
+		while(num>0){
+			res *= num;
+			num--;
+		}
+		System.out.println("Fatorial é "+res);
+		return res;
+	}
+
+	public static long TempoGasto(String[] args){
+
+		long start = System.currentTimeMillis();
+		Factorial(args);
+		long finish = System.currentTimeMillis();
+		long time = finish - start;
+		String ans = "Demorou cerca de " + time + " milisegundos";
+		System.out.println(ans);
+		return time;
+	}
+
 	public static void main(String[] args){
-		//Exercicio1();
-		//CelsiusParaFarenheit(2);
-		//MaximoNumeros(20,30);
+		Exercicio1();
+		CelsiusParaFarenheit(2);
+		MaximoNumeros(20,30);
+		CriaDescricaoConta("Matilde", 11.11);
+		EurosParaLibras(10, 0.84);
+		Readints();
+		Factorial(args);
+		TempoGasto(args);
 	}
 }
