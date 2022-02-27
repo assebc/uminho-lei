@@ -153,21 +153,64 @@ int mystrcmp(char s1[], char s2[]){
 	return total;
 }
 
-char * mystrstr(char s1[], char s2[]){
+int compare(const char *X, const char *Y)
+{
+    while (*X && *Y)
+    {
+        if (*X != *Y) {
+            return 0;
+        }
+ 
+        X++;
+        Y++;
+    }
+ 
+    return (*Y == '\0');
+}
+ 
+// Function to implement `strstr()` function
+const char * mystrstr(const char* X, const char* Y)
+{
+    while (*X != '\0')
+    {
+        if ((*X == *Y) && compare(X, Y)) {
+            return X;
+        }
+        X++;
+    }
+ 
+    return NULL;
+}
 
-	char * start = s1;
+void mystrrev(char s[]){
 
-	int i =0, j = 0;
-	while(*start != '\0'){
-		if(start[i++] == s2[j++]) continue;
-		else{
-			j = 0;
-			if(start[i] == s2[j++]) continue;
-		}
+	printf("%s\n",s);
+	char aux[strlen(s)];
+	int j = 0;
+	for(int i = strlen(s)-1;i>=0;i--)
+		aux[j++] = s[i];
+	s = aux;
+	printf("%s\n",s);
+}
+
+void mystrnoV (char s[]){
+
+	printf("%s\n",s);
+	char aux[strlen(s)];
+	int j = 0;
+	for(int i = 0;i<strlen(s);i++){
+		if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u') continue;
+		else aux[j++] = s[i];
 	}
-	if(j==strlen(s2)) return s2;
+	s = aux;
 
-	return NULL;
+	printf("%s\n",s);	
+}
+
+void truncW (char t[], int n){
+
+	//while()
+
 }
 
 int main(){
@@ -181,7 +224,10 @@ int main(){
 	//mystrcat("ar","roz");
 	//mystrcpy(NULL,"arroz");
 	//mystrcmp("araa","ara");
-	mystrstr("ara", "araabarcar");
+	//mystrstr("ara", "araabarcar");
+	//mystrrev("zorra");
+	//mystrnoV("arox");
+	//truncW("pai natal", 2);
 	
 	return 0;
 }
