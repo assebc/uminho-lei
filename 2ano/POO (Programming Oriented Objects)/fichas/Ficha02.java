@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.lang.Math;
 
 public class Ficha02{
 
@@ -63,11 +64,47 @@ public class Ficha02{
 	}
 
 
+	public static void Exercicio2(){}
+	public static void Exercicio3(){}
+	public static void Exercicio4(){}
+	public static void Exercicio5(){}
+	public static void Exercicio6(){}
+	public static void Exercicio7(){}
+
 
 	public static void main(String [] args){
 
-		Exercicio1();
+		switch(Integer.parseInt(args[0])){
 
+			case 1 :
+			Exercicio1();
+			break;
+
+			case 2 :
+			Exercicio2();
+			break;
+
+			case 3 :
+			Exercicio3();
+			break;
+
+			case 4 :
+			Exercicio4();
+			break;
+
+			case 5 :
+			Exercicio5();
+			break;
+
+			case 6 :
+			Exercicio6();
+			break;
+
+			case 7 :
+			Exercicio7();
+			break;
+
+
+		}
 	}
-
 }
