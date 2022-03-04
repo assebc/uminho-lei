@@ -195,7 +195,30 @@ public class Ficha02{
 
 	}
 
-	public static void Exercicio4(){}
+	public static boolean searchFor(Object a, Object [] as){
+
+		for(int i = 0;i<as.length;i++){
+			if (a == as[i]) return true;
+		}
+
+		return false;
+	}
+
+	public static void Exercicio4(){
+
+		Scanner input = new Scanner(System.in);
+		System.out.println("Quantas STRINGS pretende ter?");
+		int size = input.nextInt();
+		String [] array = new String [size];
+		int ind = 0;
+		while(size>0){
+			array[ind++] = input.next();
+			size--;
+		}
+
+
+
+	}
 
 	public static void Exercicio5(){}
 
