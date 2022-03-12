@@ -204,7 +204,49 @@ public class Ficha02{
 		return false;
 	}
 
-	public static void Exercicio4(){
+	public static Object [] sem_repetidos(Object [] a){
+
+		Object [] aux = new Object [a.length];
+		int aind = 0;
+		for(int i = 0;i<a.length;i++){
+			if(!searchFor(a[i],aux)) aux[aind++] = a[i];
+		}
+		Object [] sem_repetidos = new Object [aind];
+		for(int i = 0;i<aind;i++){
+			sem_repetidos[i] = aux[i];
+		}
+
+		System.out.println("array -> " +Arrays.toString(a));
+		System.out.println("sem_repetidos -> " +Arrays.toString(sem_repetidos));
+		
+
+		return sem_repetidos;
+	}
+
+	public static Object [] repetidos(Object [] a){
+
+		Object [] aux = new Object [a.length];
+		int aind = 0, aiai = 0;
+		for(int i = 0;i<a.length;i++){
+			if(searchFor(a[i],aux)){
+				aux[aind++] = a[i];
+				aiai++;
+			}
+		}
+		Object [] repetidos = new Object [aind];
+		for(int i = 0;i<aind;i++){
+			repetidos[i] = aux[i];
+		}
+
+		System.out.println("array -> " +Arrays.toString(a));
+		System.out.println("repetidos -> " +Arrays.toString(repetidos));
+		System.out.println("repetidos são -> " +aiai);
+		
+
+		return repetidos;
+	}
+
+	public static void Exercicio5(){
 
 		Scanner input = new Scanner(System.in);
 		System.out.println("Quantas STRINGS pretende ter?");
@@ -216,14 +258,17 @@ public class Ficha02{
 			size--;
 		}
 
+		Object [] result = sem_repetidos(array); // smth is wrong here
 
+		int big_string = 0;
+		for(int i = 0;i<array.length;i++){
+			if(array[i].length()>big_string) big_string = array[i].length();
+		}
+		System.out.println("maior -> " +big_string);
+
+		Object [] result_2 = repetidos(array); // smth is wrong here
 
 	}
-
-	public static void Exercicio5(){}
-
-	public static void Exercicio6(){}
-
 
 	public static void main(String [] args){
 
@@ -241,16 +286,8 @@ public class Ficha02{
 			Exercicio3();
 			break;
 
-			case 4 :
-			Exercicio4();
-			break;
-
 			case 5 :
 			Exercicio5();
-			break;
-
-			case 6 :
-			Exercicio6();
 			break;
 
 
