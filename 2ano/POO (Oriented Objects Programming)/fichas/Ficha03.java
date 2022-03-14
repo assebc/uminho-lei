@@ -1,4 +1,5 @@
 public class Ficha03{
+
 	public class Circulo {
 
 		private double x;
@@ -71,6 +72,7 @@ public class Ficha03{
 			return new Circulo();
 		}
 	}
+
 	public class Telemovel{
 
 		private String marca;
@@ -152,25 +154,101 @@ public class Ficha03{
 	public class Youtube{
 
 		private String name;
-		private Byte content;
+		private String content;
 		private String date;
 		private String resolution;
 		private Double duration;
 		private String [] comments;
-		private Integer [] likes;
-
-
+		private Integer likes;
+		private Integer dislikes;
 
 		public Youtube(){
 			this.name = null;
-			this.content = 0;
+			this.content = null;
 			this.date = null;
 			this.resolution = null;
 			this.resolution = null;
 			this.duration = 0.0;
 			this.comments = null;
-			this.likes = null;
+			this.likes = 0;
+			this.dislikes = 0;
 		}
+
+		public void insereComentario(String comentario){
+			this.comments[this.comments.length] = comentario;
+		}
+
+		public void thumbsUp(){
+			this.likes++;
+		}
+
+		public String processa(){
+			System.out.println(this.content);
+			return this.content;
+		}
+
+
+	}
+
+	public class Lampada{
+
+		private Byte on_off_eco;
+		private Double consume;
+		private long[] start_on;
+		private long[] start_eco;
+		private long[] start_off;
+		private Double all_consume;
+
+		public Lampada(){
+			this.on_off_eco = 0; // 0 - off 1 - on 2 - eco
+			this.consume = 0.0; // 0 - off 1 - eco 5 - on
+			this.start_on = null;
+			this.start_eco = null;
+			this.start_off = null; // default começa desligada
+			this.all_consume = 0.0;
+		}
+
+	}
+
+	public class Futebol{
+
+		private String visitado;
+		private String visitante;
+		private Byte status; // 0 - not started 1 - playing 2 - ended
+		private Byte events; // 0 - to start 1 - goals 2 - resultado
+		private Byte [] resultado;
+
+		public Futebol(){
+			this.visitado = null;
+			this.visitante = null;
+			this.status = 0;
+			this.events = 1;
+			this.resultado = ; // fix me pls
+		}
+
+		public void startGame(){
+			this.status = 1;
+			this.events = 1;
+		}
+
+		public void endGame(){
+			this.status = 2;
+			this.events = 1;
+		}
+
+		public void goloVisitado(){
+			this.resultado[0] += 1;
+		}
+
+		public void goloVisitante(){
+			this.resultado[1] +=1;
+		}
+
+		public String resultadoAtual(){
+			return Arrays.toString(this.resultado);
+		}
+
+
 	}
 
 	public static void main(String [] args){
@@ -182,6 +260,9 @@ public class Ficha03{
 
 		Ficha03.Youtube y1 = f1.new Youtube();
 
+		Ficha03.Lampada l1 = f1.new Lampada();
+
+		Ficha03.Futebol fut1 = f1.new Futebol();
 	}
 
 }
