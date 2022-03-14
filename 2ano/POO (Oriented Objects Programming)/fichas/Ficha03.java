@@ -86,6 +86,21 @@ public class Ficha03{
 		private String [] apk_ins;
 
 
+		public Telemovel(){
+			this.marca = "Apple";
+			this.modelo = "Iphone";
+			this.display = "1920x1080";
+			this.dimensao_msg = null;
+			this.dimensao_fotos_apk = "0";
+			this.dimensao_fotos = null;
+			this.dimensao_apk = null;
+			this.espaco_total = 256000;
+			this.fotos = 0;
+			this.apk = 0;
+			this.apk_ins = null;
+
+		}
+
 		public boolean existeEspaco(int numeroBytes){
 			int dims = 0;
 			for(int i = 0;i<this.dimensao_msg.length;i++) dims += Integer.parseInt(this.dimensao_msg[i]);
@@ -134,7 +149,38 @@ public class Ficha03{
 
 	}
 
+	public class Youtube{
+
+		private String name;
+		private Byte content;
+		private String date;
+		private String resolution;
+		private Double duration;
+		private String [] comments;
+		private Integer [] likes;
+
+
+
+		public Youtube(){
+			this.name = null;
+			this.content = 0;
+			this.date = null;
+			this.resolution = null;
+			this.resolution = null;
+			this.duration = 0.0;
+			this.comments = null;
+			this.likes = null;
+		}
+	}
+
 	public static void main(String [] args){
+
+		Ficha03 f1 = new Ficha03();
+		Ficha03.Circulo c1 = f1.new Circulo();
+
+		Ficha03.Telemovel t1 = f1.new Telemovel();
+
+		Ficha03.Youtube y1 = f1.new Youtube();
 
 	}
 
