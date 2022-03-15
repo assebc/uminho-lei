@@ -1,5 +1,6 @@
 import java.time.LocalTime;
 import java.util.Date;
+import java.lang.Math;
 
 public class Ficha03{
 
@@ -328,9 +329,16 @@ public class Ficha03{
 			this.promo = 0.0;
 		}
 
+		public double calculaValorLinhaEnc(){
+			double percentage = (this.iva - this.promo)/100;
+			double final_price = this.price_pv+(this.price_pv*percentage);
+			return final_price;
+		}
 
-
-
+		public double calculaValorDesconto(){
+			double final_price = this.price_pv-(this.price_pv*(this.promo/100));
+			return  calculaValorLinhaEnc() - final_price;
+		}
 
 	}
 
