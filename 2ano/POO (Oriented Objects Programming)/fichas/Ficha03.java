@@ -4,6 +4,28 @@ import java.lang.Math;
 
 public class Ficha03{
 
+	public void swap(double [] v, int i, int j){
+
+		double obj = v[i];
+		v[i] = v[j];
+		v[j] = obj;
+	}
+
+	public double [] ordena_aux(double x, double y, double z){
+
+		double [] ordena = new double [3];
+		ordena[0] = x;
+		ordena[1] = y;
+		ordena[2] = z;
+		for(int i = 0;i<ordena.length-1;i++){
+			for(int j = 1;j<ordena.length;j++){
+				if(ordena[j]<ordena[i]) swap(ordena,i,j);
+			}
+		}
+
+		return ordena;
+	}
+
 	public class Circulo {
 
 		private double x;
@@ -257,7 +279,6 @@ public class Ficha03{
 
 	public class Carro{
 
-
 		private String brand;
 		private String model;
 		private Date built;
@@ -396,6 +417,47 @@ public class Ficha03{
 		}
 	}
 
+	public class Triangulo{
+
+		private Double [] p1 = new Double[2];
+		private Double [] p2 = new Double[2];
+		private Double [] p3 = new Double[2]; 
+
+
+		public Triangulo(){
+			this.p1[0] = 0.0;
+			this.p1[1] = 0.0;
+			this.p2[0] = 0.0;
+			this.p2[1] = 0.0;
+			this.p3[0] = 0.0;
+			this.p3[1] = 0.0;
+		}
+
+		public double calculaAreaTriangulo(){
+			double ax = this.p1[0]*(this.p2[1]-this.p3[1]);
+			double bx = this.p2[0]*(this.p2[1]-this.p1[1]);
+			double cx = this.p3[0]*(this.p1[1]-this.p2[1]);
+			double result = (ax+bx+cx)/2;
+			return result;
+		}
+
+		public double calculaPerimetroTriangulo(){
+			double ax = Math.sqrt(Math.pow((this.p2[1]-this.p3[1]),2)+Math.pow((this.p2[0]-this.p3[0]),2));
+			double bx = Math.sqrt(Math.pow((this.p1[1]-this.p2[1]),2)+Math.pow((this.p1[0]-this.p2[0]),2));
+			double cx = Math.sqrt(Math.pow((this.p1[1]-this.p3[1]),2)+Math.pow((this.p1[0]-this.p3[0]),2));
+			return ax+bx+cx;
+		}
+
+		public double calculaAlturaTriangulo2(){
+
+			double [] min_ord = new double [3];
+			min_ord = ordena_aux(this.p1[1],this.p2[1],this.p3[1]);
+			double result = min_ord[2]-min_ord[0];
+			return result;
+		}
+
+	}
+
 	public static void main(String [] args){
 
 		Ficha03 f1 = new Ficha03();
@@ -414,6 +476,8 @@ public class Ficha03{
 		Ficha03.Linha_Encomenda le1 = f1.new Linha_Encomenda();
 
 		Ficha03.Encomenda e1 = f1.new Encomenda();
+
+		Ficha03.Triangulo tri1 = f1.new Triangulo();
 	}
 
 }
