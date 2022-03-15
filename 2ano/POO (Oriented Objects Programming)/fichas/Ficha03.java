@@ -309,6 +309,31 @@ public class Ficha03{
 
 	}
 
+	public class Linha_Encomenda{
+
+
+		private String code;
+		private String description;
+		private Double price_pv;
+		private Double amount;
+		private Double iva;
+		private Double promo;
+
+		public Linha_Encomenda(){
+			this.code = null;
+			this.description = null;
+			this.price_pv = 0.0;
+			this.amount = 0.0;
+			this.iva = 0.0;
+			this.promo = 0.0;
+		}
+
+
+
+
+
+	}
+
 	public static void main(String [] args){
 
 		Ficha03 f1 = new Ficha03();
@@ -323,6 +348,8 @@ public class Ficha03{
 		Ficha03.Futebol fut1 = f1.new Futebol();
 
 		Ficha03.Carro car1 = f1.new Carro();
+
+		Ficha03.Linha_Encomenda le1 = f1.new Linha_Encomenda();
 	}
 
 }
