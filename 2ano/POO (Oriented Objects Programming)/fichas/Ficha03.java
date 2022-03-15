@@ -312,7 +312,6 @@ public class Ficha03{
 
 	public class Linha_Encomenda{
 
-
 		private String code;
 		private String description;
 		private Double price_pv;
@@ -342,6 +341,61 @@ public class Ficha03{
 
 	}
 
+	public class Encomenda{
+
+		private String name_client;
+		private Integer num_fiscal_client;
+		private String address_client;
+		private Integer num_package;
+		private Date package_date;
+		private Linha_Encomenda [] linha_encomenda;
+
+		public Encomenda(){
+			this.name_client = null;
+			this.num_fiscal_client = 0;
+			this.address_client = null;
+			this.num_package = 0;
+			this.package_date = null;
+			this.linha_encomenda = null;
+		}
+
+		Linha_Encomenda le1 = new Linha_Encomenda();
+
+		public double calculaValorTotal(){
+			return le1.calculaValorLinhaEnc();
+		}
+
+		public double calculaValorDesconto(){
+			return le1.calculaValorDesconto();
+		}
+
+		public int numeroTotalProdutos(){
+			int pack = 0;
+			for(int i = 0;i<this.linha_encomenda.length;i++) pack++;
+			return pack;
+		}
+
+		public boolean existeProdutoEncomenda(String refProduto){
+			for(int i = 0;i<this.linha_encomenda.length;i++){
+				if(refProduto == this.linha_encomenda[i].code) return true;
+			}
+			return false;
+		}
+
+		public void adicionaLinha(Linha_Encomenda linha){
+			this.linha_encomenda[this.linha_encomenda.length] = linha;
+		}
+
+		public void removeProduto(String codProd){
+			for(int i = 0;i<this.linha_encomenda.length;i++){
+				if(this.linha_encomenda[i].code == codProd){
+					this.linha_encomenda[i] = this.linha_encomenda[this.linha_encomenda.length-1];
+					break;
+				}
+			}
+		}
+	}
+
 	public static void main(String [] args){
 
 		Ficha03 f1 = new Ficha03();
@@ -358,6 +412,8 @@ public class Ficha03{
 		Ficha03.Carro car1 = f1.new Carro();
 
 		Ficha03.Linha_Encomenda le1 = f1.new Linha_Encomenda();
+
+		Ficha03.Encomenda e1 = f1.new Encomenda();
 	}
 
 }
