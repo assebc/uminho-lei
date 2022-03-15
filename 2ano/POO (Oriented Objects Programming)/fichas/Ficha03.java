@@ -1,3 +1,6 @@
+import java.time.LocalTime;
+import java.util.Date;
+
 public class Ficha03{
 
 	public class Circulo {
@@ -216,14 +219,14 @@ public class Ficha03{
 		private String visitante;
 		private Byte status; // 0 - not started 1 - playing 2 - ended
 		private Byte events; // 0 - to start 1 - goals 2 - resultado
-		private Byte [] resultado;
+		private Integer [] resultado;
 
 		public Futebol(){
 			this.visitado = null;
 			this.visitante = null;
 			this.status = 0;
 			this.events = 1;
-			this.resultado = ; // fix me pls
+			this.resultado = null;
 		}
 
 		public void startGame(){
@@ -245,9 +248,64 @@ public class Ficha03{
 		}
 
 		public String resultadoAtual(){
-			return Arrays.toString(this.resultado);
+			return this.resultado[0] + "X" + this.resultado[1];
 		}
 
+
+	}
+
+	public class Carro{
+
+
+		private String brand;
+		private String model;
+		private Date built;
+		private Double consume;
+		private Double kms;
+		private Double avg_consume;
+		private Double kms_last;
+		private Double avg_last;
+		private Double regen;
+		private Byte status;
+
+
+		public Carro(){
+			this.brand = null;
+			this.model = null;
+			this.built = null;
+			this.consume = 0.0;
+			this.kms = 0.0;
+			this.avg_consume = 0.0;
+			this.kms_last = 0.0;
+			this.avg_last = 0.0;
+			this.regen = 0.0;
+			this.status = 0; // 0 - off 1 - on
+		}
+
+		public void ligaCarro(){
+			this.status = 1;
+		}
+
+		public void desligaCarro(){
+			this.status = 0;
+
+		}
+
+		public void resetUltimaViagem(){
+			this.kms_last = 0.0;
+			this.avg_last = 0.0;
+		}
+
+		public void avancaCarro(double metros, double velocidade){
+			Double kms = (metros * velocidade)/1000;
+			this.kms_last += kms;
+		}
+
+		public void travaCarro(double metros){
+			this.kms_last += metros/1000;
+			this.regen += metros/1000;
+
+		}
 
 	}
 
@@ -263,6 +321,8 @@ public class Ficha03{
 		Ficha03.Lampada l1 = f1.new Lampada();
 
 		Ficha03.Futebol fut1 = f1.new Futebol();
+
+		Ficha03.Carro car1 = f1.new Carro();
 	}
 
 }
