@@ -1,17 +1,28 @@
 #include <stdio.h>
 
 void triangulos(int x, int y){
-	int i, count = 0, sum=0;
+	int i, count = 0, sum=0, last = 0;
 	
 	for(int j = x;j<=y;j++){
-		for(i=0;i<=j; i++){
-			sum = sum+i;
-			if(sum == j) {
-				count++;
-	   			break;
-	  		}
+		if(sum == 0){
+			for(i=0;i<=j; i++){
+				sum += i;
+				if(sum == j){
+					count++;
+					last = i;
+			   		break;
+			  	}
+			}
+		} else{
+			for(int a=last;a<=j;a++){
+				sum += a;
+				if(sum == j){
+					count++;
+					last = a;
+			   		break;
+			  	}
+			}
 		}
-		sum = 0;
 	}
 	printf("%d ", count);
 
