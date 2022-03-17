@@ -208,9 +208,10 @@ public class Ficha02{
 		Object [] aux = new Object [a.length];
 		int aind = 0;
 		for(int i = 0;i<a.length;i++){
-			if(!searchFor(a[i],aux)) aux[aind++] = a[i];
+			if(searchFor(a[i],aux) == false) aux[aind++] = a[i];
 		}
-		Object [] sem_repetidos = new Object [aind];
+		System.out.println("aux -> " +Arrays.toString(aux));
+		Object [] sem_repetidos = new Object [aux.length];
 		for(int i = 0;i<aind;i++){
 			sem_repetidos[i] = aux[i];
 		}

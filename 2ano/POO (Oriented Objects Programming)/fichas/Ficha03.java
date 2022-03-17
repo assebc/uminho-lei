@@ -390,12 +390,13 @@ public class Ficha03{
 			return le1.calculaValorDesconto();
 		}
 
+		/* NOT USING ARRAY LIST */
+		/* NOT USING CAPSULES */
 		public int numeroTotalProdutos(){
 			int pack = 0;
 			for(int i = 0;i<this.linha_encomenda.length;i++) pack++;
 			return pack;
 		}
-
 		public boolean existeProdutoEncomenda(String refProduto){
 			for(int i = 0;i<this.linha_encomenda.length;i++){
 				if(refProduto == this.linha_encomenda[i].code) return true;
