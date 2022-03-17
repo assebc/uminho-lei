@@ -13,16 +13,8 @@ void triangulos(int x, int y){
 			   		break;
 			  	}
 			}
-		} else{
-			for(int a=last;a<=j;a++){
-				sum += a;
-				if(sum == j){
-					count++;
-					last = a;
-			   		break;
-			  	}
-			}
 		}
+		sum = 0;
 	}
 	printf("%d ", count);
 
