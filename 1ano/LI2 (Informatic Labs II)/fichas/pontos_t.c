@@ -1,48 +1,45 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
+#include<assert.h>
+#include<math.h>
 
-void triangulos(int x, int y){
-	int i, count = 0, sum=0, last = 0;
-	
-	for(int j = x;j<=y;j++){
-		if(sum == 0){
-			for(i=0;i<=j; i++){
-				sum += i;
-				if(sum == j){
-					count++;
-					last = i;
-			   		break;
-			  	}
-			}
-		}
-		sum = 0;
-	}
-	printf("%d ", count);
-
+int ntriangular (int x,int y){
+    int i,a=0,b=0;
+    for(i=1;a<=y;i+=1){
+        a+=i;
+        if (a<x || a>y);
+        else b+=1;
+    }
+    return b;
 }
 
-void primos(int x, int y){
-	int count = 0;
-  	int a,b;
-    
-  	for (a=2;a<=y;a++){
-      	int c=0;
-      	for (b=1;b<=a;b++){
-          	if (a%b==0) c++;
-       }
-       if (c==2) count++;
+int nprimo (int x,int y){
+    if (y==1 || y==2)
+    y+=1;
+    bool *p=(bool*) calloc(y,sizeof(bool));
+    p[0] = false;
+    int z=0,a=0;
+    while ((pow(a,2))<=y){
+        if (p[a-1]==false){
+            for (int b=a+a;b<y;b+=a){
+                if (b==0){
+                    p[0]=true;
+                    break;
+                }
+                p[b-1]=true;
+            }
+        }
+        a++;
     }
-
-	printf("%d\n", count);
+    for (a=x;a<=y;a+=1) if (p[a-1]==0) z+=1;
+    return (z-1);
 }
 
 int main(){
-
-	int x = 0, y = 0;
-	printf("Diga 2 vars\n");
-	scanf("%d %d",&x,&y);
-	int a = x; int b = y;
-	triangulos(x,y); 
-	primos(a,b);
-
-	return 0;
+    int x,y,nt=0,np=0;
+    assert(scanf("%d %d",&x,&y)==2);
+        nt=ntriangular (x,y); np=nprimo (x,y);
+        printf("%d %d\n",nt,np);
+    return 0;
 }
