@@ -208,9 +208,105 @@ void mystrnoV (char s[]){
 }
 
 void truncW (char t[], int n){
+    int i, j, conta = 0;
+    
+    for (i = 0, j = 0; t[i]!='\0'; i++){
+        if (t[i] == ' ') {
+            conta = 0;
+            t[j++] = t[i];
+        } else if (conta < n) {
+            conta++;
+            t[j++] = t[i];
+        }
+    }
+    t[j] = '\0';
+}
 
-	//while()
+char charMaisfreq(char s[]){
+    int maxIdx = 0, maxCount = 0;
+    for(int i=0; s[i]; i++){
+        int count=0;
+        for(int j=i; s[j]; j++)
+            if(s[i] == s[j]) count++; 
+        if(count > maxCount){
+            maxCount = count;
+            maxIdx = i;
+        }
+    }
+    printf("%c\n", s[maxIdx]);
+    return s[maxIdx];
+}
 
+int iguaisConsecutivos(char s[]){
+	int max = 0, atm = 1;
+	for(int i = 0;s[i];i+=atm){
+		atm = 1;
+		for(int j = i+1;s[j]&&s[j]==s[i];j++) atm++;
+		if(atm>max) max = atm;
+
+	}
+	printf("%d\n", max);
+	return max;
+}
+
+int difConsecutivos(char s[]){
+	int max = 0, atm = 1;
+	for(int i = 0;s[i];i+=atm){
+		atm = 1;
+		for(int j = i+1;s[j]&&s[j]!=s[i];j++) atm++;
+		if(atm>max) max = atm;
+	}
+	printf("%d\n", max);
+	return max;
+}
+
+int maiorPrefixo(char s1[], char s2[]){
+	int count = 0;
+	for(int i = 0;s1[i]==s2[i];i++) count++;
+	printf("%d\n", count);
+	return count;
+}
+
+int maiorSufixo(char s1[], char s2[]){
+	int count = 0;
+	char * aux1 = s1;
+	char * aux2 = s2;
+	mystrrev(aux1);
+	mystrrev(aux2);
+	for(int i = 0;aux1[i]==aux2[i];i++) count++;
+	printf("%d\n", count);
+	return count;
+}
+
+int sufPref(char s1[], char s2[]){
+	int count = 0, j = 0;
+	for(int i = 0;s1[i];i++)
+		if(s1[i]==s2[j]){count++; j++;}
+	printf("%d\n", count);
+	return count;
+}
+
+int contaPal(char s[]){
+	int count = 0;
+	for(int i = 0;s[i];i++)
+		if(s[i]!= ' '&&(s[i+1] == ' '|| s[i+1]=='\0')) count++;
+	printf("%d\n", count);
+	return count;
+}
+
+// auxiliar to contaVogais
+int existsVogal(char a){
+	char s1[10] = {'a','e','i','o','u','A','E','I','O','U'};
+	for(int i = 0;s1[i];i++) if(a == s1[i]) return 1;
+	return 0;
+}
+
+int contaVogais(char s[]){
+	int count = 0;
+	for(int i = 0;s[i];i++)
+		if(existsVogal(s[i])) count++;
+	printf("%d\n", count);
+	return count;
 }
 
 int main(){
@@ -227,7 +323,15 @@ int main(){
 	//mystrstr("ara", "araabarcar");
 	//mystrrev("zorra");
 	//mystrnoV("arox");
-	//truncW("pai natal", 2);
+	//truncW("euaaaa gosto daaas zebras", 3); //fix me (maybe?)
+	//charMaisfreq("arroz com pao e marmelada");
+	//iguaisConsecutivos("aabcccabac"); // 3
+	//difConsecutivos("aabcccabac"); // 5
+	//maiorPrefixo("arroz","arlinda"); // 2
+	//maiorSufixo("zorra","zorar"); // 3
+	//sufPref("batota","totalidade"); // 4
+	//contaPal("a a bb a"); // 4
+	//contaVogais("aeioubBcCAEIOU"); // 10
 	
 	return 0;
 }
