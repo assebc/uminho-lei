@@ -12,7 +12,7 @@ int pronic(int a) {
 void fibonacci(int n) {
 	int init = n;
     int pares = 0;
-    int oblongos = 0;
+    int oblongos = 1;
     int impares = 0;
 
     int a = 0, b = 1, aux;
