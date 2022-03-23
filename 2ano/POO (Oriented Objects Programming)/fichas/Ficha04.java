@@ -53,7 +53,6 @@ public class Ficha04{
         }
 
         public void ligaTodasEco(){
-            Lamp.stream().map(ligaLampadaEco(Lamp.indexOf()));
         }
 
         public void ligaTodasMax(){
