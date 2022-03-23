@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Ficha04{
 
@@ -45,7 +44,7 @@ public class Ficha04{
         }
 
         public int qtEmEco(){
-            return (int)(Lamp.stream().filter(l -> (l.getModo() == Lampada.Modo.ECO)).count());
+            return (int)(Lamp.stream().filter(l -> (l.getModo().equals(Lampada.Modo.ECO))).count());
         }
 
         public void removeLampada(int index){
@@ -53,9 +52,17 @@ public class Ficha04{
         }
 
         public void ligaTodasEco(){
+            Lamp.stream().forEach(Lampada::lampECO);
         }
 
         public void ligaTodasMax(){
+            Lamp.stream().forEach(Lampada::lampON);
+        }
+
+        public double consumoTotal(){
+            double waste = 0.0;
+            //waste += Lamp.stream().forEach(Lampada::totalConsumo);
+            return waste;
 
         }
 
