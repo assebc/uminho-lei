@@ -1,2 +1,2 @@
 # uminho-lei
-All the Software related classes I took in university!
+All the software related classes I took in university!
