@@ -1,6 +1,6 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Collections.*;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Ficha04{
 
@@ -65,11 +65,25 @@ public class Ficha04{
             return Lamp.stream().mapToDouble(Lampada::totalConsumo).sum();
         }
 
-        public Lampada maisGastadora(){}
+        /*
+        public Lampada maisGastadora(){
+            return null;
+        }
+        */
+        public Set<Lampada> podiumEconomia(){
+            Set<Lampada> hash_set= new HashSet<Lampada>();
+            for(int i = 0;i<Lamp.size();i++) hash_set.add(Lamp.get(i));
+            
 
-        public Set<Lampada> podiumEconomia(){}
 
-        public void reset(){}
+            return hash_set;
+
+
+        }
+
+        public void reset(){
+            Lamp.stream().forEach(l-> l.setPeriodoConsumo(0.0));
+        }
 
 
     }
