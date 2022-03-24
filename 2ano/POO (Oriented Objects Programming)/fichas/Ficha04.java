@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Collections.*;
 
 public class Ficha04{
 
@@ -60,12 +62,12 @@ public class Ficha04{
         }
 
         public double consumoTotal(){
-            double waste = 0.0;
-            //waste += Lamp.stream().forEach(Lampada::totalConsumo);
-            return waste;
-
+            return Lamp.stream().mapToDouble(Lampada::totalConsumo).sum();
         }
 
+        public Lampada maisGastadora(){
+           return
+        }
 
 
     }
