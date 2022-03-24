@@ -1,6 +1,8 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Set;
-import java.util.HashSet;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class Ficha04{
 
@@ -65,24 +67,24 @@ public class Ficha04{
             return Lamp.stream().mapToDouble(Lampada::totalConsumo).sum();
         }
 
-        /*
         public Lampada maisGastadora(){
-            return null;
+            return Lamp.stream().clone();
         }
-        */
+        public int compares(Lampada l1, Lampada l2) {
+            if (l1.totalConsumo()>(l2.totalConsumo())) return 1;
+            if (l1.totalConsumo()<(l2.totalConsumo())) return -1;
+            return 0;
+        }
+
         public Set<Lampada> podiumEconomia(){
-            Set<Lampada> hash_set= new HashSet<Lampada>();
-            for(int i = 0;i<Lamp.size();i++) hash_set.add(Lamp.get(i));
-            
-
-
-            return hash_set;
-
+            return Lamp.stream().map(Lampada::clone)
+                       .sorted((l1,l2)->compares(l1,l2))
+                       .limit(3).collect(Collectors.toSet());
 
         }
 
         public void reset(){
-            Lamp.stream().forEach(l-> l.setPeriodoConsumo(0.0));
+            Lamp.stream().forEach(l->l.setPeriodoConsumo(0.0));
         }
 
 
