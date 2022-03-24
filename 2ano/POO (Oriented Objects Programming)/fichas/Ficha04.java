@@ -65,9 +65,11 @@ public class Ficha04{
             return Lamp.stream().mapToDouble(Lampada::totalConsumo).sum();
         }
 
-        public Lampada maisGastadora(){
-           return
-        }
+        public Lampada maisGastadora(){}
+
+        public Set<Lampada> podiumEconomia(){}
+
+        public void reset(){}
 
 
     }
