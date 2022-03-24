@@ -68,8 +68,9 @@ public class Ficha04{
         }
 
         public Lampada maisGastadora(){
-            return Lamp.stream().clone();
+            return Lamp.stream().map(Lampada::clone).max((l1,l2)->compares(l1,l2)).get();
         }
+
         public int compares(Lampada l1, Lampada l2) {
             if (l1.totalConsumo()>(l2.totalConsumo())) return 1;
             if (l1.totalConsumo()<(l2.totalConsumo())) return -1;
