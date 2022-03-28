@@ -3,6 +3,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.List;
+import java.util.ListIterator;
 
 public class Ficha04{
 
@@ -94,6 +95,31 @@ public class Ficha04{
     public class FBFeed{
 
         private ArrayList<FBPost> FB = new ArrayList<>();
+
+        public ArrayList<FBPost> getTimeline() {
+            return this.FB;
+        }
+
+        public void setTimeline(ArrayList<FBPost> timeline) {
+            this.FB = timeline;
+        }
+
+        public FBFeed(){
+            this.FB = new ArrayList<FBPost>();
+        }
+
+        public FBFeed(ArrayList<FBPost> timeline){
+            ListIterator<FBPost> iter =  timeline.listIterator();
+            while(iter.hasNext()){
+                FBPost pos = iter.next();
+                this.FB.add(pos.clone());
+            }
+        }
+
+        public FBFeed(FBFeed feedToPaste){
+            this.FB = feedToPaste.getTimeline();
+        }
+
 
         public int nrPosts(String user){
             return FB.stream() // iterador interno
