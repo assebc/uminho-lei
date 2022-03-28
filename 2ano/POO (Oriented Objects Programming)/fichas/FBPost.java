@@ -1,13 +1,14 @@
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class FBPost{
 
     private Integer identificador;
     private String nome;
-    private Date date_creation;
+    private LocalDateTime date_creation;
     private String content;
     private Integer num_likes;
-    private String [] comments;
+    private ArrayList<String> comments;
 
     public FBPost(){
         this.identificador = -1;
@@ -18,7 +19,7 @@ public class FBPost{
         this.comments = null;
     }
 
-    public FBPost(Integer id, String n1, Date d1, String content, Integer likes, String[] cmnt){
+    public FBPost(Integer id, String n1, LocalDateTime d1, String content, Integer likes, ArrayList<String> cmnt){
         this.identificador = id;
         this.nome = n1;
         this.date_creation = d1;
@@ -52,11 +53,11 @@ public class FBPost{
         this.nome = nome;
     }
 
-    public Date get_Date(){
+    public LocalDateTime get_Date(){
         return this.date_creation;
     }
 
-    public void set_Date(Date d1){
+    public void set_Date(LocalDateTime d1){
         this.date_creation = d1;
     }
 
@@ -74,12 +75,16 @@ public class FBPost{
         this.num_likes = likes;
     }
 
-    public String [] get_Comments(){
+    public ArrayList<String> get_Comments(){
         return this.comments;
     }
 
-    public void set_Comments(String [] cmnts){
-        this.comments = cmnts;
+    public void set_Comments(ArrayList<String> comments) {
+        this.comments = new ArrayList<>(comments);
+    }
+
+    public void set_Comments(String cmnts){
+        this.comments.add(cmnts);
     }
 
     public boolean equals(Object o){

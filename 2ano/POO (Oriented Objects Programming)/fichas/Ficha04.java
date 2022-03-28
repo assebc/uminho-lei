@@ -1,5 +1,5 @@
-import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.List;
@@ -26,8 +26,8 @@ public class Ficha04{
             STACK.remove(STACK.size() - 1);
         }
 
-        public int length() {
-            return (STACK.size());
+        public int length(){
+            return STACK.size();
         }
     }
 
@@ -113,22 +113,67 @@ public class Ficha04{
         }
 
         public List<FBPost> postOf_hours(String user, LocalDateTime inicio, LocalDateTime fim){
-           
-
-        }
-        public FBPost getPost(int id){
             for(FBPost f : this.FB){
-                if(f.get_Identificador().equals(id))
-                    return f;
+                if(f.get_Nome().equals(user)){
+                    return FB.stream()
+                            .filter(fb->fb.get_Date().compareTo(inicio) >=0
+                                    && fb.get_Date().compareTo(fim)<=0)
+                            .collect(Collectors.toList());
+                }
             }
             return null;
         }
 
-        public void insert_comment(FBPost post, String comentario){}
-        public void insert_comment_id(int postid, String comentario){}
-        public void like(int postid){}
-        public List<Integer> top5Comments_int(){}
-        public List<Integer> top5Comments_ext(){}
+        public FBPost getPost(int id){
+            for(FBPost f : this.FB){
+                if(f.get_Identificador().equals(id))
+                    return f.clone();
+            }
+            return null;
+        }
+
+        public void insert_comment(FBPost post, String comentario){
+            for(FBPost f : this.FB)
+                if(f.equals(post)) f.set_Comments(comentario);
+
+        }
+
+        public void insert_comment_id(int postid, String comentario){
+            for(FBPost f : this.FB)
+                if(f.get_Identificador().equals(postid)) f.set_Comments(comentario);
+        }
+
+        public void like(int postid){
+            for(FBPost f : this.FB)
+                if(f.get_Identificador().equals(postid)) f.set_Likes(f.get_Likes()+1);
+        }
+
+        public int compares(FBPost f1, FBPost f2) {
+            if ((f1.get_Comments().size())>(f2.get_Comments().size())) return 1;
+            if ((f1.get_Comments().size())<(f2.get_Comments().size())) return -1;
+            return 0;
+        }
+
+        public List<Integer> top5Comments_int(){
+            return FB.stream().map(FBPost::clone)
+                    .sorted((f1,f2)->compares(f1,f2))
+                    .limit(5)
+                    .map(FBPost::get_Identificador)
+                    .collect(Collectors.toList());
+        }
+        public List<Integer> top5Comments_ext() {
+            ArrayList<FBPost> copy = new ArrayList<>(this.FB);
+            List<Integer> top5 = new ArrayList<>();
+            for(int i = 0; i < 5; i++) {
+                FBPost mostCommented = null;
+                for(FBPost f : copy)
+                    if(mostCommented == null || mostCommented.get_Comments().size() < f.get_Comments().size())
+                        mostCommented = f;
+                top5.add(mostCommented.get_Identificador());
+                copy.remove(mostCommented);
+            }
+            return top5;
+        }
 
     }
     public static void main(String [] args){
