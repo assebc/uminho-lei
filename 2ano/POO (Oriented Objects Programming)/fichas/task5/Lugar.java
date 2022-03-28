@@ -38,5 +38,26 @@ public class Lugar{
     public int getMinutos(){ return this.minutos; }
     public boolean getPermanente(){ return this.permanente; }
 
+    public Lugar clone(){ return new Lugar(this); }
+
+    public boolean equals(Object o){
+        if(this==o) return true;
+        if((o==null) || (o.getClass())!=this.getClass()) return false;
+
+        Lugar l = (Lugar) o;
+        return l.getMatricula() == this.getMatricula() &&
+                l.getNome() == this.getNome() &&
+                l.getMinutos() == this.getMinutos() &&
+                l.getPermanente() == this.getPermanente();
+    }
+
+    public String toString(){
+        final StringBuffer s = new StringBuffer("== Lugar ==\n");
+        s.append("Matricula : ").append(this.matricula).append('\n');
+        s.append("Nome : ").append(this.nome).append('\n');
+        s.append("Minutos : ").append(this.minutos).append('\n');
+        s.append("Permanente : ").append(this.permanente).append('\n');
+        return s.toString();
+    }
 
 }
