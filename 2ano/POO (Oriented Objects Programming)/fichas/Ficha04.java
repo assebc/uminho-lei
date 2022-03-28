@@ -1,7 +1,5 @@
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class Ficha04{
@@ -90,6 +88,8 @@ public class Ficha04{
 
 
     }
+
+
 
     public static void main(String [] args){
 

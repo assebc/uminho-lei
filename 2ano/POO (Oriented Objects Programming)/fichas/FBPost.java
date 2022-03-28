@@ -1,0 +1,88 @@
+import java.util.Date;
+
+public class FBPost{
+
+    private Integer identificador;
+    private String nome;
+    private Date date_creation;
+    private String content;
+    private Integer num_likes;
+    private String [] comments;
+
+    public FBPost(){
+        this.identificador = -1;
+        this.nome = null;
+        this.date_creation = null;
+        this.content = null;
+        this.num_likes = 0;
+        this.comments = null;
+    }
+
+    public FBPost(Integer id, String n1, Date d1, String content, Integer likes, String[] cmnt){
+        this.identificador = id;
+        this.nome = n1;
+        this.date_creation = d1;
+        this.content = content;
+        this.num_likes = likes;
+        this.comments = cmnt;
+    }
+
+    public Integer get_Identificador(){
+        return this.identificador;
+    }
+
+    public void set_Identificador(Integer id){
+        this.identificador = id;
+    }
+
+    public String get_Nome(){
+        return this.nome;
+    }
+
+    public void set_Nome(String nome){
+        this.nome = nome;
+    }
+    public Date get_Date(){
+        return this.date_creation;
+    }
+
+    public void set_Date(Date d1){
+        this.date_creation = d1;
+    }
+
+    public String get_Content(){
+        return this.content;
+    }
+
+    public void set_Content(String content){
+        this.content = content;
+
+    }
+
+    public Integer get_Likes(){
+        return this.num_likes;
+    }
+
+    public void set_Likes(Integer likes){
+        this.num_likes = likes;
+    }
+
+    public String [] get_Comments(){
+        return this.comments;
+    }
+
+    public void set_Comments(String [] cmnts){
+        this.comments = cmnts;
+    }
+
+    public boolean equals(Object o){
+        if(this==0) return true;
+
+    }
+
+    public FBPost clone() {
+        return new FBPost(this);
+    }
+
+
+}
