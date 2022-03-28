@@ -7,6 +7,9 @@
  * @version 20210305
  * @version 20220314
  */
+
+package task3;
+
 public class Ponto {
     
   //variaveis de instancia
@@ -115,8 +118,8 @@ public class Ponto {
   
   /**
    * Metodo que move o Ponto para novas coordenadas.
-   * @param novoX novo valor de x.
-   * @param novoY novo valor de y.
+   * @param cx novo valor de x.
+   * @param cy novo valor de y.
    */
   public void movePonto(int cx, int cy) {
     this.x = cx;  // ou setX(cx)

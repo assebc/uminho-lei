@@ -1,3 +1,5 @@
+package task3;
+
 import java.time.LocalTime;
 import java.util.Date;
 import java.lang.Math;
