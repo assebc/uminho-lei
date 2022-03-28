@@ -1,6 +1,8 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.List;
 
 public class Ficha04{
 
@@ -89,8 +91,46 @@ public class Ficha04{
 
     }
 
+    public class FBFeed{
 
+        private ArrayList<FBPost> FB = new ArrayList<>();
 
+        public int nrPosts(String user){
+            return FB.stream() // iterador interno
+                    .map(FBPost::clone)
+                    .filter(f->f.get_Nome().equals(user)) // condição necessária
+                    .collect(Collectors.toCollection(ArrayList::new)) //por os posts de user num Set
+                    .size(); // tamanho do Set será o número de posts
+        }
+
+        public int nrPosts2(String user){ return postsOf(user).size(); }
+
+        public List<FBPost> postsOf(String user){
+            return FB.stream()
+                    .map(FBPost::clone)
+                    .filter(f->f.get_Nome().equals(user))
+                    .collect(Collectors.toList());
+        }
+
+        public List<FBPost> postOf_hours(String user, LocalDateTime inicio, LocalDateTime fim){
+           
+
+        }
+        public FBPost getPost(int id){
+            for(FBPost f : this.FB){
+                if(f.get_Identificador().equals(id))
+                    return f;
+            }
+            return null;
+        }
+
+        public void insert_comment(FBPost post, String comentario){}
+        public void insert_comment_id(int postid, String comentario){}
+        public void like(int postid){}
+        public List<Integer> top5Comments_int(){}
+        public List<Integer> top5Comments_ext(){}
+
+    }
     public static void main(String [] args){
 
     }

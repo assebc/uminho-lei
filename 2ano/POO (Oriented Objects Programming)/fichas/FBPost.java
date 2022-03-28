@@ -27,6 +27,15 @@ public class FBPost{
         this.comments = cmnt;
     }
 
+    public FBPost(FBPost f){
+        this.identificador = f.get_Identificador();
+        this.nome = f.get_Nome();
+        this.date_creation = f.get_Date();
+        this.content = f.get_Content();
+        this.num_likes = f.get_Likes();
+        this.comments = f.get_Comments();
+    }
+
     public Integer get_Identificador(){
         return this.identificador;
     }
@@ -42,6 +51,7 @@ public class FBPost{
     public void set_Nome(String nome){
         this.nome = nome;
     }
+
     public Date get_Date(){
         return this.date_creation;
     }
@@ -54,10 +64,7 @@ public class FBPost{
         return this.content;
     }
 
-    public void set_Content(String content){
-        this.content = content;
-
-    }
+    public void set_Content(String content){ this.content = content; }
 
     public Integer get_Likes(){
         return this.num_likes;
@@ -76,13 +83,19 @@ public class FBPost{
     }
 
     public boolean equals(Object o){
-        if(this==0) return true;
+        if(this==o) return true;
+        if ((o==null) || (o.getClass() != this.getClass())) return false;
 
+        FBPost f = (FBPost) o;
+        return f.get_Identificador() == this.identificador &&
+                f.get_Nome() == this.nome &&
+                f.get_Date() == this.date_creation &&
+                f.get_Content() == this.content &&
+                f.get_Likes() == this.num_likes &&
+                f.get_Comments() == this.comments;
     }
 
     public FBPost clone() {
         return new FBPost(this);
     }
-
-
 }
