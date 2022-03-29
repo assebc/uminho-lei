@@ -309,6 +309,76 @@ int contaVogais(char s[]){
 	return count;
 }
 
+int exists(char a, char s[]){
+	int i = 0;
+	while(s){
+		if(a==s[i]) return 1;
+		else i++;
+	}
+	return 0;
+}
+
+int contida(char a[], char b[]){
+	int i = 0;
+	while(a){
+		if(exists(a[i],b)) i++;
+		else return 0;
+	}
+
+	return 1;
+}
+
+void inverte(char s[]){
+	char * aux = s;
+	int i = strlen(s)-1;
+	int j = 0;
+	while(s){
+		aux[j++] = s[i--];
+	}
+	s = aux;
+}
+int palindrome(char s[]){
+	char * aux = s;
+	inverte(aux);
+	if(aux == s) return 1;
+
+	return 0;
+}
+
+int remRep(char x[])
+int limpaEspacos(char t[])
+void insere(int v[], int N, int x)
+void merge(int r[], int a[], int b[], int na, int nb)
+int crescente(int a[], int i, int j)
+int retiraNeg(int v[], int N)
+int menosFreq(int v[], int N)
+int maisFreq(int v[], int N)
+int maxCresc(int v[], int N)
+int elimRep(int v[], int n)
+int elimRepOrd(int a[], int n)
+int comunsOrd(int a[], int na, int b[], int nb)
+int comuns(int a[], int na, int b[], int nb)
+int minInd(int v[], int n)
+void somasAc(int v[], int Ac[], int N)
+int triSup(int N, float m [N][N])
+void transposta(int N, float m [N][N])
+void addTo(iint N, int M, int a[N][M], int b [N][M])
+int unionset(int N, int v1[N], int v2[N], int r[N])
+int intersectSet(int N, int v1[N], int v2[N], int r[N])
+int intersectMSet(int N, int v1[N], int v2[N], int r[N])
+int uninonMSet(int N, int v1[N], int v2[N], int r[N])
+int cardinalMSet(int N, int v[N])
+
+typedef enum movimento {Norte, Oeste, Sul, Este} Movimento;
+typedef struct posicao{
+	int x, y;
+} Posicao;
+
+Posicao posFinal(Posicao inicial, Movimento mov[], int N)
+int caminho (Posicao inicial, Posicao final, Movimento mov[], int N)
+int maisCentral(Posicao pos[], int N)
+
+
 int main(){
 
 	//question1();
@@ -332,6 +402,7 @@ int main(){
 	//sufPref("batota","totalidade"); // 4
 	//contaPal("a a bb a"); // 4
 	//contaVogais("aeioubBcCAEIOU"); // 10
+	//contida("abcd", "daebc"); // 1
 	
 	return 0;
 }
