@@ -345,7 +345,19 @@ int palindrome(char s[]){
 	return 0;
 }
 
-int remRep(char x[])
+int remRep(char x[]){
+	int count = 0;
+	char * aux = NULL;
+	int i = 0, j = 1;
+	while(x){
+		if(x[i]==x[j]) j++;
+		else{
+			aux[i] = x[i++];
+			j++;
+		}
+	}
+}
+
 int limpaEspacos(char t[])
 void insere(int v[], int N, int x)
 void merge(int r[], int a[], int b[], int na, int nb)
