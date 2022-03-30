@@ -175,17 +175,26 @@ int compare(const char *X, const char *Y)
 }
  
 // Function to implement `strstr()` function
-const char * mystrstr(const char* X, const char* Y)
-{
-    while (*X != '\0')
-    {
-        if ((*X == *Y) && compare(X, Y)) {
-            return X;
+char* mystrstr (char haystack[], char needle[]) {
+    int isContained = 1;
+    char* ans = haystack;
+    char* needleStart = needle;
+    while(*needle && *haystack) {
+        if(*haystack != *needle) {
+            isContained = 0;
+            needle = needleStart;
         }
-        X++;
+        if(*haystack == *needle) {
+            if(!isContained) {
+                isContained = 1;
+                ans = haystack;
+            }
+            needle++;
+        }
+        haystack++;
     }
- 
-    return NULL;
+    if (isContained && !(*needle)) return ans;
+    else return NULL;
 }
 
 void mystrrev(char s[]){
@@ -367,40 +376,444 @@ int remRep (char x[]) {
     return i;
 }
 
-int limpaEspacos(char t[])
-void insere(int v[], int N, int x)
-void merge(int r[], int a[], int b[], int na, int nb)
-int crescente(int a[], int i, int j)
-int retiraNeg(int v[], int N)
-int menosFreq(int v[], int N)
-int maisFreq(int v[], int N)
-int maxCresc(int v[], int N)
-int elimRep(int v[], int n)
-int elimRepOrd(int a[], int n)
-int comunsOrd(int a[], int na, int b[], int nb)
-int comuns(int a[], int na, int b[], int nb)
-int minInd(int v[], int n)
-void somasAc(int v[], int Ac[], int N)
-int triSup(int N, float m [N][N])
-void transposta(int N, float m [N][N])
-void addTo(iint N, int M, int a[N][M], int b [N][M])
-int unionset(int N, int v1[N], int v2[N], int r[N])
-int intersectSet(int N, int v1[N], int v2[N], int r[N])
-int intersectMSet(int N, int v1[N], int v2[N], int r[N])
-int uninonMSet(int N, int v1[N], int v2[N], int r[N])
-int cardinalMSet(int N, int v[N])
+int limpaEspacos (char t[]) {
+    int i = 0;
+    int prevSpace = 0;
+    while(t[i]) {
+        if(t[i] == ' ') {
+            if(prevSpace) {
+                tail(t + i);
+                continue;
+            }
+            else prevSpace = 1;
+        }
+        else prevSpace = 0;
+        i++;
+    }
+    return i;
+}
+
+void insere(int v[], int N, int x){
+	for(int i = 0;i<N;i++){
+		if (v[i]>x){
+			for(int j=N;j>1;j--) // shift direita
+				v[j]=v[j-1];
+			v[i]=x;
+			break;
+		}
+		if(i==N-1)
+			v[N] = x;
+	}
+}
+
+void merge(int r[], int a[], int b[], int na, int nb){
+	int j = 0, h = 0;
+	for(int i = 0; i<na+nb;i++){
+		if(j != na && h != nb){
+			if(a[j]>b[h]) r[i] = a[j++];
+			else r[i] = b[h++];
+		}
+		else if (j==na){
+			r[i] = a[h++];
+		} else if (h==nb){
+			r[i] = a[j++];
+		}
+	}
+}
+
+void recursive_merge(int r[], int a[], int b[], int na, int nb) {
+    if(na > 0) {
+        if(nb > 0) {
+            if(*a > *b) {
+                *r = *b;
+                recursive_merge(r+1, a, b+1, na, nb-1);
+            }
+            else {
+                *r = *a;
+                recursive_merge(r+1, a+1, b, na-1, nb);
+            }
+        }
+        else {
+            *r = *a;
+            recursive_merge(r+1, a+1, b, na-1, nb);
+        }
+    }
+    else if(nb > 0) {
+        *r = *b;
+        recursive_merge(r+1, a, b+1, na, nb-1);
+    }
+}
+
+int crescente(int a[], int i, int j){
+	for(int k = i; k<=j-1;k++){
+		if(a[k]<=a[k+1]) continue;
+		else return 0;
+	}
+	return 1;
+}
+
+int retiraNeg (int v[], int N) {
+    int i = 0;
+    while(i < N) {
+        if(v[i] < 0) {
+            for(int j = i; j < N - 1; j++) v[j] = v[j + 1];
+            N--;
+        }
+        else i++;
+    }
+    return N;
+}
+
+int menosFreq (int v[], int N) {
+    int freq = 1, minFreq = N, ans = v[0], i;
+    for(i = 1; i < N; i++) {
+        if(v[i] == v[i - 1]) freq++;
+        if(v[i] != v[i - 1]) {
+            if(freq < minFreq) {
+                minFreq = freq;
+                ans = v[i - 1];
+            }
+            freq = 1;
+        }
+    }
+    if(freq < minFreq) {
+        minFreq = freq;
+        ans = v[i - 1];
+    }
+    return ans;
+}
+
+int maisFreq (int v[], int N) {
+    int freq = 1, maxFreq = 0, ans = v[0];
+    for(int i = 1; i < N; i++) {
+        if(v[i] == v[i - 1]) freq++;
+        if(v[i] != v[i - 1]) {
+            if(freq > maxFreq) {
+                maxFreq = freq;
+                ans = v[i - 1];
+            }
+            freq = 1;
+        }
+    }
+    return ans;
+}
+
+
+int maxCresc (int v[], int N) {
+    int ans = 1, currAns = 1;
+    for(int i = 1; i < N; i++) {
+        if(v[i - 1] > v[i]) {
+            ans = currAns > ans ? currAns : ans;
+            currAns = 1;
+        }
+        else {
+            currAns++;
+        }
+    }
+    ans = currAns > ans ? currAns : ans;
+    return ans;
+}
+
+int elimRep (int v[], int n) {
+    int i = 1;
+    while(i < n) {
+        int belongs = 0;
+        for(int j = 0; j < i; j++) {
+            if(v[i] == v[j]) belongs = 1;
+        }
+        if(belongs) {
+            for(int j = i; j < n; j++) {
+                v[j] = v[j + 1];
+            }
+            n--;
+        } else i++;
+    }
+    return n;
+}
+int elimRepOrd (int v[], int n) {return elimRep(v,n);}
+
+int comunsOrd (int a[], int na, int b[], int nb) {
+    int i = 0, j = 0, ans = 0;
+    while(i < na && j < nb) {
+        if(a[i++] == b[j++]) {
+            ans++;
+            i++;
+            j++;
+        }
+        else if(a[i] > b[j]) j++;
+        else i++;
+    }
+    return ans;
+}
+
+int comuns (int a[], int na, int b[], int nb) {
+    int ans = 0;
+    for(int i = 0; i < na; i++) {
+        int belongs = 0;
+        for(int j = 0; j < nb; j++) if(a[i] == b[j]) belongs = 1;
+        if(belongs) ans++;
+    }
+    return ans;
+}
+
+int minInd(int v[], int n){
+	int min = v[0], ind = 0;
+	for(int i = 1;i<n;i++){
+		if(v[i]<min){
+			min = v[i];
+			ind = i;
+		}
+	}
+	return ind;
+}
+
+void somasAc(int v[], int Ac[], int N){
+	int prev = 0;
+	for(int i = 0; i<N;i++){
+		Ac[i] = prev+v[i];
+		prev += v[i];
+	}
+}
+
+int triSup(int N, float m [N][N]){
+	int x = 1;
+	for(int i = 0;i<N;i++){
+		for(int j = 0;j<i;j++){
+			 if(m[i][j]) x = 0;
+		}
+	}
+	return x;
+}
+
+void swap(float x, float y){
+	float tmp = x;
+	x = y;
+	y = tmp;
+}
+
+void transposta (int N, float m[N][N]) {
+    for(int i = 0; i < N; i++) {
+        for(int j = 0; j < i; j++)
+        	swap(m[i][j],m[j][i]);  
+    }
+}
+
+void addTo(int N, int M, int a[N][M], int b [N][M]){
+	for(int i = 0;i<N;i++){
+		for(int j = 0;j<M;j++){
+			a[i][j] += b[i][j];
+		}
+	}
+}
+
+int unionSet (int N, int v1[N], int v2[N], int r[N]) {
+    int len = 0;
+    for(int i = 0; i < N; i++) {
+        r[i] = v1[i] + v2[i];
+        len += r[i]; 
+    }
+    return len;
+}
+
+int intersectSet (int N, int v1[N], int v2[N],int r[N]) {
+    int len = 0;
+    for(int i = 0; i < N; i++) {
+        r[i] = v1[i] && v2[i];
+        len += r[i];
+    }
+    return len;
+}
+
+int intersectMSet (int N, int v1[N], int v2[N],int r[N]) {
+    int len = 0;
+    for(int i = 0; i < N; i++) {
+        r[i] = v1[i] < v2[i] ? v1[i] : v2[i];
+        len += r[i]; 
+    }
+    return len;
+}
+
+int unionMSet (int N, int v1[N], int v2[N], int r[N]) {
+    int len = 0;
+    for(int i = 0; i < N; i++) {
+        r[i] = v1[i] + v2[i];
+        len += r[i]; 
+    }
+    return len;
+}
+
+int cardinalMSet (int N, int v[N]) {
+    int len = 0;
+    for(int i = 0; i < N; i++) len += v[i];
+    return len;
+}
 
 typedef enum movimento {Norte, Oeste, Sul, Este} Movimento;
 typedef struct posicao{
 	int x, y;
 } Posicao;
 
-Posicao posFinal(Posicao inicial, Movimento mov[], int N)
-int caminho (Posicao inicial, Posicao final, Movimento mov[], int N)
-int maisCentral(Posicao pos[], int N)
+Posicao posFinal(Posicao inicial, Movimento mov[], int N){
+	for(int i = 0;i<N;i++){
+		Movimento x = mov[i];
+		switch(x){
+			case Norte:
+				inicial.y++;
+			break;
 
+			case Sul:
+				inicial.y++;
+			break;
 
-int main(){
+			case Este:
+				inicial.x++;
+			break;
+
+			case Oeste:
+				inicial.x--;
+			break;
+		}
+	}
+	return inicial;
+}
+
+int caminho (Posicao inicial, Posicao final, Movimento mov[], int N) {
+    int* xi = &inicial.x;
+    int* yi = &inicial.y;
+    int xf = final.x, yf = final.y, i;
+    for(i = 0; i < N; i++) {
+        if((*xi) < xf) {
+            (*xi)++;
+            mov[i] = Este;
+        }
+        else if ((*xi) > xf) {
+            (*xi)--;
+            mov[i] = Oeste;
+        } 
+        else if ((*yi) < yf) {
+            (*yi)++;
+            mov[i] = Norte;
+        }
+        else if ((*yi) > yf) {
+            (*yi)--;
+            mov[i] = Sul;
+        }
+        else break;
+    }
+    if(inicial.x != final.x || inicial.y != final.y) return -1;
+    else return i;
+}
+
+int manDist(int x, int y, int x0, int y0) {return abs(x - x0) + abs(y - y0);}
+
+int maisCentral (Posicao pos[], int N) {
+    int minDist = manDist(pos[0].x,pos[0].y,0,0);
+    int ans = 0, i;
+    for(i = 1; i < N; i++) {
+        if(manDist(pos[i].x,pos[i].y,0,0) < minDist) {
+            ans = i;
+            minDist = manDist(pos[i].x,pos[i].y,0,0);
+        }
+    }
+    return ans;
+}
+
+int vizinhos (Posicao p, Posicao pos[], int N) {
+    int ans = 0;
+    for(int i = 0; i < N; i++) {
+        if(manDist(pos[i].x,pos[i].y,p.x,p.y) == 1) ans++;
+    }
+    return ans;
+}
+
+void getLine(char str[]) {
+    while(fgets(buffer,MAXLINE,stdin) == NULL)
+        puts("Erro a ler input!");
+    buffer[strcspn(buffer,"\r\n")] = 0;
+    if(str != buffer) strcpy(str, buffer);
+}
+
+int getInt() {
+    getLine(buffer);
+    return atoi(buffer);
+}
+
+void getIntArray(int* start, int* end) {
+    for( ; start != end; start++) {
+        printf("Insere um valor: ");
+        assert(scanf("%d", start) == 1);
+    }
+}
+
+void getIntMatrix(int m, int n, int mat[m][n]) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            printf("Linha %d, coluna %d: ",i,j);
+            assert(scanf("%d",&mat[i][j]) == 1);
+        }
+    }
+}
+
+void getFloatMatrix(int m, int n, float mat[m][n]) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            printf("Linha %d, coluna %d: ",i,j);
+            assert(scanf("%f", &mat[i][j]) == 1);
+        }
+    }
+}
+
+void printArray(int arr[], int lim) {
+    printf("[");
+    for(int i = 0; i < lim; i++) {
+        if(i == lim - 1) printf("%d",arr[i]);
+        else printf("%d, ",arr[i]);
+    }
+    printf("]\n");
+}
+
+void printFloatMatrix(int m, int n, float mat[m][n]) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++)
+            printf("%.3f ",mat[i][j]);
+        putchar('\n');
+    }
+}
+
+void printIntMatrix(int m, int n, int mat[m][n]) {
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++)
+            printf("%6d ",mat[i][j]);
+        putchar('\n');
+    }
+}
+
+void getPosArray(int N, Posicao poss[N]) {
+    for(int i = 0; i < N; i++) {
+        printf("Posição %d: ",i);
+        assert(scanf("%d %d",&poss[i].x,&poss[i].y) == 2);
+    }
+}
+
+void getMovs(int len, Movimento movs[len]) {
+    for(int i = 0; i < len; i++) {
+        printf("Letra correspondente à direção (N,S,E,W): ");
+        char c, x;
+        while((x = getchar()) != '\n' && x) {}
+        switch(c = getchar()) {
+            case 'n':
+            case 'N': movs[i] = Norte; break;
+            case 'e':
+            case 'E': movs[i] = Este; break;
+            case 's':
+            case 'S': movs[i] = Sul; break;
+            case 'O':
+            case 'o':
+            case 'w':
+            case 'W': movs[i] = Oeste; break;
+        }
+    }
+}
 
 int main(int argc, char const *argv[])
 {
@@ -413,13 +826,13 @@ int main(int argc, char const *argv[])
     switch (opcao)
     {
         case 1:
-            one();
+            question1();
             break;
         case 2:
-            two();
+            question2();
             break;
         case 3:
-            three();
+            question3();
             break;
         case 4:
             printf("Introduz um valor: ");
@@ -474,7 +887,7 @@ int main(int argc, char const *argv[])
             break;
         case 12:
             getLine(s1);
-            strnoV(s1);
+            mystrnoV(s1);
             printf("%s",s1);
             break;
         case 13:
@@ -487,7 +900,7 @@ int main(int argc, char const *argv[])
             break;
         case 14:
             getLine(s1);
-            printf("%c",charMaisFreq(s1));
+            printf("%c",charMaisfreq(s1));
             break;
         case 15:
             getLine(s1);
