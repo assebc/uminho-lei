@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
+#include <assert.h>
+
+#define MAXLINE 1024
+
+char buffer[MAXLINE];
 
 
 void question1(){
@@ -345,17 +351,20 @@ int palindrome(char s[]){
 	return 0;
 }
 
-int remRep(char x[]){
-	int count = 0;
-	char * aux = NULL;
-	int i = 0, j = 1;
-	while(x){
-		if(x[i]==x[j]) j++;
-		else{
-			aux[i] = x[i++];
-			j++;
-		}
-	}
+void tail(char* s) {
+    for(; *s; s++)
+        *s = *(s+1);
+}
+
+int remRep (char x[]) {
+    if(!(*x)) return 0;
+    int i = 1;
+    char prev = x[0];
+    while(x[i]) {
+        if(x[i] == prev) tail(x + i);
+        else prev = x[i++];
+    }
+    return i;
 }
 
 int limpaEspacos(char t[])
@@ -393,28 +402,410 @@ int maisCentral(Posicao pos[], int N)
 
 int main(){
 
-	//question1();
-	//question2();
-	//question3();
-	//bitsUm(31);
-	//trailingZ(30);
-	//qDig(11);	
-	//mystrcat("ar","roz");
-	//mystrcpy(NULL,"arroz");
-	//mystrcmp("araa","ara");
-	//mystrstr("ara", "araabarcar");
-	//mystrrev("zorra");
-	//mystrnoV("arox");
-	//truncW("euaaaa gosto daaas zebras", 3); //fix me (maybe?)
-	//charMaisfreq("arroz com pao e marmelada");
-	//iguaisConsecutivos("aabcccabac"); // 3
-	//difConsecutivos("aabcccabac"); // 5
-	//maiorPrefixo("arroz","arlinda"); // 2
-	//maiorSufixo("zorra","zorar"); // 3
-	//sufPref("batota","totalidade"); // 4
-	//contaPal("a a bb a"); // 4
-	//contaVogais("aeioubBcCAEIOU"); // 10
-	//contida("abcd", "daebc"); // 1
-	
-	return 0;
+int main(int argc, char const *argv[])
+{
+    char* s1 = malloc(MAXLINE * sizeof(char));
+    char* s2 = malloc(MAXLINE * sizeof(char));
+    int opcao, num, num1, num2, resp, x, y;
+    printf("Insere o numero correspondente ao exercicio: ");
+    getLine(buffer);
+    opcao = atoi(buffer);
+    switch (opcao)
+    {
+        case 1:
+            one();
+            break;
+        case 2:
+            two();
+            break;
+        case 3:
+            three();
+            break;
+        case 4:
+            printf("Introduz um valor: ");
+            num = getInt();
+            int n = bitsUm(num);
+            printf("Resposta: %d\n",n);
+            break;
+        case 5:
+            printf("Introduz um valor: ");
+            num = getInt();
+            printf("Resposta: %d\n",trailingZ(num));
+            break;
+        case 6:
+            printf("Introduz um valor: ");
+            assert(scanf("%d",&num) == 1);
+            printf("Resposta: %d\n",qDig(num));
+            break;
+        case 7:
+            printf("String 1: ");
+            getLine(s1);
+            printf("String 2: ");
+            getLine(s2);
+            mystrcat(s1,s2);
+            printf("String concatenada: %s",s1);
+            break;
+        case 8:
+            getLine(s1);
+            mystrcpy(s2,s1);
+            printf("%s [ORIGINAL] - address %p\n",s1,s1);
+            printf("%s [COPIADA] - address %p\n",s2,s2);
+            break;
+        case 9:
+            printf("String 1: ");
+            getLine(s1);
+            printf("String 2: ");
+            getLine(s2);
+            num = mystrcmp(s1,s2);
+            printf("Resultado: %d", num);
+            break;
+        case 10:
+            printf("Palheiro: ");
+            getLine(s1);
+            printf("Agulha: ");
+            getLine(s2);
+            char* ans = mystrstr(s1,s2);
+            printf("%s",ans);
+            break;
+        case 11:
+            getLine(s1);
+            mystrrev(s1);
+            printf("%s",s1);
+            break;
+        case 12:
+            getLine(s1);
+            strnoV(s1);
+            printf("%s",s1);
+            break;
+        case 13:
+            printf("String: ");
+            getLine(s1);
+            printf("Tamanho para truncar: ");
+            assert(scanf("%d",&num) == 1);
+            truncW(s1,num);
+            printf("%s",s1);
+            break;
+        case 14:
+            getLine(s1);
+            printf("%c",charMaisFreq(s1));
+            break;
+        case 15:
+            getLine(s1);
+            printf("%d",iguaisConsecutivos(s1));
+            break;
+        case 16:
+            getLine(s1);
+            printf("Diferentes consecutivos: %d\n",difConsecutivos(s1));
+            break;
+        case 17:
+            getLine(s1);
+            getLine(s2);
+            printf("%d\n",maiorPrefixo(s1,s2));
+            break;
+        case 18:
+            getLine(s1);
+            getLine(s2);
+            printf("%d\n",maiorSufixo(s1,s2));
+            break;
+        case 19:
+            getLine(s1);
+            getLine(s2);
+            printf("%d\n",sufPref(s1,s2));
+            break;
+        case 20:
+            getLine(s1);
+            printf("%d\n",contaPal(s1));
+            break;
+        case 21:
+            getLine(s1);
+            printf("%d\n",contaVogais(s1));
+            break;
+        case 22:
+            getLine(s1);
+            getLine(s2);
+            resp = contida(s1,s2);
+            if(resp) printf("Verdadeiro.\n");
+            else printf("Falso.\n");
+            break;
+        case 23:
+            getLine(s1);
+            resp = palindrome(s1);
+            if(resp) printf("Verdadeiro.\n");
+            else printf("Falso.\n");
+            break;
+        case 24:
+            getLine(s1);
+            resp = remRep(s1);
+            printf("%s - length: %d", s1, resp);
+            break;
+        case 25:
+            getLine(s1);
+            resp = limpaEspacos(s1);
+            printf("%s - length: %d", s1, resp);
+            break;
+        case 26: {
+            printf("Tamanho da lista ordenada: ");
+            assert(scanf("%d",&num) == 1);
+            int nums[num+1];
+            getIntArray(nums,nums + num);
+            printf("Valor a inserir: ");
+            assert(scanf("%d",&resp) == 1);
+            insere(nums,num,resp);
+            for(int i = 0; i <= num; i++) printf("%d ", nums[i]);
+            break; }
+        case 27: {
+            printf("Tamanho da lista ordenada 1: ");
+            assert(scanf("%d",&num1) == 1);
+            int nums1[num1];
+            getIntArray(nums1,nums1 + num1);
+            printf("Tamanho da lista ordenada 2: ");
+            assert(scanf("%d",&num2) == 1);
+            int nums2[num2];
+            getIntArray(nums2,nums2 + num2);
+            int r[num1+num2];
+            recursive_merge(r,nums1,nums2,num1,num2);
+            for(int i = 0; i < num1 + num2; i++) printf("%d ",r[i]);
+            break; }
+        case 28: {
+            printf("Tamanho da lista: ");
+            assert(scanf("%d",&num) == 1);
+            int nums[num];
+            getIntArray(nums, nums + num);
+            printf("Limite mínimo e máximo: ");
+            assert(scanf("%d %d",&num1,&num2) == 2);
+            resp = crescente(nums,num1,num2);
+            if(resp) printf("Verdadeiro.\n");
+            else printf("Falso.\n");
+            break; }
+        case 29: {
+            printf("Tamanho da lista: ");
+            assert(scanf("%d",&num) == 1);
+            int nums[num];
+            getIntArray(nums, nums + num);
+            resp = retiraNeg(nums,num);
+            printArray(nums,resp);
+            printf("Resposta: %d", resp);
+            break; }
+        case 30: {
+            printf("Tamanho da lista crescente: ");
+            assert(scanf("%d",&num) == 1);
+            int nums[num];
+            getIntArray(nums, nums + num);
+            resp = menosFreq(nums,num);
+            printf("Resposta: %d", resp);
+            break; }
+        case 31: {
+            printf("Tamanho da lista crescente: ");
+            assert(scanf("%d",&num) == 1);
+            int nums[num];
+            getIntArray(nums, nums + num);
+            resp = maisFreq(nums,num);
+            printf("Resposta: %d", resp);
+            break; }
+        case 32: {
+            printf("Tamanho da lista: ");
+            assert(scanf("%d",&num) == 1);
+            int nums[num];
+            getIntArray(nums, nums + num);
+            resp = maxCresc(nums,num);
+            printf("Resposta: %d", resp);
+            break; }
+        case 33:
+        case 34: {
+            printf("Tamanho da lista: ");
+            assert(scanf("%d",&num) == 1);
+            int nums[num];
+            getIntArray(nums, nums + num);
+            resp = elimRep(nums,num);
+            printArray(nums,resp);
+            printf("Resposta: %d", resp);
+            break; }
+        case 35: {
+            printf("Tamanho da lista ordenada 1: ");
+            assert(scanf("%d",&num1) == 1);
+            int nums1[num1];
+            getIntArray(nums1, nums1 + num1);
+            printf("Tamanho da lista ordenada 2: ");
+            assert(scanf("%d",&num2) == 1);
+            int nums2[num2];
+            getIntArray(nums2, nums2 + num2);
+            resp = comunsOrd(nums1,num1,nums2,num2);
+            printf("Resposta: %d", resp);
+            break; }
+        case 36: {
+            printf("Tamanho da lista ordenada 1: ");
+            assert(scanf("%d",&num1) == 1);
+            int nums1[num1];
+            getIntArray(nums1, nums1 + num1);
+            printf("Tamanho da lista ordenada 2: ");
+            assert(scanf("%d",&num2) == 1);
+            int nums2[num2];
+            getIntArray(nums2, nums2 + num2);
+            resp = comuns(nums1,num1,nums2,num2);
+            printf("Resposta: %d", resp);
+            break; }
+        case 37: {
+            printf("Tamanho da lista: ");
+            assert(scanf("%d",&num) == 1);
+            int nums[num];
+            getIntArray(nums, nums + num);
+            resp = minInd(nums,num);
+            printf("Resposta: %d", resp);
+            break; }
+        case 38: {
+            printf("Tamanho da lista: ");
+            assert(scanf("%d",&num) == 1);
+            int nums[num];
+            getIntArray(nums, nums + num);
+            int nums1[num];
+            somasAc(nums,nums1,num);
+            printArray(nums1,num);
+            break; }
+        case 39: {
+            printf("Número de linhas: ");
+            assert(scanf("%d",&num1) == 1);
+            float nums[num1][num1];
+            getFloatMatrix(num1,num1,nums);
+            resp = triSup(num1,nums);
+            printFloatMatrix(num1,num1,nums);
+            if(resp) printf("Verdadeiro\n");
+            else printf("Falso\n");
+            break; }
+        case 40: {
+            printf("Número de linhas: ");
+            assert(scanf("%d",&num1) == 1);
+            float nums[num1][num1];
+            getFloatMatrix(num1,num1,nums);
+            transposta(num1,nums);
+            printFloatMatrix(num1,num1,nums);
+            break; }
+        case 41: {
+            printf("Número de linhas: ");
+            assert(scanf("%d",&num1) == 1);
+            printf("Número de colunas: ");
+            assert(scanf("%d",&num2) == 1);
+            printf("Matriz 1\n");
+            int mat1[num1][num2];
+            int mat2[num1][num2];
+            getIntMatrix(num1,num2,mat1);
+            printf("Matriz 2\n");
+            getIntMatrix(num1,num2,mat2);
+            addTo(num1,num2,mat1,mat2);
+            printIntMatrix(num1,num2,mat1);
+            break; }
+        case 42: {
+            printf("Tamanho dos sets:");
+            assert(scanf("%d",&num) == 1);
+            printf("Set 1\n");
+            int set1[num];
+            int set2[num];
+            getIntArray(set1, set1 + num);
+            printf("Set 2\n");
+            getIntArray(set2, set2 + num);
+            int setx[num];
+            resp = unionSet(num,set1,set2,setx);
+            printArray(setx,num);
+            break; }
+        case 43: {
+            printf("Tamanho dos sets:");
+            assert(scanf("%d",&num) == 1);
+            printf("Set 1\n");
+            int set1[num];
+            int set2[num];
+            getIntArray(set1, set1 + num);
+            printf("Set 2\n");
+            getIntArray(set2, set2 + num);
+            int setx[num];
+            resp = intersectSet(num,set1,set2,setx);
+            printArray(setx,num);
+            break; }
+        case 44: {
+            printf("Tamanho dos sets:");
+            assert(scanf("%d",&num) == 1);
+            printf("Set 1\n");
+            int set1[num];
+            int set2[num];
+            getIntArray(set1, set1 + num);
+            printf("Set 2\n");
+            getIntArray(set2, set1 + num);
+            int setx[num];
+            resp = intersectMSet(num,set1,set2,setx);
+            printArray(setx,num);
+            break; }
+        case 45: {
+            printf("Tamanho dos sets:");
+            assert(scanf("%d",&num) == 1);
+            printf("Set 1\n");
+            int set1[num];
+            int set2[num];
+            getIntArray(set1, set1 + num);
+            printf("Set 2\n");
+            getIntArray(set2, set2 + num);
+            int setx[num];
+            resp = unionMSet(num,set1,set2,setx);
+            printArray(setx,num);
+            break; }
+        case 46: {
+            printf("Tamanho do set: ");
+            assert(scanf("%d", &num) == 1);
+            int set[num];
+            getIntArray(set, set + num);
+            resp = cardinalMSet(num,set);
+            printf("Resposta: %d", resp);
+            break; }
+        case 47: {
+            printf("Posição inicial (x , y): ");
+            assert(scanf("%d %d",&num1,&num2) == 2);
+            printf("Número de movimentos: ");
+            assert(scanf("%d",&num) == 1);
+            Posicao pi = {num1,num2};
+            Movimento movs[num];
+            getMovs(num,movs);
+            Posicao pf = posFinal(pi,movs,num);
+            printf("Posição final: (%d,%d)",pf.x,pf.y);
+            break; }
+        case 48: {
+            printf("Posição inicial (x, y): ");
+            assert(scanf("%d %d",&num1,&num2) == 2);
+            printf("Posição final (x, y): ");
+            assert(scanf("%d %d",&x,&y) == 2);
+            printf("Número de movimentos: ");
+            assert(scanf("%d",&num) == 1);
+            Posicao pi = {num1,num2};
+            Posicao pf = {x,y};
+            Movimento movs[num];
+            int resp = caminho(pi,pf,movs,num);
+            if(resp < 0) printf("Caminho não encontrado.");
+            else {
+                printf("O caminho é: ");
+                for(int i = 0; i < resp; i++) {
+                    if(movs[i] == Norte) printf("Norte ");
+                    if(movs[i] == Sul) printf("Sul ");
+                    if(movs[i] == Este) printf("Este ");
+                    if(movs[i] == Oeste) printf("Oeste ");
+                }
+            }
+            break; }
+        case 49: {
+            printf("Número de posições: ");
+            assert(scanf("%d", &num) == 1);
+            Posicao poss[num];
+            getPosArray(num,poss);
+            resp = maisCentral(poss,num);
+            printf("Resposta: %d",resp);
+            break; }
+        case 50:
+            printf("Posição central: ");
+            assert(scanf("%d %d",&num1,&num2) == 2);
+            Posicao pc = {num1,num2};
+            printf("Número de posições: ");
+            assert(scanf("%d", &num) == 1);
+            Posicao poss[num];
+            getPosArray(num,poss);
+            resp = vizinhos(pc,poss,num);
+            printf("Resposta: %d",resp);
+            break;
+    }
+    printf("\n");
+    return 0;
 }
