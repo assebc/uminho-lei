@@ -1,4 +1,4 @@
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,11 +17,11 @@ public class Encomenda {
     private int nif;
     private String morada;
     private int nEnc;
-    private LocalDate data;
+    private LocalDateTime data;
     private List<LinhaEncomenda> linhas;
     
     public Encomenda(String nomeCliente, int nif, String morada, int nEnc,
-                    LocalDate data, List<LinhaEncomenda> linhasEnc) {
+                    LocalDateTime data, List<LinhaEncomenda> linhasEnc) {
         this.nomeCliente = nomeCliente;
         this.nif = nif;
         this.morada = morada;
@@ -36,7 +36,7 @@ public class Encomenda {
         this.nif = 0;
         this.morada = "n/a";
         this.nEnc = 0;
-        this.data = LocalDate.now();
+        this.data = LocalDateTime.now();
     }
     
     public Encomenda(Encomenda enc) {
@@ -65,7 +65,7 @@ public class Encomenda {
         return this.nEnc;
     }    
     
-    public LocalDate getData() {
+    public LocalDateTime getData() {
         return this.data;
     }
     
