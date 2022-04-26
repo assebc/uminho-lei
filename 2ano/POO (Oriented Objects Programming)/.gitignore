@@ -1,11 +1,10 @@
 *.jar
-task1/*.class
-task2/*.class
-task3/*.class
-task4/*.class
-task5/*.class
-task6/*.class
-task7/*.class
-task8/*.class
+fichas/task1/*.class
+fichas/task2/*.class
+fichas/task3/*.class
+fichas/task4/*.class
+fichas/task5/*.class
+fichas/task6/.idea/
+fichas/task6/projeto\ fitness/src/main/
 *.iml
 .idea/
