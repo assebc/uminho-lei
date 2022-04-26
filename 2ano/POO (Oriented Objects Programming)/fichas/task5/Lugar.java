@@ -8,8 +8,8 @@ public class Lugar{
     private boolean permanente;
 
     public Lugar(){
-        this.matricula = null;
-        this.nome = null;
+        this.matricula = "";
+        this.nome = "";
         this.minutos = 0;
         this.permanente = true;
     }
@@ -37,6 +37,7 @@ public class Lugar{
     public String getNome(){ return this.nome; }
     public int getMinutos(){ return this.minutos; }
     public boolean getPermanente(){ return this.permanente; }
+    public Lugar getLugar(String matricula){ return this.clone();}
 
     public Lugar clone(){ return new Lugar(this); }
 
