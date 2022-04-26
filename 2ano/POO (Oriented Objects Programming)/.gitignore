@@ -7,3 +7,5 @@ task5/*.class
 task6/*.class
 task7/*.class
 task8/*.class
+*.iml
+.idea/
