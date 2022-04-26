@@ -3,7 +3,7 @@
 import java.lang.StringBuilder;
 import java.time.LocalDateTime;
 
-public class Users {
+public class User {
 
     private String email;
     private String password;
@@ -19,7 +19,7 @@ public class Users {
 
     // init
 
-    public Users(){ // init por default
+    public User(){ // init por default
         this.email = "";
         this.password = "";
         this.genero = genero.F;
@@ -29,7 +29,7 @@ public class Users {
         this.desporto_fav = "";
     }
 
-    public Users(Users u){ // copia de class
+    public User(User u){ // copia de class
         this.email = u.email;
         this.password = u.password;
         this.genero = u.genero;
@@ -39,7 +39,7 @@ public class Users {
         this.desporto_fav = u.desporto_fav;
     }
 
-    public Users(String email, String password, LocalDateTime data){ // obrigatórios
+    public User(String email, String password, LocalDateTime data){ // obrigatórios
         this.email = email;
         this.password = password;
         this.genero = genero.F; //  default
@@ -49,7 +49,7 @@ public class Users {
         this.desporto_fav = ""; // default ou não definido
     }
 
-    public Users(String email, String password, genero gen, Integer altura, Double peso, LocalDateTime data, String desporto){
+    public User(String email, String password, genero gen, int altura, double peso, LocalDateTime data, String desporto){
         this.email = email;
         this.password = password;
         this.genero = gen;
@@ -63,8 +63,8 @@ public class Users {
     public void setEmail(String email) { this.email = email; }
     public void setPassword(String password){ this.password = password; }
     public void setGenero(genero gen){ this.genero = gen; }
-    public void setAltura(Integer altura){ this.altura = altura; }
-    public void setPeso(Double peso){ this.peso = peso; }
+    public void setAltura(int altura){ this.altura = altura; }
+    public void setPeso(double peso){ this.peso = peso; }
     public void setData_Nascimento(LocalDateTime data){ this.data_nascimento = data; }
     public void setDesporto_Fav(String desporto_fav){ this.desporto_fav = desporto_fav; }
 
@@ -72,8 +72,8 @@ public class Users {
     public String getEmail(){ return this.email; }
     public String getPassword(){ return this.password; }
     public genero getGenero(){ return this.genero; }
-    public Integer getAltura(){ return this.altura; }
-    public Double getPeso(){ return this.peso; }
+    public int getAltura(){ return this.altura; }
+    public double getPeso(){ return this.peso; }
     public LocalDateTime getData_Nascimento(){ return this.data_nascimento; }
     public String getDesporto_Fav(){ return this.desporto_fav; }
 
@@ -82,15 +82,15 @@ public class Users {
     public boolean equals(Object obj){
         if(this==obj) return true;
         if(obj==null||obj.getClass()!=this.getClass()) return false;
-        Users u = (Users) obj;
+        User u = (User) obj;
         return (this.email == u.getEmail() && this.password == u.getPassword()
                 && this.genero == u.getGenero() && this.altura == u.getAltura()
                 && this.peso == u.getPeso() && this.data_nascimento == u.getData_Nascimento()
                 && this.desporto_fav == u.getDesporto_Fav());
     }
 
-    public Users clone(){
-        return new Users(this);
+    public User clone(){
+        return new User(this);
     }
 
     public String toString(){
