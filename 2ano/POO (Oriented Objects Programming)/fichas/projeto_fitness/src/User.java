@@ -1,5 +1,8 @@
 //package src;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.lang.StringBuilder;
 import java.time.LocalDateTime;
 
@@ -17,6 +20,7 @@ public class User {
     private LocalDateTime data_nascimento; // YYYY-MM-DD
     private String desporto_fav; // desporto que pratica mais atividades
 
+    private List<Atividade> atividades;
     // init
 
     public User(){ // init por default
@@ -27,6 +31,7 @@ public class User {
         this.peso = 0.0;
         this.data_nascimento = LocalDateTime.now();
         this.desporto_fav = "";
+        this.atividades = new ArrayList<>();
     }
 
     public User(User u){ // copia de class
@@ -37,6 +42,7 @@ public class User {
         this.peso = u.peso;
         this.data_nascimento = u.data_nascimento;
         this.desporto_fav = u.desporto_fav;
+        this.atividades = new ArrayList<>();
     }
 
     public User(String email, String password, LocalDateTime data){ // obrigatórios
@@ -67,6 +73,8 @@ public class User {
     public void setPeso(double peso){ this.peso = peso; }
     public void setData_Nascimento(LocalDateTime data){ this.data_nascimento = data; }
     public void setDesporto_Fav(String desporto_fav){ this.desporto_fav = desporto_fav; }
+    public void setAtividades(List<Atividade> act) { this.atividades = act; }
+    public void setAtividade(Atividade act){ this.atividades.add(act); }
 
     // getters
     public String getEmail(){ return this.email; }
@@ -76,6 +84,8 @@ public class User {
     public double getPeso(){ return this.peso; }
     public LocalDateTime getData_Nascimento(){ return this.data_nascimento; }
     public String getDesporto_Fav(){ return this.desporto_fav; }
+
+    public List getAtividades(){ return this.atividades; }
 
     // equals, clone e toString
 

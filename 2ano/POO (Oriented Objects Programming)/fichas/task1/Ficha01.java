@@ -94,7 +94,7 @@ public class Ficha01{
 	public static void Readints(){
 
 		Scanner input = new Scanner(System.in);
-		int x = input.nextInt();
+		int x = input.\Int();
 		int y = input.nextInt();
 		float med = (float) (x+y)/2;
 		if (MaximoNumeros(x,y) == x){
