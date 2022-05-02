@@ -523,19 +523,181 @@ int iguaisAB(ABin a, ABin b){
 }
 
 // 38
+
+LInt concat(LInt a, LInt b){
+	if(!a) return b;
+	LInt tmp = a;
+	while(tmp->prox) tmp = tmp->prox;
+	tmp->prox = b;
+	return a;
+}
+
+LInt nivelL(ABin a, int n){
+	LInt new = malloc(sizeof(struct lligada));
+	if(n<1 || !a) return NULL;
+	if(n==1){
+		new->valor = a->valor;new->prox = NULL;
+		return new;
+	}
+	else return concat(nivelL(a->esq,n-1),nivelL(a->dir,n-1));
+}
+
 // 39
+
+int nivelV (ABin a, int n, int v[]) {
+    if(!a || n < 1) return 0;
+    if(n == 1) {
+        *v = a->valor;
+        return 1;
+    }
+    else {
+        int e = nivelV(a->esq,n - 1,v);
+        int d = nivelV(a->dir,n - 1,v+e);
+        return e + d;
+    }
+}
+
 // 40
+
+int dumpAbin(ABin a, int v[], int N){
+	int e;
+    if(a && N) {
+        e = dumpAbin(a->esq,v,N);
+        if(e < N) {
+            v[e] = a->valor;
+            return 1 + e + dumpAbin(a->dir,v+e+1,N-e-1);
+        }
+        else return N;
+    }
+    else return 0;
+}
+
 // 41
+
+ABin somasAcA (ABin a) {
+    if(!a) return NULL;
+    ABin new = malloc(sizeof(struct nodo));
+    new->esq = somasAcA(a->esq);
+    new->dir = somasAcA(a->dir);
+    new->valor = a->valor + (new->esq ? new->esq->valor : 0) + (new->dir ? new->dir->valor : 0);
+    return new;
+}
+
 // 42
+
+int contaFolhas(ABin a){
+	if(a->esq==NULL&&a->dir==NULL) return 1;
+	else return contaFolhas(a->esq) + contaFolhas(a->dir);	
+}
+
 // 43
+
+ABin cloneMirror(ABin a){
+	if(!a) return NULL;
+    ABin new = malloc(sizeof(struct nodo));
+    new->valor = a->valor;
+    new->esq = cloneMirror(a->dir);
+    new->dir = cloneMirror(a->esq);
+    return new;
+}
+
 // 44
+
+int addOrd (ABin *a, int x) {
+    while(*a) {
+        if((*a)->valor == x) return 1;
+        if((*a)->valor > x) a = &((*a)->esq);
+        else a = &((*a)->dir);
+    }
+    ABin new = malloc(sizeof(struct nodo));
+    new->valor = x;
+    new->esq = new->dir = NULL;
+    (*a) = new;
+    return 0;
+}
+
 // 45
+
+int lookupAB(ABin a, int x) {
+    while(a) {
+        if(a->valor == x) return 1;
+        if(a->valor > x) a = a->esq;
+        else a = a->dir;
+    }
+    return 0;
+}
+
 // 46
+
+int depthOrd (ABin a, int x) {
+    if(!a) return -1;
+    if(a->valor == x) return 1;
+    int d = depthOrd((a->valor < x ? a->dir : a->esq),x);
+    return d == -1 ? d : 1 + d;
+}
+
 // 47
+
+int maiorAB (ABin a) {
+    while(a->dir) a = a->dir;
+    return a->valor;
+}
+
 // 48
+
+void removeMaiorA (ABin *a) {
+    if(!(*a)->dir) {
+        ABin temp = (*a);
+        free(*a);
+        (*a) = temp->esq;
+    }
+    else removeMaiorA(&((*a)->dir));
+}
+
 // 49
+
+int quantosMaiores (ABin a, int x) {
+    if(!a) return 0;
+    if(a->valor <= x) return quantosMaiores(a->dir,x);
+    else return 1 + quantosMaiores(a->esq,x) + quantosMaiores(a->dir,x);
+}
+
 // 50
+
+void listToBTree (LInt l, ABin *a) {
+    if(!l) return;
+    ABin new = malloc(sizeof(struct nodo));
+    int meio = length(l) / 2;
+    LInt temp = l, prev = NULL;
+    int i;
+    for(i = 0; i < meio; i++) {
+        prev = temp;
+        temp = temp->prox;
+    }
+    new->valor = temp->valor;
+    new->esq = new->dir = NULL;
+    if(prev) prev->prox = NULL;
+    
+    if(l != temp) listToBTree(l,&(new->esq));
+    if(temp->prox) listToBTree(temp->prox,&(new->dir));
+    (*a) = new;
+}
+
 // 51
+
+int deProcuraAux(ABin a, int x, int maior) {
+    if(!a) return 1;
+    if((maior && a->valor < x) || (!maior && a->valor > x)) return 0;
+    return deProcuraAux(a->esq,x,maior) && deProcuraAux(a->dir,x,maior);
+}
+
+int deProcura (ABin a) {
+    if(!a) return 1;
+    int b = deProcuraAux(a->esq,a->valor, 0) && deProcura(a->esq);
+    int c = deProcuraAux(a->dir,a->valor, 1) && deProcura(a->dir);
+    return b && c;
+}
+
 
 int main(){
 
