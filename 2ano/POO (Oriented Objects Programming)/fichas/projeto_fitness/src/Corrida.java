@@ -1,65 +1,89 @@
-//package src;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
-import java.time.LocalDateTime;
-import java.lang.StringBuilder;
-public class Corrida extends Atividade{
-    private Double distancia_percorrida;
-    private Double altimetria;
+public class Corrida extends Atividade {
+    private double distancia;
+    private double altimetria;
     private String percurso;
 
-    // init
-
     public Corrida(){
-        this.distancia_percorrida = 0.0;
-        this.altimetria = 0.0;
+        super();
+        this.distancia = 0;
+        this.altimetria = 0;
         this.percurso = "";
     }
 
-    public Corrida(Corrida c){
-        this.distancia_percorrida = c.getDistancia_Percorrida();
-        this.altimetria = c.getAltimetria();
-        this.percurso = c.getPercurso();
-    }
-
-    public Corrida(String id, String description, LocalDateTime data, double duracao, double distancia, double altimetria, String percurso){
-        this.distancia_percorrida = distancia;
+    public Corrida(String codigo, String descricao, LocalDate data, int duracao, double distancia, double altimetria, String precurso) {
+        super(codigo, descricao, data, duracao);
+        this.distancia = distancia;
         this.altimetria = altimetria;
-        this.percurso = percurso;
+        this.percurso = precurso;
     }
 
-    // setters
-    public void setDistancia_Percorrida(double distancia){ this.distancia_percorrida = distancia; }
-    public void setAltimetria(double altimetria){ this.altimetria = altimetria; }
-    public void setPercurso(String percurso){ this.percurso = percurso; }
-
-    // getters
-    public double getDistancia_Percorrida(){ return this.distancia_percorrida; }
-    public double getAltimetria(){ return this.altimetria; }
-    public String getPercurso(){ return this.percurso; }
-
-    // equals, clone e toString
-
-    public boolean equals(Object obj){
-        if(this==obj) return true;
-        if(obj==null||obj.getClass()!=this.getClass()) return false;
-        Corrida c = (Corrida) obj;
-        return (this.distancia_percorrida == c.getDistancia_Percorrida() && this.altimetria == c.getAltimetria() &&
-                this.percurso == c.getPercurso());
+    public Corrida(Corrida outro) {
+        super(outro);
+        this.distancia = outro.getDistancia();
+        this.altimetria = outro.getAltimetria();
+        this.percurso = outro.getPercurso();
     }
-    /*
-    public Corrida clone(){
+
+    public double getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(double distancia) {
+        this.distancia = distancia;
+    }
+
+    public double getAltimetria() {
+        return altimetria;
+    }
+
+    public void setAltimetria(double altimetria) {
+        this.altimetria = altimetria;
+    }
+
+    public String getPercurso() {
+        return percurso;
+    }
+
+    public void setPercurso(String precurso) {
+        this.percurso = precurso;
+    }
+
+    public double calorias() {
+        long idade =  ChronoUnit.YEARS.between(LocalDate.now(), getUser().getData_Nascimento());
+        double calorias =distancia*getUser().getPeso()*getDuracao()*idade/50;
+        return calorias;
+    }
+
+
+    public Atividade clone() {
         return new Corrida(this);
     }
-    */
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Distância percorrida na corrida: \n");
-        sb.append(this.distancia_percorrida);
-        sb.append("Altimetria da corrida: \n");
-        sb.append(this.altimetria);
-        sb.append("Percurso da corrida: \n");
-        sb.append(this.percurso);
-        return sb.toString();
+
+
+    public String toString() {
+        return "Corrida{" +
+                super.toString()+
+                "distancia=" + distancia +
+                ", altimetria=" + altimetria +
+                ", precurso='" + percurso + '\'' +
+                '}';
     }
 
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Corrida corrida = (Corrida) o;
+        return Double.compare(corrida.getDistancia(), getDistancia()) == 0
+                && Double.compare(corrida.getAltimetria(), getAltimetria()) == 0
+                && this.percurso.equals(corrida.getPercurso());
+    }
+
+    @Override
+    public void pontos() {
+
+    }
 }

@@ -1,89 +1,108 @@
-//package src;
-
-import java.time.LocalDateTime;
-import java.lang.StringBuilder;
-
-public class Canoagem extends Atividade{
-    private Double distancia_percorrida;
-    private String embarcacao;
-    private Double vel_vento; // km/h
-    private enum pontos_c{
-        Norte,
-        Sul,
-        Este,
-        Oeste
-    }
-    private pontos_c direcao;
-    private Integer n_voltas;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 
-    // init
+public class Canoagem extends Atividade {
+    private String barco;
+    private int vento;
+    private int distancia;
+    private int nvoltas;
 
-    public Canoagem(){
-        this.distancia_percorrida = 0.0;
-        this.embarcacao = "";
-        this.vel_vento = 0.0;
-        this.direcao = pontos_c.Norte;
-        this.n_voltas = 0;
+    public Canoagem() {
+        super();
+        this.barco = "";
+        this.vento = 0;
+        this.distancia = 0;
+        this.nvoltas = 0;
     }
 
-    public Canoagem(Canoagem c){
-        this.distancia_percorrida = c.getDistancia_Percorrida();
-        this.embarcacao = c.getEmbarcacao();
-        this.vel_vento = c.getVel_Vento();
-        this.direcao = c.getDirecao();
-        this.n_voltas = c.getN_Voltas();
-    }
-    public Canoagem(String id, String description, LocalDateTime data, double duracao, double distancia, String embarcacao, double vel, pontos_c c, int num){
-        this.distancia_percorrida = distancia;
-        this.embarcacao = embarcacao;
-        this.vel_vento = vel;
-        this.direcao = c;
-        this.n_voltas = num;
+
+    public Canoagem(String codigo, String descricao, LocalDate data, int duracao, String barco, int vento, int distancia, int nvoltas) {
+        super(codigo, descricao, data, duracao);
+        this.barco = barco;
+        this.vento = vento;
+        this.distancia = distancia;
+        this.nvoltas = nvoltas;
     }
 
-    // setters
-    public void setDistancia_Percorrida(double distancia){ this.distancia_percorrida = distancia; }
-    public void setEmbarcacao(String embarcacao){ this.embarcacao = embarcacao; }
-    public void setVel_Vento(double vel){ this.vel_vento = vel; }
-    public void setDirecao(pontos_c c){ this.direcao = c; }
-    public void setN_Voltas(int num){ this.n_voltas = num; }
-
-    // getters
-    public double getDistancia_Percorrida(){ return this.distancia_percorrida; }
-    public String getEmbarcacao(){ return this.embarcacao; }
-    public double getVel_Vento(){ return this.vel_vento; }
-    public pontos_c getDirecao(){ return this.direcao; }
-    public int getN_Voltas(){ return this.n_voltas; }
-
-    // equals, clone e toString
-
-    public boolean equals(Object obj){
-        if(this==obj) return true;
-        if(obj==null||obj.getClass()!=this.getClass()) return false;
-        Canoagem c = (Canoagem) obj;
-        return (this.distancia_percorrida == c.getDistancia_Percorrida() && this.embarcacao == c.getEmbarcacao() &&
-                this.vel_vento == c.getVel_Vento() && this.direcao == c.getDirecao() &&
-                this.n_voltas == c.getN_Voltas());
+    public Canoagem(Canoagem outro) {
+        super(outro);
+        this.barco = outro.getBarco();
+        this.vento = outro.getVento();
+        this.distancia = outro.getDistancia();
+        this.nvoltas = outro.getNvoltas();
     }
-    /*
-    public Canoagem clone(){
+
+
+    public String getBarco() {
+        return barco;
+    }
+
+    public void setBarco(String barco) {
+        this.barco = barco;
+    }
+
+    public int getVento() {
+        return vento;
+    }
+
+    public void setVento(int vento) {
+        this.vento = vento;
+    }
+
+    public int getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(int distancia) {
+        this.distancia = distancia;
+    }
+
+    public int getNvoltas() {
+        return nvoltas;
+    }
+
+    public void setNvoltas(int nvoltas) {
+        this.nvoltas = nvoltas;
+    }
+
+    @Override
+    public double calorias() {
+        long idade =  ChronoUnit.YEARS.between(LocalDate.now(),getUser().getData_Nascimento());
+        return distancia*vento*getDuracao()*idade/4;
+    }
+
+    @Override
+    public Atividade clone() {
         return new Canoagem(this);
     }
-    */
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Distância percorrida na canoagem: \n");
-        sb.append(this.distancia_percorrida);
-        sb.append("Tipo de embarcação da canoagem: \n");
-        sb.append(this.embarcacao);
-        sb.append("Velocidade do vento na canoagem: \n");
-        sb.append(this.vel_vento);
-        sb.append("Direcao da canoagem: \n");
-        sb.append(this.direcao);
-        sb.append("Número de voltas da canoagem: \n");
-        sb.append(this.n_voltas);
-        return sb.toString();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Canoagem canoagem = (Canoagem) o;
+        return Double.compare(canoagem.getVento(), getVento()) == 0
+                && Double.compare(canoagem.getDistancia(), getDistancia()) == 0
+                && getNvoltas() == canoagem.getNvoltas()
+                && this.barco.equals(canoagem.getBarco());
+    }
+
+    @Override
+    public String toString() {
+        return "Canoagem{" +
+                super.toString() +
+                "barco='" + barco + '\'' +
+                ", vento=" + vento +
+                ", distancia=" + distancia +
+                ", nvoltas=" + nvoltas +
+                '}';
+    }
+
+    @Override
+    public void pontos() {
+
     }
 
 }
