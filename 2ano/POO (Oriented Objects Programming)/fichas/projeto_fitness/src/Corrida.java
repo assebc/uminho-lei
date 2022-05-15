@@ -2,9 +2,10 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class Corrida extends Atividade {
-    private double distancia;
-    private double altimetria;
+    private int distancia;
+    private int altimetria;
     private String percurso;
+    private int pontos;
 
     public Corrida(){
         super();
@@ -13,7 +14,7 @@ public class Corrida extends Atividade {
         this.percurso = "";
     }
 
-    public Corrida(String codigo, String descricao, LocalDate data, int duracao, double distancia, double altimetria, String precurso) {
+    public Corrida(String codigo, String descricao, LocalDate data, int duracao, int distancia, int altimetria, String precurso) {
         super(codigo, descricao, data, duracao);
         this.distancia = distancia;
         this.altimetria = altimetria;
@@ -27,19 +28,19 @@ public class Corrida extends Atividade {
         this.percurso = outro.getPercurso();
     }
 
-    public double getDistancia() {
+    public int getDistancia() {
         return distancia;
     }
 
-    public void setDistancia(double distancia) {
+    public void setDistancia(int distancia) {
         this.distancia = distancia;
     }
 
-    public double getAltimetria() {
+    public int getAltimetria() {
         return altimetria;
     }
 
-    public void setAltimetria(double altimetria) {
+    public void setAltimetria(int altimetria) {
         this.altimetria = altimetria;
     }
 
@@ -83,7 +84,12 @@ public class Corrida extends Atividade {
     }
 
     @Override
-    public void pontos() {
+    public void setpontos() {
+        this.pontos = this.distancia*10;
+    }
 
+    @Override
+    public int getpontos() {
+        return 0;
     }
 }

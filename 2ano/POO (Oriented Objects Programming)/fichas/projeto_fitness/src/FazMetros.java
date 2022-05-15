@@ -1,7 +1,8 @@
 interface FazMetros {
 
-    int pontos = 0;
-    void pontos();
+    void setpontos();
+    int getpontos();
+    int totalpontos(String code);
 
 }
 

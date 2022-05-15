@@ -7,6 +7,7 @@ public class Canoagem extends Atividade {
     private int vento;
     private int distancia;
     private int nvoltas;
+    private int pontos;
 
     public Canoagem() {
         super();
@@ -101,8 +102,12 @@ public class Canoagem extends Atividade {
     }
 
     @Override
-    public void pontos() {
-
+    public void setpontos() {
+        this.pontos = (int) (this.distancia*this.vento*1.5)*10;
     }
 
+    @Override
+    public int getpontos() {
+        return this.pontos;
+    }
 }

@@ -90,5 +90,8 @@ public abstract class Atividade implements FazMetros{
 
 
     public abstract double calorias();
-    public  abstract  Atividade clone( );
+    public abstract Atividade clone( );
+    public abstract int getpontos();
+    public abstract void setpontos();
+    public int totalpontos(String code){ if(code.equals(getCodigo())) return getpontos(); else return 0; }
 }

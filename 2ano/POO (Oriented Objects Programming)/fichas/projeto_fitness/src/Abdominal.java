@@ -49,6 +49,12 @@ public class Abdominal extends Atividade {
         return new Abdominal(this);
     }
 
+    @Override
+    public int getpontos() {return 0;}
+
+    @Override
+    public void setpontos() {}
+
 
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,3 +1,7 @@
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -22,8 +26,19 @@ public class Fitness{
         return user.get(email).getAtividades(atividade).size();
     }
 
-    public Utilizador getUtilizador(String email){
-        return user.get(email);
+    public Utilizador getUtilizador(String email) throws UtilizadorInexistenteException {
+        if(existeUtilizador(email))return user.get(email);
+        else throw new UtilizadorInexistenteException();
+    }
+
+    public void addUtilizador(Utilizador a) throws UtilizadorRepetidoException{
+        if(user.containsValue(a)) throw new UtilizadorRepetidoException();
+        else user.put(a.getEmail(),a);
+    }
+
+    public void addAtividade(Atividade a) throws AtividadeRepetidaException {
+        if(act.contains(a)) throw new AtividadeRepetidaException();
+        else act.add(a);
     }
 
     public void adiciona(String email, Atividade act){
@@ -38,7 +53,7 @@ public class Fitness{
         user.get(email).setAtividades(ativs);
     }
 
-    public int tempoTotalUtilizador(String email){
+    public int tempoTotalUtilizador(String email) throws UtilizadorInexistenteException {
         int tempo = 0;
         for(Atividade a : this.act){
             if(a.getUser().equals(getUtilizador(email))) tempo += a.getDuracao();
@@ -157,7 +172,45 @@ public class Fitness{
     // Fase 3
 
     public List<FazMetros> daoPontos(){
+        List<FazMetros> fm = new ArrayList<>();
+        for(Atividade a:this.act){
+            if(a.totalpontos(a.getCodigo())!=0) fm.add(fm.size(),a);
+        }
+        return fm;
+    }
 
+    // Fase 4
+
+    public List<String> lerFicheiro(String nomeFich) {
+        List<String> lines;
+        try { lines = Files.readAllLines(Paths.get(nomeFich), StandardCharsets.UTF_8); }
+        catch(IOException exc) { lines = new ArrayList<>(); }
+        return lines;
+    }
+
+    public void saveState(String nameOfFile) throws FileNotFoundException,IOException{
+        try{
+            FileOutputStream fos = new FileOutputStream(nameOfFile);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(this);
+            oos.flush();
+            oos.close();
+        }
+        catch(FileNotFoundException e){
+            System.out.println("File not found!\n");
+        }
+        catch(IOException e){
+             System.out.println("Something went wrong while saving the state!\n");
+             e.printStackTrace();
+        }
+    }
+
+    public Fitness loadState(String nameOfFile) throws FileNotFoundException,IOException, ClassNotFoundException{
+        FileInputStream fis = new FileInputStream(nameOfFile);
+        ObjectInputStream oos = new ObjectInputStream(fis);
+        Fitness cit =(Fitness) oos.readObject();
+        oos.close();
+        return cit;
     }
 
 
