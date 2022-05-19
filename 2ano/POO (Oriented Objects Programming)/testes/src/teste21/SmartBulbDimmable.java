@@ -1,3 +1,5 @@
+package teste21;
+
 public class SmartBulbDimmable extends SmartDevice{
     private double intensidade = 0.5;
     private double totalConsumo = 0;

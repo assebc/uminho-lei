@@ -1,3 +1,5 @@
+package teste21;
+
 public class SmartDevice {
     private String id;
     private boolean on;
