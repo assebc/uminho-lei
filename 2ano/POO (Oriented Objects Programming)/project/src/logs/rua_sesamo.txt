@@ -1,0 +1,270 @@
+Fornecedor:Iberdrola
+Fornecedor:Endesa
+Fornecedor:Gold Energy
+Fornecedor:MEO Energia
+Fornecedor:SU Electricidade
+Casa:Poupas,365597405,Iberdrola
+Divisao:Ninho
+SmartBulb:Warm,11,4.57
+SmartBulb:Neutral,12,4.73
+SmartCamera:(1280x720),65,3.84
+SmartSpeaker:2,Radio Renascenca,LG,5.54
+SmartBulb:Neutral,5,6.36
+SmartBulb:Neutral,20,5.87
+SmartBulb:Neutral,10,6.10
+SmartCamera:(1024x768),67,4.00
+SmartBulb:Neutral,8,0.28
+Casa:Ferrão,134655929,Endesa
+Divisao:Sala de Estar
+SmartBulb:Neutral,17,3.05
+SmartCamera:(1920x1080),93,6.47
+SmartBulb:Warm,17,0.20
+SmartCamera:(2160x1440),34,5.26
+SmartBulb:Cold,15,0.16
+SmartBulb:Neutral,17,0.16
+SmartCamera:(1024x768),80,6.64
+SmartBulb:Neutral,7,0.29
+SmartSpeaker:70,RTP Antena 1 98.3 FM,Bowers&Wilkins,5.20
+SmartBulb:Warm,15,5.05
+Divisao:Sala de Jantar
+SmartSpeaker:40,RTP Antena 1 98.3 FM,Marshall,5.10
+Divisao:Sala de Estar 1
+SmartBulb:Neutral,11,0.13
+SmartSpeaker:55,TSF Radio Noticias,Bowers&Wilkins,5.43
+SmartSpeaker:42,Cidade FM,Goodis,5.16
+SmartBulb:Neutral,7,0.14
+SmartBulb:Neutral,6,0.18
+SmartBulb:Neutral,19,0.25
+SmartBulb:Neutral,12,0.13
+SmartBulb:Neutral,13,0.16
+SmartSpeaker:60,Radio Comercial,LG,5.41
+SmartSpeaker:69,Radio Radar,Bang&Olufsen,5.24
+Divisao:Escritorio
+SmartBulb:Warm,18,0.26
+SmartCamera:(3840x2160),54,0.40
+Divisao:Casa de Banho
+SmartBulb:Warm,9,0.15
+SmartBulb:Neutral,15,0.18
+SmartBulb:Cold,15,5.38
+SmartCamera:(1280x720),95,6.98
+SmartBulb:Neutral,8,0.17
+SmartCamera:(2160x1440),85,0.33
+Divisao:Quarto
+SmartBulb:Neutral,7,0.14
+SmartCamera:(1280x720),117,0.14
+Divisao:Sala de Estar 2
+SmartBulb:Warm,19,7.70
+SmartCamera:(2160x1440),21,4.43
+SmartSpeaker:45,Radio Radar,JBL,5.20
+SmartBulb:Cold,10,0.14
+SmartCamera:(1366x768),7,0.38
+SmartBulb:Neutral,16,8.77
+SmartBulb:Neutral,18,4.21
+Divisao:Escritorio 1
+SmartBulb:Neutral,8,8.90
+SmartBulb:Neutral,20,0.13
+SmartBulb:Neutral,9,0.14
+SmartBulb:Neutral,19,0.12
+SmartSpeaker:30,TSF Radio Noticias,Philips,5.10
+SmartBulb:Neutral,18,7.92
+SmartSpeaker:49,TSF Radio Noticias,Goodis,5.34
+SmartBulb:Neutral,6,0.14
+SmartCamera:(1280x720),33,5.55
+Divisao:Sala de Jantar 1
+SmartBulb:Neutral,7,0.14
+SmartCamera:(2160x1440),26,6.18
+Casa:Monstro das Bolachas,637220731,MEO Energia
+Divisao:Sala de Jantar
+SmartBulb:Neutral,5,2.46
+SmartBulb:Neutral,6,0.18
+SmartSpeaker:70,RTP Antena 1 98.3 FM,BOSE,4.98
+SmartBulb:Neutral,7,0.13
+SmartBulb:Warm,11,8.12
+SmartBulb:Neutral,14,0.18
+SmartBulb:Neutral,9,0.12
+SmartSpeaker:75,Cidade FM,LG,4.91
+SmartBulb:Neutral,20,0.18
+Divisao:Armazem de Bolachas Maria
+SmartBulb:Neutral,5,0.96
+SmartBulb:Cold,8,3.23
+SmartBulb:Neutral,11,3.63
+SmartSpeaker:78,RFM,BOSE,5.26
+SmartBulb:Neutral,20,0.17
+SmartSpeaker:59,Radio Comercial,Sony,5.25
+SmartSpeaker:3,Cidade FM,Sony,4.29
+SmartBulb:Neutral,20,0.15
+SmartCamera:(2160x1440),106,4.98
+SmartBulb:Neutral,20,0.27
+Divisao:Jardim
+SmartBulb:Neutral,12,0.12
+SmartBulb:Cold,19,3.85
+SmartBulb:Neutral,7,8.90
+SmartBulb:Neutral,8,6.60
+SmartBulb:Neutral,9,5.94
+SmartBulb:Neutral,5,0.16
+SmartBulb:Neutral,7,4.54
+SmartCamera:(3840x2160),96,7.01
+SmartBulb:Neutral,15,2.57
+Divisao:Quarto
+SmartBulb:Neutral,16,8.37
+SmartBulb:Neutral,16,3.36
+SmartBulb:Warm,19,7.63
+Divisao:Escritorio
+SmartCamera:(1280x720),39,5.81
+SmartBulb:Neutral,7,0.15
+SmartSpeaker:53,Radio Renascenca,Bang&Olufsen,5.24
+SmartCamera:(1280x720),76,0.40
+SmartBulb:Neutral,8,0.15
+SmartCamera:(1366x768),71,7.08
+SmartBulb:Warm,10,7.38
+Casa:Egas,966919480,SU Electricidade
+Divisao:Sala de Jantar
+SmartBulb:Neutral,9,0.18
+SmartBulb:Neutral,10,9.59
+SmartCamera:(1920x1080),51,0.42
+SmartBulb:Neutral,12,8.14
+SmartBulb:Cold,5,6.88
+SmartBulb:Neutral,14,8.06
+SmartCamera:(1920x1080),78,4.50
+SmartBulb:Warm,17,0.13
+SmartCamera:(1366x768),53,0.30
+SmartCamera:(1024x768),29,0.96
+Divisao:Casa de Banho
+SmartSpeaker:50,RTP Antena 1 98.3 FM,JBL,4.01
+SmartCamera:(1280x720),71,5.99
+SmartBulb:Neutral,10,6.67
+SmartCamera:(3840x2160),61,6.61
+SmartBulb:Cold,12,0.15
+SmartCamera:(3840x2160),44,6.59
+SmartBulb:Warm,13,9.39
+SmartBulb:Neutral,10,7.75
+SmartBulb:Neutral,20,0.17
+SmartBulb:Neutral,10,0.10
+Divisao:Garagem
+SmartBulb:Neutral,5,2.08
+SmartBulb:Warm,19,0.21
+SmartBulb:Neutral,8,3.62
+SmartSpeaker:25,M80 Radio,Marshall,5.38
+SmartBulb:Neutral,15,9.72
+SmartSpeaker:49,MEGA HITS,Bowers&Wilkins,4.15
+SmartBulb:Neutral,5,0.12
+SmartBulb:Neutral,10,0.26
+Divisao:Quarto
+SmartBulb:Warm,5,8.90
+SmartBulb:Warm,13,0.14
+SmartBulb:Warm,15,2.76
+SmartCamera:(2160x1440),25,0.14
+SmartBulb:Neutral,17,0.23
+SmartBulb:Neutral,9,4.67
+SmartSpeaker:55,TSF Radio Noticias,Marshall,3.69
+SmartCamera:(1366x768),63,3.92
+Divisao:Jardim
+SmartCamera:(1366x768),94,0.39
+SmartBulb:Neutral,18,0.14
+SmartCamera:(2160x1440),118,5.19
+SmartBulb:Warm,15,3.66
+SmartBulb:Warm,9,4.18
+SmartCamera:(1920x1080),95,5.47
+SmartBulb:Neutral,5,5.02
+SmartCamera:(1366x768),101,7.15
+Casa:Becas,299188108,MEO Energia
+Divisao:Jardim
+SmartSpeaker:45,Radio Radar,Philips,4.02
+SmartBulb:Neutral,11,3.74
+SmartBulb:Neutral,16,0.20
+SmartSpeaker:30,Radio Renascenca,Bang&Olufsen,5.05
+SmartBulb:Neutral,20,0.12
+Divisao:Escritorio
+SmartCamera:(1024x768),97,0.40
+SmartBulb:Neutral,14,0.11
+SmartCamera:(1024x768),48,5.78
+SmartCamera:(1920x1080),114,4.71
+SmartBulb:Neutral,10,3.30
+SmartSpeaker:27,Radio Comercial,BOSE,5.22
+Divisao:Jardim 1
+SmartCamera:(2160x1440),9,4.34
+SmartBulb:Neutral,10,4.88
+SmartBulb:Warm,13,0.10
+SmartBulb:Warm,13,0.26
+SmartBulb:Neutral,15,1.36
+SmartBulb:Cold,9,0.18
+Divisao:Sala de Jantar
+SmartBulb:Neutral,14,0.96
+SmartBulb:Neutral,13,0.12
+SmartCamera:(1920x1080),54,3.99
+SmartBulb:Warm,13,0.18
+SmartBulb:Neutral,8,7.03
+SmartSpeaker:60,Radio Comercial,Sony,5.53
+SmartBulb:Neutral,16,0.25
+Divisao:Sala de Jantar 1
+SmartBulb:Cold,19,0.29
+SmartSpeaker:60,Cidade FM,Bowers&Wilkins,4.04
+SmartBulb:Neutral,15,4.98
+SmartCamera:(1366x768),12,3.66
+SmartCamera:(1920x1080),20,0.31
+SmartBulb:Cold,15,0.18
+SmartCamera:(3840x2160),48,0.14
+SmartSpeaker:63,TSF Radio Noticias,Goodis,5.14
+SmartBulb:Neutral,16,0.16
+Divisao:Garagem
+SmartCamera:(1280x720),63,6.20
+SmartCamera:(3840x2160),67,7.14
+SmartBulb:Neutral,6,9.44
+SmartBulb:Warm,17,0.16
+SmartBulb:Neutral,11,1.44
+Casa:Gata Tita,698509310,Gold Energy
+Divisao:Garagem
+SmartCamera:(1280x720),90,4.15
+SmartBulb:Warm,17,0.18
+SmartBulb:Cold,11,0.27
+Divisao:Cozinha
+SmartBulb:Neutral,20,0.15
+SmartBulb:Neutral,17,6.08
+SmartBulb:Neutral,14,0.10
+Divisao:Cozinha 1
+SmartBulb:Neutral,20,0.17
+SmartBulb:Cold,12,8.44
+SmartCamera:(1366x768),94,0.14
+SmartSpeaker:35,Radio Comercial,Sony,4.89
+Divisao:Quarto
+SmartBulb:Warm,12,0.96
+SmartBulb:Warm,17,0.15
+SmartCamera:(2160x1440),48,0.14
+SmartBulb:Neutral,15,0.18
+SmartBulb:Neutral,6,1.44
+SmartBulb:Neutral,9,3.74
+Divisao:Sala de Estar
+SmartBulb:Neutral,5,0.22
+SmartCamera:(1366x768),5,0.45
+SmartBulb:Neutral,19,9.93
+SmartSpeaker:65,Radio Renascenca,Marshall,5.28
+SmartBulb:Neutral,11,2.37
+SmartCamera:(1920x1080),87,0.96
+SmartCamera:(3840x2160),45,5.47
+SmartBulb:Neutral,12,9.85
+SmartBulb:Neutral,14,0.11
+SmartBulb:Neutral,18,0.27
+Divisao:Garagem 1
+SmartBulb:Cold,10,0.13
+SmartCamera:(1920x1080),96,0.28
+SmartCamera:(1024x768),33,5.53
+SmartBulb:Neutral,11,6.08
+SmartBulb:Neutral,17,0.23
+SmartBulb:Cold,9,0.19
+SmartBulb:Warm,8,2.89
+SmartCamera:(1024x768),14,0.35
+SmartCamera:(1920x1080),104,6.35
+Divisao:Escritorio
+SmartSpeaker:80,Radio Radar,JBL,5.20
+SmartCamera:(1366x768),26,7.19
+SmartBulb:Warm,13,0.16
+SmartBulb:Neutral,14,3.54
+SmartBulb:Neutral,15,6.84
+Divisao:Cozinha 2
+SmartCamera:(1366x768),45,0.30
+Divisao:Jardim dos Pombos
+SmartBulb:Warm,5,9.75
+SmartBulb:Warm,12,0.17
+SmartCamera:(1280x720),44,6.22
+SmartBulb:Neutral,16,0.24
+SmartBulb:Warm,15,4.31

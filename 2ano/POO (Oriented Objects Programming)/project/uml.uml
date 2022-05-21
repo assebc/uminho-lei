@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>D:/github/POO-Pratico/src</OriginalElement>
+  <nodes>
+    <node x="1177.6047795720988" y="-218.65824624777218">Model.ComercializadoresEnergia</node>
+    <node x="481.7078769781879" y="430.519890970059">Main</node>
+    <node x="545.6156274749819" y="-237.73517109108826">Model.SmartDevice</node>
+    <node x="593.6156274749819" y="214.7541766843446">Controller.Controller</node>
+    <node x="783.4828503091998" y="-274.7351710910882">Model.SmartCity</node>
+    <node x="311.9631037329393" y="239.2113195414874">View.View</node>
+    <node x="783.4828503091998" y="-27.00726377382233">Model.SmartHouse</node>
+    <node x="336.9926091882265" y="-262.2341503693999">Model.SmartCamera</node>
+    <node x="1196.0190652863844" y="27.99273622617767">Model.Fatura</node>
+    <node x="1190.6847795720987" y="164.2958926809364">Model.Marca</node>
+    <node x="355.4926091882265" y="-137.4332438962274">Model.SmartBulb</node>
+    <node x="346.9926091882265" y="-22.511415413956257">Model.SmartSpeaker</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Model.SmartBulb" target="Model.SmartDevice" relationship="GENERALIZATION">
+      <point x="63.500390811773514" y="2.4389622738851813E-4" />
+      <point x="524.0" y="-99.433" />
+      <point x="524.0" y="-155.735" />
+      <point x="-85.49962747498193" y="1.7109108824797659E-4" />
+    </edge>
+    <edge source="Model.SmartCity" target="Model.SmartDevice" relationship="TO_MANY">
+      <point x="-158.5" y="-14.999828908911809" />
+      <point x="85.5" y="-29.999828908911752" />
+    </edge>
+    <edge source="Model.SmartHouse" target="Model.ComercializadoresEnergia" relationship="CREATE">
+      <point x="117.51714969080024" y="-114.99973622617767" />
+      <point x="1059.5" y="-46.0" />
+      <point x="1117.983" y="-46.0" />
+      <point x="1117.983" y="-136.658" />
+      <point x="-128.99977957209876" y="2.4624777219628413E-4" />
+    </edge>
+    <edge source="Model.SmartCity" target="Model.SmartBulb" relationship="CREATE">
+      <point x="1.4969080018545355E-4" y="104.0001710910882" />
+      <point x="941.983" y="-44.0" />
+      <point x="418.993" y="-44.0" />
+      <point x="3.9081177351363294E-4" y="38.0002438962274" />
+    </edge>
+    <edge source="Model.ComercializadoresEnergia" target="Model.Fatura" relationship="CREATE">
+      <point x="-22.085714285714403" y="82.0" />
+      <point x="0.0" y="-60.0" />
+    </edge>
+    <edge source="Model.ComercializadoresEnergia" target="Model.SmartHouse" relationship="TO_MANY">
+      <point x="-128.99977957209876" y="-14.999753752227804" />
+      <point x="1148.0" y="-151.658" />
+      <point x="1148.0" y="87.993" />
+      <point x="158.50014969080019" y="2.637738223256747E-4" />
+    </edge>
+    <edge source="Model.SmartCity" target="Model.SmartCamera" relationship="CREATE">
+      <point x="-158.5" y="-84.50000000000006" />
+      <point x="82.0" y="-31.00102072168835" />
+    </edge>
+    <edge source="Model.SmartCity" target="Model.SmartSpeaker" relationship="CREATE">
+      <point x="-158.49985030919981" y="1.7109108819113317E-4" />
+      <point x="751.0" y="-170.735" />
+      <point x="751.0" y="-3.0" />
+      <point x="72.00039081177351" y="-29.488584586043743" />
+    </edge>
+    <edge source="Model.SmartSpeaker" target="Model.Marca" relationship="TO_ONE">
+      <point x="-72.0" y="0.0" />
+      <point x="294.4631037329393" y="26.488584586043743" />
+      <point x="294.4631037329393" y="347.7113195414874" />
+      <point x="1275.6847795720987" y="347.7113195414874" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="Controller.Controller" target="Model.SmartCity" relationship="TO_ONE">
+      <point x="61.5" y="-15.00017668434461" />
+      <point x="734.1156274749819" y="226.754" />
+      <point x="734.1156274749819" y="-155.735" />
+      <point x="-158.5" y="15.000171091088191" />
+    </edge>
+    <edge source="View.View" target="Controller.Controller" relationship="TO_ONE">
+      <point x="55.5" y="-30.5" />
+      <point x="-61.5" y="4.957142857142799" />
+    </edge>
+    <edge source="Model.SmartCity" target="Model.SmartHouse" relationship="CREATE">
+      <point x="-14.999850309199815" y="104.0" />
+      <point x="-14.999850309199815" y="-115.0" />
+    </edge>
+    <edge source="Main" target="Model.SmartCity" relationship="CREATE">
+      <point x="41.5" y="0.0" />
+      <point x="1483.1047795720988" y="445.019890970059" />
+      <point x="1483.1047795720988" y="-266.1582462477722" />
+      <point x="158.5000000000001" y="-95.42307515668398" />
+    </edge>
+    <edge source="Model.SmartCity" target="Controller.Controller" relationship="CREATE">
+      <point x="158.5000000000001" y="-65.42307515668398" />
+      <point x="1453.1047795720988" y="-236.15824624777218" />
+      <point x="1453.1047795720988" y="257.7958926809364" />
+      <point x="61.5" y="16.04171599659179" />
+    </edge>
+    <edge source="Model.SmartCity" target="Model.ComercializadoresEnergia" relationship="TO_MANY">
+      <point x="158.5000000000001" y="-14.999828908911809" />
+      <point x="-129.0" y="-49.07675375222783" />
+    </edge>
+    <edge source="Model.SmartCity" target="Model.SmartHouse" relationship="TO_MANY">
+      <point x="158.50014969080019" y="1.7109108819113317E-4" />
+      <point x="1148.0" y="-170.735" />
+      <point x="1148.0" y="87.993" />
+      <point x="158.50014969080019" y="2.637738223256747E-4" />
+    </edge>
+    <edge source="Controller.Controller" target="Model.SmartBulb" relationship="CREATE">
+      <point x="3.725250180650619E-4" y="-27.00017668434461" />
+      <point x="655.116" y="-44.0" />
+      <point x="418.993" y="-44.0" />
+      <point x="3.9081177351363294E-4" y="38.0002438962274" />
+    </edge>
+    <edge source="Controller.Controller" target="Model.SmartSpeaker" relationship="CREATE">
+      <point x="61.500372525018065" y="-1.7668434460915705E-4" />
+      <point x="751.0" y="241.754" />
+      <point x="751.0" y="-3.0" />
+      <point x="72.00039081177351" y="-29.488584586043743" />
+    </edge>
+    <edge source="Model.SmartSpeaker" target="Model.SmartDevice" relationship="GENERALIZATION">
+      <point x="72.00039081177351" y="4.154139562579928E-4" />
+      <point x="524.0" y="26.489" />
+      <point x="524.0" y="-155.735" />
+      <point x="-85.49962747498193" y="1.7109108824797659E-4" />
+    </edge>
+    <edge source="Model.SmartCity" target="Model.ComercializadoresEnergia" relationship="CREATE">
+      <point x="117.51714969080024" y="104.0001710910882" />
+      <point x="1059.5" y="-46.0" />
+      <point x="1117.983" y="-46.0" />
+      <point x="1117.983" y="-136.658" />
+      <point x="-128.99977957209876" y="2.4624777219628413E-4" />
+    </edge>
+    <edge source="Model.SmartCamera" target="Model.SmartDevice" relationship="GENERALIZATION">
+      <point x="82.00039081177351" y="1.5036939990409337E-4" />
+      <point x="524.0" y="-224.234" />
+      <point x="524.0" y="-155.735" />
+      <point x="-85.49962747498193" y="1.7109108824797659E-4" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.1578512396694214" showDependencies="true" x="899.0" y="102.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
