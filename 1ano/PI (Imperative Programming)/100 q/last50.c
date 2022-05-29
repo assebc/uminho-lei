@@ -118,8 +118,43 @@ int removeAll(LInt *l, int x) {
     return rem;
 }
 
-int main(){
+int exists(int val, int * v, int N){
+	for(int i = 0;i<N;i++){
+		if(v[i] == val) return 1;
+	}
+	return 0;
+}
 
+int removeDups(LInt * l){
+	if(!(*l)) return 0;
+	LInt aux = *l, prev;
+	int * v = malloc(sizeof(int)*1000);
+	int reps = 0;
+	int i = 0;
+	while(aux->prox){
+		if(aux->prox->valor==aux->valor){
+			v[i++] = aux->valor;
+			prev = aux->prox;
+			aux->prox = aux->prox->prox;
+			reps++;
+			free(prev);
+		}
+		else if(exists(aux->prox->valor,v,i)){
+			prev = aux->prox;
+			aux->prox = aux->prox->prox;
+			reps++;
+			free(prev);
+		} else{
+			v[i++] = aux->valor;
+			aux = aux->prox;
+		}
+
+	}
+	return reps;
+}
+
+int main(){
+	
 	LInt l = malloc(sizeof(struct lligada));
 	LInt l2 = malloc(sizeof(struct lligada));
 	l->valor = 10;
@@ -167,6 +202,29 @@ int main(){
 	int num = removeAll(head_red,15);
 	printf("Foram removidos %d números!\n", num);
 	imprimeL(*head_red);
+	
+	printf("\n");
+
+	LInt ca = malloc(sizeof(struct lligada));
+	ca->valor = 11;
+	ca->prox = NULL;
+	LInt * cabeca = &ca;
+	insertOrd(cabeca, 12);
+	insertOrd(cabeca, 9);
+	insertOrd(cabeca, 11);
+	insertOrd(cabeca, 15);
+	insertOrd(cabeca, 15);
+	insertOrd(cabeca, 15);
+	imprimeL(*cabeca);
+
+	printf("\n");
+
+	removeDups(cabeca);
+	imprimeL(*cabeca);
+
+	printf("\n");
+
+
 
 	return 0;
 }
