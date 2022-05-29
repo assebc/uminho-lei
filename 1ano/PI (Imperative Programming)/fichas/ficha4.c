@@ -22,8 +22,8 @@ int retiraVogaisRep(char *s){
 	int i, j = 0;
 	for(i = 0;s[i+1]!='\0';i++){
 
-		if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u'){
-			while (s[i+1] == s[i]) i++;
+		if(s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' || s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U'){
+			while (s[i+1] == s[i]) i++; 
 		}
 		frase[j] = s[i];
 		j++;
@@ -33,6 +33,25 @@ int retiraVogaisRep(char *s){
 	printf("%s, ",frase);
 
 	return amais;
+}
+
+int duplicaVogais (char *s){
+    int posS, posN = 0;
+    char * nova = malloc(sizeof(char)*10000);
+    int conta = 0;
+    for (posS = 0; s[posS] != '\0'; posS ++){
+        if (s[posS] == 'a' || s[posS] == 'e' || s[posS] == 'i' || s[posS] == 'o' || s[posS] == 'u' || s[posS] == 'A' || s[posS] == 'E' || s[posS] == 'I' || s[posS] == 'O' || s[posS] == 'U'){
+            nova[posN++] = s[posS];
+            nova[posN++] = s[posS];
+            conta++;
+        } else {
+            nova[posN] = s[posS];
+            posN ++;
+        } 
+    }
+    printf ("%s\n", nova);
+    free(nova);
+    return conta;
 }
 
 int ordenado (int v[],int N){
@@ -86,13 +105,17 @@ int partition(int v[], int N, int x){
 }
 
 int main(){
-
+	
 	char * palavra = "arroz"; // 2
 	printf("\nExiste %d vogais na palavra %s!\n\n", contaVogais(palavra),palavra);
 
 	char * frase = "Estaa e umaa string coom duuuplicadoos";
 	printf("onde existira %d letras a mais!\n\n", retiraVogaisRep(frase));
-
+	
+	char * frase2 = "Esta e uma string com duplicados";
+	// EEstaa ee uumaa striing coom duuploocaadoos
+	printf("onde existira %d letras duplicadas!\n", duplicaVogais(frase2));
+	
 	int v[5] = {1,5,2,3,4};
 	int h[5] = {1,2,3,4,5};
 	int h1[7] = {1,3,5,7,9,11,15};
@@ -109,6 +132,6 @@ int main(){
 	
 	int h3[10] = {1,10,30,4,2,40,3,0,9,32};
 	printf("Na função partition existe um total de %d numeros menores que %d!\n\n", partition(h3,10,5), 5);
-
+	
 	return 0;
 }
