@@ -223,8 +223,6 @@ int main(){
 	imprimeL(*cabeca);
 
 	printf("\n");
-
-
-
+	
 	return 0;
 }
