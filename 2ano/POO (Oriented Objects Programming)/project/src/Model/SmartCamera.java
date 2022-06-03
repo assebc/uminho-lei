@@ -72,8 +72,8 @@ public class SmartCamera extends SmartDevice {
      * @param tamanhoFicheiros tamanho de ficheiros a definir
      * @param consumo consumo a definir
      */
-    public SmartCamera(int id, float width,float height, int tamanhoFicheiros, double consumo){
-        super(id, state.OFF, consumo, LocalDate.now(), LocalDate.now());
+    public SmartCamera(int id, float width,float height, int tamanhoFicheiros, double consumo, String estado){
+        super(id, estado, consumo, LocalDate.now(), LocalDate.now());
         this.resolucao=width*height/1000000;
         this.tamanho_ficheiros= tamanhoFicheiros;
     }

@@ -14,6 +14,7 @@ import java.io.ObjectInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.AccessDeniedException;
+import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -370,7 +371,7 @@ public class Controller {
      * @param estado estado da lampada
      */
     public void addSmartBulbToDivisao(int house_id,String divisao, String modo,  int dimensions, double consumo, String estado){
-        this.city.addDeviceToDivisaoL(house_id, divisao, this.city.getDeviceId(),modo , dimensions,consumo);
+        this.city.addDeviceToDivisaoL(house_id, divisao, this.city.getDeviceId(),modo , dimensions,consumo, estado);
     }
     
     /** 
@@ -384,7 +385,7 @@ public class Controller {
      * @param estado estado
      */
     public void addSmartCameraToDivisao(int house_id,String divisao, float width,  float heigth, int tamanho, double consumo, String estado){
-        this.city.addDeviceToDivisaoC(house_id, divisao, this.city.getDeviceId(),width , heigth,tamanho, consumo);
+        this.city.addDeviceToDivisaoC(house_id, divisao, this.city.getDeviceId(),width , heigth,tamanho, consumo, estado);
     }
     
     /** 
@@ -518,15 +519,20 @@ public class Controller {
         try{
             if (!nameOfFile.contains(".txt"))
                 nameOfFile=nameOfFile+".txt";
-            Path path = Path.of("./logs/"+nameOfFile);
-            //Path path = FileSystems.getDefault().getPath("logs", "logs.txt");
-            String content = Files.readString(path);
+            String content="";
+            Path path = Path.of("./src/logs/"+nameOfFile);
+            try{
+                content = Files.readString(path);
+            }
+            catch(Exception e){
+                System.out.println("merda");
+            }
+            //Path path = FileSystems.getDefault().getPath("logs", nameOfFile);
             String[] contentSplited = content.split("\n");
             String[] linhaPartida;
             String divisao = "";
     
             for (String linha : contentSplited) {
-    
                 linhaPartida = linha.split(":", 2);
     
                 switch (linhaPartida[0]) {
@@ -582,7 +588,8 @@ public class Controller {
         String mode = campos[0];
         int dimensions = Integer.parseInt(campos[1]);
         double consumo = Double.parseDouble(campos[2]);
-        this.city.addDeviceToDivisaoL(city.getHouseId()-1, divisao, this.city.giveDeviceId(), mode, dimensions,consumo);
+        String estado = "OFF";
+        this.city.addDeviceToDivisaoL(city.getHouseId(), divisao, this.city.giveDeviceId(), mode, dimensions,consumo, estado);
     }
 
     /**
@@ -600,7 +607,8 @@ public class Controller {
         float width = Float.parseFloat(widthHeight[0]);
         float heigth = Float.parseFloat(widthHeight[1]);
         double consumo = Double.parseDouble(campos[2]);
-		this.city.addDeviceToDivisaoC(city.getHouseId()-1, divisao, this.city.giveDeviceId(),width,heigth,tamanho,consumo);
+        String estado = "OFF";
+		this.city.addDeviceToDivisaoC(city.getHouseId(), divisao, this.city.giveDeviceId(),width,heigth,tamanho,consumo, estado);
     }
 
     /**
@@ -614,7 +622,7 @@ public class Controller {
         String estacao = campos[1];
         double consumo = Double.parseDouble(campos[3]);
         String estado = "OFF";
-        this.city.addDeviceToDivisaoS(city.getHouseId()-1,divisao, this.city.getDeviceId(), vol, estacao, campos[2], consumo, estado);
+        this.city.addDeviceToDivisaoS(city.getHouseId(),divisao, this.city.getDeviceId(), vol, estacao, campos[2], consumo, estado);
     }
 
     /**

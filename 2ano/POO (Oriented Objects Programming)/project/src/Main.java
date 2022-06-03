@@ -19,19 +19,5 @@ public class Main{
         view.run();
         scanner.close();
 
-       
-
-        // SmartHouse casa = new SmartHouse();
-        // casa.addDivisao("teste");
-        // SmartDevice disp = new SmartBulb(10);
-        // casa.addDevice("teste", disp);
-        // casa.setDivisaoOn("teste");
-        // System.out.println(casa.toString());
-
-
-        //SmartCity city = new SmartCity();
-        //SmartCity nueva = city.loadState("state");
-        //System.out.println(nueva.toString());
-        // //System.out.println(nueva.toString());
     }   
 }

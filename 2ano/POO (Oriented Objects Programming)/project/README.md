@@ -4,7 +4,7 @@
     <p>Neste repositório é visível a existência de 2(duas) diretorias, sendo elas as library utilizadas (lib) e
 respetiva diretoria com o conteúdo e código de desenvolvimento (src).</p>
 <p>Todo este projeto é possível ser executado através do ficheiro Main.java</p>
-<p>Neste projeto obtém uma parte de Frontend realizada no GUI(View), e uma parte de backend geral em UI(Controller/View) e uma SmartCity(Model)</p>
+<p>Neste projeto obtém uma parte de View realizda na View, e uma parte de Model geral em SmartCity e por fim um Controller</p>
 <p>Para ajudar no planeamento e desenvolvimento do projeto recorremos ao Trello de modo a seguirmos um plano de forma mais ordeira.</p>
 
 

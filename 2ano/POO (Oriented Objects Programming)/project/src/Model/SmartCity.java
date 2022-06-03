@@ -525,9 +525,9 @@ public class SmartCity implements Serializable{
      * @param dimensions dimensão da lampada
      * @param consumo consumo da lampada
      */
-    public void addDeviceToDivisaoL(int house_id, String divisao, int id, String mode , int dimensions, double consumo){
-        SmartDevice sd = new SmartBulb(id,mode,dimensions,consumo);
-        getCasa(house_id).addDevice(divisao, sd);
+    public void addDeviceToDivisaoL(int house_id, String divisao, int id, String mode , int dimensions, double consumo, String estado){
+        SmartDevice sd = new SmartBulb(id,mode,dimensions,consumo, estado);
+        getCasa(house_id-1).addDevice(divisao, sd);
     }
 
     /**
@@ -539,9 +539,9 @@ public class SmartCity implements Serializable{
      * @param height largura da resolução a definir
      * @param consumo consumo a definir
      */
-    public void addDeviceToDivisaoC(int house_id, String divisao, int id, float width , float height, int tamanho, double consumo){
-        SmartDevice sc = new SmartCamera(id,width,height,tamanho,consumo);
-        getCasa(house_id).addDevice(divisao, sc);
+    public void addDeviceToDivisaoC(int house_id, String divisao, int id, float width , float height, int tamanho, double consumo, String estado){
+        SmartDevice sc = new SmartCamera(id,width,height,tamanho,consumo, estado);
+        getCasa(house_id-1).addDevice(divisao, sc);
     }
 
     /**
@@ -559,7 +559,7 @@ public class SmartCity implements Serializable{
         if(getMarca(marca)==null) { createMarca(marca); sb = new SmartSpeaker(id,vol,estacao,getMarca(marca),consumo);}
         else sb = new SmartSpeaker(id,vol,estacao,estado, getMarca(marca),consumo);
         SmartDevice sd = (SmartDevice) sb;
-        getCasa(house_id).addDevice(divisao, sd);
+        getCasa(house_id-1).addDevice(divisao, sd); //FIX:fixed
     }
 
     /**
