@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
  * @author JFC
  * @version 20201206
  */
-public class Turma {
+public class  Turma {
 
     private String id;
     private Sala sala;

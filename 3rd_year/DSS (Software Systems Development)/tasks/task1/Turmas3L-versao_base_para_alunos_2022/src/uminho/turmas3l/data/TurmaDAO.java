@@ -6,7 +6,6 @@
  */
 package uminho.turmas3l.data;
 
-import uminho.turmas3l.business.Aluno;
 import uminho.turmas3l.business.Sala;
 import uminho.turmas3l.business.Turma;
 
@@ -16,9 +15,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-import static java.util.stream.Collectors.toList;
-
-import static java.util.stream.Collectors.*;
 
 /**
  * Versão incompleta de um DAO para Turmas
@@ -188,7 +184,7 @@ public class TurmaDAO implements Map<String, Turma> {
      */
     private Collection<String> getAlunosTurma(String tid, Statement stm) throws SQLException {
         Collection<String> alunos = new TreeSet<>();
-        try (ResultSet rsa = stm.executeQuery("SELECT Num FROM alunos WHERE Turma='"+tid+"'")) {
+        try (ResultSet rsa = stm.executeQuery("SELECT * FROM alunos WHERE Turma='"+tid+"'")) {
             while(rsa.next()) {
                 alunos.add(rsa.getString("Num"));
             }

@@ -1,6 +1,6 @@
 package uminho.turmas3l.data;
 
-import uminho.turmas3l.business.Aluno;
+import uminho.turmas3l.business.Sala;
 
 import java.sql.*;
 import java.util.Collection;
@@ -8,17 +8,17 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class AlunoDAO implements Map<String, Aluno> {
+public class SalaDAO implements Map<String, Sala> {
 
-    private static AlunoDAO singleton = null;
+    private static SalaDAO singleton = null;
 
-    private AlunoDAO() {
+    private SalaDAO() {
         try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
              Statement stm = conn.createStatement()) {
-            String sql = "CREATE TABLE IF NOT EXISTS alunos (" +
+            String sql = "CREATE TABLE IF NOT EXISTS salas (" +
                     "Num varchar(10) NOT NULL PRIMARY KEY," +
-                    "Nome varchar(45) DEFAULT NULL," +
-                    "Email varchar(45) DEFAULT NULL)";
+                    "Edificio varchar(45) DEFAULT NULL," +
+                    "Capacidade int(4) DEFAULT 0)";
             stm.executeUpdate(sql);
         } catch (SQLException e) {
             // Erro a criar tabela...
@@ -27,11 +27,11 @@ public class AlunoDAO implements Map<String, Aluno> {
         }
     }
 
-    public static AlunoDAO getInstance() {
-        if (AlunoDAO.singleton == null) {
-            AlunoDAO.singleton = new AlunoDAO();
+    public static SalaDAO getInstance() {
+        if (SalaDAO.singleton == null) {
+            SalaDAO.singleton = new SalaDAO();
         }
-        return AlunoDAO.singleton;
+        return SalaDAO.singleton;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class AlunoDAO implements Map<String, Aluno> {
         int i = 0;
         try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
              Statement stm = conn.createStatement();
-             ResultSet rs = stm.executeQuery("SELECT count(*) FROM alunos")) {
+             ResultSet rs = stm.executeQuery("SELECT count(*) FROM salas")) {
             if(rs.next()) {
                 i = rs.getInt(1);
             }
@@ -63,8 +63,8 @@ public class AlunoDAO implements Map<String, Aluno> {
         try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
              Statement stm = conn.createStatement();
              ResultSet rs =
-                     stm.executeQuery("SELECT Num FROM alunos WHERE Num='"+key.toString()+"'")) {
-             r = rs.next();
+                     stm.executeQuery("SELECT Num FROM salas WHERE Num='"+key.toString()+"'")) {
+            r = rs.next();
         } catch (SQLException e) {
             // Database error!
             e.printStackTrace();
@@ -75,67 +75,53 @@ public class AlunoDAO implements Map<String, Aluno> {
 
     @Override
     public boolean containsValue(Object value) {
-        Aluno a = (Aluno) value;
-        return this.containsKey(a.getNumero());
+        Sala s = (Sala) value;
+        return this.containsKey(s.getNumero());
     }
 
     @Override
-    public Aluno get(Object key) {
-        Aluno a = null;
+    public Sala get(Object key) {
+        Sala s = null;
         try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
              Statement stm = conn.createStatement();
-             ResultSet rs = stm.executeQuery("SELECT * FROM alunos WHERE Num='"+key+"'")) {
+             ResultSet rs = stm.executeQuery("SELECT * FROM salas WHERE Num='"+key+"'")) {
             if (rs.next()) {  // A chave existe na tabela
-                a = new Aluno(rs.getString("Num"),
-                            rs.getString("Nome"),
-                        rs.getString("Email"));
+                s = new Sala(rs.getString("Num"),
+                        rs.getString("Edificio"),
+                        rs.getInt("Capacidade"));
             }
         } catch (SQLException e) {
             // Database error!
             e.printStackTrace();
             throw new NullPointerException(e.getMessage());
         }
-        return a;
+        return s;
     }
 
     @Override
-    public Aluno put(String key, Aluno value) {
-        Aluno res = null;
-        try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
-             Statement stm = conn.createStatement()) {
-            try (PreparedStatement pstm = conn.prepareStatement("UPDATE alunos SET Num=? WHERE Num=?")) {
-                // Adicionar os que entram na turma (colocar o Id da turma na coluna Turma da tabela alunos)
-                pstm.setString(1, key);
-                pstm.setString(2, value.toString());
-                pstm.executeUpdate();
-            }
-        } catch (SQLException e) {
-            // Database error!
-            e.printStackTrace();
-            throw new NullPointerException(e.getMessage());
-        }
-        return res;
+    public Sala put(String key, Sala value) {
+        return null;
     }
 
     @Override
-    public Aluno remove(Object key) {
-        Aluno a = this.get(key);
+    public Sala remove(Object key) {
+        Sala s = this.get(key);
         try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
              Statement stm = conn.createStatement()){
-            // apagar o aluno
-            stm.executeUpdate("DELETE FROM alunos WHERE Num='"+key+"'");
+            // apagar a sala
+            stm.executeUpdate("DELETE FROM salas WHERE Num='"+key+"'");
         } catch (Exception e) {
             // Database error!
             e.printStackTrace();
             throw new NullPointerException(e.getMessage());
         }
-        return a;
+        return s;
     }
 
     @Override
-    public void putAll(Map<? extends String, ? extends Aluno> m) {
-        for(Aluno a : m.values()) {
-            this.put(a.getNumero(), a);
+    public void putAll(Map<? extends String, ? extends Sala> m) {
+        for(Sala s: m.values()){
+            this.put(s.getNumero(),s);
         }
     }
 
@@ -143,8 +129,8 @@ public class AlunoDAO implements Map<String, Aluno> {
     public void clear() {
         try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
              Statement stm = conn.createStatement()) {
-            stm.executeUpdate("UPDATE alunos SET Aluno=NULL");
-            stm.executeUpdate("TRUNCATE alunos");
+            stm.executeUpdate("UPDATE salas SET Sala=NULL");
+            stm.executeUpdate("TRUNCATE salas");
         } catch (SQLException e) {
             // Database error!
             e.printStackTrace();
@@ -158,15 +144,15 @@ public class AlunoDAO implements Map<String, Aluno> {
     }
 
     @Override
-    public Collection<Aluno> values() {
-        Collection<Aluno> res = new HashSet<>();
+    public Collection<Sala> values() {
+        Collection<Sala> res = new HashSet<>();
         try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
              Statement stm = conn.createStatement();
-             ResultSet rs = stm.executeQuery("SELECT Num FROM alunos")) { // ResultSet com os numeros de todos os alunos
+             ResultSet rs = stm.executeQuery("SELECT Num FROM salas")) { // ResultSet com os numeros de todos os alunos
             while (rs.next()) {
-                String idt = rs.getString("Num"); // Obtemos um numero de aluno do ResultSet
-                Aluno a = this.get(idt);                    // Utilizamos o get para construir os alunos
-                res.add(a);                                 // Adiciona o aluno ao resultado.
+                String idt = rs.getString("Num"); // Obtemos um numero de sala do ResultSet
+                Sala s = this.get(idt);                    // Utilizamos o get para construir as salas
+                res.add(s);                                 // Adiciona a sala ao resultado.
             }
         } catch (Exception e) {
             // Database error!
@@ -177,7 +163,7 @@ public class AlunoDAO implements Map<String, Aluno> {
     }
 
     @Override
-    public Set<Entry<String, Aluno>> entrySet() {
-        throw new NullPointerException("public Set<Map.Entry<String,Aluno>> entrySet() not implemented!");
+    public Set<Entry<String, Sala>> entrySet() {
+        throw new NullPointerException("public Set<Map.Entry<String,Sala>> entrySet() not implemented!");
     }
 }

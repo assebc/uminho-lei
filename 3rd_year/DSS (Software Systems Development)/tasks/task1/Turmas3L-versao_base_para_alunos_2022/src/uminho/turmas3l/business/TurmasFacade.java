@@ -7,6 +7,8 @@
 package uminho.turmas3l.business;
 
 import uminho.turmas3l.data.TurmaDAO;
+import uminho.turmas3l.data.AlunoDAO;
+import uminho.turmas3l.data.SalaDAO;
 
 import java.util.*;
 
@@ -20,10 +22,12 @@ public class TurmasFacade implements ITurmasFacade {
 
     private Map<String,Turma> turmas;
     private Map<String,Aluno> alunos;
+    private Map<String,Sala> salas;
 
     public TurmasFacade() {
         this.turmas = TurmaDAO.getInstance();
-        this.alunos = new HashMap<>();
+        this.alunos = AlunoDAO.getInstance();
+        this.salas = SalaDAO.getInstance();
     }
 
     /**
@@ -94,8 +98,11 @@ public class TurmasFacade implements ITurmasFacade {
     @Override
     public void alteraSalaDeTurma(String tid, Sala s) {
         Turma t = turmas.get(tid);
-        t.setSala(s);
-        turmas.put(t.getId(), t);    // Para actualizar a BD!
+        if(salas.containsValue(s)) {
+            t.setSala(s);
+            turmas.put(t.getId(), t); // Para actualizar a BD!
+        } else salas.put(s.getNumero(),s);
+
     }
 
     /**
