@@ -41,6 +41,16 @@ public class TurmasFacade implements ITurmasFacade {
     }
 
     /**
+     * Método que devolve todos as salas registadas.
+     *
+     * @return todos as salas registadas
+     */
+    @Override
+    public Collection<Sala> getSalas() {
+        return new ArrayList<>(this.salas.values());
+    }
+
+    /**
      * Método que remove um aluno da turma.
      *
      * @param tid id da turma
@@ -89,6 +99,23 @@ public class TurmasFacade implements ITurmasFacade {
     @Override
     public void adicionaTurma(Turma t) {
         this.turmas.put(t.getId(), t);
+    }
+
+    /**
+     * @param s sala a dicionar
+     */
+    @Override
+    public void adicionaSala(Sala s) {
+        this.salas.put(s.getNumero(),s);
+    }
+
+    /**
+     * @param s sala a procurar
+     * @return true se a sala existe
+     */
+    @Override
+    public boolean existeSala(Sala s) {
+        return this.salas.containsValue(s);
     }
 
     /**

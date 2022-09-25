@@ -31,10 +31,25 @@ public interface ITurmasFacade {
     void adicionaTurma(Turma t);
 
     /**
+     * Método que adiciona uma sala
+     *
+     * @param  s sala a adicionar
+     */
+    void adicionaSala(Sala s);
+
+    /**
+     * Método que verifica se uma sala existe
+     *
+     * @param s sala a adicionar
+     * @return true se a sala existe
+     */
+    boolean existeSala(Sala s);
+
+    /**
      * Método que altera a sala da turma.
      *
      * @param tid id da turma que vai mudar de sala
-     * @param s nova sala da turma
+     * @param s sala a adicionar
      */
     void alteraSalaDeTurma(String tid, Sala s);
 
@@ -93,6 +108,13 @@ public interface ITurmasFacade {
     Collection<Aluno> getAlunos();
 
     /**
+     * Método que devolve todos as salas registados.
+     *
+     * @return todos as salas registadas
+     */
+    Collection<Sala> getSalas();
+
+    /**
      * Método que remove um aluno da turma.
      *
      * @param tid id da turma
@@ -108,4 +130,5 @@ public interface ITurmasFacade {
      * @return True se aluno existe na turma
      */
     boolean existeAlunoEmTurma(String tid, String num);
+
 }
