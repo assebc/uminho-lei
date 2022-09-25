@@ -39,6 +39,8 @@ public class TextUI {
                 "Adicionar Aluno",
                 "Consultar Aluno",
                 "Listar Alunos",
+                "Adicionar Sala",
+                "Listar Salas",
                 "Adicionar Turma",
                 "Mudar Sala à Turma",
                 "Listar Turmas",
@@ -49,12 +51,14 @@ public class TextUI {
         this.menu.setHandler(1, this::trataAdicionarAluno);
         this.menu.setHandler(2, this::trataConsultarAluno);
         this.menu.setHandler(3, this::trataListarAlunos);
-        this.menu.setHandler(4, this::trataAdicionarTurma);
-        this.menu.setHandler(5, this::trataMudarSalaTurma);
-        this.menu.setHandler(6, this::trataListarTurmas);
-        this.menu.setHandler(7, this::trataAdicionarAlunoATurma);
-        this.menu.setHandler(8, this::trataRemoverAlunoDaTurma);
-        this.menu.setHandler(9, this::trataListarAlunosTurma);
+        this.menu.setHandler(4, this::trataAdicionarSala);
+        this.menu.setHandler(5, this::trataListarSalas);
+        this.menu.setHandler(6, this::trataAdicionarTurma);
+        this.menu.setHandler(7, this::trataMudarSalaTurma);
+        this.menu.setHandler(8, this::trataListarTurmas);
+        this.menu.setHandler(9, this::trataAdicionarAlunoATurma);
+        this.menu.setHandler(10, this::trataRemoverAlunoDaTurma);
+        this.menu.setHandler(11, this::trataListarAlunosTurma);
 
         this.model = new TurmasFacade();
         scin = new Scanner(System.in);
@@ -136,24 +140,52 @@ public class TextUI {
             System.out.println(e.getMessage());
         }
     }
+    private void trataAdicionarSala(){
+        try{
+            System.out.println("Sala: ");
+            String sala = scin.nextLine();
+            System.out.println("Edifício: ");
+            String edif = scin.nextLine();
+            System.out.println("Capacidade: ");
+            int cap = scin.nextInt();
+            scin.nextLine();    // Limpar o buffer depois de ler o inteiro
+            this.model.adicionaSala(new Sala(sala,edif,cap));
+            System.out.println("Sala adicionada");
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void trataListarSalas() {
+        //Scanner scin = new Scanner(System.in);
+        try {
+            System.out.println(this.model.getSalas().toString());
+        }
+        catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     private void trataMudarSalaTurma() {
         try {
             System.out.println("Número da turma: ");
             String tid = scin.nextLine();
             if (this.model.existeTurma(tid)) {
+                trataListarSalas();
+                System.out.println("Identifique a sala para que pretende alterar");
                 System.out.println("Sala: ");
                 String sala = scin.nextLine();
                 System.out.println("Edifício: ");
                 String edif = scin.nextLine();
                 System.out.println("Capacidade: ");
                 int cap = scin.nextInt();
-                scin.nextLine();    // Limpar o buffer depois de ler o inteiro
-                this.model.alteraSalaDeTurma(tid, new Sala(sala, edif, cap));
-                System.out.println("Sala da turma alterada");
-            } else {
-                System.out.println("Esse número de turma não existe!");
-            }
+                Sala s = new Sala(sala,edif,cap);
+                if(this.model.existeSala(s)) {
+                    scin.nextLine();    // Limpar o buffer depois de ler o inteiro
+                    this.model.alteraSalaDeTurma(tid, s);
+                    System.out.println("Sala da turma alterada");
+                } else System.out.println("Esta sala não existe!");
+            } else System.out.println("Esta turma não existe!");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
