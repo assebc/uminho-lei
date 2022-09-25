@@ -148,7 +148,7 @@ public class TextUI {
             String edif = scin.nextLine();
             System.out.println("Capacidade: ");
             int cap = scin.nextInt();
-            scin.nextLine();    // Limpar o buffer depois de ler o inteiro
+            scin.nextLine();   // Limpar o buffer depois de ler o inteiro
             this.model.adicionaSala(new Sala(sala,edif,cap));
             System.out.println("Sala adicionada");
         } catch(Exception e){
