@@ -1,5 +1,6 @@
 package uminho.turmas3l.data;
 
+import uminho.turmas3l.business.Aluno;
 import uminho.turmas3l.business.Sala;
 
 import java.sql.*;
@@ -100,7 +101,22 @@ public class SalaDAO implements Map<String, Sala> {
 
     @Override
     public Sala put(String key, Sala value) {
-        return null;
+        Sala res = null;
+        try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
+             Statement stm = conn.createStatement()) {
+            try(PreparedStatement pstm = conn.prepareStatement("INSERT INTO salas(Num,Edificio,Capacidade)" + "VALUES (?,?,?)")) {
+                pstm.setString(1,value.getNumero());
+                pstm.setString(2,value.getEdificio());
+                pstm.setString(3,String.valueOf(value.getCapacidade()));
+                pstm.execute();
+            }
+        } catch (SQLException e) {
+            // Database error!
+            e.printStackTrace();
+            throw new NullPointerException(e.getMessage());
+        }
+        return res;
+
     }
 
     @Override

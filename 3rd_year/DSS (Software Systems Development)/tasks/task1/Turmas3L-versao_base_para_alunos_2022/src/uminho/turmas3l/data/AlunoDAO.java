@@ -103,11 +103,11 @@ public class AlunoDAO implements Map<String, Aluno> {
         Aluno res = null;
         try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
              Statement stm = conn.createStatement()) {
-            try (PreparedStatement pstm = conn.prepareStatement("UPDATE alunos SET Num=? WHERE Num=?")) {
-                // Adicionar os que entram na turma (colocar o Id da turma na coluna Turma da tabela alunos)
-                pstm.setString(1, key);
-                pstm.setString(2, value.toString());
-                pstm.executeUpdate();
+            try(PreparedStatement pstm = conn.prepareStatement("INSERT INTO alunos(Num,Nome,Email)" + "VALUES (?,?,?)")) {
+                pstm.setString(1,value.getNumero());
+                pstm.setString(2,value.getNome());
+                pstm.setString(3,value.getEmail());
+                pstm.execute();
             }
         } catch (SQLException e) {
             // Database error!
