@@ -1,0 +1,263 @@
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.20 of 2017/10/04
+%
+\documentclass[runningheads]{llncs}
+%
+\usepackage{xurl}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage[portuguese]{babel}
+\usepackage{multirow}
+\usepackage{imakeidx}
+\makeindex
+\usepackage{titlesec}
+
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+
+\title{Trabalho Prático Nº1 – Protocolo de Camada de Transporte}
+\author{Carlos Gustavo Silva Pereira a96867, Cláudio Alexandre Freitas Bessa a97063, João Miguel Ferreira Loureiro a97257}
+\institute{Universidade do Minho - Licenciatura em Engenharia Informática}
+\authorrunning{Gustavo Pereira \and Cláudio Bessa \and João Loureiro}
+
+
+\begin{document}
+\maketitle
+
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+\paragraph{}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.15]{img/na_universidade_do_minho-1.png} 
+\end{figure} 
+
+\setcounter{tocdepth}{2}
+\makeatletter
+\renewcommand*\l@author[2]{}
+\renewcommand*\l@title[2]{}
+\makeatletter
+        
+\newpage
+\renewcommand{\contentsname}{Índice}
+\tableofcontents
+\printindex
+
+\pagebreak
+
+%
+\renewcommand{\abstractname}{\textbf{Resumo:}}
+\renewcommand{\keywords}{\textbf{Palavras-chave: }}
+\begin{abstract}
+O estudo do protocolo de transporte, é um dos pilares das comunicação por computadores,neste trabalho iremos responder Às perguntas do primeiro trabalho práitoc, abordando noções importantes relativas ao transporte de dados numa rede, nomeadamente conceitos como utilização de TCP, utilização de UDP, controlo de erros, duplicação e perca de pacotes, entre outros.
+Para este trabalho utilizamos como recurso o acesso à maquina virtual do sistema operativo fornecido pelo corpo docente, \textit{Xubuntu} com o programa \textit{CORE} e a respetiva ferramententa, para visualização da transferência de pacotes e dos gráficos pedidos, o \textit{Wireshark}.
+
+\keywords{Protocolo de Camada de Transporte,  Comunicação por Computadores, Segmentos, Pacotes e Datagrama}
+\end{abstract}
+
+\pagebreak
+
+\section{Questões}
+    \subsection{Pergunta 1}
+    De que forma as perdas e duplicações de pacotes afetaram o desempenho das aplicações? Que camada lidou com esses problemas: transporte ou aplicação? Responda com base nas experiências feitas e nos resultados observados.
+    
+    \bigskip
+    
+    \textbf{Resposta}: Após a verificação de ambos os \textit{pings} no diferentes ambientes na topologia, verificamos que o computador \textit{grilo} foi mais lento, uma vez que essa rede tinha associada uma determinada probabilidade de perda e duplicações. 
+    A camada que lida com estes tipos de problemas é a camada da aplicação.
+    
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.5]{img/a1 1.png}
+    \caption{Resultados obtidos em Portatil1} 
+    \label{fig:data1}
+    \end{figure}
+    
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.5]{img/a1 2.png}
+    \caption{Resultados obtidos em Grilo} 
+    \label{fig:data2}
+    \end{figure}
+    
+    \newpage
+    
+    \subsection{Pergunta 2}
+    Obtenha a partir do \textit{Wireshark}, ou desenhe manualmente, um diagrama temporal para a transferência do ficheiro \textit{file1} por \textit{FTP} realizada em A.3. Foque-se apenas na transferência de dados [\textit{ftp-data}] e não na conexão de controlo (o \textit{FTP} usa mais que uma conexão em simultâneo). Identifique, se aplicável, as fases de início de conexão, transferência de dados e fim de conexão. Identifique também os tipos de segmentos trocados e os números de sequência usados tanto nos dados como nas confirmações.
+    
+    \bigskip
+    
+    \textbf{Resposta}: A transferência do file1 utilizando o protocolo FTP exige um número relativamente baixo de trocas de pacotes, como se observa nos diagramas.
+    
+    Na figura abaixo, correspondente à transferência a partir do Portátil 1, vê-se representada a fase de conexão nos primeiros picos. Observa-se como a transferência do ficheiro exige mais trocas de pacotes, resultando no pico mais alto do diagrama. O último pico representa o fim da conexão. Durante o processo são trocados segmentos TCP e FTP. 
+    
+    
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{img/a2 p1.png}
+    \caption{Gráfico do \textit{Wireshark} utilizando TCP (segmentos a vermelhos) e FTP (segmentos a verde) no Portátil 1} 
+    \label{fig:data20}
+    \end{figure}
+    
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{img/a2 p1w.png}
+    \caption{\textit{Wireshark} Portátil 1} 
+    \label{fig:data21}
+    \end{figure}
+    
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{img/a2 grilo.png}
+    \caption{Gráfico do \textit{Wireshark} utilizando TCP (segmentos a vermelhos) e FTP (segmentos a verde) no Grilo} 
+    \label{fig:data22}
+    \end{figure}
+    
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{img/a2 grilow.png}
+    \caption{\textit{Wireshark} Grilo} 
+    \label{fig:data23}
+    \end{figure}
+    
+    \pagebreak
+    \paragraph{}
+    \paragraph{}
+    \paragraph{}
+    \paragraph{}
+    \subsection{Pergunta 3} 
+    Obtenha a partir do Wireshark, ou desenhe manualmente, um diagrama temporal para a transferência do ficheiro \textit{file1} por \textit{TFTP} realizada em A.4. Identifique, se aplicável, as fases de início de conexão, transferência de dados e fim de conexão. Identifique também os tipos de segmentos trocados e os números de sequência usados tanto nos dados como nas confirmações.
+    
+    \bigskip
+    
+    \textbf{Resposta}: 
+    
+    Os tipos de segmentos trocados foram:
+    \begin{itemize}
+        \item Read Request
+        \item Data
+        \item Acknowledgemnet
+    \end{itemize}
+    
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{img/a3 p1seg.png}
+    \caption{Gráfico \textit{Wireshark} utilizando TFTP Portátil 1} 
+    \label{fig:data33}
+    \end{figure}
+    
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{img/a3 p1wir.png}
+    \caption{\textit{Wireshark} Portátil 1} 
+    \label{fig:data34}
+    \end{figure}
+    
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{img/a3 griloseg.png}
+    \caption{Gráfico \textit{Wireshark} utilizando TFTP Grilo} 
+    \label{fig:data34}
+    \end{figure}
+    
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.35]{img/a3 grilowir.png}
+    \caption{\textit{Wireshark} Grilo} 
+    \label{fig:data34}
+    \end{figure}
+    
+    \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=1 ]{img/a3 grilotimeout.png}
+    \caption{\textit{Timeouts} Grilo} 
+    \label{fig:data34}
+    \end{figure}
+    
+    \pagebreak
+    \paragraph{}
+    \paragraph{}
+    \paragraph{}
+    \paragraph{}
+    \paragraph{}
+    \subsection{Pergunta 4}
+    Compare sucintamente as quatro aplicações de transferência de ficheiros que usou, tendo em consideração os seguintes aspetos: (i) identificação da camada de transporte; (ii) eficiência; (iii) complexidade; (iv) segurança.
+    
+    \bigskip
+    
+    \textbf{Resposta}: 
+    
+    \begin{table}[]
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{|l|c|c|c|c|}
+    \hline
+    \multirow{2}{*}{Protocolos} & \multicolumn{1}{l|}{\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Uso de camada \\   transporte (i)\end{tabular}}} & \multicolumn{1}{l|}{\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Eficiência \\       (ii)\end{tabular}}} & \multicolumn{1}{l|}{\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Complexidade \\         (iii)\end{tabular}}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Segurança\\  (iv)\end{tabular}}                                           \\
+                                & \multicolumn{1}{l|}{}                                                                                           & \multicolumn{1}{l|}{}                                                                                  & \multicolumn{1}{l|}{}                                                                                       &                                                                                                                      \\ \hline
+    SFTP                        & TCP                                                                                                             & Baixa                                                                                                  & Alta                                                                                                        & \begin{tabular}[c]{@{}c@{}}Alta\\ Encriptação de dados\end{tabular}                                                  \\ \hline
+    FTP                         & TCP                                                                                                             & Médio                                                                                                  & Média                                                                                                       & \begin{tabular}[c]{@{}c@{}}Baixa\\ Autenticação, fácil descodificação de informação\end{tabular} \\ \hline
+    TFTP                        & UDP                                                                                                             & Alta                                                                                                   & Baixo                                                                                                       & Baixa                                                                                                                \\ \hline
+    HTTP                        & TCP                                                                                                             & Alta                                                                                                   & Baixa                                                                                                       & \begin{tabular}[c]{@{}c@{}}Muito baixa\\ Sem autenticação\end{tabular}                                               \\ \hline
+    \end{tabular}%
+    }
+    \end{table}
+    
+    \paragraph{}
+    O UDP provou ser mais rápido e eficiente uma vez que comparativamente ao TCP não reenvia pacotes previamente perdidos. Justificando alguns acontecimentos, entre eles a alta eficiência do protocolo TFTP em relação aos outros testados para este relatório.
+    \paragraph{}
+    \textbf{Nota}: Relativamente à baixa segurança do FTP, podemos verificar isso através de \ref{fig:data21}, onde conseguimos visualizar a password do usuário.
+    
+    \subsection{Pergunta 5}
+    Com base no trabalho realizado, construa uma tabela informativa identificando, para cada aplicação executada (\textit{ping, traceroute, telnet, ftp, tftp, wget/lynx, nslookup, ssh, etc.}), qual o protocolo de aplicação, o protocolo de transporte, a porta de atendimento e o \textit{overhead} de transporte.
+    
+    \begin{center}
+    % Please add the following required packages to your document preamble:
+    % \usepackage{multirow}
+    % \usepackage{graphicx}
+    \begin{table}[]
+    \resizebox{\columnwidth}{!}{%
+    \begin{tabular}{|l|c|c|c|c|}
+    \hline
+    \multicolumn{1}{|c|}{\multirow{2}{*}{Aplicações}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Protocolo de \\  Aplicação\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Protocolo de \\ Transporte\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Porta de \\ Atendimento\end{tabular}} & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Overhead de Transporte\\ (em bytes)\end{tabular}} \\
+    \multicolumn{1}{|c|}{}                            &                                                                                     &                                                                                     &                                                                                  &                                                                                              \\ \hline
+    HTTP                                              & HTTP                                                                                & TCP                                                                                 & 80                                                                               & 20                                                                                           \\ \hline
+    FTP                                               & FTP                                                                                 & TCP                                                                                 & 21                                                                               & 20                                                                                           \\ \hline
+    TFTP                                              & TFTP                                                                                & UDP                                                                                 & 69                                                                               & 8                                                                                            \\ \hline
+    Telnet                                            & Telnet                                                                              & TCP                                                                                 & 23                                                                               & 20                                                                                           \\ \hline
+    Nslookup                                          & DNS                                                                                 & UDP                                                                                 & 53                                                                               & 8                                                                                            \\ \hline
+    Ping                                              & ---                                                                                 & ---                                                                                 & ---                                                                              & ---                                                                                          \\ \hline
+    \multicolumn{1}{|c|}{Traceroute}                  & DNS                                                                                 & UDP                                                                                 & 33434                                                                            & 8                                                                                            \\ \hline
+    \end{tabular}%
+    }
+    \end{table}
+    \end{center}
+    
+    \bigskip
+    \pagebreak
+    
+\section{Conclusão}
+    
+    \paragraph{}
+    Com a realização deste trabalho passámos a ter uma melhor noção do que são as vantagens e desvantagens da utilização dos vários protocolos. Reavivamos o nosso conhecimento e relacionamento com o CORE e o \textit{Wireshark}.
+    \paragraph{}
+    Após um revisão dos conteúdos teóricos lecionados no semestre anterior em Redes de Computadores e com o novo material lecionado nas aulas teóricas conseguimos interiorizar os conceitos.
+
+\end{document}
