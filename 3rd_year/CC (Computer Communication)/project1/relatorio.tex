@@ -13,6 +13,7 @@
 \makeindex
 \usepackage{titlesec}
 
+
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
@@ -25,7 +26,6 @@
 \author{Carlos Gustavo Silva Pereira a96867, Cláudio Alexandre Freitas Bessa a97063, João Miguel Ferreira Loureiro a97257}
 \institute{Universidade do Minho - Licenciatura em Engenharia Informática}
 \authorrunning{Gustavo Pereira \and Cláudio Bessa \and João Loureiro}
-
 
 \begin{document}
 \maketitle
@@ -68,13 +68,11 @@
 \renewcommand{\abstractname}{\textbf{Resumo:}}
 \renewcommand{\keywords}{\textbf{Palavras-chave: }}
 \begin{abstract}
-O estudo do protocolo de transporte, é um dos pilares das comunicação por computadores,neste trabalho iremos responder Às perguntas do primeiro trabalho práitoc, abordando noções importantes relativas ao transporte de dados numa rede, nomeadamente conceitos como utilização de TCP, utilização de UDP, controlo de erros, duplicação e perca de pacotes, entre outros.
-Para este trabalho utilizamos como recurso o acesso à maquina virtual do sistema operativo fornecido pelo corpo docente, \textit{Xubuntu} com o programa \textit{CORE} e a respetiva ferramententa, para visualização da transferência de pacotes e dos gráficos pedidos, o \textit{Wireshark}.
+O estudo dos protocolo que compõe a camada de transporte é um dos pilares da comunicação por computadores. Este documento aborda noções importantes relativas ao transporte de dados numa rede demonstrando a relevância dos protocolos TCP e UDP em diferentes contextos.
+Para este trabalho utilizamos auxiliamo-nos de uma maquina virtual com o sistema operativo \textit{Xubuntu} e os \textit{softwares} \textit{CORE}, para emulação de uma rede, e o \textit{Wireshark}, para visualização das trocas de pacotes.
 
 \keywords{Protocolo de Camada de Transporte,  Comunicação por Computadores, Segmentos, Pacotes e Datagrama}
 \end{abstract}
-
-\pagebreak
 
 \section{Questões}
     \subsection{Pergunta 1}
@@ -82,7 +80,7 @@ Para este trabalho utilizamos como recurso o acesso à maquina virtual do sistem
     
     \bigskip
     
-    \textbf{Resposta}: Após a verificação de ambos os \textit{pings} no diferentes ambientes na topologia, verificamos que o computador \textit{grilo} foi mais lento, uma vez que essa rede tinha associada uma determinada probabilidade de perda e duplicações. 
+    \textbf{Resposta}: Após a verificação de ambos os \textit{pings} nos diferentes ambientes da topologia, verificamos que o computador \textit{Grilo} foi mais lento, uma vez que essa rede tinha associada uma determinada probabilidade de perda e duplicações. 
     A camada que lida com estes tipos de problemas é a camada da aplicação.
     
     \begin{figure}[!ht]
@@ -104,11 +102,9 @@ Para este trabalho utilizamos como recurso o acesso à maquina virtual do sistem
     \subsection{Pergunta 2}
     Obtenha a partir do \textit{Wireshark}, ou desenhe manualmente, um diagrama temporal para a transferência do ficheiro \textit{file1} por \textit{FTP} realizada em A.3. Foque-se apenas na transferência de dados [\textit{ftp-data}] e não na conexão de controlo (o \textit{FTP} usa mais que uma conexão em simultâneo). Identifique, se aplicável, as fases de início de conexão, transferência de dados e fim de conexão. Identifique também os tipos de segmentos trocados e os números de sequência usados tanto nos dados como nas confirmações.
     
-    \bigskip
+    \textbf{Resposta}: A transferência do file1 utilizando o protocolo FTP exige um número relativamente baixo de trocas de pacotes, como se conclui através dos diagramas.
     
-    \textbf{Resposta}: A transferência do file1 utilizando o protocolo FTP exige um número relativamente baixo de trocas de pacotes, como se observa nos diagramas.
-    
-    Na figura abaixo, correspondente à transferência a partir do Portátil 1, vê-se representada a fase de conexão nos primeiros picos. Observa-se como a transferência do ficheiro exige mais trocas de pacotes, resultando no pico mais alto do diagrama. O último pico representa o fim da conexão. Durante o processo são trocados segmentos TCP e FTP. 
+    Na Figura 3, correspondente à transferência Servidor1-Portátil1, vê-se representada a fase de conexão nos primeiros picos. Observa-se também que a transferência do ficheiro exige mais trocas de pacotes, resultando no pico mais alto do diagrama. O último pico representa o fim da conexão ("\textit{Goodbye.}"). Durante todo o processo de comexão e transferência são trocados segmentos TCP e FTP. 
     
     
     \begin{figure}[!ht]
@@ -147,16 +143,19 @@ Para este trabalho utilizamos como recurso o acesso à maquina virtual do sistem
     \subsection{Pergunta 3} 
     Obtenha a partir do Wireshark, ou desenhe manualmente, um diagrama temporal para a transferência do ficheiro \textit{file1} por \textit{TFTP} realizada em A.4. Identifique, se aplicável, as fases de início de conexão, transferência de dados e fim de conexão. Identifique também os tipos de segmentos trocados e os números de sequência usados tanto nos dados como nas confirmações.
     
-    \bigskip
     
-    \textbf{Resposta}: 
+    \textbf{Resposta}: No caso da transferência por TFTP, não há uma fase de autenticação, simplesmente uma conexão ao servidor e pedido de transferência de ficheiro, pelo que o diagrama apresenta apenas um pico correspondente a estas ações.
     
-    Os tipos de segmentos trocados foram:
+    \textbf{NOTA:} na Figura 9 observam-se dois picos que correspondem ao procedimento experimental executado duas vezes (duas transferências do mesmo \textit{file1}).
+    
+    Durante o processo foram trocados segmentos do tipo: 
     \begin{itemize}
         \item Read Request
         \item Data
-        \item Acknowledgemnet
+        \item Acknowledgement
     \end{itemize}
+    
+    \pagebreak
     
     \begin{figure}[!ht]
     \centering
@@ -225,8 +224,7 @@ Para este trabalho utilizamos como recurso o acesso à maquina virtual do sistem
     \paragraph{}
     \textbf{Nota}: Relativamente à baixa segurança do FTP, podemos verificar isso através de \ref{fig:data21}, onde conseguimos visualizar a password do usuário.
     
-    \subsection{Pergunta 5}
-    Com base no trabalho realizado, construa uma tabela informativa identificando, para cada aplicação executada (\textit{ping, traceroute, telnet, ftp, tftp, wget/lynx, nslookup, ssh, etc.}), qual o protocolo de aplicação, o protocolo de transporte, a porta de atendimento e o \textit{overhead} de transporte.
+    \subsection{Pergunta 5} Com base no trabalho realizado, construa uma tabela informativa identificando, para cada aplicação executada (\textit{ping, traceroute, telnet, ftp, tftp, wget/lynx, nslookup, ssh, etc.}), qual o protocolo de aplicação, o protocolo de transporte, a porta de atendimento e o \textit{overhead} de transporte.
     
     \begin{center}
     % Please add the following required packages to your document preamble:
@@ -254,10 +252,13 @@ Para este trabalho utilizamos como recurso o acesso à maquina virtual do sistem
     \pagebreak
     
 \section{Conclusão}
+    Com este estudo, tivemos a oportunidade de interiorizar os conceitos lecionados nas aulas teóricas fortificando as bases de Redes de Computadores e revisitamos os nossos conhecimentos associados ao uso de ferramentas como CORE e o \textit{Wireshark}.
     
-    \paragraph{}
-    Com a realização deste trabalho passámos a ter uma melhor noção do que são as vantagens e desvantagens da utilização dos vários protocolos. Reavivamos o nosso conhecimento e relacionamento com o CORE e o \textit{Wireshark}.
-    \paragraph{}
-    Após um revisão dos conteúdos teóricos lecionados no semestre anterior em Redes de Computadores e com o novo material lecionado nas aulas teóricas conseguimos interiorizar os conceitos.
+    Passamos a ter uma noção um pouco mais aprofundada das as vantagens e desvantagens associadas à utilização dos diferentes protocolos TCP e UDP em contextos diferentes e aplicações de transferência de ficheiros entre \textit{hosts} como SFTP, FTP, TFTP e HTTP.
+    
+    O protocolo TCP provou ser menos eficiente, necessitando de mais recursos e sendo mais lento comparativamente ao UDP, estando associado aplicações onde se busca maior fiabilidade e segurança em troca de velocidade, uma vez que este garante a chegada do pacote esperando sempre a chegada de uma mensagem ACK antes do envio do pacote seguinte.
+    
+    Por outro lado, com UDP, é possível uma transferência mais rápida e eficiente abdicando da garantia de que o pacote chega ao destino, sendo assim um protocolo menos fiável. Geralmente é utilizado em serviços de streaming e VoIP onde a perca de um pacote não compromete totalmente a informação transmitida.
+    
 
 \end{document}
