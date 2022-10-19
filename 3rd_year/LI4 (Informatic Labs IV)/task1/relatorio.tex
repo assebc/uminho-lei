@@ -1,0 +1,372 @@
+\documentclass[a4paper,12pt]{scrreprt}
+    %% Used for changing geometry of the page
+    %% Cover page text cannot overlay cover sketching/style 
+    %% https://ctan.org/pkg/geometry?lang=en
+\usepackage{geometry}
+    %% Changes language of some packages protocols
+    %% e.g., when captioning images: Figure 1. -> Figura 1.
+    %% https://ctan.org/pkg/babel?lang=en
+\usepackage[portuguese]{babel}
+    %% Used for special fonts
+    %% Cannot be compiled with 
+    
+    %% https://ctan.org/pkg/fontspec?lang=en
+
+    %% More colors and color options
+    %% https://ctan.org/pkg/xcolor?lang=en
+    %% https://ctan.org/pkg/colortbl?lang=en
+\usepackage{xcolor,colortbl}
+    %% More tabular options, like dashed/dotted lines
+    %% https://ctan.org/pkg/arydshln?lang=en
+\usepackage{arydshln}
+    %% List of acronyms
+    %% https://ctan.org/pkg/nomencl?lang=en
+\usepackage[intoc]{nomencl}
+    %% Must be called to init nomencl environment  
+    \makenomenclature
+    %% More images options/settings
+    %% https://ctan.org/pkg/graphicx?lang=en
+\usepackage{graphics}
+    %% Defining subdirectories to image path enviornment
+    %% \graphicspath{{sub1}{sub2}...{subN}}
+    \graphicspath{{images}}
+    
+    %% used to handle cross-referencing commands in LaTeX to produce hypertext links in the document
+    %% https://ctan.org/pkg/hyperref?lang=en
+\usepackage{hyperref}
+    %% math environments
+    %% https://ctan.org/pkg/amsmath?lang=en
+
+    %% settings
+    \hypersetup{
+        colorlinks,
+        citecolor=black,
+        filecolor=black,
+        linkcolor=black,
+        urlcolor=black
+    }
+
+\usepackage{amsmath}
+    %% Defining backgrouns, used to make the cover
+    %% https://ctan.org/pkg/background?lang=en
+\usepackage[some]{background}
+    %% Used to make drawings or complex graphics
+    %% http://pgf.sourceforge.net/pgf_CVS.pdf
+\usepackage{tikz}
+    %% Tikz library to point operations ((x1,y1) + (x2,y2))
+    \usetikzlibrary{calc}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+%% Defining sfdefault font and default font for document
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{imakeidx}
+\makeindex
+
+
+%% Costume made cover 
+%% From there you can use \makecover command to build the cover
+\include{cover}
+
+%==========================================================================
+% DOCUMENT
+%==========================================================================
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+% builds the cover
+\makecover
+
+%% smaller footer and header size
+\newgeometry{top=3cm,left=3cm,right=3cm,bottom=4cm}
+
+%==========================================================================
+% BEGIN OPCIONAL DEDICATÓRIA
+%==========================================================================
+
+\clearpage
+\begin{center}
+    \thispagestyle{empty}
+    \vspace*{\fill}
+    
+    
+    
+    \vspace*{\fill}
+\end{center}
+\clearpage
+
+%==========================================================================
+% END OPCIONAL DEDICATÓRIA
+%==========================================================================
+
+
+%==========================================================================
+% BEGIN ABSTRACT PAGE
+%==========================================================================
+
+
+
+%% Abstract name: \Large font size, flushed left and paragraph skip before abstract content
+\renewenvironment{abstract}
+ {\par\noindent\textbf{\Large\abstractname}\par\bigskip}
+ {}
+
+\begin{flushleft}
+\begin{abstract}
+    \paragraph{}
+    Este trabalho foi realizado no âmbito da Unidade Curricular Laboratórios de Informática IV com o objetivo de realizar um projeto de \textit{software} em relação ao tema "Feiras Online", dividido em três etapas.
+    \paragraph{}
+    Na primeira etapa, vamos apresentar a identificação e caracterização geral da aplicação a desenvolver. Como tal, temos de começar por dar o contexto e a fundamentação sobre como e o porquê de nos ser pedido a realização desta aplicação, bem como os objetivos pretendidos. Efetuamos uma análise à viabilidade do sistema e o seu plano de desenvolvimento de modo a alcançar o sucesso na criação da aplicação. 
+
+    \par \textbf{Área de Aplicação}: Desenho e arquitetura com base a engenharia de \textit{software}. 
+    \par \textbf{Palavras-Chave}: Base de Dados, Feiras, Aplicação, Negócio
+\end{abstract}
+\end{flushleft}
+
+%==========================================================================
+% END ABSTRACT PAGE 
+%==========================================================================
+
+%==========================================================================
+% BEGIN INDEXES PAGES
+%==========================================================================
+
+%% Changes table of content name
+%% Portuguese babel default : "Conteúdo"
+%% Personally I prefer "índice"
+\renewcommand{\contentsname}{Índice}
+\tableofcontents
+
+\pagebreak
+
+\listoffigures
+
+\pagebreak
+
+%==========================================================================
+% END INDEXES PAGES 
+%==========================================================================
+
+
+%==========================================================================
+% BEGIN INTRODUCTION
+%==========================================================================
+
+%% Starting page numbering here
+\pagenumbering{arabic}
+
+\chapter{Introdução}
+    \section{Contextualização}
+    \paragraph{}
+    A Par de Solas é uma empresa focada no fabrico de solas para calçados fundada em 1989 por Jorge Fernando. Desde o seu começo, marca presença em feiras Expo estrangeiras orientadas à indústria do calçado. Estes eventos têm como objetivo dar a conhecer as novas tecnologias da área, assim como os projetos mais inovadores, sendo também uma oportunidade para os negócios emergentes se darem a conhecer a grandes investidores na área, tal como aconteceu com a Par de Solas. A sua assiduidade ajudou a aumentar a base de clientes da empresa, angariando clientes por toda a Europa.
+     
+    Em 2008, Jorge, organizou a sua própria feira de calçado, do tipo Expo, em Portugal. Devido ao sucesso do evento, tornou-o bienal.
+    
+    Anos mais tarde, com o intuito de expandir este conceito a outros nichos de mercado, teve a ideia de criar OnlyFeiras, uma plataforma digital de feiras pontuais, orientadas a mercados específicos, onde os vendedores, sendo empresas ou individuais, se podem candidatar à participação.
+    
+    \section{Fundamentação}
+    \paragraph{}
+    
+    Jorge sabe, por experiência própria, que por mais inovadora que a ideia base seja, é preciso que os olhos certos recaiam sobre o projeto para este avançar. É fundamental ao crescimento de um negócio inserir-se em ambientes que o exponha aos grandes investidores. É com base nesta ideia que decide expandir a sua feira a uma série de eventos do mesmo género, porém apontados a outros mercados.
+    
+    Uma plataforma de feiras atrairia os pequenos e grandes comerciantes dos vários mercados, dando-lhes a oportunidade de se candidatarem a certames dentro da sua área. Sendo \textit{online} proporcionaria um maior equilíbrio entre visibilidade e acessibilidade, permitindo mais visitas e, possivelmente, capta a atenção de outro tipo de público que não participaria em feiras tradicionais , aumentando assim, o potencial lucro.
+
+    \section{Objectivos}
+    \paragraph{}
+    Em conjunto com o Jorge, os desenvolvedores traçaram os seguintes objetivos:
+    \begin{itemize}
+        \item Disponibilizar um serviço acessível para exposição de negócios.
+        \item Criar oportunidades para quem pretende iniciar o seu próprio negócio.
+        \item Plataforma de comércio apontada a vários mercados.
+        \item Criação e divulgação de eventos pontuais em formato de feiras.
+        \item Gerir de forma eficiente a faturação e lucros efetuados por certame e no total.
+        \item Organizar os recursos materiais, tendo em conta os produtos para venda, os materiais para venda de um produto e aqueles que tem em stock.
+        \item Conhecer os compradores e comerciantes e traçar um perfil de tendências dos mesmos para receber notificações de feiras similares
+        \item Conhecer vícios e preferências dos usuários do sistema para atingir a melhor versão do mesmo
+        \item Facilitar a ligação vendedor - comprador/investidor
+
+    \end{itemize}
+
+%==========================================================================
+% END INTRODUCTION
+%==========================================================================
+
+
+%==========================================================================
+% BEGIN SUGESTÕES PARA ESCRITA DO RELATÓRIO
+%==========================================================================
+
+\chapter{Execução do Projeto}
+    \section{Viabilidade}
+        Jorge acredita que o OnlyFeiras conseguirá:
+        \begin{itemize}
+            \item Angariar fundos através de comissões das empresas que se candidatam nas feiras.
+            \item Agregar capital através de comissões em vendas realizadas por meio da plataforma.
+            \item Sustentar-se por meio de patrocínios de empresas representantes nas feiras.
+            \item Continuar a expandir o seu negócio expondo a sua marca de forma exclusiva.
+            \item Ajudar na continuação da expansão de outros negócios.
+            \item Projetar-se por via das grandes empresas que frequentam as feiras.
+        \end{itemize}
+    
+    \section{Recursos a utilizar}
+        \subsection{Ferramentas}
+            \paragraph{}
+            No desenvolvimento do nosso projeto utilizaremos diferentes aplicações, frameworks e websites para permitir alcançar um resultado igual ao pretendido. Entre eles algumas sugeridas e pretendidas pelo corpo docente para a execução do projeto, definidas em seguida:
+            \begin{itemize}
+                \item Microsoft SQL Server
+                \item Microsoft .NET C\# 
+                \item ASP.NET Core Blazor
+                \item Microsoft PowerPoint
+            \end{itemize}
+    
+            \paragraph{}
+            Uma vez que em projetos passados, os membros do grupo, já tinham utilizado ferramentas similares a outras sugeridas para este projeto, preferimos utilizar as mesmas uma vez que não vemos qualquer restrimento para alcançar o sucesso, indicando, seguidamente, o substituto e o sugerido:
+            \begin{itemize}
+                \item Overleaf -$>$ Microsoft Office
+                \item IDEs(preferência pessoal) -$>$ Microsoft Visual Studio
+                \item Trello/Microsoft Excel -$>$ Microsoft Project
+            \end{itemize}
+        
+        \subsection{Recursos Materiais}
+            \paragraph{}
+            Para a criação desta aplicação verificamos uma clara existência de duas grandes necessidades. Uma boa UI (\textit{"User Experience"} correspondendo ao \textit{frontend}) e uma boa API com uma base de dados (\textit{"backend"}). Neste caso, ambas as áreas serão cobertas pelo .NET utilizando maioritariamente C\# na nossa \textit{stack}.
+            \paragraph{}
+            Para utilizarmos o sistema base de dados, como sugerido, utilizaremos o \textit{Microsoft SQL Server}, onde iremos armazenar o conjunto de certames disponíveis na plataforma, assim como o registo de produtos, compras efetuadas, utilizadores e vendedores entre outras coisas requeridas futuramente.
+            \paragraph{}
+            A nível da UI inspirar-nos-emos em websites já existentes, de venda ou revenda de produtos, ex: ebay, aliexpress, amazon etc. Considerando também, outros requisitos que futuramente necessitarão de ser cumpridos.
+            \paragraph{}
+            Para fornecer o serviço utilizaremos servidores.
+            
+        \subsection{Recursos Humanos}
+            \paragraph{}
+            Tal como as ferramentas e recursos materiais descritos anteriormente, os recursos humanos serão imprescindíveis ao desenvolvimento da aplicação. Além da equipa de desenvolvimento da plataforma, serão necessários utilizadores. Os utilizadores podem encorporar um ou os dois tipos de papéis:
+            \begin{itemize}
+                \item Vendedores
+                \item Compradores
+                \item Visitantes
+                \item Organizadores
+            \end{itemize}
+            
+            Um utilizador pode utilizar a plataforma para apenas comprar ou visitar feiras assim como para vender ou expor os seus produtos e serviços.
+            
+            É também necessário uma série de organizadores, sendo pessoal com conhecimento sobre áreas específicas de modo a organizarem feiras, reunindo possíveis vendedores e patrocinadores do evento.
+    
+    \section{Equipa de Trabalho}
+        \paragraph{}
+        A equipa de trabalho será composta pelo Jorge, todos os vendedores, compradores, organizadores e utilizadores. Para acompanhar e obter uma maior versatilidade entre o usuário e a plataforma/aplicação serão feitos testes e questionários aos usuários da mesma, dando oportunidade de sugerirem novos mercados aos quais dedicar novas feiras.
+        \paragraph{}
+        Por sua vez, na constituição da equipa de desenvolvimento desta aplicação, tal como referido no documento de constituição do grupo, é composta por 5 elementos, entre eles, ordenado pelo número de aluno:
+
+    \begin{figure}[!ht]
+            \begin{subfigure}{0.5\textwidth}
+            \includegraphics[width=0.9\linewidth, height=6cm]{images/vascoli.png}
+            \caption{Vasco Manuel Araújo Andrade de Oliveira (Coordenador) - 96361}
+            \end{subfigure}
+            \begin{subfigure}{0.5\textwidth}
+            \includegraphics[width=0.9\linewidth, height=6cm]{images/gustavoli.png} 
+            \caption{Carlos Gustavo Silva Pereira - 96867}
+            \end{subfigure}
+            \begin{subfigure}{0.5\textwidth}
+            \includegraphics[width=0.9\linewidth, height=6cm]{images/bessali.png} 
+            \caption{Cláudio Alexandre Freitas Bessa - 97063}
+            \end{subfigure}
+            \begin{subfigure}{0.5\textwidth}
+            \includegraphics[width=0.9\linewidth, height=6cm]{images/carlosli.png} 
+            \caption{Carlos Emanuel Leite Machado - 97114}
+            \end{subfigure}
+            \begin{subfigure}{0.5\textwidth}
+            \includegraphics[width=0.9\linewidth, height=6cm]{images/tiagoli.png} 
+            \caption{Tiago André Mendes Oliveira - 97254}
+            \end{subfigure}
+        \end{figure}
+    
+        \pagebreak
+    
+    \section{Plano de Execução do Trabalho}
+        \paragraph{}
+        Chegando à aceitação do projeto, no âmbito da execução do trabalho, planeia-se distribuir o mesmo de forma a $2$/$3$ desenvolverem mais o \textit{"backend"} da aplicação e outros $2$ desenvolverem a parte relativa ao \textit{"frontend"} ficando assim $1$ membro do grupo com uma atribuição à interligação entre as duas partes. Obviamente que ao longo do projeto haverá necessidade de haver uma articulação para o alcanço do sucesso do produto final.
+        \paragraph{}
+        Após a visualização e comparação entre \textit{websites} e aplicações similares já existentes, será inicialmente efetuado um modelo lógico, traçando assim o rumo pretendido do mesmo.
+        \paragraph{}
+        Seguidamente ao modelo lógico, será delineado um esquema com "rotas" de possíveis ações dos usuários da aplicação (\textit{use cases}), com os seus respetivos fluxos normais e alternativos possíveis. Esquema esse que conterá todos os atributos e façanhas relativas ao que será e não será possível fazer utilizando a nossa aplicação após o fecho do desenvolvimento da mesma.
+        \paragraph{}
+        Já numa reta final do projeto e a mais trabalhosa, desenvolveremos o código para a aplicação, seguindo tudo o que tenhamos definido até então. Algo que apesar de trabalhoso, será facilitado uma vez que já estará tudo definido, apenas é necessário a conversão dos modelos e diagramas para o desenvolvimento de \textit{software} feito principalmente em .NET C\#, entre outras ferramentas.
+        \paragraph{}
+        No âmbito do plano de execução, está presente nos anexos um diagrama de GANTT para ilustrar o mesmo.
+
+%==========================================================================
+% BEGIN CONCLUSÕES DE TRABALHO FUTURO
+%==========================================================================
+
+\chapter{Comentário Final}
+    \paragraph{}
+    Através da resolução desta primeira fase o nosso grupo sente-se mais capaz para a próxima fase do projeto, sendo que, esta etapa ajudou-nos a elaborar objetivos mais realistas de acordo com os recursos e o período de temporal que dispomos para a realização do trabalho.
+    \paragraph{}
+    Desta forma, reconhecemos que este é um momento de grande importância no processo do desenvolvimento de qualquer tipo de \textit{software}, na medida em que nos facilita no levantamento de requisitos e, consequentemente, a construção da aplicação.
+    
+%==========================================================================
+% END CONCLUSÕES DE TRABALHO FUTURO
+%==========================================================================
+
+%==========================================================================
+% BEGIN REFERÊNCIAS
+%==========================================================================
+
+%% Changes biblibography name
+%% Portuguese babel default : "Bibliografia"
+%% Personally I prefer "Referências"
+\renewcommand\bibname{Referências}
+
+%% https://www.overleaf.com/learn/latex/bibliography_management_with_bibtex
+\begin{thebibliography}{9}
+    \paragraph{}
+    Como referências, obtivemos alguma inspiração em casos práticos que foram falados e estudados nas aulas práticas e teóricas da disciplina de Bases de Dados no ano curricular $21/22$ tal como o caso da "Mercearia da D.Acácia" e os diferentes casos das clínicas.
+    \paragraph{}
+    Outra referência que acompanhamos da qual obtemos um referendo foi a o caso de estudo \hyperlink{https://github.com/dianazevedoferreira/UM_BD_2022/blob/main/PL01/BD-PL1.pdf}{Hospital Portucalense}.
+\end{thebibliography}
+
+%==========================================================================
+% END REFERÊNCIAS
+%==========================================================================
+
+%==========================================================================
+% BEGIN ANEXOS
+%==========================================================================
+
+%% Why \addchap, instead of \chapter? 
+%% \addchap has no numbering but appears in table of contents.
+\addchap{Anexos}
+    
+    %% section version of \addchap
+    \addsec{Logo OnlyFeiras}
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[scale=0.3]{images/onlyfeiras.png}
+            \caption{Logo OnlyFeiras}
+            \label{fig:my_label}
+        \end{figure}
+    
+    \addsec{Logo Par de Solas}
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[scale=0.1]{images/logo_para_de_solas.png}
+            \caption{Logo Par de Solas}
+            \label{fig:my_label}
+        \end{figure}
+    \pagebreak
+    \addsec{Diagrama de GANTT}
+        \begin{figure}[!ht]
+            \centering
+            \includegraphics[scale=0.40]{images/diagrama_gantt.png}
+            \caption{Diagrama de GANTT}
+            \label{fig:my_label}
+        \end{figure}
+
+%==========================================================================
+% END ANEXOS
+%==========================================================================
+\end{document}
