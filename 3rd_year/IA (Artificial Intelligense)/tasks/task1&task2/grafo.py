@@ -33,8 +33,6 @@ class Graph:
         self.m_directed = directed   # se o grafo é direcionado ou nao
         self.m_graph = {}   #  dicionario para armazenar os nodos, arestas  e pesos
 
-
-
     ##############################
     # Escrever o grafo como string
     ##############################
@@ -47,9 +45,9 @@ class Graph:
     #####################################
     # Adicionar aresta no grafo, com peso
     ####################################
-    def add_edge(self, node1, node2, weight):   #node1 e node2 são os 'nomes' de cada nodo
-        n1 = Node(node1)     # cria um objeto node  com o nome passado como parametro
-        n2 = Node(node2)     # cria um objeto node  com o nome passado como parametro
+    def add_edge(self, node1, node2, euris1, euris2, weight):   #node1 e node2 são os 'nomes' de cada nodo
+        n1 = Node(node1,euris1)     # cria um objeto node com o nome passado como parametro
+        n2 = Node(node2,euris2)     # cria um objeto node com o nome passado como parametro
         if (n1 not in self.m_nodes):
             self.m_nodes.append(n1)
             self.m_graph[node1] = set()
@@ -100,8 +98,6 @@ class Graph:
                 custoT=custo
 
         return custoT
-
-
 
     ######################################
     # Dado um caminho calcula o seu custo
@@ -155,7 +151,7 @@ class Graph:
     ################################################################################
     # Procura DFS
     ####################################################################################
-    def procura_DFS(self,start, end, path=[], visited=set()):
+    def procura_DFS(self,start,end,path=[],visited=set()):
         path.append(start)
         visited.add(start)
 
@@ -169,6 +165,17 @@ class Graph:
                 if resultado is not None:
                     return resultado
         path.pop()  # se nao encontra remover o que está no caminho......
+        return None
+
+    ################################################################################
+    # Procura Greedy
+    ####################################################################################
+    def procura_greedy(self,start,end):
+        heuristic = self.get_node_by_name(start).getEuristica()
+        
+        while True:
+            
+
         return None
 
     ###########################
