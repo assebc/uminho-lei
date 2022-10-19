@@ -1,0 +1,25 @@
+### Registar passagem de viatura
+
+## Descrição : Pórtico de passagem regista passagem de viatura
+## Cenário : Enunciado 1, ficha 3, excercício 3.2.2
+## Pré-Condição: True
+## Pós-Condição: sistema regista passagem
+## Fluxo Normal:
+1. Pórtico de portagem comunica o nr. do identificador (e nr. do pórtico)
+2. Sistema valida nr. do identificador
+3. Sistema regista identificador, data, hora (e nr. do pórtico)
+4. Sistema termina processo
+
+
+## Fluxo de Exceção()[]()
+
+## Fluxo Alternativo(1)[Pórtico não conseguiu identificar o identificador(passo 1)
+1.1 Pórtico envia fotografia para posterior análise
+1.2 Sistema regista fotografia, data, hora (e nr. do pórtico)
+1.3 Regressa a 4
+
+## Fluxo Alternativo(2)[Sistema não valida identificador](passo 2)
+2.1 Sistema indica que identificador não consta na base de dados
+2.2 Pórtico envia fotografia para posterior análise
+2.3 Sistema regista fotografia, data, hora (e nr. do pórtico)
+2.4 Regressa a 4
