@@ -7,15 +7,14 @@
 #Draft Ficha 1
 
 
-
-
 # Biblioteca de tratamento de grafos necessária para desenhar graficamente o grafo
-import networkx as nx
+#import networkx as nx
 # Biblioteca de tratamento de grafos necessária para desenhar graficamente o grafo
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 #biblioteca necessária para se poder utilizar o valor math.inf  (infinito)
 import math
+from queue import Queue
 
 # Importar a classe nodo
 from nodo import Node
@@ -32,6 +31,8 @@ class Graph:
         self.m_directed = directed   # se o grafo é direcionado ou nao
         self.m_graph = {}   #  dicionario para armazenar os nodos, arestas  e pesos
         self.m_h={}         # dicionário para armazenar heuristica para cada nodo
+
+
 
     ##############################
     # Escrever o grafo como string
@@ -114,6 +115,41 @@ class Graph:
              i=i+1
         return custo
 
+    ################################################################################
+    # Procura BFS
+    ####################################################################################
+    def procura_BFS(self,start,end,path=[]):
+        visited = set()
+        visited.add(start)
+        q = Queue()
+        q.put(start)
+
+        parent = dict()
+        parent[start] = None
+
+        path_found = False
+        while not q.empty():
+            u = q.get()
+            if u == end:
+                path_found = True
+                break
+
+            for(adjacente,peso) in self.m_graph[u]:
+                if adjacente not in visited:
+                    visited.add(adjacente)
+                    q.put(adjacente)
+                    parent[adjacente] = u
+
+        if path_found:
+            u = end
+            path.append(u)
+            while u != start:
+                path.append(parent[u])
+                u = parent[u]
+
+            path.reverse()
+
+        return (path, self.calcula_custo(path))
 
     ################################################################################
     # Procura DFS
@@ -160,9 +196,6 @@ class Graph:
 
         plt.draw()
         plt.show()
-
-
-
 
     #############################################
     # Adiciona heuristica a nodo
@@ -242,5 +275,75 @@ class Graph:
             open_list.remove(n)
             closed_list.add(n)
 
+        print('Path does not exist!')
+        return None
+
+    #############################################
+    # Pesquisa A*
+    #############################################
+
+    def Aestrela(self, start, end):
+        # open_list é uma lista de nodos visitados, mas com vizinhos
+        # que ainda não foram todos visitados, começa com o  start
+        # closed_list é uma lista de nodos visitados
+        # e todos os seus vizinhos também já o foram
+        open_list = set([start])
+        closed_list = set([])
+
+        # parents é um dicionário que mantém o antecessor de um nodo
+        # começa com start
+        parents = {}
+        parents[start] = start
+
+        distances = {}
+        distances[start] = 0
+
+        while len(open_list) > 0:
+            n = None
+
+            # encontrar nodo com a menor heuristica + custo
+            for v in open_list:
+                if n == None or distances[v] + self.m_h[v] < distances[n] + self.m_h[n]:
+                    n = v
+
+            if n == None:
+                print('Path does not exist!')
+                return None
+
+            # se o nodo corrente é o destino
+            # reconstruir o caminho a partir desse nodo até ao start
+            # seguindo o antecessor
+            if n == end:
+                reconst_path = []
+
+                while parents[n] != n:
+                    reconst_path.append(n)
+                    n = parents[n]
+
+                reconst_path.append(start)
+
+                reconst_path.reverse()
+
+                return (reconst_path, self.calcula_custo(reconst_path))
+
+            # para todos os vizinhos  do nodo corrente
+            for (m, weight) in self.getNeighbours(n):
+                # Se o nodo corrente nao esta na open nem na closed list
+                # adiciona-lo à open_list e marcar o antecessor
+                if m not in open_list and m not in closed_list:
+                    open_list.add(m)
+                    parents[m] = n
+                    distances[m] = distances[n] + weight
+                else:
+                    if distances[m] > distances[n] + weight:
+                        distances[m] = distances[n] + weight
+                        parents[m] = n
+ 
+                        if m in closed_list:
+                            closed_list.remove(m)
+                            open_list.add(m)
+
+            open_list.remove(n)
+            closed_list.add(n)
         print('Path does not exist!')
         return None
