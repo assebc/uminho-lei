@@ -6,9 +6,6 @@
 
 #Draft Ficha 1
 
-
-
-
 # Biblioteca de tratamento de grafos necessária para desenhar graficamente o grafo
 #import networkx as nx
 # Biblioteca de tratamento de grafos necessária para desenhar graficamente o grafo
