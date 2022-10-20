@@ -12,24 +12,17 @@
 
 class Node:
     #  construtor do nodo....."
-    def __init__(self, name, euris):
+    def __init__(self, name):
         self.m_name = str(name)
-        self.euristica = str(euris)
         #Posteriormente colocar o objeto que o nodo vai referenciar...
 
     #Devolve a representação na forma de string do nodo por forma a ser de leitura 'amigável'
     def __str__(self):
-        return "node " + self.m_name + "euristica " + self.euristica
+        return "node " + self.m_name
 
     #Devolve representação 'oficial' do objeto, neste caso particular pode ser igual a __str__
     def __repr__(self):
-        return "node " + self.m_name + "euristica " + self.euristica
-        
-    def getEuristica(self):
-        return self.euristica
-
-    def setEuristica(self, euris):
-        self.euristica = euris
+        return "node " + self.m_name
         
     #Obter o noem de um nodo
     def getName(self):
