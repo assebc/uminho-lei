@@ -88,7 +88,7 @@ class Bank2 {
         Account c = map.get(id);
         if (c == null) return false;
         c.lock.lock();
-        this.readLock.lock();
+        this.readLock.unlock();
 
         try {
             return c.withdraw(value);
