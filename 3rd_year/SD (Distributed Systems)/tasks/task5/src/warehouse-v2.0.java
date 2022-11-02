@@ -29,7 +29,7 @@ class Warehouse {
 
   public void consume(Set<String> items) throws InterruptedException {
     this.lock.lock();
-    while(items.iterator().next()!=null){
+    while(items.iterator().hasNext()){
       Product p = get(items.iterator().next());
       while(p.quantity==0) condition.await();
       p.quantity--;
