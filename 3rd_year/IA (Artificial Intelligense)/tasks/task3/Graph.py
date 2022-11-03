@@ -10,8 +10,8 @@
 import math
 from queue import Queue
 
-import networkx as nx  # biblioteca de tratamento de grafos necessária para desnhar graficamente o grafo
-import matplotlib.pyplot as plt  # idem
+#import networkx as nx  # biblioteca de tratamento de grafos necessária para desnhar graficamente o grafo
+#import matplotlib.pyplot as plt  # idem
 
 from nodo import Node
 
@@ -74,7 +74,6 @@ class Grafo:
 
         self.m_graph[node1].append((node2, weight))
 
-
         if not self.m_directed:
             self.m_graph[node2].append((node1, weight))
 
@@ -117,7 +116,7 @@ class Grafo:
     def procura_DFS(self, start, end, path=[], visited=set()):
         path.append(start)
         visited.add(start)
-
+        
         if start == end:
             # calcular o custo do caminho funçao calcula custo.
             custoT = self.calcula_custo(path)
@@ -157,9 +156,7 @@ class Grafo:
                         fila.put(adjacente)
                         parent[adjacente] = nodo_atual
                         visited.add(adjacente)
-
-
-
+                        
         # Reconstruir o caminho
         path = []
         if path_found:
@@ -213,8 +210,6 @@ class Grafo:
         if n1 in self.m_nodes:
             self.m_h[n] = estima
 
-
-
     #######################################################################
     #    heuristica   -> define heuristica para cada nodo 1 por defeito....
     #    apenas para teste de pesquisa informada
@@ -224,7 +219,6 @@ class Grafo:
         for n in nodos:
             self.m_h[n] = 1
         return (True)
-
 
     ##########################################3
     def calcula_est(self, estima):
@@ -329,7 +323,6 @@ class Grafo:
         else:
             return (self.m_h[nodo])
 
-
     ##########################################
     #   Greedy
     ##########################################
@@ -349,7 +342,7 @@ class Grafo:
         while len(open_list) > 0:
             n = None
 
-            # encontraf nodo com a menor heuristica
+            # encontrar nodo com a menor heuristica
             for v in open_list:
                 if n == None or self.m_h[v] < self.m_h[n]:
                     n = v

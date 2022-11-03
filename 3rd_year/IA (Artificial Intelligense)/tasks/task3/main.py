@@ -19,7 +19,7 @@ def main():
     while saida != 0:
         print("1-Imprimir grafo ")
         print("2-Desenhar Grafo")
-        print("3-Imprimir  nodos de Grafo")
+        print("3-Imprimir nodos de Grafo")
         print("4-Imprimir arestas de Grafo")
         print("5-DFS")
         print("6-BFS")
