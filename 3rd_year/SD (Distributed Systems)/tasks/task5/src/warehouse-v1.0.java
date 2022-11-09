@@ -11,10 +11,6 @@ class Warehouse {
   private class Product {
     int quantity = 0; 
   }
-  
-  // public Map<String,Product> getMap(){
-  //   return this.map;
-  // }
 
   private Product get(String item) {
     Product p = map.get(item);
@@ -23,10 +19,6 @@ class Warehouse {
     map.put(item, p);
     return p;
   }
-
-  // public int getAmmount(String item){
-  //   return get(item).quantity;
-  // }
 
   public void supply(String item, int quantity) {
     Product p = get(item);
