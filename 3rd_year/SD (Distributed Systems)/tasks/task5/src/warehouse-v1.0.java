@@ -39,45 +39,46 @@ class Warehouse {
   }
 }
 
-// class Runner implements Runnable{
+class Runner implements Runnable{
   
-//   private Warehouse w;
-//   int n;
+  private Warehouse w;
+  int n;
 
-//   public Runner(Warehouse ws, int nthreads){
-//     this.w = ws;
-//     this.n = nthreads;
-//   }
+  public Runner(Warehouse ws, int nthreads){
+    this.w = ws;
+    this.n = nthreads;
+  }
   
-//   @Override
-//   public void run() {
-//     for(String s:this.w.getMap().keySet()){
+  @Override
+  public void run() {
+    for(String s:this.w.getMap().keySet()){
 
-//       if(this.w.getAmmount(s)==0) System.out.println(s + "ran out of products " + "detected by Thread " + Thread.currentThread().getName());
-//     }
-//   }
-// }
+      if(this.w.getAmmount(s)==0) 
+        System.out.println(s + "ran out of products " + "detected by Thread " + Thread.currentThread().getName());
+    }
+  }
+}
 
-// class Warehouse_Main{
-//   public static void main(String[] args) throws InterruptedException {
-//     final int N = 3;
-//     Thread [] ts = new Thread[N];
-//     Warehouse w = new Warehouse();
+class Warehouse_Main{
+  public static void main(String[] args) throws InterruptedException {
+    final int N = 3;
+    Thread [] ts = new Thread[N];
+    Warehouse w = new Warehouse();
 
-//     // criação N threads
-//     for(int i = 0;i<N;i++){
-//         ts[i] = new Thread(new Runner(w,N));
-//     }
+    // criação N threads
+    for(int i = 0;i<N;i++){
+      ts[i] = new Thread(new Runner(w,N));
+    }
 
-//     // iniciação de N threads
-//     for(int j=0;j<N;j++){
-//         ts[j].start();
-//     }
+    // iniciação de N threads
+    for(int j=0;j<N;j++){
+      ts[j].start();
+    }
 
-//     // bloquear main até threads operarem até terminar
-//     for(int j=0;j<N;j++){
-//         ts[j].join();
-//     }
+    // bloquear main até threads operarem até terminar
+    for(int j=0;j<N;j++){
+      ts[j].join();
+    }
 
-//   }
-// }
+  }
+}
