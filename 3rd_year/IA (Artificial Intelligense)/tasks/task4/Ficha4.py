@@ -2,8 +2,6 @@ import time
 from math import inf as infinito
 import random as rd
 
-
-
 #Valor atribuido ao jogador Humano
 HUMANO = -1
 #valor atribuido ao bot/computador
@@ -108,7 +106,7 @@ def turno_bot(escolha_bot, escolha_humana):
         x, y = movimento[0], movimento[1]
 
     aplica_movimento(x, y, BOT)
-    time.sleep(2)
+    #time.sleep(2)
 
 #Função em aplicar a escolha do humano
 def turno_humano(escolha_bot, escolha_humano):
@@ -136,7 +134,31 @@ def turno_humano(escolha_bot, escolha_humano):
         except(KeyError, ValueError):
             print('Número inválido')
 
+def minimax(tabuleiro,profundidade,jogador):
 
+    if jogador == BOT:
+        best = [-1,-1,-infinito]
+    else:
+        best = [-1,-1,+infinito]
+
+    if profundidade == 0 or (verifica_vitoria(tabuleiro, HUMANO) or verifica_vitoria(tabuleiro, BOT)):
+        score = avaliar(tabuleiro)
+        return [-1,-1,score]
+
+    for (x,y) in celulas_vazias(tabuleiro):
+        tabuleiro[x][y] = jogador
+        score = minimax(tabuleiro,profundidade-1,-jogador)
+        tabuleiro[x][y] = 0
+        score[0], score[1] =x, y
+    
+        if jogador == BOT:
+            if score[2] > best[2]:
+                best = score 
+        else:
+            if score[2] < best[2]:
+                best = score
+    
+    return best
 
 escolha_humano = ''  # X ou O
 escolha_bot = ''  # X ou O
@@ -164,11 +186,11 @@ while primeiro != 'S' and primeiro != 'N':
 
 # Ciclo responsável pelo desenvolvimento do jogo
 while len(celulas_vazias(tabuleiro)) > 0 and not (
-        verifica_vitoria(tabuleiro, HUMANO) or verifica_vitoria(tabuleiro, BOT)):
+    verifica_vitoria(tabuleiro, HUMANO) or verifica_vitoria(tabuleiro, BOT)):
     if primeiro == 'N':
-        turno_bot(escolha_bot, escolha_humano)
+        turno_bot(escolha_bot, escolha_humano) 
         primeiro = ''
-
+    
     turno_humano(escolha_bot, escolha_humano)
     turno_bot(escolha_bot, escolha_humano)
 
