@@ -1,0 +1,10 @@
+# Configuration file for primary server troti.asd
+troti.asd DB db/troti-net-db.txt
+troti.asd SS 193.123.5.189
+# example.com SS 193.123.5.190:5353
+troti.asd SP 127.0.0.1
+
+troti.asd DD 127.0.0.1
+troti.asd LG logs/troti-net.log
+all LG logs/all.log
+root ST db/rootservers.db

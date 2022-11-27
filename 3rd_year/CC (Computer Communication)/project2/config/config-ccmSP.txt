@@ -1,0 +1,7 @@
+# Configuration file for primary server for .ccm
+.ccm DB /home/core/CC32/db/ccm.txt
+.ccm SS 10.2.2.2:5353
+.ccm SS 10.1.1.11:5353
+.ccm LG logs/ccm.log
+all LG logs/all.log
+root ST /home/core/CC32/db/rootservers.db

@@ -1,0 +1,5 @@
+# Configuration file for secondary server for barrete.ccm
+barrete.ccm SP 10.2.2.10:5353
+barrete.ccm LG logs/barrete.log
+all LG logs/all.log
+root ST /home/core/CC32/db/rootservers.db

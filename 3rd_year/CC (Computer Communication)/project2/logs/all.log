@@ -1,0 +1,77 @@
+22:11:22.23:59:54:043: ST 10.4.4.10:5353 3333 255 debug
+22:11:22.23:59:54:044: EV @ conf-file-read config/config-barreteSP.txt
+22:11:22.23:59:54:044: EV @ initialized
+23:11:22.00:02:30:417: ST 10.4.4.10:5353 3333 255 debug
+23:11:22.00:02:30:418: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:02:30:418: EV @ initialized
+23:11:22.00:05:01:863: ST 10.4.4.10:5353 3333 255 debug
+23:11:22.00:05:01:863: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:05:01:864: EV @ initialized
+23:11:22.00:05:44:845: ST 10.4.4.10:5353 3333 255 debug
+23:11:22.00:05:44:845: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:05:44:845: EV @ initialized
+23:11:22.00:07:33:180: ST 10.4.4.10:5353 53 255 debug
+23:11:22.00:07:33:181: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:07:33:181: EV @ initialized
+23:11:22.00:07:37:888: ST 10.4.4.10:5353 53 255 debug
+23:11:22.00:07:37:888: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:07:37:889: EV @ initialized
+23:11:22.00:07:45:736: ST 10.4.4.10:5353 3333 255 debug
+23:11:22.00:07:45:737: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:07:45:737: EV @ initialized
+23:11:22.00:08:15:078: ST 10.4.4.10:5353 3333 255 debug
+23:11:22.00:08:15:079: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:08:15:079: EV @ initialized
+23:11:22.00:09:20:477: ST 10.4.4.10:5353 53 255 debug
+23:11:22.00:09:20:478: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:09:20:478: EV @ initialized
+23:11:22.00:11:37:880: ST 10.4.4.10:5353 53 255 debug
+23:11:22.00:11:37:881: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:11:37:881: EV @ initialized
+23:11:22.00:12:17:902: ST 10.4.4.10:5353 53 255 debug
+23:11:22.00:12:17:903: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:12:17:903: EV @ initialized
+23:11:22.00:13:53:500: ST 10.4.4.10:5353 53 255 debug
+23:11:22.00:13:53:501: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:13:53:501: EV @ initialized
+23:11:22.00:14:02:458: ST 10.4.4.10:5353 53 255 debug
+23:11:22.00:14:02:459: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:14:02:459: EV @ initialized
+23:11:22.00:14:20:794: ST 10.4.4.10:5353 53 255 debug
+23:11:22.00:14:20:795: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:14:20:795: EV @ initialized
+23:11:22.00:14:52:005: ST 10.4.4.10:5353 53 255 debug
+23:11:22.00:14:52:006: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:14:52:006: EV @ initialized
+23:11:22.00:15:18:679: ST 10.4.4.10:5353 53 255 debug
+23:11:22.00:15:18:679: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:15:18:679: EV @ initialized
+23:11:22.00:15:39:686: ST 10.4.4.10 5353 255 debug
+23:11:22.00:15:39:687: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:15:39:687: EV @ initialized
+23:11:22.00:15:55:284: ST 10.4.4.10 5353 255 debug
+23:11:22.00:15:55:285: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:15:55:285: EV @ initialized
+23:11:22.00:16:21:894: ST 10.4.4.10 5353 255 debug
+23:11:22.00:16:21:894: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:16:21:895: EV @ initialized
+23:11:22.00:18:09:565: ST 10.4.4.10 5353 255 debug
+23:11:22.00:18:09:566: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:18:09:566: EV @ initialized
+23:11:22.00:20:15:816: ST 10.4.4.10 5353 255 debug
+23:11:22.00:20:15:816: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:20:15:817: EV @ initialized
+23:11:22.00:21:39:286: ST 10.4.4.10 5353 255 debug
+23:11:22.00:21:39:287: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:21:39:288: EV @ initialized
+23:11:22.00:23:31:082: ST 10.4.4.10 5353 255 debug
+23:11:22.00:23:31:082: EV @ conf-file-read config/config-barreteSP.txt
+23:11:22.00:23:31:083: EV @ initialized
+23:11:22.00:23:44:864: ST 127.0.0.1 3333 255 debug
+23:11:22.00:23:44:865: EV @ conf-file-read config/config.txt
+23:11:22.00:23:44:865: EV @ initialized
+23:11:22.00:23:44:866: EV @ udp-listening-at 127.0.0.1:3333
+23:11:22.00:23:44:867: EV @ tcp-listening-on 127.0.0.1:3333
+23:11:22.00:25:24:245: ST 10.2.2.10 5353 255 debug
+23:11:22.00:25:24:246: EV @ conf-file-read config/config-barreteSS.txt
+23:11:22.00:25:24:246: EV @ initialized

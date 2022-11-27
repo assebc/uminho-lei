@@ -1,0 +1,20 @@
+# DNS database file for domain .ccm
+# It also includes a pointer to the primary server
+
+@ DEFAULT .ccm.
+TTL DEFAULT 86400
+@ SOASP ns1.ccm. TTL
+@ SOAADMIN admin.ccm. TTL
+@ SOASERIAL 0117692022 TTL
+@ SOAREFRESH 14400 TTL
+@ SOARETRY 3600 TTL
+@ SOAEXPIRE 604800 TTL
+@ NS ns1.ccm. TTL
+@ NS ns2.ccm. TTL
+@ NS ns3.ccm. TTL
+ns1 A 10.3.3.2 TTL
+ns2 A 10.2.2.2 TTL
+ns3 A 10.1.1.11 TTL
+sp CNAME ns1 TTL
+ss1 CNAME ns2 TTL
+ss2 CNAME ns3 TTL
