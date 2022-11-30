@@ -1,9 +1,5 @@
-package g8;
-
 import java.net.ServerSocket;
 import java.net.Socket;
-
-import static g8.TaggedConnection.Frame;
 
 public class ServerWithWorkers {
     final static int WORKERS_PER_CONNECTION = 3;
@@ -13,7 +9,7 @@ public class ServerWithWorkers {
 
         while(true) {
             Socket s = ss.accept();
-            TaggedConnection c = new TaggedConnection(s);
+            FramedConnection c = new FramedConnection(s);
 
             Runnable worker = () -> {
                 try (c) {

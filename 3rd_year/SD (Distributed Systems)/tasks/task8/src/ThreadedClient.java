@@ -1,5 +1,3 @@
-package g8;
-
 import java.net.Socket;
 
 public class ThreadedClient {
