@@ -11,7 +11,7 @@ public class SimpleServerWithWorkers {
                 try (FramedConnection c = new FramedConnection(s)) {
                     Runnable worker = () -> {
                         try{
-                            for (;;) {
+                            while(true) {
                                 byte[] b = c.receive();
                                 String msg = new String(b);
                                 System.out.println("Replying to: " + msg);

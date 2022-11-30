@@ -17,11 +17,10 @@ public class SequentialClient {
 
             // Get stream of messages until empty msg
             c.send(2, "ABCDE".getBytes());
-            for (;;) {
+            while(true) {
                 f = c.receive();
                 assert f.tag == 2;
-                if (f.data.length == 0)
-                    break;
+                if (f.data.length == 0) break;
                 System.out.println("From stream: " + new String(f.data));
             }
 
