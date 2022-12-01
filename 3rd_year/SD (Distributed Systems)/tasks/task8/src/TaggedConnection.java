@@ -29,11 +29,30 @@ public class TaggedConnection implements AutoCloseable{
     }
 
     public void send(int tag, byte[]data) throws IOException{
-
+        try{
+            this.sendLock.lock();
+            this.out.writeInt(data.length);
+            this.out.writeInt(tag);
+            this.out.write(data);
+            this.out.flush();
+        } finally{
+            this.sendLock.unlock();
+        }
     }
 
     public Frame receive() throws IOException {
+        byte[] data;
+        try{
+            this.receiveLock.lock();
+            int size = this.in.readInt();
+            int tag = this.in.readInt();
+            data = new byte[size];
+            this.in.readFully(data);  
+            return new Frame(tag,data); 
 
+        } finally{
+            this.receiveLock.unlock();
+        }
     }
 
     @Override
