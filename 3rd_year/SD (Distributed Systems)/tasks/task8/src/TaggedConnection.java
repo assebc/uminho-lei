@@ -18,6 +18,7 @@ public class TaggedConnection implements AutoCloseable{
         public final byte[] data;
         public Frame(int tag, byte[] data){ this.tag = tag; this.data = data;}
     }
+    
     public TaggedConnection(Socket socket) throws IOException{
         this.socket = socket;
         this.in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
@@ -31,8 +32,8 @@ public class TaggedConnection implements AutoCloseable{
     public void send(int tag, byte[]data) throws IOException{
         try{
             this.sendLock.lock();
-            this.out.writeInt(data.length);
             this.out.writeInt(tag);
+            this.out.writeInt(data.length);
             this.out.write(data);
             this.out.flush();
         } finally{
@@ -42,17 +43,18 @@ public class TaggedConnection implements AutoCloseable{
 
     public Frame receive() throws IOException {
         byte[] data;
+        int tag;
+
         try{
             this.receiveLock.lock();
+            tag = this.in.readInt();
             int size = this.in.readInt();
-            int tag = this.in.readInt();
             data = new byte[size];
-            this.in.readFully(data);  
-            return new Frame(tag,data); 
-
+            this.in.readFully(data);
         } finally{
             this.receiveLock.unlock();
         }
+        return new Frame(tag,data);
     }
 
     @Override

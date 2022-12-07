@@ -5,11 +5,12 @@ public class ServerWithWorkers {
     final static int WORKERS_PER_CONNECTION = 3;
 
     public static void main(String[] args) throws Exception {
-        try (ServerSocket ss = new ServerSocket(12345)) {
+        try {
+            ServerSocket ss = new ServerSocket(12345);
             while(true) {
                 Socket s = ss.accept();
-                try (FramedConnection c = new FramedConnection(s)) {
-                    
+                try {
+                    TaggedConnection c = new TaggedConnection(s);
                     Runnable worker = () -> {
                         try {
                             while(true) {
@@ -36,9 +37,9 @@ public class ServerWithWorkers {
 
                     for (int i = 0; i < WORKERS_PER_CONNECTION; ++i)
                         new Thread(worker).start();
-                }
+                } catch(Exception e){}
             }
-        }
+        } catch(Exception e){}
 
     }
 }
