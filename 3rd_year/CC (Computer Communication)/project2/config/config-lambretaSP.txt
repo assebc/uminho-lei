@@ -4,4 +4,4 @@ lambreta.bgj SS 10.4.4.11:5353
 lambreta.bgj SS 10.1.1.10:5353
 lambreta.bgj LG logs/lambreta.log
 all LG /logs/all.log
-#root ST /home/core/CC32/db/rootservers.db
+.bgj ST /home/core/CC32/db/ST-list-lambreta.txt

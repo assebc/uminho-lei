@@ -46,7 +46,6 @@ class Query:
 
     # Cria a reposta que o SP envia de volta ao CL
 
-    #TODO: Otimizar esta funcao
     def __str__(self):
         '''
         Creates string to represent a query request or response
@@ -61,67 +60,59 @@ class Query:
 
         res = res + "\n"       # debug
 
-        if self.values_response is not None:
-            i = 0
-            for resp in self.values_response:
-                res = res + resp
-                if (i < len(self.values_response)-1):
-                    res = res + ","
-                    i = i + 1
-                else:
-                    res = res + ";"
+        array = [self.values_response,self.values_authorities,self.values_extra]
 
-        res = res + "\n"       # debug
-
-        if self.values_authorities is not None:
-            i = 0
-            for auth in self.values_authorities:
-                res = res + auth
-                if (i < len(self.values_authorities)-1):
-                    res = res + ","
-                    i = i + 1
-                else:
-                    res = res + ";"
-
-        res = res + "\n"       # debug
-
-        if self.values_extra is not None:
-            i = 0
-            for extra in self.values_extra:
-                res = res + extra
-                if (i < len(self.values_extra)-1):
-                    res = res + ","
-                    i = i + 1
-                else:
-                    res = res + ";"
-
+        for val in array:
+            if val is not None:
+                i = 0
+                for aux in val:
+                    res = res + aux
+                    if (i < len(val)-1):
+                        res = res + ","
+                        i = i + 1
+                    else:
+                        res = res + ";"
+                        
         return res
 
     def verifyDomainExistance(self,db):
-        '''
-        Verefies if the domain requested in a query request exists in a relevant record in the Database
-        '''
         match self.query_type:
             case "MX":
                 if self.query_name not in db.typeMX.keys():
                     return False
 
             case "A":
-                if db.typeMX:
-                    if self.query_name not in db.typeNS.keys() or self.query_name not in db.typeMX.keys():
-                        return False
-                else:
-                    if self.query_name not in db.typeNS.keys():
-                        return False
+                if self.query_name not in db.typeMX.keys() and self.query_name not in db.typeNS.keys() and self.query_name not in db.typeA.keys():
+                    return False
+
             case "NS":
                 if self.query_name not in db.typeNS.keys():
                     return False
 
         return True
 
-    """
-        # LEGACY CODE
-        def verifyServerExistence(self,db):
+    def verifyPartialExistence(self,db):
+        
+        splited = self.query_name.split(".")
+        levels = []
+        for i in range(1,len(splited)):
+            domain = ""
+            lista = splited[len(splited)-i:]
+            if len(lista) > 1:
+                lista = lista[:-1]
+            for x in lista:
+                domain = domain + "." + x
+                levels.append(domain)
+            levels.reverse()
+            for domain in levels:
+                self.query_name = domain
+                if self.verifyDomainExistance(db):
+                    print("true")
+                    return True
+
+        return False
+
+    def verifyServerExistence(self,db):
         match self.query_type:
             case "MX":
                 for vs in db.typeMX.values():
@@ -146,7 +137,6 @@ class Query:
                             if v[0] == self.query_name:
                                 return True
         return False
-    """
 
     def readQueryRequest(self,request):
         '''
@@ -158,9 +148,12 @@ class Query:
         Return: 
         query request
         '''
+        split1 = []
+        split2 = []
         split1 = str(request).split(",",7)
         split2 = str(split1[5]).split(";",2)
 
+        # Parte do self provavelmente sera mudada para uma nova instancia
         self.message_id = int(split1[0])
         self.flags = str(split1[1])
         self.response_code = int(split1[2])
@@ -172,16 +165,14 @@ class Query:
         temp = str(split1[6])
         self.query_type = temp[0 : (len(temp)-1)]
 
-        res = self.clone()
+        return self
 
-        return res
-
-    def getResponseVal(self, db):
+    def getResponseVal(self, db,flag):
         '''
         Fetches the response values of a query from a database
 
         Parameters:
-        db (String): database
+        db (String): database path
 
         Return:
         List with all relevant response values
@@ -189,43 +180,43 @@ class Query:
         resV = []  # lista de tuplos
 
         # caso de nome dominio
-        # if flag == 0:     # LEGACY
-        match self.query_type:
-            case "MX":
-                if self.query_name in db.typeMX.keys():
-                    for q in db.typeMX[self.query_name]:
-                        resV.append(q)
+        if flag == 0:
+            match self.query_type:
+                case "MX":
+                    if self.query_name in db.typeMX.keys():
+                        for q in db.typeMX[self.query_name]:
+                            resV.append(q)
 
-            case "A":
-                if self.query_name in db.typeA.keys():
-                    resV.append(db.typeA[self.query_name])
-                """
-                # Caso de pedir TODOS os valores de A
-                for v in db.typeA.values():
-                    resV.append(v)
-                """
-
-            case "NS":
-                if self.query_name in db.typeNS.keys():
-                    for q in db.typeNS[self.query_name]:
-                        resV.append(q)
-
-            case "CNAME":
-                for k, v in db.typeNS.items():
-                    if self.query_name == k or self.query_name == v[0]:
+                case "A":
+                    if self.query_name in db.typeA.keys():
+                        for q in db.typeA[self.query_name]:
+                            resV.append(q)
+                    """
+                    # Caso de pedir TODOS os valores de A
+                    for v in db.typeA.values():
                         resV.append(v)
-                """
-                # Caso de pedir TODOS os valores de CNAME
-                for v in db.typeCN.values():
-                    resV.append(v)
-                """
+                    """
 
-            # case _:
+                case "NS":
+                    if self.query_name in db.typeNS.keys():
+                        for q in db.typeNS[self.query_name]:
+                            resV.append(q)
 
-            #case "PTR":
+                case "CNAME":
+                    for k, v in db.typeNS.items():
+                        if self.query_name == k or self.query_name == v[0]:
+                            resV.append(v)
+                    """
+                    # Caso de pedir TODOS os valores de CNAME
+                    for v in db.typeCN.values():
+                        resV.append(v)
+                    """
+
+                # case _:
+
+                #case "PTR":
 
         # caso de ser nome servidor
-        '''
         elif flag == 1:
             match self.query_type:
                 case "MX":
@@ -253,47 +244,28 @@ class Query:
                             for v in vs:
                                 if v[0] == self.query_name:
                                     resV.append(v[1])
-        '''
         return resV
 
-    def getAuthorVal(self,db):
-        '''
-            Fetches the authorative values of a query from a database
-
-            Parameters:
-            db (String): database path
-
-            Return:
-            List with all relevant authorative values
-        '''
+    def getAuthorVal(self,db,flag):
         # Match nome e tipo NS
         resA = [] # lista de tuplos
 
         if self.query_type != "NS":
             # nome e dominio
-            #if flag == 0:
-            if self.query_name in db.typeNS.keys():
-                for q in db.typeNS[self.query_name]:
-                    resA.append(q)
+            if flag == 0:
+                if self.query_name in db.typeNS.keys():
+                    for q in db.typeNS[self.query_name]:
+                        resA.append(q)
             # nome e servidor
-            #elif flag == 1:
-            '''
+            elif flag == 1:
                 for vs in db.typeNS.values():
                     for v in vs:
                         if v[0] == self.query_name:
                             resA.append(v[1])
-            '''
-        return resA
+            return resA
 
     def getExtraVal(self,db,chosen):
         '''
-            Fetches the extra values of a query from a database
-
-            Parameters:
-            db (String): database path
-
-            Return:
-            List with all relevant extra values
         '''
         # Match valores escolhidos nos outros values e que sao do tipo A
         resE = [] #lista de tuplos
@@ -302,100 +274,95 @@ class Query:
                 s = (c[1].split(" "))[2] # pega dominio para substituir
                 if s[len(s) - 1] != ".":
                     s = s + "."
-                aux = db.typeA[c[0]].replace(c[0],s) # substitui chosen por o seu dominio
-                resE.append(aux)
+                for a in db.typeA[c[0]]:
+                    aux = a.replace(c[0],s) # substitui chosen por o seu dominio
+                    resE.append(aux)
         return resE
 
     def createQueryResponse(self,db):
         '''
-        Creates the response to a query request, using said request as its basis
+        Pedidos CNAME devolvem apenas o nome substituído.
         '''
+        self.query_name = db.macroReplace(self.query_name)
         # clona original e altera flag
-        res = Query.clone(self)
+        res = self.clone()
+        # TODO: VERIFICAR ISTO DAS FLAGS
         res.flags = "A"
 
-        if self.query_type == "ZT":
-            serial = str(db.get_serial())
-            res.values_response.append(serial)
-            res.n_values = len(res.values_response)
-            return res
-
-
         # nome é dominio
-        # LEGACY: if '.' in self.query_name:
+        if '.' in self.query_name:
 
-        isA = False
+            isA = False
 
-        # Safeguard (variavel orignal e so usado para restaurar nome original)
-        original = self.query_name
-
-        # response code 2
-        if not self.verifyDomainExistance(db):
-            res.response_code = 2
-            self.query_name = original
-            return res
-
-        # para fazer do tipo A e necessario fazer MX e NS
-        if self.query_type == "A":
-            isA = True
-            self.query_type = "MX"
-
-        # pega nos response e author values
-        valR = self.getResponseVal(db)
-        valA = self.getAuthorVal(db)
-        chosen = []
-
-        #print(str(valR) + "\n")        # DEBUG
-
-        #print(str(valA) + "\n")        # DEBUG
-
-        # response code 1 (para tipos diferentes de A)
-        if not isA:
-            if self.verifyDomainExistance(db) and len(valR)==0:
-                res.response_code = 1
-                res.values_response = valR
-                self.query_name = original
+            #try:
+            # response code 2
+            if not self.verifyDomainExistance(db):
+                res.response_code = 2
+                #se o domínio não existe verifica se conhece os servidores de topo desse domínio
+                if self.verifyPartialExistence(db):
+                    res.response_code = 3
+                    valR = self.getResponseVal(db, 0)
+                    for a in valR:
+                        res.values_authorities.append(a[1])
                 return res
-
-        # busca valores necessarios para as extra
-        for r in valR:
-            chosen.append(r)
-            res.values_response.append(r[1])
-
-        if valA:
-            for a in valA:
-                chosen.append(a)
-                res.values_authorities.append(a[1])
-
-        # pega nos valores extra
-        res.values_extra = self.getExtraVal(db,chosen)
-
-        # reformar resposta a tipo A
-        if isA:
-            res.query_type = self.query_type = "A"
-            res.values_response = self.values_response = res.values_extra
-            res.values_extra = self.values_extra = []
-
-            # response code 1 (para tipo A)
-            if self.verifyDomainExistance(db) and len(res.values_response) == 0:
+            #finally: 
+            # para fazer do tipo A e necessario fazer MX e NS
+            if self.query_type == "A" and (db.typeNS or db.typeMX):
+                isA = True
+                self.query_type = "MX"
+            elif self.query_type == "A":
+                valR = self.getResponseVal(db,0)
+                self.values_response = valR
+                for r in valR:
+                    res.values_response.append(r)
                 res.n_values = len(res.values_response)
                 res.n_authorities = len(res.values_authorities)
                 res.n_extra = len(res.values_extra)
-                res.response_code = 1
-                self.query_name = original
                 return res
 
-        # define numero de valores encontrados
-        res.n_values = len(res.values_response)
-        res.n_authorities = len(res.values_authorities)
-        res.n_extra = len(res.values_extra)
-
-        # Safeguard (restauro do nome original)
-        self.query_name = original
 
 
-        """
-        # LEGACY CODE
+            # pega nos response e author values
+            valR = self.getResponseVal(db, 0)
+            valA = self.getAuthorVal(db, 0)
+            chosen = []
+
+            #print(str(valR) + "\n")
+
+            #print(str(valA) + "\n")
+            # response code 1
+            if self.verifyDomainExistance(db) and len(valR)==0:
+                res.response_code = 1
+                res.values_response = valR
+                return res
+        
+            # busca valores necessarios para as extra
+            for r in valR:
+                chosen.append(r)
+                res.values_response.append(r[1])
+
+            if valA:
+                for a in valA:
+                    chosen.append(a)
+                    res.values_authorities.append(a[1])
+
+            # pega nos valores extra
+            res.values_extra = self.getExtraVal(db,chosen)
+
+            # reformar resposta a tipo A
+            if isA:
+                self.query_type = "A"
+                self.values_response = self.values_extra
+                self.values_extra = []
+                res.values_response = res.values_extra
+                res.values_extra = []
+
+            # define numero de valores encontrados
+            res.n_values = len(res.values_response)
+            res.n_authorities = len(res.values_authorities)
+            res.n_extra = len(res.values_extra)
+
+
         # nome é servidor
         else:
             # response code 2
@@ -417,12 +384,7 @@ class Query:
             self.values_extra = []
             if (self.query_type != "A"):
                 if self.query_name in db.typeA.keys():
-                    res.values_extra.append(db.typeA[self.query_name])
-
-            res.n_extra = len(res.values_extra)
-            res.n_values = len(res.values_response)
-            res.n_authorities = len(res.values_authorities)
-        """
+                    self.values_extra.append(db.typeA[self.query_name])
 
         return res
 

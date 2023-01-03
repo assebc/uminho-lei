@@ -275,6 +275,7 @@ node n10 {
     interface-peer {e4 n28}
     interface-peer {e5 n26}
     interface-peer {e0 n4}
+    interface-peer {e6 n21}
 }
 
 node n11 {
@@ -717,8 +718,8 @@ node n22 {
 	!
     }
     canvas c1
-    iconcoords {922.0 682.0}
-    labelcoords {928.0 721.0}
+    iconcoords {833.0 697.0}
+    labelcoords {839.0 736.0}
     interface-peer {eth0 n10}
     custom-config {
 	custom-config-id service:DefaultRoute
@@ -951,8 +952,8 @@ node n28 {
 	!
     }
     canvas c1
-    iconcoords {764.0 683.0}
-    labelcoords {764.0 718.0}
+    iconcoords {746.0 674.0}
+    labelcoords {746.0 709.0}
     interface-peer {eth0 n10}
     custom-config {
 	custom-config-id service:DefaultRoute
@@ -1223,6 +1224,41 @@ node n15 {
     services {DefaultRoute SSH}
 }
 
+node n21 {
+    type router
+    model host
+    network-config {
+	hostname SR
+	!
+	interface eth0
+	 ip address 10.4.4.13/24
+	 ipv6 address 2001:4:4::13/64
+	!
+    }
+    canvas c1
+    iconcoords {929.0 673.0}
+    labelcoords {929.0 705.0}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	ip route add default via 10.4.4.2
+	ip route add default via 2001:4:4::2
+	
+	}
+    }
+    services {DefaultMulticastRoute DefaultRoute SSH}
+    interface-peer {eth0 n10}
+}
+
 link l1 {
     nodes {n1 n2}
     bandwidth 0
@@ -1405,6 +1441,11 @@ link l14 {
 
 link l15 {
     nodes {n9 n5}
+    bandwidth 0
+}
+
+link l34 {
+    nodes {n21 n10}
     bandwidth 0
 }
 

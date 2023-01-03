@@ -1,7 +1,7 @@
 import random
 
 from logs import Logs
-from parser import Parser
+from interpreter import Parser
 from dns_controller import Query
 
 import os, socket, sys, time

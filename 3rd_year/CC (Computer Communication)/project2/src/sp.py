@@ -1,8 +1,10 @@
-import os.path, sys 
+import os.path, sys, re
 from logs import Logs
-from parser import Parser
+from interpreter import Parser
 from dns_controller import Query
 from database import Database
+#import st
+#import sdt
 
 import socket 
 import threading # needs to support concurrency
@@ -20,7 +22,6 @@ class Application:
         '''
 
         self.properties = {
-            "domain": "", # default domain
             "address": "0.0.0.0", # default address is localhost
             "port": 5353, # normalized port
             "timeout": 255, # default timeout
@@ -30,12 +31,14 @@ class Application:
             "file_log": [], #path for list log file
             "logger": Logs(), # object logs
             "file_db": "", # path for data base file
+            "file_st": "", # path for st file
             "database": Database(), # object database
-            "list_st": [], # list of ST servers
-            "list_ss": {}, # dictionary of domains and address that are secondary to this server (Domain:[Addresses])
+            "list_ss": {}, # list of address that are secondary to this server (Domain:[Addresses])
             "size": 1024, # header 1 KB
-            "encoder": "utf-8" # encoder format
-            }
+            "encoder": "utf-8", # encoder format
+            #"object_st": None, # to implement in recursive query
+            #"object_sdt": [None] # to implement in recursive query
+        }
 
         try:
             keys = ["file_config","port","timeout","debug_mode"]
@@ -53,7 +56,9 @@ class Application:
             self.properties["address"] = str(self.get_ip())
             db_parser = Parser(self.properties["file_db"],db=True,dict=self.properties)
             self.properties["database"] = db_parser.get_db()
-            
+            print(self.properties["database"])
+            # self.properties["object_st"] = st.Application(["file_config","file_sdt","port"])
+            # self.properties["object_sdt"] = st.Application(["file_config","port","timeout","debug_mode"])
             self.properties["logger"] = Logs(self.properties["file_log"], self.properties["debug_mode"],False)
             self.properties["logger"].write(f'ST {self.properties["address"]} {self.properties["port"]} {self.properties["timeout"]} {self.properties["debug_mode"]}')
             self.properties["logger"].write("EV @ conf-file-read " + self.properties["file_config"])
@@ -91,15 +96,6 @@ class Application:
         properties (dict): Dictionary that contains all information about main server
         '''
         return self.properties
-    
-    def getType(self):
-        '''
-        Getter of the type parameter in dictionary
-
-        Returns:
-        type (string): Returns type of server ("SP"|"SS"|"SR"|"CL")
-        '''
-        return self.properties["type"]
 
     def start_serverTCP(self):
         '''
@@ -133,7 +129,7 @@ class Application:
         address (String): String of address he is acceptin sockets from
         '''
         #receive domain
-        request = socket.recv(1024).decode(self.properties["encoder"])
+        request = socket.recv(self.properties["size"]).decode(self.properties["encoder"])
         
         #check if it's from an authority domain
         if self.valid_zt_request(address):
@@ -145,34 +141,36 @@ class Application:
 
 
             #receive confirmation for no. of entries
-            response = socket.recv(1024)
+            response = socket.recv(self.properties["size"])
             check = int(response.decode(self.properties["encoder"]))
 
 
             if check == no_lines:
                 n = 1
+                data = bytes
                 for line in lines:
                     try:
                         db_entry = str(n) + ":" + str(line)
                         data = db_entry.encode('utf-8')
                         socket.send(data)
                     except Exception as error:
-                        self.properties["logger"].write(f'FL @ tentei enviar entry {error}')
+                        self.properties["logger"].write(f'FL @ tried to send entry {error}')
                     try:
-                        msg = socket.recv(1024)
+                        msg = socket.recv(self.properties["size"])
                         n += 1
                     except Exception as error:
-                        self.properties["logger"].write(f'FL @ tentei ler confirmação {error}')
+                        self.properties["logger"].write(f'FL @ tried to read confirmation {error}')
+                    
             else:
                 self.properties["logger"].write(f'RR @ different number of lines')
             
             
-            #self.properties["logger"] = Logs(self.properties["file_log"], self.properties["debug_mode"],False)
-            #self.properties["logger"].write(f'EV @ new-connection-tcp {address[0]}:{address[1]}')
-            
-            
+            self.properties["logger"] = Logs(self.properties["file_log"], self.properties["debug_mode"],False)
+            self.properties["logger"].write(f'EV @ new-connection-tcp {address[0]}:{address[1]}')
+
         else:
             self.properties["logger"].write(f'EV @ {address[0]}:{address[1]} not allowed to get database')
+        
         socket.close()
         self.properties["logger"].write(f'EV @ close-connection-tcp {address[0]}:{address[1]}')
 
@@ -237,7 +235,7 @@ class Application:
                 # executa o query request
                 queryResp = queryReq.createQueryResponse(self.properties["database"])
 
-                # string para ser devolvida ao cliente
+                # string para ser devolvida ao cliente; SP e a origin para efeitos de cache
                 response = str(queryResp)
                 
                 #query_name = queryResp.getQuery_name()
@@ -250,7 +248,6 @@ class Application:
             except Exception as error:
                 self.properties["logger"].write(f'ER {address[0]}:{address[1]} {error}')
 
-        
 def main():
     args = []
     i = 1

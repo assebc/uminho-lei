@@ -1,0 +1,5 @@
+# Configuration file for primary server for root
+. DB /home/core/CC32/db/root.txt
+. LG /logs/root.log
+all LG logs/all.log
+root ST /home/core/CC32/db/rootservers.txt

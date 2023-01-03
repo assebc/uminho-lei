@@ -1,0 +1,21 @@
+# DNS database file for domain root
+# It also includes a pointer to the primary server
+
+@ DEFAULT .
+TTL DEFAULT 86400
+@ SOASP . TTL
+@ SOAADMIN admin. TTL
+@ SOASERIAL 0112534022 TTL
+@ SOAREFRESH 14400 TTL
+@ SOARETRY 3600 TTL
+@ SOAEXPIRE 604800 TTL
+
+#ccm
+.ccm A 10.3.3.3 TTL
+.ccm A 10.2.2.3 TTL
+.ccm A 10.1.1.11 TTL
+
+#bgj
+.bgj A 10.3.3.3 TTL
+.bgj A 10.2.2.3 TTL
+.bgj A 10.4.4.12 TTL

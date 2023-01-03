@@ -68,7 +68,35 @@ class Parser:
         a = ""
         i = 0
         for a in args:
-            if "file_config" in keys:
+            # keys = ["file_config","file_st","port"]
+            if "file_st" in keys or "file_sdt" in keys:
+                match i:
+                    case 0: # obrigatório
+                        b = str(a).split('.')
+                        if b[1] == "txt":
+                            dict[keys[i]] = a
+                            i+=1
+                        else: 
+                            raise Exception("Not a valid config file!")
+
+                    case 1: #obrigatorio
+                        b = str(a).split('.')
+                        if b[1] == "txt":
+                            dict[keys[i]] = a
+                            i+=1
+                        else: 
+                            raise Exception("Not a valid ST file!")
+
+                    case 2: # opcional, se < 1 não é considerado
+                        if int(a) >= 1 and int(a) <= 65535:
+                            dict[keys[i]] = int(a)
+                            i+=1
+                        elif int(a) < 1:
+                            i+=1
+                        else:
+                            raise Exception("Not a valid port input!")
+
+            elif "file_config" in keys:
                 match i:
                     case 0: # obrigatório
                         b = str(a).split('.')
@@ -101,6 +129,8 @@ class Parser:
                             dict[keys[i]] = str(a)
                         else:
                             raise Exception("Not a valid debug mode input!") 
+
+
             else:
                 # keys = ["address_server","server_domain","query_name","query_flag"]
                 match i:
@@ -149,14 +179,13 @@ class Parser:
                 if line != []:
                     if not self.check_line(line):
                         print(str(line))
-                        #print("Error in line " + str(i))
                     else:
                         if self.config:
                             self.insertintoServer(dict,line)
                         elif self.db:
                             self.insertintoDB(dict,line)
-                        #elif self.st: # TODO: done in next phase
-                        #    self.insertintoST()
+                        elif self.st:
+                            self.insertintoST(dict,line)
                     i+=1
                      
         else:
@@ -228,13 +257,25 @@ class Parser:
         Returns:
         boolean
         '''
-        if len(line)==4:
-            if line[1] == "ST":
-                return self.is_ipv4(line[0])
+        if len(line)==3:
+            if line[0] == "." and line[1] == "ST":
+                return self.is_ipv4(line[2])
             else:
                 raise Exception("Found some invalid values in ST file!")
         else:
             raise Exception("Invalid number of arguments in ST file!")
+
+    def isSDT(self,address):
+        '''
+        Method that verifies is given address is from SDT
+
+        Parameters:
+        address (address): address of possible SDT
+
+        Returns:
+        boolean: Is address is SDT or not
+        '''
+        return re.fullmatch("([a-z0-9]+.[a-z0-9]+)",address) or re.fullmatch("([a-z0-9]+.[a-z0-9]+.)",address) or re.fullmatch("(.+[a-z0-9]+.)",address) or re.fullmatch("(.+[a-z0-9]+)",address)
 
     def check_db_len_3(self,line):
         '''
@@ -252,7 +293,10 @@ class Parser:
                     self.TTL = int(line[2])
                     return True
                 elif line[0] == "@":
-                    if not str(line[2]).endswith('.'):
+                    if line[2] == ".":
+                        self.default = str(line[2])
+                        return True
+                    elif not str(line[2]).endswith('.'):
                         if self.is_domain(0,line[2]):
                             self.default = str(line[2])
                             return True
@@ -281,9 +325,9 @@ class Parser:
         '''
         match line[1]:
             case "SOASP":
-                return self.is_domain(1,line[0]) and self.is_plus_domain(1,line[2]) and self.is_TTL(line[3])
+                return self.is_domain(1,line[0]) and (self.is_plus_domain(1,line[2]) or self.is_domain(1,line[0])) and self.is_TTL(line[3])
             case "SOAADMIN":
-                return self.is_domain(1,line[0]) and self.is_plus_domain(1,line[2]) or self.is_plus_domain(2,line[2]) and self.is_TTL(line[3])
+                return self.is_domain(1,line[0]) and self.is_plus_domain(1,line[2]) or self.is_plus_domain(2,line[2]) or self.is_domain(1,line[2]) and self.is_TTL(line[3])
             case "SOASERIAL":
                 return self.is_domain(1,line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
             case "SOAREFRESH":
@@ -293,11 +337,11 @@ class Parser:
             case "SOAEXPIRE":
                 return self.is_domain(1,line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
             case "NS":
-                return self.is_domain(1,line[0]) and self.is_plus_domain(1,line[2]) and self.is_TTL(line[3])
+                return self.is_domain(1,line[0]) and (self.is_plus_domain(1,line[2]) or self.is_domain(1,line[2])) and self.is_TTL(line[3])
             case "MX":
-                return self.is_domain(1,line[0]) and self.is_plus_domain(1,line[2]) and self.is_TTL(line[3])
+                return self.is_domain(1,line[0]) and (self.is_plus_domain(1,line[2]) or self.is_domain(1,line[2])) and self.is_TTL(line[3])
             case "A": 
-                return self.is_chars(line[0]) and self.is_ipv4(line[2]) and self.is_TTL(line[3])
+                return (self.is_chars(line[0]) or self.is_domain(1,line[0])) and self.is_ipv4(line[2]) and self.is_TTL(line[3])
             case "CNAME": 
                 return self.is_chars(line[0]) and self.is_chars(line[2]) and self.is_TTL(line[3])
             case "PTR":
@@ -342,13 +386,27 @@ class Parser:
                 return True
             elif self.default=="" and re.fullmatch("([a-z0-9]+.[a-z0-9]+)",line):
                 return True
+            elif self.default=="" and re.fullmatch("(.[a-z0-9]+)",line):
+                return True
+            elif self.default=="" and re.fullmatch("(.)",line):
+                return True
+            elif self.default!="" and re.fullmatch("(.[a-z0-9]+)",line) or re.fullmatch("([a-z0-9]+.[a-z0-9]+)",line):
+                return True
+            elif line == "@" and re.fullmatch("(.)",line):
+                return True
         elif int(id) == 1:
             if line == "@" and re.fullmatch("([a-z0-9]+.[a-z0-9]+.)",self.default):
                 return True
             elif self.default=="" and re.fullmatch("([a-z0-9]+.[a-z0-9]+.)",line):
                 return True
-        
-
+            elif self.default=="" and re.fullmatch("(.[a-z0-9]+.)",line):
+                return True
+            elif self.default=="" and re.fullmatch("(.)",line):
+                return True
+            elif self.default!="" and re.fullmatch("(.[a-z0-9]+.)",line) or re.fullmatch("([a-z0-9]+.[a-z0-9]+.)",line):
+                return True
+            elif line == "@" and re.fullmatch("(.)",line):
+                return True
         return False
 
     def is_plus_domain(self,id,line):
@@ -473,7 +531,7 @@ class Parser:
                     list = [str(line[2])]
                     dict["list_ss"][str(line[0])] = list
             case "ST":
-                dict["list_st"].append(line[2])
+                dict["file_st"] = line[2]
             case "LG":
                 dict["file_log"].append(line[2])
             case "DD":
@@ -483,16 +541,27 @@ class Parser:
 
     def insertintoDB(self,dict={},line=[]):
         '''
-        Method that insets into dictionary db parameters form a valid line
+        Method that inserts into dictionary db parameters form a valid line
 
         Parameters:
-        dict (dict):
-        line (array):
+        dict (dict): Dictionary of server
+        line (array): Array with line parameters
         '''
         full_line = ""
         for i in range(len(line)):
             full_line += str(line[i]) + " "
-        #db = Database()
+
         self.db_obj.insertParsed(full_line)
-        #dict["database"] = db
-        #self.db_obj= db
+
+    def insertintoST(self,dic={},line=[]):
+        '''
+        Method that inserts into dictionary parameters from a valid line
+
+        Parameters:
+        dict (dict): Dictionary of server
+        line (array): Array with line parameters
+        '''
+        if "list_st" in dic.keys():
+            dic["list_st"].append(line[2])
+        else:
+            dic["list_sdt"].append(line[2])

@@ -15,10 +15,11 @@ class Database:
         self.soaExpire = ""
         self.typeNS = {}    #key: name domain         value: tuple (word to match with extra,rest of line with substitutions)
         self.ipNS = {}      #key: ns name             value: IP of said ns
+        self.ipWWW = {}     #key: www name            value: IP of said www
         self.typeA = {}     #key: first word          value: rest of line with substitutions
         self.typeMX = {}    #key: name domain         value: tuple (word to match with extra,rest of line with substitutions)
         self.typeCN = {}    #key: synonym             value: name to replace with
-        self.typePTR = {}   #key: ???? no example     value: tuple (word to match with extra,rest of line with substitutions) (?? probably)
+        self.typePTR = {}   #key: ip_adress           value: name server of certain ip address
 
     def __str__(self):
         return str(self.defaults) + "\n" +\
@@ -30,6 +31,7 @@ class Database:
                 str(self.soaExpire) + "\n" +\
                 str(self.typeNS) + "\n" +\
                 str(self.ipNS) + "\n" +\
+                str(self.ipWWW) + "\n" +\
                 str(self.typeA) + "\n" +\
                 str(self.typeMX) + "\n" +\
                 str(self.typeCN) + "\n" +\
@@ -43,11 +45,20 @@ class Database:
 
     def get_NS_addresses(self):
         '''
-        Feteches all the IP adresses of the Name Servers
+        Fetches all the IP adresses of the Name Servers
         '''
         ret = []
         for ns in self.ipNS.items():
             ret.append(ns[1])
+        return ret
+    
+    def get_WWW_addresses(self):
+        '''
+        Fetches all the IP addresses of the WWW Servers
+        '''
+        ret = []
+        for www in self.ipWWW.items():
+            ret.append(www[1])
         return ret
 
     def macroReplace(self,line):
@@ -77,9 +88,7 @@ class Database:
         parsed = parsed.strip()
         splited = str.split(parsed," ")
 
-        if len(splited) <= 1:
-            pass
-        else:
+        if len(splited) > 1:
             match splited[1]:
                 case "DEFAULT":
                     self.defaults[splited[0]] = splited[2].replace("\n","")
@@ -124,13 +133,15 @@ class Database:
 
                     ip = splited[2]
 
-                    """
-                     if key not in self.typeA.keys():
+                    if key not in self.typeA.keys():
                         self.typeA[key] = list()
-                     list.append(self.typeA[key], val)
-                    """
-                    self.typeA[key] = val
-                    self.ipNS[key] = ip
+                    list.append(self.typeA[key], val)
+
+                    # self.typeA[key] = val
+                    if "ns" in key:
+                        self.ipNS[key] = ip
+                    elif "www" in key:
+                        self.ipWWW[key] = ip
 
                 case "CNAME":
                     key = splited[0]
@@ -141,7 +152,36 @@ class Database:
                         self.typeCN[key] = val
                         self.defaults[key] = val
 
-                #TODO FASE 2: case PTR && Smaller
+                case "PTR": # rDNS
+                    key = splited[0]
+                    val = splited[2]
+
+                    if key not in self.typePTR.keys():
+                        self.typePTR[key] = val
+
                 case _:
                     pass        # this should be ok
                     #raise Exception("Not valid line type was parsed!")
+        else:
+            pass
+
+    # checks if entry is in DB
+    def checkDB(self,name,value,type):
+        match type:
+            case "A":
+                if name in self.typeA.keys():
+                    for val in self.typeA[name]:
+                        if val[1] == value:
+                            return True
+            case "MX":
+                if name in self.typeMX.keys():
+                    for val in self.typeMX[name]:
+                        if val[1] == value:
+                            return True
+            case "NS":
+                if name in self.typeNS.keys():
+                    for val in self.typeNS[name]:
+                        if val[1] == value:
+                            return True
+
+        return False

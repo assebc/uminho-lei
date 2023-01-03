@@ -1,77 +1,1111 @@
-22:11:22.23:59:54:043: ST 10.4.4.10:5353 3333 255 debug
-22:11:22.23:59:54:044: EV @ conf-file-read config/config-barreteSP.txt
-22:11:22.23:59:54:044: EV @ initialized
-23:11:22.00:02:30:417: ST 10.4.4.10:5353 3333 255 debug
-23:11:22.00:02:30:418: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:02:30:418: EV @ initialized
-23:11:22.00:05:01:863: ST 10.4.4.10:5353 3333 255 debug
-23:11:22.00:05:01:863: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:05:01:864: EV @ initialized
-23:11:22.00:05:44:845: ST 10.4.4.10:5353 3333 255 debug
-23:11:22.00:05:44:845: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:05:44:845: EV @ initialized
-23:11:22.00:07:33:180: ST 10.4.4.10:5353 53 255 debug
-23:11:22.00:07:33:181: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:07:33:181: EV @ initialized
-23:11:22.00:07:37:888: ST 10.4.4.10:5353 53 255 debug
-23:11:22.00:07:37:888: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:07:37:889: EV @ initialized
-23:11:22.00:07:45:736: ST 10.4.4.10:5353 3333 255 debug
-23:11:22.00:07:45:737: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:07:45:737: EV @ initialized
-23:11:22.00:08:15:078: ST 10.4.4.10:5353 3333 255 debug
-23:11:22.00:08:15:079: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:08:15:079: EV @ initialized
-23:11:22.00:09:20:477: ST 10.4.4.10:5353 53 255 debug
-23:11:22.00:09:20:478: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:09:20:478: EV @ initialized
-23:11:22.00:11:37:880: ST 10.4.4.10:5353 53 255 debug
-23:11:22.00:11:37:881: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:11:37:881: EV @ initialized
-23:11:22.00:12:17:902: ST 10.4.4.10:5353 53 255 debug
-23:11:22.00:12:17:903: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:12:17:903: EV @ initialized
-23:11:22.00:13:53:500: ST 10.4.4.10:5353 53 255 debug
-23:11:22.00:13:53:501: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:13:53:501: EV @ initialized
-23:11:22.00:14:02:458: ST 10.4.4.10:5353 53 255 debug
-23:11:22.00:14:02:459: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:14:02:459: EV @ initialized
-23:11:22.00:14:20:794: ST 10.4.4.10:5353 53 255 debug
-23:11:22.00:14:20:795: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:14:20:795: EV @ initialized
-23:11:22.00:14:52:005: ST 10.4.4.10:5353 53 255 debug
-23:11:22.00:14:52:006: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:14:52:006: EV @ initialized
-23:11:22.00:15:18:679: ST 10.4.4.10:5353 53 255 debug
-23:11:22.00:15:18:679: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:15:18:679: EV @ initialized
-23:11:22.00:15:39:686: ST 10.4.4.10 5353 255 debug
-23:11:22.00:15:39:687: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:15:39:687: EV @ initialized
-23:11:22.00:15:55:284: ST 10.4.4.10 5353 255 debug
-23:11:22.00:15:55:285: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:15:55:285: EV @ initialized
-23:11:22.00:16:21:894: ST 10.4.4.10 5353 255 debug
-23:11:22.00:16:21:894: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:16:21:895: EV @ initialized
-23:11:22.00:18:09:565: ST 10.4.4.10 5353 255 debug
-23:11:22.00:18:09:566: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:18:09:566: EV @ initialized
-23:11:22.00:20:15:816: ST 10.4.4.10 5353 255 debug
-23:11:22.00:20:15:816: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:20:15:817: EV @ initialized
-23:11:22.00:21:39:286: ST 10.4.4.10 5353 255 debug
-23:11:22.00:21:39:287: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:21:39:288: EV @ initialized
-23:11:22.00:23:31:082: ST 10.4.4.10 5353 255 debug
-23:11:22.00:23:31:082: EV @ conf-file-read config/config-barreteSP.txt
-23:11:22.00:23:31:083: EV @ initialized
-23:11:22.00:23:44:864: ST 127.0.0.1 3333 255 debug
-23:11:22.00:23:44:865: EV @ conf-file-read config/config.txt
-23:11:22.00:23:44:865: EV @ initialized
-23:11:22.00:23:44:866: EV @ udp-listening-at 127.0.0.1:3333
-23:11:22.00:23:44:867: EV @ tcp-listening-on 127.0.0.1:3333
-23:11:22.00:25:24:245: ST 10.2.2.10 5353 255 debug
-23:11:22.00:25:24:246: EV @ conf-file-read config/config-barreteSS.txt
-23:11:22.00:25:24:246: EV @ initialized
+27:12:22.20:30:23:913: ST 10.2.2.10 5353 255 debug
+27:12:22.20:30:23:914: EV @ conf-file-read /home/core/CC32/config/config-barreteSP.txt
+27:12:22.20:30:23:914: EV @ initialized
+27:12:22.20:30:23:914: EV @ udp-listening-at 10.2.2.10:5353
+27:12:22.20:30:23:914: EV @ tcp-listening-on 10.2.2.10:5353
+27:12:22.20:30:35:944: QR 10.4.4.1:50069 35688,Q,0,0,0,0;barrete.ccm.,MX;
+
+27:12:22.20:30:35:944: RP 10.4.4.1:50069 35688,A,2,0,0,0;barrete.ccm.,MX;
+SP
+28:12:22.13:27:29:201: ST 10.2.2.10 5353 255 debug
+28:12:22.13:27:29:202: EV @ conf-file-read /home/core/CC32/config/config-barreteSP.txt
+28:12:22.13:27:29:203: EV @ initialized
+28:12:22.13:27:29:203: EV @ udp-listening-at 10.2.2.10:5353
+28:12:22.13:27:29:203: EV @ tcp-listening-on 10.2.2.10:5353
+28:12:22.13:27:41:944: QR 10.4.4.1:58524 40721,Q,0,0,0,0;barrete.ccm.,MX;
+
+28:12:22.13:27:41:945: RP 10.4.4.1:58524 40721,A,2,0,0,0;barrete.ccm.,MX;
+SP
+28:12:22.14:16:46:363: ST 10.4.4.13 5353 255 debug
+28:12:22.14:16:46:365: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+28:12:22.14:16:46:366: EV @ initialized
+28:12:22.14:39:05:633: ST 10.3.3.1 5353 255 debug
+28:12:22.14:39:05:634: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+28:12:22.14:39:05:634: EV @ initialized
+28:12:22.14:39:05:634: EV @ udp-listening-at 10.3.3.1:5353
+28:12:22.14:39:05:634: EV @ tcp-listening-on 10.3.3.1:5353
+28:12:22.14:41:37:639: QR 10.4.4.3:46766 61813,Q,0,0,0,0;ccm,A;
+
+28:12:22.14:41:37:639: RP 10.4.4.3:46766 61813,A,2,0,0,0;ccm,A;
+SP
+28:12:22.14:42:09:031: QR 10.4.4.3:57170 47777,Q,0,0,0,0;ccm,A;
+
+28:12:22.14:42:09:032: RP 10.4.4.3:57170 47777,A,2,0,0,0;ccm,A;
+SP
+28:12:22.14:45:28:750: QR 10.4.4.3:50526 27109,Q,0,0,0,0;ccm.,A;
+
+28:12:22.14:45:28:751: RP 10.4.4.3:50526 27109,A,2,0,0,0;ccm.,A;
+SP
+28:12:22.21:27:21:076: ST 10.4.4.13 5353 255 debug
+28:12:22.21:27:21:079: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+28:12:22.21:27:21:080: EV @ initialized
+28:12:22.21:28:12:028: ST 10.3.3.1 5353 255 debug
+28:12:22.21:28:12:028: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+28:12:22.21:28:12:029: EV @ initialized
+28:12:22.21:28:12:029: EV @ udp-listening-at 10.3.3.1:5353
+28:12:22.21:28:12:029: EV @ tcp-listening-on 10.3.3.1:5353
+28:12:22.21:28:43:537: ST 10.3.3.3 5353 255 debug
+28:12:22.21:28:43:538: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.21:28:43:538: EV @ initialized
+28:12:22.21:28:43:538: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.21:28:43:539: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.21:29:58:373: ST 10.3.3.1 5353 255 debug
+28:12:22.21:29:58:374: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+28:12:22.21:29:58:374: EV @ initialized
+28:12:22.21:29:58:375: EV @ udp-listening-at 10.3.3.1:5353
+28:12:22.21:29:58:375: EV @ tcp-listening-on 10.3.3.1:5353
+28:12:22.21:38:47:097: ST 10.4.4.13 5353 255 debug
+28:12:22.21:38:47:098: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+28:12:22.21:38:47:098: EV @ initialized
+28:12:22.21:38:47:099: EV @ tcp-listening-on 10.4.4.13:5353
+28:12:22.21:38:50:125: ST 10.3.3.1 5353 255 debug
+28:12:22.21:38:50:126: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+28:12:22.21:38:50:126: EV @ initialized
+28:12:22.21:38:50:126: EV @ udp-listening-at 10.3.3.1:5353
+28:12:22.21:38:50:128: EV @ tcp-listening-on 10.3.3.1:5353
+28:12:22.21:38:52:193: ST 10.3.3.3 5353 255 debug
+28:12:22.21:38:52:194: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.21:38:52:195: EV @ initialized
+28:12:22.21:38:52:195: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.21:38:52:196: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.21:40:12:961: QR 10.4.4.3:41002 16263,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.21:40:12:961: RP 10.4.4.3:41002 16263,A,2,0,0,0;lambreta.bgj,NS;
+SP
+28:12:22.21:40:22:201: QR 10.4.4.3:36378 29873,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.21:40:22:202: RP 10.4.4.3:36378 29873,A,2,0,0,0;lambreta.bgj,NS;
+SP
+28:12:22.21:52:13:030: ST 10.4.4.13 5353 255 debug
+28:12:22.21:52:13:030: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+28:12:22.21:52:13:031: EV @ initialized
+28:12:22.21:52:13:031: EV @ udp-listening-at 10.4.4.13:5353
+28:12:22.21:52:19:005: QR 10.4.4.3:56042 54277,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.21:52:19:005: ER 10.4.4.3:56042 'NoneType' object has no attribute 'queryFromCache'
+28:12:22.21:58:59:595: ST 10.4.4.13 5353 255 debug
+28:12:22.21:58:59:596: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+28:12:22.21:58:59:596: EV @ initialized
+28:12:22.21:58:59:597: EV @ udp-listening-at 10.4.4.13:5353
+28:12:22.21:59:01:704: QR 10.4.4.3:55025 55147,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.21:59:01:704: ER 10.4.4.3:55025 '10.3.3.1'
+28:12:22.21:59:43:599: ST 10.4.4.13 5353 255 debug
+28:12:22.21:59:43:599: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+28:12:22.21:59:43:600: EV @ initialized
+28:12:22.21:59:43:600: EV @ udp-listening-at 10.4.4.13:5353
+28:12:22.21:59:48:811: QR 10.4.4.3:46902 47488,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.21:59:48:811: ER 10.4.4.3:46902 '10.3.3.1'
+28:12:22.22:04:05:943: ST 10.3.3.1 5353 255 debug
+28:12:22.22:04:05:944: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+28:12:22.22:04:05:944: EV @ initialized
+28:12:22.22:04:05:945: EV @ udp-listening-at 10.3.3.1:5353
+28:12:22.22:04:05:945: EV @ tcp-listening-on 10.3.3.1:5353
+28:12:22.22:04:30:814: QR 10.4.4.3:37694 27213,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.22:04:30:814: RP 10.4.4.3:37694 27213,A,2,0,0,0;lambreta.bgj,NS;
+SP
+28:12:22.22:04:34:078: QR 10.4.4.3:43740 60820,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.22:04:34:078: RP 10.4.4.3:43740 60820,A,2,0,0,0;lambreta.bgj,NS;
+SP
+28:12:22.22:04:35:379: QR 10.4.4.3:57041 5122,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.22:04:35:379: RP 10.4.4.3:57041 5122,A,2,0,0,0;lambreta.bgj,NS;
+SP
+28:12:22.22:04:36:146: QR 10.4.4.3:36048 18595,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.22:04:36:147: RP 10.4.4.3:36048 18595,A,2,0,0,0;lambreta.bgj,NS;
+SP
+28:12:22.22:04:36:738: QR 10.4.4.3:36591 65076,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.22:04:36:739: RP 10.4.4.3:36591 65076,A,2,0,0,0;lambreta.bgj,NS;
+SP
+28:12:22.22:04:37:331: QR 10.4.4.3:57659 62853,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.22:04:37:331: RP 10.4.4.3:57659 62853,A,2,0,0,0;lambreta.bgj,NS;
+SP
+28:12:22.22:04:37:898: QR 10.4.4.3:50360 24908,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.22:04:37:898: RP 10.4.4.3:50360 24908,A,2,0,0,0;lambreta.bgj,NS;
+SP
+28:12:22.22:04:38:496: QR 10.4.4.3:50960 12030,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.22:04:38:496: RP 10.4.4.3:50960 12030,A,2,0,0,0;lambreta.bgj,NS;
+SP
+28:12:22.22:06:29:618: ST 10.3.3.1 5353 255 debug
+28:12:22.22:06:29:619: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+28:12:22.22:06:29:619: EV @ initialized
+28:12:22.22:06:29:620: EV @ udp-listening-at 10.3.3.1:5353
+28:12:22.22:06:29:620: EV @ tcp-listening-on 10.3.3.1:5353
+28:12:22.22:06:31:836: QR 10.4.4.3:56117 62483,Q,0,0,0,0;lambreta.bgj,NS;
+
+28:12:22.22:06:31:836: RP 10.4.4.3:56117 62483,A,2,0,0,0;lambreta.bgj,NS;
+
+28:12:22.22:06:44:954: QR 10.4.4.3:35124 56133,Q,0,0,0,0;barrete.bgj,NS;
+
+28:12:22.22:06:44:954: RP 10.4.4.3:35124 56133,A,2,0,0,0;barrete.bgj,NS;
+
+28:12:22.22:07:36:608: QR 10.4.4.3:32890 9847,Q,0,0,0,0;barrete.bgj.,NS;
+
+28:12:22.22:07:36:608: RP 10.4.4.3:32890 9847,A,2,0,0,0;barrete.bgj.,NS;
+
+28:12:22.22:08:08:818: QR 10.4.4.3:32999 6845,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:08:08:818: RP 10.4.4.3:32999 6845,A,2,0,0,0;bgj.,NS;
+SP
+28:12:22.22:08:19:768: ST 10.3.3.3 5353 255 debug
+28:12:22.22:08:19:768: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:08:19:769: EV @ initialized
+28:12:22.22:08:19:769: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:08:19:769: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:08:40:826: QR 10.4.4.3:54670 40133,Q,0,0,0,0;bgj,NS;
+
+28:12:22.22:08:40:826: RP 10.4.4.3:54670 40133,A,2,0,0,0;bgj,NS;
+
+28:12:22.22:08:59:994: QR 10.4.4.3:48770 62836,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:08:59:994: RP 10.4.4.3:48770 62836,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:09:06:981: QR 10.4.4.3:50738 3687,Q,0,0,0,0;bgj.,A;
+
+28:12:22.22:09:06:981: RP 10.4.4.3:50738 3687,A,2,0,0,0;bgj.,A;
+
+28:12:22.22:10:47:721: QR 10.4.4.3:37313 24016,Q,0,0,0,0;ns1,A;
+
+28:12:22.22:10:47:721: RP 10.4.4.3:37313 24016,A,2,0,0,0;ns1,A;
+
+28:12:22.22:10:58:638: QR 10.4.4.3:39182 43822,Q,0,0,0,0;bgj.,A;
+
+28:12:22.22:10:58:638: RP 10.4.4.3:39182 43822,A,2,0,0,0;bgj.,A;
+
+28:12:22.22:14:35:946: QR 10.4.4.3:51818 758,Q,0,0,0,0;ns1,A;
+
+28:12:22.22:14:35:947: RP 10.4.4.3:51818 758,A,2,0,0,0;ns1,A;
+
+28:12:22.22:15:16:917: QR 10.4.4.3:39678 35412,Q,0,0,0,0;ns1,NS;
+
+28:12:22.22:15:16:917: RP 10.4.4.3:39678 35412,A,2,0,0,0;ns1,NS;
+
+28:12:22.22:22:37:842: QR 10.4.4.3:51336 42950,Q,0,0,0,0;bgj.,A;
+
+28:12:22.22:22:37:843: RP 10.4.4.3:51336 42950,A,2,0,0,0;bgj.,A;
+
+28:12:22.22:22:59:300: QR 10.4.4.3:51308 3742,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:22:59:300: RP 10.4.4.3:51308 3742,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:24:28:795: ST 10.3.3.3 5353 255 debug
+28:12:22.22:24:28:796: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:24:28:796: EV @ initialized
+28:12:22.22:24:28:796: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:24:28:797: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:24:31:371: QR 10.4.4.3:45773 15915,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:24:31:371: RP 10.4.4.3:45773 15915,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:24:52:736: QR 10.4.4.3:55655 27879,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:24:52:736: RP 10.4.4.3:55655 27879,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:24:53:820: QR 10.4.4.3:50505 29552,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:24:53:820: RP 10.4.4.3:50505 29552,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:24:54:722: QR 10.4.4.3:54336 51693,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:24:54:723: RP 10.4.4.3:54336 51693,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:24:55:368: QR 10.4.4.3:52348 42899,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:24:55:369: RP 10.4.4.3:52348 42899,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:24:56:275: QR 10.4.4.3:53872 20674,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:24:56:275: RP 10.4.4.3:53872 20674,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:24:57:228: QR 10.4.4.3:58281 6926,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:24:57:228: RP 10.4.4.3:58281 6926,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:24:58:209: QR 10.4.4.3:56215 39615,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:24:58:209: RP 10.4.4.3:56215 39615,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:24:59:099: QR 10.4.4.3:57203 1527,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:24:59:099: RP 10.4.4.3:57203 1527,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:25:00:910: QR 10.4.4.3:40945 27695,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:25:00:910: RP 10.4.4.3:40945 27695,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:25:01:770: QR 10.4.4.3:38291 44735,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:25:01:770: RP 10.4.4.3:38291 44735,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:25:02:674: QR 10.4.4.3:60456 37675,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:25:02:675: RP 10.4.4.3:60456 37675,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:30:48:480: ST 10.3.3.3 5353 255 debug
+28:12:22.22:30:48:481: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:30:48:481: EV @ initialized
+28:12:22.22:30:48:481: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:30:48:482: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:30:55:585: QR 10.4.4.3:54132 59879,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:30:55:585: RP 10.4.4.3:54132 59879,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:31:10:144: QR 10.4.4.3:54676 12656,Q,0,0,0,0;bgj,NS;
+
+28:12:22.22:31:10:144: RP 10.4.4.3:54676 12656,A,2,0,0,0;bgj,NS;
+
+28:12:22.22:36:00:598: ST 10.3.3.3 5353 255 debug
+28:12:22.22:36:00:599: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:36:00:600: EV @ initialized
+28:12:22.22:36:00:600: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:36:00:601: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:36:36:416: ST 10.3.3.3 5353 255 debug
+28:12:22.22:36:36:417: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:36:36:417: EV @ initialized
+28:12:22.22:36:36:421: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:36:36:421: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:40:08:522: ST 10.3.3.3 5353 255 debug
+28:12:22.22:40:08:522: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:40:08:523: EV @ initialized
+28:12:22.22:40:08:523: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:40:08:523: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:43:36:214: ST 10.3.3.10 5353 255 debug
+28:12:22.22:43:36:214: EV @ conf-file-read /home/core/CC32/config/config-lambretaSP.txt
+28:12:22.22:43:36:214: EV @ initialized
+28:12:22.22:43:36:215: EV @ udp-listening-at 10.3.3.10:5353
+28:12:22.22:43:36:215: EV @ tcp-listening-on 10.3.3.10:5353
+28:12:22.22:43:56:947: QR 10.4.4.3:47416 8763,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:43:56:947: RP 10.4.4.3:47416 8763,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:45:41:811: ST 10.3.3.10 5353 255 debug
+28:12:22.22:45:41:812: EV @ conf-file-read /home/core/CC32/config/config-lambretaSP.txt
+28:12:22.22:45:41:812: EV @ initialized
+28:12:22.22:45:41:813: EV @ udp-listening-at 10.3.3.10:5353
+28:12:22.22:45:41:813: EV @ tcp-listening-on 10.3.3.10:5353
+28:12:22.22:45:44:086: QR 10.4.4.3:56026 31426,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:45:44:086: RP 10.4.4.3:56026 31426,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:46:07:112: ST 10.3.3.3 5353 255 debug
+28:12:22.22:46:07:113: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:46:07:113: EV @ initialized
+28:12:22.22:46:07:113: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:46:07:113: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:46:19:330: QR 10.4.4.3:39771 3422,Q,0,0,0,0;bgj.,NS;
+
+28:12:22.22:46:19:330: RP 10.4.4.3:39771 3422,A,2,0,0,0;bgj.,NS;
+
+28:12:22.22:47:03:011: ST 10.3.3.3 5353 255 debug
+28:12:22.22:47:03:012: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:47:03:012: EV @ initialized
+28:12:22.22:47:03:012: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:47:03:013: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:51:06:130: ST 10.2.2.10 5353 255 debug
+28:12:22.22:51:06:130: EV @ conf-file-read /home/core/CC32/config/config-barreteSP.txt
+28:12:22.22:51:06:130: EV @ initialized
+28:12:22.22:51:06:131: EV @ udp-listening-at 10.2.2.10:5353
+28:12:22.22:51:06:132: EV @ tcp-listening-on 10.2.2.10:5353
+28:12:22.22:51:22:609: ST 10.2.2.10 5353 255 debug
+28:12:22.22:51:22:609: EV @ conf-file-read /home/core/CC32/config/config-barreteSP.txt
+28:12:22.22:51:22:610: EV @ initialized
+28:12:22.22:51:22:610: EV @ udp-listening-at 10.2.2.10:5353
+28:12:22.22:51:22:611: EV @ tcp-listening-on 10.2.2.10:5353
+28:12:22.22:51:40:993: ST 10.2.2.10 5353 255 debug
+28:12:22.22:51:40:993: EV @ conf-file-read /home/core/CC32/config/config-barreteSP.txt
+28:12:22.22:51:40:993: EV @ initialized
+28:12:22.22:51:40:994: EV @ udp-listening-at 10.2.2.10:5353
+28:12:22.22:51:40:994: EV @ tcp-listening-on 10.2.2.10:5353
+28:12:22.22:52:24:925: QR 10.4.4.3:50490 60722,Q,0,0,0,0;barrete.ccm.,MX;
+
+28:12:22.22:52:24:926: RP 10.4.4.3:50490 60722,A,0,1,3,4;barrete.ccm.,MX;
+barrete.ccm. MX mx1.barrete.ccm. 86400 10;barrete.ccm. NS ns1.barrete.ccm. 86400,barrete.ccm. NS ns2.barrete.ccm. 86400,barrete.ccm. NS ns3.barrete.ccm. 86400;mx1.barrete.ccm. A 10.2.2.11 86400,ns1.barrete.ccm. A 10.2.2.10 86400,ns2.barrete.ccm. A 10.1.1.12 86400,ns3.barrete.ccm. A 10.4.4.10 86400;
+28:12:22.22:52:48:904: QR 10.4.4.3:36831 45943,Q,0,0,0,0;ccm.,MX;
+
+28:12:22.22:52:48:904: RP 10.4.4.3:36831 45943,A,2,0,0,0;ccm.,MX;
+
+28:12:22.22:53:31:856: ST 10.4.4.12 5353 255 debug
+28:12:22.22:53:31:857: EV @ conf-file-read /home/core/CC32/config/config-bgjSS.txt
+28:12:22.22:53:31:857: EV @ initialized
+28:12:22.22:53:31:858: EV @ udp-listening-at 10.4.4.12:5353
+28:12:22.22:53:31:858: EV @ udp-listening-at 10.4.4.12:5353
+28:12:22.22:55:52:578: ST 10.3.3.3 5353 255 debug
+28:12:22.22:55:52:578: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:55:52:579: EV @ initialized
+28:12:22.22:55:52:579: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:55:52:579: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:56:01:040: ST 10.3.3.3 5353 255 debug
+28:12:22.22:56:01:040: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:56:01:041: EV @ initialized
+28:12:22.22:56:01:041: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:56:01:041: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:56:11:292: ST 10.3.3.3 5353 255 debug
+28:12:22.22:56:11:292: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:56:11:293: EV @ initialized
+28:12:22.22:56:11:293: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:56:11:293: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:56:33:608: ST 10.3.3.3 5353 255 debug
+28:12:22.22:56:33:609: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:56:33:609: EV @ initialized
+28:12:22.22:56:33:609: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:56:33:610: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:56:43:521: ST 10.3.3.3 5353 255 debug
+28:12:22.22:56:43:521: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.22:56:43:522: EV @ initialized
+28:12:22.22:56:43:522: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.22:56:43:522: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.22:59:20:470: ST 10.3.3.2 5353 255 debug
+28:12:22.22:59:20:471: EV @ conf-file-read /home/core/CC32/config/config-ccmSP.txt
+28:12:22.22:59:20:471: EV @ initialized
+28:12:22.22:59:20:471: EV @ udp-listening-at 10.3.3.2:5353
+28:12:22.22:59:20:472: EV @ tcp-listening-on 10.3.3.2:5353
+28:12:22.22:59:55:200: ST 10.2.2.2 5353 255 debug
+28:12:22.22:59:55:200: EV @ conf-file-read /home/core/CC32/config/config-ccmSS.txt
+28:12:22.22:59:55:200: EV @ initialized
+28:12:22.22:59:55:201: EV @ udp-listening-at 10.2.2.2:5353
+28:12:22.22:59:55:202: EV @ tcp-listening-on 10.2.2.2:5353
+28:12:22.23:00:18:432: ST 10.2.2.2 5353 255 debug
+28:12:22.23:00:18:433: EV @ conf-file-read /home/core/CC32/config/config-ccmSS.txt
+28:12:22.23:00:18:434: EV @ initialized
+28:12:22.23:00:18:435: EV @ udp-listening-at 10.2.2.2:5353
+28:12:22.23:00:18:435: EV @ udp-listening-at 10.2.2.2:5353
+28:12:22.23:01:36:142: ST 10.3.3.10 5353 255 debug
+28:12:22.23:01:36:143: EV @ conf-file-read /home/core/CC32/config/config-lambretaSP.txt
+28:12:22.23:01:36:143: EV @ initialized
+28:12:22.23:01:36:143: EV @ udp-listening-at 10.3.3.10:5353
+28:12:22.23:01:36:143: EV @ tcp-listening-on 10.3.3.10:5353
+28:12:22.23:02:07:177: ST 10.4.4.11 5353 255 debug
+28:12:22.23:02:07:178: EV @ conf-file-read /home/core/CC32/config/config-lambretaSS.txt
+28:12:22.23:02:07:178: EV @ initialized
+28:12:22.23:02:07:178: QR 10.4.4.11:49241 11885,Q+I,0,0,0,0;,ZT;
+
+28:12:22.23:02:07:179: RP 10.4.4.11:49241 11885,A,2,0,0,0;,ZT;
+
+28:12:22.23:02:07:179: RR 10.3.3.10:5353 database serial ,ZT
+28:12:22.23:02:07:179: RR 10.3.3.10:5353 database serial ,ZT
+28:12:22.23:02:07:180: EV @ close-connection-tcp 10.4.4.11:34942
+28:12:22.23:02:07:181: ZT @ successful
+28:12:22.23:02:07:181: ZT @ successful
+28:12:22.23:02:07:181: EV @ udp-listening-at 10.4.4.11:5353
+28:12:22.23:02:07:181: EV @ udp-listening-at 10.4.4.11:5353
+28:12:22.23:08:01:628: ST 10.3.3.3 5353 255 debug
+28:12:22.23:08:01:628: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.23:08:01:629: EV @ initialized
+28:12:22.23:08:01:629: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.23:08:01:629: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.23:08:16:948: ST 10.3.3.3 5353 255 debug
+28:12:22.23:08:16:949: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.23:08:16:949: EV @ initialized
+28:12:22.23:08:16:950: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.23:08:16:950: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.23:09:32:598: ST 10.3.3.3 5353 255 debug
+28:12:22.23:09:32:598: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.23:09:32:599: EV @ initialized
+28:12:22.23:09:32:599: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.23:09:32:600: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.23:11:49:157: ST 10.3.3.3 5353 255 debug
+28:12:22.23:11:49:157: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.23:11:49:157: EV @ initialized
+28:12:22.23:11:49:158: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.23:11:49:158: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.23:15:55:515: ST 10.3.3.3 5353 255 debug
+28:12:22.23:15:55:515: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.23:15:55:516: EV @ initialized
+28:12:22.23:15:55:516: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.23:15:55:516: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.23:18:35:452: ST 10.3.3.3 5353 255 debug
+28:12:22.23:18:35:452: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.23:18:35:452: EV @ initialized
+28:12:22.23:18:35:453: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.23:18:35:453: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.23:19:30:800: ST 10.3.3.3 5353 255 debug
+28:12:22.23:19:30:801: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.23:19:30:801: EV @ initialized
+28:12:22.23:19:30:801: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.23:19:30:802: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.23:20:24:998: ST 10.3.3.3 5353 255 debug
+28:12:22.23:20:24:999: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.23:20:25:000: EV @ initialized
+28:12:22.23:20:25:000: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.23:20:25:000: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.23:25:21:801: ST 10.3.3.3 5353 255 debug
+28:12:22.23:25:21:801: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.23:25:21:802: EV @ initialized
+28:12:22.23:25:21:802: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.23:25:21:802: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.23:31:54:223: ST 10.3.3.3 5353 255 debug
+28:12:22.23:31:54:224: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+28:12:22.23:31:54:224: EV @ initialized
+28:12:22.23:31:54:225: EV @ udp-listening-at 10.3.3.3:5353
+28:12:22.23:31:54:225: EV @ tcp-listening-on 10.3.3.3:5353
+28:12:22.23:32:38:258: QR 10.4.4.3:59327 34918,Q,0,0,0,0;.bgj,MX;
+
+28:12:22.23:32:38:258: RP 10.4.4.3:59327 34918,A,2,0,0,0;.bgj,MX;
+
+28:12:22.23:33:02:336: QR 10.4.4.3:36527 64736,Q,0,0,0,0;sp,NS;
+
+28:12:22.23:33:02:336: RP 10.4.4.3:36527 64736,A,2,0,0,0;ns1,NS;
+
+28:12:22.23:33:16:721: QR 10.4.4.3:40283 54042,Q,0,0,0,0;ns1,NS;
+
+28:12:22.23:33:16:721: RP 10.4.4.3:40283 54042,A,2,0,0,0;ns1,NS;
+
+28:12:22.23:34:07:773: ST 10.2.2.10 5353 255 debug
+28:12:22.23:34:07:774: EV @ conf-file-read /home/core/CC32/config/config-barreteSP.txt
+28:12:22.23:34:07:774: EV @ initialized
+28:12:22.23:34:07:774: EV @ udp-listening-at 10.2.2.10:5353
+28:12:22.23:34:07:774: EV @ tcp-listening-on 10.2.2.10:5353
+28:12:22.23:34:21:368: QR 10.4.4.3:45604 62519,Q,0,0,0,0;ns1,NS;
+
+28:12:22.23:34:21:368: RP 10.4.4.3:45604 62519,A,0,0,0,0;ns1,NS;
+barrete.ccm. NS ns1.barrete.ccm. 86400;
+28:12:22.23:34:36:187: QR 10.4.4.3:39519 12518,Q,0,0,0,0;sp,NS;
+
+28:12:22.23:34:36:187: RP 10.4.4.3:39519 12518,A,2,0,0,0;ns1,NS;
+
+28:12:22.23:36:01:258: ST 10.2.2.10 5353 255 debug
+28:12:22.23:36:01:258: EV @ conf-file-read /home/core/CC32/config/config-barreteSP.txt
+28:12:22.23:36:01:259: EV @ initialized
+28:12:22.23:36:01:259: EV @ udp-listening-at 10.2.2.10:5353
+28:12:22.23:36:01:259: EV @ tcp-listening-on 10.2.2.10:5353
+28:12:22.23:36:06:999: QR 10.4.4.3:45140 16722,Q,0,0,0,0;sp,NS;
+
+28:12:22.23:36:06:999: RP 10.4.4.3:45140 16722,A,0,0,0,0;ns1,NS;
+barrete.ccm. NS ns1.barrete.ccm. 86400;
+28:12:22.23:36:19:816: QR 10.4.4.3:43582 23399,Q,0,0,0,0;ss1,NS;
+
+28:12:22.23:36:19:817: RP 10.4.4.3:43582 23399,A,0,0,0,0;ns2,NS;
+barrete.ccm. NS ns2.barrete.ccm. 86400;
+28:12:22.23:36:25:437: QR 10.4.4.3:34034 22442,Q,0,0,0,0;ss2,NS;
+
+28:12:22.23:36:25:437: RP 10.4.4.3:34034 22442,A,0,0,0,0;ns3,NS;
+barrete.ccm. NS ns3.barrete.ccm. 86400;
+28:12:22.23:40:19:385: ST 10.4.4.13 5353 255 debug
+28:12:22.23:40:19:386: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+28:12:22.23:40:19:386: EV @ initialized
+28:12:22.23:40:19:386: EV @ udp-listening-at 10.4.4.13:5353
+28:12:22.23:40:52:525: ST 10.3.3.1 5353 255 debug
+28:12:22.23:40:52:525: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+28:12:22.23:40:52:526: EV @ initialized
+28:12:22.23:40:52:526: EV @ udp-listening-at 10.3.3.1:5353
+28:12:22.23:40:52:526: EV @ tcp-listening-on 10.3.3.1:5353
+28:12:22.23:41:36:825: QR 10.4.4.1:33453 38264,Q,0,0,0,0;barrete.ccm.,A;
+
+28:12:22.23:41:36:825: ER 10.4.4.1:33453 '10.3.3.1'
+30:12:22.00:40:06:361: ST 10.3.3.1 5353 255 debug
+30:12:22.00:40:06:362: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.00:40:06:362: EV @ initialized
+30:12:22.00:40:06:363: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.00:40:06:363: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.00:40:36:974: QR 10.4.4.1:44861 53547,Q,0,0,0,0;barrete.ccm.,A;
+
+30:12:22.00:40:36:974: ER 10.4.4.1:44861 'Query' object has no attribute 'verifyPartialExistance'
+30:12:22.00:41:47:213: QR 10.4.4.1:52206 10085,Q,0,0,0,0;.ccm.,A;
+
+30:12:22.00:41:47:213: ER 10.4.4.1:52206 'Query' object has no attribute 'verifyPartialExistance'
+30:12:22.00:44:57:744: ST 10.3.3.1 5353 255 debug
+30:12:22.00:44:57:745: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.00:44:57:745: EV @ initialized
+30:12:22.00:44:57:746: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.00:44:57:746: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.00:44:59:605: QR 10.4.4.1:56923 50362,Q,0,0,0,0;.ccm.,A;
+
+30:12:22.00:44:59:605: ER 10.4.4.1:56923 'list' object has no attribute 'tail'
+30:12:22.00:46:16:227: ST 10.2.2.10 5353 255 debug
+30:12:22.00:46:16:227: EV @ conf-file-read /home/core/CC32/config/config-barreteSP.txt
+30:12:22.00:46:16:227: EV @ initialized
+30:12:22.00:46:16:228: EV @ udp-listening-at 10.2.2.10:5353
+30:12:22.00:46:16:228: EV @ tcp-listening-on 10.2.2.10:5353
+30:12:22.00:46:37:891: QR 10.4.4.1:47947 48645,Q,0,0,0,0;barrete.ccm.,A;
+
+30:12:22.00:46:37:891: RP 10.4.4.1:47947 48645,A,0,1,3,4;barrete.ccm.,A;
+barrete.ccm. MX mx1.barrete.ccm. 86400 10;barrete.ccm. NS ns1.barrete.ccm. 86400,barrete.ccm. NS ns2.barrete.ccm. 86400,barrete.ccm. NS ns3.barrete.ccm. 86400;mx1.barrete.ccm. A 10.2.2.11 86400,ns1.barrete.ccm. A 10.2.2.10 86400,ns2.barrete.ccm. A 10.1.1.12 86400,ns3.barrete.ccm. A 10.4.4.10 86400;
+30:12:22.00:48:40:680: ST 10.3.3.1 5353 255 debug
+30:12:22.00:48:40:681: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.00:48:40:682: EV @ initialized
+30:12:22.00:48:40:682: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.00:48:40:682: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.00:48:43:764: QR 10.4.4.1:56595 31404,Q,0,0,0,0;.ccm.,A;
+
+30:12:22.00:48:43:764: RP 10.4.4.1:56595 31404,A,2,0,0,0;.ccm.,A;
+
+30:12:22.00:49:50:882: QR 10.4.4.1:51295 46992,Q,0,0,0,0;lambreta.ccm.,A;
+
+30:12:22.00:49:50:882: RP 10.4.4.1:51295 46992,A,2,0,0,0;lambreta.ccm.,A;
+
+30:12:22.00:50:06:854: QR 10.4.4.1:54520 42744,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.00:50:06:854: RP 10.4.4.1:54520 42744,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.00:52:36:821: ST 10.3.3.1 5353 255 debug
+30:12:22.00:52:36:821: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.00:52:36:822: EV @ initialized
+30:12:22.00:52:36:822: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.00:52:36:823: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.00:52:49:328: QR 10.4.4.1:34477 46971,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.00:52:49:328: RP 10.4.4.1:34477 46971,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.00:53:03:613: ST 10.3.3.1 5353 255 debug
+30:12:22.00:53:03:613: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.00:53:03:614: EV @ initialized
+30:12:22.00:53:03:614: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.00:53:03:614: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.00:53:06:604: QR 10.4.4.1:47947 2457,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.00:53:06:604: RP 10.4.4.1:47947 2457,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.00:55:50:575: ST 10.3.3.1 5353 255 debug
+30:12:22.00:55:50:575: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.00:55:50:576: EV @ initialized
+30:12:22.00:55:50:576: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.00:55:50:577: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.00:55:52:587: QR 10.4.4.1:35042 63480,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.00:55:52:588: RP 10.4.4.1:35042 63480,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:00:10:275: ST 10.3.3.1 5353 255 debug
+30:12:22.01:00:10:276: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:00:10:277: EV @ initialized
+30:12:22.01:00:10:277: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:00:10:277: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:00:12:196: QR 10.4.4.1:36520 22705,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:00:12:196: ER 10.4.4.1:36520 list.remove(x): x not in list
+30:12:22.01:01:21:716: ST 10.3.3.1 5353 255 debug
+30:12:22.01:01:21:718: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:01:21:718: EV @ initialized
+30:12:22.01:01:21:718: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:01:21:719: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:01:25:320: QR 10.4.4.1:40853 11597,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:01:25:320: RP 10.4.4.1:40853 11597,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:01:51:597: ST 10.3.3.1 5353 255 debug
+30:12:22.01:01:51:597: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:01:51:597: EV @ initialized
+30:12:22.01:01:51:598: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:01:51:598: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:01:53:729: QR 10.4.4.1:59306 21882,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:01:53:730: RP 10.4.4.1:59306 21882,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:02:43:748: ST 10.3.3.1 5353 255 debug
+30:12:22.01:02:43:748: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:02:43:748: EV @ initialized
+30:12:22.01:02:43:749: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:02:43:749: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:02:45:609: QR 10.4.4.1:50608 846,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:02:45:609: RP 10.4.4.1:50608 846,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:04:17:256: ST 10.3.3.1 5353 255 debug
+30:12:22.01:04:17:256: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:04:17:257: EV @ initialized
+30:12:22.01:04:17:258: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:04:17:258: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:04:19:789: QR 10.4.4.1:60896 19250,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:04:19:790: RP 10.4.4.1:60896 19250,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:05:39:273: ST 10.3.3.1 5353 255 debug
+30:12:22.01:05:39:274: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:05:39:275: EV @ initialized
+30:12:22.01:05:39:275: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:05:39:275: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:05:43:166: QR 10.4.4.1:54503 62970,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:05:43:167: RP 10.4.4.1:54503 62970,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:06:16:569: ST 10.3.3.1 5353 255 debug
+30:12:22.01:06:16:569: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:06:16:570: EV @ initialized
+30:12:22.01:06:16:570: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:06:16:571: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:06:18:667: QR 10.4.4.1:51299 31710,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:06:18:667: RP 10.4.4.1:51299 31710,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:07:05:916: ST 10.3.3.1 5353 255 debug
+30:12:22.01:07:05:917: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:07:05:917: EV @ initialized
+30:12:22.01:07:05:918: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:07:05:918: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:07:08:199: QR 10.4.4.1:49625 41309,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:07:08:199: RP 10.4.4.1:49625 41309,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.01:07:45:366: ST 10.3.3.1 5353 255 debug
+30:12:22.01:07:45:366: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:07:45:367: EV @ initialized
+30:12:22.01:07:45:367: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:07:45:367: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:08:01:297: ST 10.3.3.1 5353 255 debug
+30:12:22.01:08:01:298: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:08:01:298: EV @ initialized
+30:12:22.01:08:01:298: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:08:01:299: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:08:17:954: ST 10.3.3.1 5353 255 debug
+30:12:22.01:08:17:954: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:08:17:954: EV @ initialized
+30:12:22.01:08:17:955: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:08:17:955: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:10:38:485: QR 10.4.4.1:39557 51161,Q,0,0,0,0;ambroferrochelambreta.bgj.,A;
+
+30:12:22.01:10:38:485: RP 10.4.4.1:39557 51161,A,2,0,0,0;ambroferrochelambreta.bgj.,A;
+
+30:12:22.01:11:12:273: ST 10.3.3.1 5353 255 debug
+30:12:22.01:11:12:273: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.01:11:12:274: EV @ initialized
+30:12:22.01:11:12:274: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.01:11:12:274: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.01:11:14:639: QR 10.4.4.1:60183 19210,Q,0,0,0,0;ambroferrochelambreta.bgj.,A;
+
+30:12:22.01:11:14:639: RP 10.4.4.1:60183 19210,A,2,0,0,0;ambroferrochelambreta.bgj.,A;
+
+30:12:22.02:32:58:938: ST 10.3.3.1 5353 255 debug
+30:12:22.02:32:58:939: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:32:58:939: EV @ initialized
+30:12:22.02:32:58:940: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:32:58:940: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:33:04:319: QR 10.4.4.1:34952 29284,Q,0,0,0,0;ambroferrochelambreta.bgj.,A;
+
+30:12:22.02:33:04:319: RP 10.4.4.1:34952 29284,A,2,0,0,0;ambroferrochelambreta.bgj.,A;
+
+30:12:22.02:33:12:746: QR 10.4.4.1:57324 50244,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.02:33:12:746: RP 10.4.4.1:57324 50244,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.02:33:22:886: QR 10.4.4.1:52789 28746,Q,0,0,0,0;.bgj.,A;
+
+30:12:22.02:33:22:886: RP 10.4.4.1:52789 28746,A,2,0,0,0;.bgj.,A;
+
+30:12:22.02:33:30:611: QR 10.4.4.1:53635 55774,Q,0,0,0,0;bgj.,A;
+
+30:12:22.02:33:30:611: RP 10.4.4.1:53635 55774,A,2,0,0,0;bgj.,A;
+
+30:12:22.02:33:41:025: QR 10.4.4.1:46229 64415,Q,0,0,0,0;.bgj.,A;
+
+30:12:22.02:33:41:025: RP 10.4.4.1:46229 64415,A,2,0,0,0;.bgj.,A;
+
+30:12:22.02:33:44:133: QR 10.4.4.1:43620 45169,Q,0,0,0,0;.bgj,A;
+
+30:12:22.02:33:44:133: RP 10.4.4.1:43620 45169,A,2,0,0,0;.bgj,A;
+
+30:12:22.02:34:40:389: ST 10.3.3.1 5353 255 debug
+30:12:22.02:34:40:390: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:34:40:390: EV @ initialized
+30:12:22.02:34:40:390: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:34:40:391: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:38:33:995: ST 10.3.3.1 5353 255 debug
+30:12:22.02:38:33:996: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:38:33:996: EV @ initialized
+30:12:22.02:38:33:996: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:38:33:997: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:38:43:826: ST 10.3.3.1 5353 255 debug
+30:12:22.02:38:43:826: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:38:43:826: EV @ initialized
+30:12:22.02:38:43:827: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:38:43:827: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:39:30:081: ST 10.3.3.1 5353 255 debug
+30:12:22.02:39:30:081: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:39:30:082: EV @ initialized
+30:12:22.02:39:30:082: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:39:30:082: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:40:53:410: ST 10.3.3.1 5353 255 debug
+30:12:22.02:40:53:411: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:40:53:411: EV @ initialized
+30:12:22.02:40:53:411: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:40:53:412: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:41:09:047: ST 10.3.3.1 5353 255 debug
+30:12:22.02:41:09:047: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:41:09:047: EV @ initialized
+30:12:22.02:41:09:048: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:41:09:048: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:41:29:190: ST 10.2.2.10 5353 255 debug
+30:12:22.02:41:29:191: EV @ conf-file-read /home/core/CC32/config/config-barreteSP.txt
+30:12:22.02:41:29:191: EV @ initialized
+30:12:22.02:41:29:192: EV @ udp-listening-at 10.2.2.10:5353
+30:12:22.02:41:29:193: EV @ tcp-listening-on 10.2.2.10:5353
+30:12:22.02:43:51:404: ST 10.3.3.1 5353 255 debug
+30:12:22.02:43:51:404: EV @ conf-file-read /home/core/CC32/config/config-barreteSP.txt
+30:12:22.02:43:51:405: EV @ initialized
+30:12:22.02:43:51:406: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:43:51:406: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:44:27:750: ST 10.3.3.1 5353 255 debug
+30:12:22.02:44:27:751: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:44:27:752: EV @ initialized
+30:12:22.02:44:27:753: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:44:27:753: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:45:44:422: ST 10.3.3.1 5353 255 debug
+30:12:22.02:45:44:422: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:45:44:423: EV @ initialized
+30:12:22.02:45:44:423: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:45:44:424: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:46:00:877: ST 10.3.3.1 5353 255 debug
+30:12:22.02:46:00:878: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:46:00:878: EV @ initialized
+30:12:22.02:46:00:878: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:46:00:879: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:50:32:096: ST 10.3.3.1 5353 255 debug
+30:12:22.02:50:32:099: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:50:32:099: EV @ initialized
+30:12:22.02:50:32:100: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:50:32:101: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:54:39:891: ST 10.3.3.1 5353 255 debug
+30:12:22.02:54:39:893: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:54:39:894: EV @ initialized
+30:12:22.02:54:39:894: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:54:39:895: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.02:57:08:587: ST 10.3.3.1 5353 255 debug
+30:12:22.02:57:08:587: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.02:57:08:588: EV @ initialized
+30:12:22.02:57:08:588: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.02:57:08:588: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:02:13:074: ST 10.3.3.1 5353 255 debug
+30:12:22.03:02:13:075: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:02:13:075: EV @ initialized
+30:12:22.03:02:13:075: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:02:13:075: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:03:39:017: ST 10.3.3.1 5353 255 debug
+30:12:22.03:03:39:018: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:03:39:018: EV @ initialized
+30:12:22.03:03:39:018: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:03:39:018: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:04:06:393: ST 10.3.3.1 5353 255 debug
+30:12:22.03:04:06:393: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:04:06:394: EV @ initialized
+30:12:22.03:04:06:394: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:04:06:394: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:06:26:741: ST 10.3.3.1 5353 255 debug
+30:12:22.03:06:26:741: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:06:26:742: EV @ initialized
+30:12:22.03:06:26:742: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:06:26:742: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:09:32:420: ST 10.3.3.1 5353 255 debug
+30:12:22.03:09:32:421: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:09:32:421: EV @ initialized
+30:12:22.03:09:32:422: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:09:32:422: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:11:56:428: ST 10.3.3.1 5353 255 debug
+30:12:22.03:11:56:429: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:11:56:429: EV @ initialized
+30:12:22.03:11:56:429: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:11:56:429: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:12:51:234: ST 10.3.3.1 5353 255 debug
+30:12:22.03:12:51:235: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:12:51:235: EV @ initialized
+30:12:22.03:12:51:235: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:12:51:235: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:13:25:750: ST 10.3.3.1 5353 255 debug
+30:12:22.03:13:25:751: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:13:25:751: EV @ initialized
+30:12:22.03:13:25:751: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:13:25:751: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:14:55:245: ST 10.3.3.1 5353 255 debug
+30:12:22.03:14:55:246: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:14:55:246: EV @ initialized
+30:12:22.03:14:55:246: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:14:55:246: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:16:57:240: ST 10.3.3.1 5353 255 debug
+30:12:22.03:16:57:242: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:16:57:242: EV @ initialized
+30:12:22.03:16:57:243: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:16:57:243: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:17:21:635: ST 10.3.3.1 5353 255 debug
+30:12:22.03:17:21:636: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:17:21:636: EV @ initialized
+30:12:22.03:17:21:636: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:17:21:637: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.03:20:14:847: ST 10.3.3.1 5353 255 debug
+30:12:22.03:20:14:849: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.03:20:14:849: EV @ initialized
+30:12:22.03:20:14:849: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.03:20:14:850: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.04:00:33:647: ST 10.4.4.13 5353 255 debug
+30:12:22.04:00:33:649: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:00:33:650: EV @ initialized
+30:12:22.04:00:33:651: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:02:16:081: ST 10.1.1.13 5353 255 debug
+30:12:22.04:02:16:082: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.04:02:16:082: EV @ initialized
+30:12:22.04:02:16:082: EV @ udp-listening-at 10.1.1.13:5353
+30:12:22.04:02:16:083: EV @ tcp-listening-on 10.1.1.13:5353
+30:12:22.04:02:23:413: ST 10.4.4.13 5353 255 debug
+30:12:22.04:02:23:414: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:02:23:414: EV @ initialized
+30:12:22.04:02:23:415: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:02:32:556: ST 10.3.3.3 5353 255 debug
+30:12:22.04:02:32:557: EV @ conf-file-read /home/core/CC32/config/config-bgjSP.txt
+30:12:22.04:02:32:558: EV @ initialized
+30:12:22.04:02:32:558: EV @ udp-listening-at 10.3.3.3:5353
+30:12:22.04:02:32:559: EV @ tcp-listening-on 10.3.3.3:5353
+30:12:22.04:02:48:704: ST 10.3.3.10 5353 255 debug
+30:12:22.04:02:48:704: EV @ conf-file-read /home/core/CC32/config/config-lambretaSP.txt
+30:12:22.04:02:48:704: EV @ initialized
+30:12:22.04:02:48:705: EV @ udp-listening-at 10.3.3.10:5353
+30:12:22.04:02:48:705: EV @ tcp-listening-on 10.3.3.10:5353
+30:12:22.04:03:12:296: QR 10.4.4.1:44773 32239,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:03:12:296: ER 10.4.4.1:44773 a bytes-like object is required, not 'str'
+30:12:22.04:04:02:655: ST 10.4.4.13 5353 255 debug
+30:12:22.04:04:02:657: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:04:02:657: EV @ initialized
+30:12:22.04:04:02:658: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:04:10:824: QR 10.4.4.1:54791 23256,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:04:10:824: ER 10.4.4.1:54791 a bytes-like object is required, not 'str'
+30:12:22.04:09:05:635: ST 10.4.4.13 5353 255 debug
+30:12:22.04:09:05:636: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:09:05:636: EV @ initialized
+30:12:22.04:09:05:637: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:12:49:328: ST 10.4.4.13 5353 255 debug
+30:12:22.04:12:49:329: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:12:49:329: EV @ initialized
+30:12:22.04:12:49:329: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:12:53:490: QR 10.4.4.1:45857 64284,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:12:53:490: ER 10.4.4.1:45857 'bytes' object has no attribute 'encode'
+30:12:22.04:16:18:917: ST 10.4.4.13 5353 255 debug
+30:12:22.04:16:18:919: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:16:18:919: EV @ initialized
+30:12:22.04:16:18:920: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:16:22:029: QR 10.4.4.1:35584 13521,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:16:22:029: ER 10.4.4.1:35584 'bytes' object has no attribute 'encode'
+30:12:22.04:17:29:417: ST 10.4.4.13 5353 255 debug
+30:12:22.04:17:29:419: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:17:29:419: EV @ initialized
+30:12:22.04:17:29:420: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:17:33:660: QR 10.4.4.1:56252 28610,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:17:33:660: ER 10.4.4.1:56252 'bytes' object has no attribute 'encode'
+30:12:22.04:18:46:312: ST 10.4.4.13 5353 255 debug
+30:12:22.04:18:46:312: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:18:46:313: EV @ initialized
+30:12:22.04:18:46:313: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:18:50:563: QR 10.4.4.1:55637 38932,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:18:50:563: ER 10.4.4.1:55637 sendto(): AF_INET address must be tuple, not str
+30:12:22.04:20:08:715: ST 10.4.4.13 5353 255 debug
+30:12:22.04:20:08:716: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:20:08:716: EV @ initialized
+30:12:22.04:20:08:717: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:20:12:140: QR 10.4.4.1:59921 31156,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:20:12:140: ER 10.4.4.1:59921 sendto(): AF_INET address must be tuple, not str
+30:12:22.04:23:07:519: ST 10.4.4.13 5353 255 debug
+30:12:22.04:23:07:520: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:23:07:520: EV @ initialized
+30:12:22.04:23:07:520: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:23:10:414: QR 10.4.4.1:54546 23171,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:23:10:414: ER 10.4.4.1:54546 sendto(): AF_INET address must be tuple, not str
+30:12:22.04:23:48:170: ST 10.4.4.13 5353 255 debug
+30:12:22.04:23:48:171: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:23:48:172: EV @ initialized
+30:12:22.04:23:48:172: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:23:51:115: QR 10.4.4.1:34175 14321,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:23:51:115: ER 10.4.4.1:34175 'bytes' object has no attribute 'encode'
+30:12:22.04:25:02:842: ST 10.4.4.13 5353 255 debug
+30:12:22.04:25:02:844: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:25:02:845: EV @ initialized
+30:12:22.04:25:02:846: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:25:06:264: QR 10.4.4.1:40031 63671,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:25:06:264: ER 10.4.4.1:40031 sendto(): AF_INET address must be tuple, not str
+30:12:22.04:27:06:244: ST 10.4.4.13 5353 255 debug
+30:12:22.04:27:06:245: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:27:06:246: EV @ initialized
+30:12:22.04:27:06:247: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:27:10:040: QR 10.4.4.1:43770 37414,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:27:10:040: ER 10.4.4.1:43770 sendto(): AF_INET address must be tuple, not str
+30:12:22.04:28:02:757: ST 10.4.4.13 5353 255 debug
+30:12:22.04:28:02:760: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:28:02:760: EV @ initialized
+30:12:22.04:28:02:761: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:28:05:553: QR 10.4.4.1:34037 12395,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:28:05:553: ER 10.4.4.1:34037 'bytes' object has no attribute 'encode'
+30:12:22.04:28:46:614: ST 10.4.4.13 5353 255 debug
+30:12:22.04:28:46:616: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:28:46:617: EV @ initialized
+30:12:22.04:28:46:617: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:28:50:252: QR 10.4.4.1:37627 47307,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:28:50:252: ER 10.4.4.1:37627 sendto(): AF_INET address must be tuple, not str
+30:12:22.04:30:21:731: ST 10.4.4.13 5353 255 debug
+30:12:22.04:30:21:732: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:30:21:732: EV @ initialized
+30:12:22.04:30:21:732: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:30:25:204: QR 10.4.4.1:34819 58846,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:30:25:204: ER 10.4.4.1:34819 sendto(): AF_INET address must be tuple, not str
+30:12:22.04:30:38:412: ST 10.4.4.13 5353 255 debug
+30:12:22.04:30:38:413: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:30:38:413: EV @ initialized
+30:12:22.04:30:38:414: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:30:41:366: QR 10.4.4.1:50811 29724,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:30:41:366: ER 10.4.4.1:50811 sendto(): AF_INET address must be tuple, not str
+30:12:22.04:30:56:376: ST 10.4.4.13 5353 255 debug
+30:12:22.04:30:56:377: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:30:56:377: EV @ initialized
+30:12:22.04:30:56:378: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:30:59:238: QR 10.4.4.1:48762 62920,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:30:59:238: ER 10.4.4.1:48762 sendto(): AF_INET address must be tuple, not str
+30:12:22.04:32:51:553: ST 10.4.4.13 5353 255 debug
+30:12:22.04:32:51:555: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:32:51:556: EV @ initialized
+30:12:22.04:32:51:556: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:32:54:341: QR 10.4.4.1:58364 49852,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:32:54:342: ER 10.4.4.1:58364 [Errno 99] Cannot assign requested address
+30:12:22.04:33:25:353: ST 10.4.4.13 5353 255 debug
+30:12:22.04:33:25:353: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:33:25:355: EV @ initialized
+30:12:22.04:33:25:355: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:33:28:945: QR 10.4.4.1:55385 42254,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:33:28:946: ER 10.4.4.1:55385 [Errno 99] Cannot assign requested address
+30:12:22.04:33:52:573: ST 10.4.4.13 5353 255 debug
+30:12:22.04:33:52:574: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:33:52:574: EV @ initialized
+30:12:22.04:33:52:575: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:33:55:741: QR 10.4.4.1:52007 17843,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:33:55:741: ER 10.4.4.1:52007 [Errno 99] Cannot assign requested address
+30:12:22.04:37:37:794: ST 10.4.4.13 5353 255 debug
+30:12:22.04:37:37:795: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:37:37:796: EV @ initialized
+30:12:22.04:37:37:796: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:37:41:454: QR 10.4.4.1:35114 26227,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:37:41:455: ER 10.4.4.1:35114 'socket' object has no attribute 'socket'
+30:12:22.04:39:36:045: ST 10.4.4.13 5353 255 debug
+30:12:22.04:39:36:047: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:39:36:048: EV @ initialized
+30:12:22.04:39:36:048: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:39:39:919: QR 10.4.4.1:39822 53434,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:39:39:919: ER 10.4.4.1:39822 [Errno 99] Cannot assign requested address
+30:12:22.04:40:08:583: ST 10.4.4.13 5353 255 debug
+30:12:22.04:40:08:584: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:40:08:585: EV @ initialized
+30:12:22.04:40:08:585: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:40:12:398: QR 10.4.4.1:33258 29694,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:40:12:398: ER 10.4.4.1:33258 [Errno 99] Cannot assign requested address
+30:12:22.04:40:40:436: ST 10.4.4.13 5353 255 debug
+30:12:22.04:40:40:436: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:40:40:437: EV @ initialized
+30:12:22.04:40:40:437: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:40:46:207: QR 10.4.4.1:54269 12347,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:41:43:159: ST 10.4.4.13 5353 255 debug
+30:12:22.04:41:43:160: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:41:43:160: EV @ initialized
+30:12:22.04:41:43:161: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:41:45:246: QR 10.4.4.1:42915 52218,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:47:14:950: ST 10.4.4.13 5353 255 debug
+30:12:22.04:47:14:952: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:47:14:953: EV @ initialized
+30:12:22.04:47:14:953: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:47:17:376: QR 10.4.4.1:57424 1570,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:50:22:398: QR 10.4.4.1:39211 11202,Q,0,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:50:22:398: RP 10.4.4.1:39211 11202,A,2,0,0,0;lambreta.bgj.,A;
+
+30:12:22.04:50:47:716: QR 10.4.4.1:44385 23936,Q,0,0,0,0;.bgj.,A;
+
+30:12:22.04:50:47:716: RP 10.4.4.1:44385 23936,A,2,0,0,0;.bgj.,A;
+
+30:12:22.04:50:53:657: QR 10.4.4.1:47823 3914,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:50:53:657: RP 10.4.4.1:47823 3914,A,0,3,3,0;bgj.,A;
+ns1.bgj. A 10.3.3.3 86400,ns2.bgj. A 10.2.2.3 86400,ns3.bgj. A 10.4.4.12 86400;.bgj. NS ns1.bgj. 86400,.bgj. NS ns2.bgj. 86400,.bgj. NS ns3.bgj. 86400;
+30:12:22.04:51:11:070: QR 10.4.4.1:39912 57810,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:51:11:070: RP 10.4.4.1:39912 57810,A,0,3,3,0;bgj.,A;
+ns1.bgj. A 10.3.3.3 86400,ns2.bgj. A 10.2.2.3 86400,ns3.bgj. A 10.4.4.12 86400;.bgj. NS ns1.bgj. 86400,.bgj. NS ns2.bgj. 86400,.bgj. NS ns3.bgj. 86400;
+30:12:22.04:51:26:236: ST 10.4.4.13 5353 255 debug
+30:12:22.04:51:26:237: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:51:26:238: EV @ initialized
+30:12:22.04:51:26:238: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:51:40:507: QR 10.4.4.1:43066 28704,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:51:54:801: ST 10.4.4.13 5353 255 debug
+30:12:22.04:51:54:802: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:51:54:802: EV @ initialized
+30:12:22.04:51:54:803: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:51:58:549: QR 10.4.4.1:51941 19683,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:52:56:289: ST 10.4.4.13 5353 255 debug
+30:12:22.04:52:56:290: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:52:56:290: EV @ initialized
+30:12:22.04:52:56:291: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:53:00:400: QR 10.4.4.1:45353 29960,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:53:13:936: ST 10.4.4.13 5353 255 debug
+30:12:22.04:53:13:937: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:53:13:937: EV @ initialized
+30:12:22.04:53:13:937: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:53:16:361: QR 10.4.4.1:47549 60457,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:54:06:942: ST 10.3.3.1 5353 255 debug
+30:12:22.04:54:06:945: EV @ conf-file-read /home/core/CC32/config/config-root.txt
+30:12:22.04:54:06:945: EV @ initialized
+30:12:22.04:54:06:945: EV @ udp-listening-at 10.3.3.1:5353
+30:12:22.04:54:06:946: EV @ tcp-listening-on 10.3.3.1:5353
+30:12:22.04:54:09:278: ST 10.4.4.13 5353 255 debug
+30:12:22.04:54:09:278: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:54:09:279: EV @ initialized
+30:12:22.04:54:09:279: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:54:12:400: QR 10.4.4.1:50252 4383,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:54:12:400: ER 10.4.4.13:5353 invalid literal for int() with base 10: "b'4383"
+30:12:22.04:57:45:028: ST 10.4.4.13 5353 255 debug
+30:12:22.04:57:45:029: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:57:45:029: EV @ initialized
+30:12:22.04:57:45:030: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:57:48:322: QR 10.4.4.1:32822 4041,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:57:48:322: QR 10.4.4.13:5353 4041,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:57:48:323: RP 10.4.4.13:5353 4041,A,2,0,0,0;bgj.,A;
+
+30:12:22.04:57:48:324: ER 10.4.4.1:32822 too many values to unpack (expected 2)
+30:12:22.04:59:02:687: ST 10.4.4.13 5353 255 debug
+30:12:22.04:59:02:687: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.04:59:02:688: EV @ initialized
+30:12:22.04:59:02:689: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.04:59:07:281: QR 10.4.4.1:57841 54185,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:59:07:281: QR 10.4.4.13:5353 54185,Q,0,0,0,0;bgj.,A;
+
+30:12:22.04:59:07:281: RP 10.4.4.13:5353 54185,A,2,0,0,0;bgj.,A;
+
+30:12:22.04:59:07:282: ER 10.4.4.1:57841 too many values to unpack (expected 2)
+30:12:22.05:00:32:711: ST 10.4.4.13 5353 255 debug
+30:12:22.05:00:32:712: EV @ conf-file-read /home/core/CC32/config/config-SR.txt
+30:12:22.05:00:32:714: EV @ initialized
+30:12:22.05:00:32:715: EV @ udp-listening-at 10.4.4.13:5353
+30:12:22.05:00:39:038: QR 10.4.4.1:45778 44927,Q,0,0,0,0;bgj.,A;
+
+30:12:22.05:00:39:039: QR 10.4.4.13:5353 44927,Q,0,0,0,0;bgj.,A;
+
+30:12:22.05:00:39:039: RP 10.4.4.13:5353 44927,A,2,0,0,0;bgj.,A;
+

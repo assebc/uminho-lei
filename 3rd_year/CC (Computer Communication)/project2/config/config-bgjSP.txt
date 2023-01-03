@@ -4,4 +4,4 @@
 .bgj SS 10.4.4.12:5353
 .bgj LG /logs/bgj.log
 all LG logs/all.log
-root ST /home/core/CC32/db/rootservers.db
+root ST /home/core/CC32/db/rootservers.txt

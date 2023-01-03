@@ -1,4 +1,4 @@
-from parser import Parser
+from interpreter import Parser
 from logs import Logs
 from dns_controller import Query
 from database import Database
@@ -188,7 +188,7 @@ class Application:
         server.send(data)
 
         #recieve lines
-        no_lines = int(server.recv(1024).decode(self.properties["encoder"]))
+        no_lines = int(server.recv(self.properties["size"]).decode(self.properties["encoder"]))
 
         #send line number check
         no_lines_check = str(no_lines).encode(self.properties["encoder"])
@@ -200,7 +200,7 @@ class Application:
         valid = True
         for i in range(no_lines):
             try:
-                db_entry = server.recv(4096).decode(self.properties["encoder"])
+                db_entry = server.recv(self.properties["size"]*4).decode(self.properties["encoder"])
 
                 splited_entry = db_entry.split(":")
                 if int(splited_entry[0]) > x:
