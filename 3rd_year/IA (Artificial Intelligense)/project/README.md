@@ -16,10 +16,6 @@ After choosing one of the algorithms available you will be jumping into this pag
   <img src="imgs/algo1.png" width="405" title="hover text">
 </p>
 
-<p align="center">
-  
-</p>
-
 # Requirements
 ```
 noise==1.2.2
