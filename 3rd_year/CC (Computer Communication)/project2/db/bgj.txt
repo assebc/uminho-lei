@@ -9,6 +9,7 @@ TTL DEFAULT 86400
 @ SOAREFRESH 14400 TTL
 @ SOARETRY 3600 TTL
 @ SOAEXPIRE 604800 TTL
+
 @ NS ns1.bgj. TTL
 @ NS ns2.bgj. TTL
 @ NS ns3.bgj. TTL
@@ -18,3 +19,12 @@ ns3 A 10.4.4.12 TTL
 sp CNAME ns1 TTL
 ss1 CNAME ns2 TTL
 ss2 CNAME ns3 TTL
+
+# LAMBRETA
+
+.lambreta@ NS ns1.lambreta.bgj. TTL
+.lambreta@ NS ns2.lambreta.bgj. TTL
+.lambreta@ NS ns3.lambreta.bgj. TTL
+ns1.lambreta A 10.3.3.10 TTL
+ns2.lambreta A 10.4.4.11 TTL
+ns3.lambreta A 10.1.1.10 TTL

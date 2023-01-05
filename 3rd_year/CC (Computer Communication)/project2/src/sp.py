@@ -24,7 +24,7 @@ class Application:
         self.properties = {
             "address": "0.0.0.0", # default address is localhost
             "port": 5353, # normalized port
-            "timeout": 255, # default timeout
+            "timeout": 25, # default timeout
             "debug_mode": "shy", # shy or debug in debug_mode
             "file_config": "", # path for config file
             "obj_file_config": None, 
@@ -56,9 +56,7 @@ class Application:
             self.properties["address"] = str(self.get_ip())
             db_parser = Parser(self.properties["file_db"],db=True,dict=self.properties)
             self.properties["database"] = db_parser.get_db()
-            print(self.properties["database"])
-            # self.properties["object_st"] = st.Application(["file_config","file_sdt","port"])
-            # self.properties["object_sdt"] = st.Application(["file_config","port","timeout","debug_mode"])
+            
             self.properties["logger"] = Logs(self.properties["file_log"], self.properties["debug_mode"],False)
             self.properties["logger"].write(f'ST {self.properties["address"]} {self.properties["port"]} {self.properties["timeout"]} {self.properties["debug_mode"]}')
             self.properties["logger"].write("EV @ conf-file-read " + self.properties["file_config"])
@@ -116,8 +114,6 @@ class Application:
             msg, add = server.accept()
             threading.Thread(target=self.processTCP,args=(msg, add)).start()
             
-            #print(f"Server using {threading.active_count()-1}")
-
         server.close()
 
     def processTCP(self,socket,address):
@@ -178,8 +174,13 @@ class Application:
         '''
         Verifies if the zone transfer request comes from an authorized server
         '''
-        list = self.properties["database"].get_NS_addresses()
-        return address[0] in list
+        ss_list = []
+
+        for list in self.properties["list_ss"].values():
+            for ss in list:
+                ss_list.append(ss)
+
+        return address[0] in ss_list
 
     def get_db_lines(self):
         '''

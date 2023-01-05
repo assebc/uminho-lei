@@ -1,7 +1,7 @@
 # Configuration file for primary server for lambreta.bgj
 lambreta.bgj DB /home/core/CC32/db/lambreta.txt
-lambreta.bgj SS 10.4.4.11:5353
-lambreta.bgj SS 10.1.1.10:5353
+lambreta.bgj SS 10.4.4.11
+lambreta.bgj SS 10.1.1.10
 lambreta.bgj LG logs/lambreta.log
 all LG /logs/all.log
-.bgj ST /home/core/CC32/db/ST-list-lambreta.txt
+root ST /home/core/CC32/db/rootservers.txt

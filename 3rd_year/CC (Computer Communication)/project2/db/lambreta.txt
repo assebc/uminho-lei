@@ -1,7 +1,7 @@
 # DNS database file for domain lambreta.bgj
 # It also includes a pointer to the primary server
 
-@ DEFAULT lambreta.bgj.
+@ DEFAULT .lambreta.bgj.
 TTL DEFAULT 86400
 @ SOASP ns1.lambreta.bgj. TTL
 @ SOAADMIN admin.lambreta.bgj. TTL
@@ -9,9 +9,11 @@ TTL DEFAULT 86400
 @ SOAREFRESH 14400 TTL
 @ SOARETRY 3600 TTL
 @ SOAEXPIRE 604800 TTL
+
 @ NS ns1.lambreta.bgj. TTL
 @ NS ns2.lambreta.bgj. TTL
 @ NS ns3.lambreta.bgj. TTL
+@ WWW www.lambreta.bgj. TTL
 ns1 A 10.3.3.10 TTL
 ns2 A 10.4.4.11 TTL
 ns3 A 10.1.1.10 TTL
@@ -19,3 +21,4 @@ www A 10.0.12.10 TTL 200
 sp CNAME ns1 TTL
 ss1 CNAME ns2 TTL
 ss2 CNAME ns3 TTL
+web CNAME www TTL

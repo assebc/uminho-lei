@@ -48,7 +48,7 @@ class Cache:
         return res
 
     # create cache entry from db entry to insert
-    def createEntry(self,key,value,type,priority,origin,starttime):
+    def createEntry(self,key,type,value,priority,origin,starttime):
         res = Entry()
         res.name = key
         res.type = type
@@ -182,7 +182,7 @@ class Cache:
         for val in array:
             if val is not None:
                 for e in val:
-                    aux = self.createEntry(q.query_name,e,q.query_type,priority,origin,starttime)
+                    aux = self.createEntry(q.query_name,q.query_type,e,priority,origin,starttime)
                     self.insertEntry(aux,db,starttime)
 
 

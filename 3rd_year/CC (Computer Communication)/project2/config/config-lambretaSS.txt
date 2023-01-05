@@ -2,4 +2,4 @@
 lambreta.bgj SP 10.3.3.10
 lambreta.bgj LG logs/lambreta.log
 all LG logs/all.log
-.bgj ST /home/core/CC32/db/ST-list-lambreta.txt
+root ST /home/core/CC32/db/rootservers.txt

@@ -32,7 +32,7 @@ class Application:
                 "query_flag": "I", # default query flag(s)
                 "logger": Logs(),
                 "port": 5353, # normalized port
-                "timeout": 255, # default timeout
+                "timeout": 10, # default timeout
                 "debug_mode": "debug", # default debug mode
                 "size": 1024, # header 1 KB
                 "encoder": "utf-8" # encoder format
@@ -89,10 +89,15 @@ def main():
         args.append(sys.argv[1])
         client = Application(args,0)
     else:
-        args.append(sys.argv[1])
-        args.append(sys.argv[2])
-        args.append(sys.argv[3])
-        args.append(sys.argv[4])
+        args.append(sys.argv[1]) #endereço
+
+        value = sys.argv[2] #valor da query
+        if value[-1] != ".": #se o domínio não tem ponto no fim adiciona
+            value = value + "."
+        args.append(value) 
+        
+        args.append(sys.argv[3]) #tipo de query
+        args.append(sys.argv[4]) #modo da query
         client = Application(args,1)
         client.run_connection()
 

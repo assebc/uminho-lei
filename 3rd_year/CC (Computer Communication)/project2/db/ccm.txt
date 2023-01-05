@@ -9,6 +9,7 @@ TTL DEFAULT 86400
 @ SOAREFRESH 14400 TTL
 @ SOARETRY 3600 TTL
 @ SOAEXPIRE 604800 TTL
+
 @ NS ns1.ccm. TTL
 @ NS ns2.ccm. TTL
 @ NS ns3.ccm. TTL
@@ -18,3 +19,12 @@ ns3 A 10.1.1.11 TTL
 sp CNAME ns1 TTL
 ss1 CNAME ns2 TTL
 ss2 CNAME ns3 TTL
+
+# BARRETE
+
+.barrete@ NS ns1.barrete.ccm. TTL
+.barrete@ NS ns1.barrete.ccm. TTL
+.barrete@ NS ns2.barrete.ccm. TTL
+ns1.barrete A 10.2.2.10 TTL
+ns2.barrete A 10.1.1.12 TTL
+ns3.barrete A 10.4.4.10 TTL

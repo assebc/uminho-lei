@@ -1,5 +1,5 @@
 # Configuration file for secondary server for .bgj
-.bgj SP 10.3.3.3:5353
+.bgj SP 10.3.3.3
 .bgj LG /logs/bgj.log
 all LG logs/all.log
 root ST /home/core/CC32/db/rootservers.txt

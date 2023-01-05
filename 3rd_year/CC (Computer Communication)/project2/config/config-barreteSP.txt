@@ -1,7 +1,7 @@
 # Configuration file for primary server for barrete.ccm
 barrete.ccm DB /home/core/CC32/db/barrete.txt
-barrete.ccm SS 10.1.1.12:5353
-barrete.ccm SS 10.4.4.10:5353
+barrete.ccm SS 10.1.1.12
+barrete.ccm SS 10.4.4.10
 barrete.ccm LG logs/barrete.log
 all LG logs/all.log
-.ccm ST /home/core/CC32/db/ST-list-barrete.txt
+root ST /home/core/CC32/db/rootservers.txt

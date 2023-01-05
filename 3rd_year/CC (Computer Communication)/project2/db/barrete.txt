@@ -1,7 +1,7 @@
 # DNS database file for domain barrete.ccm
 # It also includes a pointer to the primary server
 
-@ DEFAULT barrete.ccm.
+@ DEFAULT .barrete.ccm.
 TTL DEFAULT 86400
 @ SOASP ns1.barrete.ccm. TTL
 @ SOAADMIN admin.barrete.ccm. TTL
@@ -9,6 +9,7 @@ TTL DEFAULT 86400
 @ SOAREFRESH 14400 TTL
 @ SOARETRY 3600 TTL
 @ SOAEXPIRE 604800 TTL
+
 @ NS ns1.barrete.ccm. TTL
 @ NS ns2.barrete.ccm. TTL
 @ NS ns3.barrete.ccm. TTL

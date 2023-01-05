@@ -10,12 +10,25 @@ TTL DEFAULT 86400
 @ SOARETRY 3600 TTL
 @ SOAEXPIRE 604800 TTL
 
-#ccm
-.ccm A 10.3.3.3 TTL
-.ccm A 10.2.2.3 TTL
-.ccm A 10.1.1.11 TTL
+@ NS ns1. TTL
+@ NS ns2. TTL
+ns1 A 10.3.3.1 TTL
+ns2 A 10.3.3.1 TTL
 
-#bgj
-.bgj A 10.3.3.3 TTL
-.bgj A 10.2.2.3 TTL
-.bgj A 10.4.4.12 TTL
+# CCM
+
+.ccm. NS ns1.ccm. TTL
+.ccm. NS ns2.ccm. TTL
+.ccm. NS ns3.ccm. TTL
+ns1.ccm. A 10.3.3.2 TTL
+ns2.ccm. A 10.2.2.2 TTL
+ns3.ccm. A 10.1.1.11 TTL
+
+# BGJ
+
+.bgj. NS ns1.bgj. TTL
+.bgj. NS ns2.bgj. TTL
+.bgj. NS ns3.bgj. TTL
+ns1.bgj. A 10.3.3.3 TTL
+ns2.bgj. A 10.2.2.3 TTL
+ns3.bgj. A 10.4.4.12 TTL

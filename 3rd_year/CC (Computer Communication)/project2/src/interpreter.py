@@ -142,7 +142,7 @@ class Parser:
                             raise Exception("Not a valid ip server file!")
                     
                     case 1: # obrigatório
-                        if self.is_domain(0,str(a)) or self.is_domain(1,str(a)): # verify for the cases has an '.' or not in the end
+                        if self.is_domain(str(a)): # verify for the cases has an '.' or not in the end
                             dict[keys[i]] = str(a)
                             i+=1
                         else:
@@ -231,13 +231,13 @@ class Parser:
         if len(line) == 3:
             match line[1]:
                 case "DB":
-                    return self.is_domain(0,line[0]) and os.path.abspath(line[2])  
+                    return self.is_domain(line[0]) and os.path.abspath(line[2])  
                 case "SP":
-                    return self.is_domain(0,line[0]) and self.is_ipv4(line[2]) 
+                    return self.is_domain(line[0]) and self.is_ipv4(line[2]) 
                 case "SS":
-                    return self.is_domain(0,line[0]) and self.is_ipv4(line[2]) 
+                    return self.is_domain(line[0]) and self.is_ipv4(line[2]) 
                 case "DD":
-                    return self.is_domain(0,line[0]) and self.is_ipv4(line[2]) 
+                    return self.is_domain(line[0]) and self.is_ipv4(line[2]) 
                 case "ST":
                     return line[0]=="root" and os.path.abspath(line[2])
                 case "LG":
@@ -297,13 +297,13 @@ class Parser:
                         self.default = str(line[2])
                         return True
                     elif not str(line[2]).endswith('.'):
-                        if self.is_domain(0,line[2]):
+                        if self.is_domain(line[2]):
                             self.default = str(line[2])
                             return True
                         else:
                             raise Exception("Invalid domain!")
                     else:
-                        if self.is_domain(1,line[2]):
+                        if self.is_domain(line[2]):
                             self.default = str(line[2])
                             return True
                         else:
@@ -325,28 +325,31 @@ class Parser:
         '''
         match line[1]:
             case "SOASP":
-                return self.is_domain(1,line[0]) and (self.is_plus_domain(1,line[2]) or self.is_domain(1,line[0])) and self.is_TTL(line[3])
+                return self.is_domain(line[0]) and self.is_domain(line[2]) and self.is_TTL(line[3])
             case "SOAADMIN":
-                return self.is_domain(1,line[0]) and self.is_plus_domain(1,line[2]) or self.is_plus_domain(2,line[2]) or self.is_domain(1,line[2]) and self.is_TTL(line[3])
+                return self.is_domain(line[0]) and self.is_domain(line[2]) and self.is_TTL(line[3])
             case "SOASERIAL":
-                return self.is_domain(1,line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
+                return self.is_domain(line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
             case "SOAREFRESH":
-                return self.is_domain(1,line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
+                return self.is_domain(line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
             case "SOARETRY":
-                return self.is_domain(1,line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
+                return self.is_domain(line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
             case "SOAEXPIRE":
-                return self.is_domain(1,line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
+                return self.is_domain(line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
             case "NS":
-                return self.is_domain(1,line[0]) and (self.is_plus_domain(1,line[2]) or self.is_domain(1,line[2])) and self.is_TTL(line[3])
+                return self.is_domain(line[0]) and self.is_domain(line[2]) and self.is_TTL(line[3])
             case "MX":
-                return self.is_domain(1,line[0]) and (self.is_plus_domain(1,line[2]) or self.is_domain(1,line[2])) and self.is_TTL(line[3])
+                return self.is_domain(line[0]) and self.is_domain(line[2]) and self.is_TTL(line[3])
             case "A": 
-                return (self.is_chars(line[0]) or self.is_domain(1,line[0])) and self.is_ipv4(line[2]) and self.is_TTL(line[3])
+                return (self.is_chars(line[0]) or self.is_domain(line[0])) and self.is_ipv4(line[2]) and self.is_TTL(line[3])
+            case "WWW":
+                return self.is_domain(line[0]) and self.is_domain(line[2]) and self.is_TTL(line[3])
             case "CNAME": 
                 return self.is_chars(line[0]) and self.is_chars(line[2]) and self.is_TTL(line[3])
             case "PTR":
                 return self.is_ipv4(line[0]) and self.is_TTL(line[2]) and self.is_TTL(line[3])
             case _:
+                print(line)
                 raise Exception("Value in type is invalid!")
 
     def check_db_len_5(self,line):
@@ -361,53 +364,30 @@ class Parser:
         '''
         match line[1]:
             case "NS":
-                return self.is_domain(1,line[0]) and (self.is_plus_domain(0,line[2]) or self.is_plus_domain(1,line[2])) and self.is_TTL(line[3]) and (self.is_priority(line[4]) or self.is_priority(self.TTL)) # temporary fix
+                return self.is_domain(line[0]) and self.is_domain(line[2]) and self.is_TTL(line[3]) and (self.is_priority(line[4]) or self.is_priority(self.TTL)) # temporary fix
             case "MX":
-                return self.is_domain(1,line[0]) and (self.is_plus_domain(0,line[2]) or self.is_plus_domain(1,line[2])) and self.is_TTL(line[3]) and (self.is_priority(line[4]) or self.is_priority(self.TTL)) # temporary fix
+                return self.is_domain(line[0]) and self.is_domain(line[2]) and self.is_TTL(line[3]) and (self.is_priority(line[4]) or self.is_priority(self.TTL)) # temporary fix
             case "A":
                 return self.is_chars(line[0]) and self.is_ipv4(line[2]) and self.is_TTL(line[3]) and (self.is_priority(line[4]) or self.is_priority(self.TTL)) # temporary fix
             case _:
                 raise Exception("Value in type is invalid!")
 
-    def is_domain(self,id,line):
+    def is_domain(self,line):
         '''
         Method that checks if given line is a valid domain
 
         Parameters:
-        id (int): Defines if domain does not has an '.', in case of 0 and has it in case of 1
         default (string): Checks if line its an '@' char and if the default value correspond to a specific format
         line (string): Value given in db file to check if is correr
 
         Returns:
         boolean: given line is a valid domain
+        
         '''
-        if int(id) == 0:
-            if line == "@" and re.fullmatch("([a-z0-9]+.[a-z0-9]+)",self.default):
-                return True
-            elif self.default=="" and re.fullmatch("([a-z0-9]+.[a-z0-9]+)",line):
-                return True
-            elif self.default=="" and re.fullmatch("(.[a-z0-9]+)",line):
-                return True
-            elif self.default=="" and re.fullmatch("(.)",line):
-                return True
-            elif self.default!="" and re.fullmatch("(.[a-z0-9]+)",line) or re.fullmatch("([a-z0-9]+.[a-z0-9]+)",line):
-                return True
-            elif line == "@" and re.fullmatch("(.)",line):
-                return True
-        elif int(id) == 1:
-            if line == "@" and re.fullmatch("([a-z0-9]+.[a-z0-9]+.)",self.default):
-                return True
-            elif self.default=="" and re.fullmatch("([a-z0-9]+.[a-z0-9]+.)",line):
-                return True
-            elif self.default=="" and re.fullmatch("(.[a-z0-9]+.)",line):
-                return True
-            elif self.default=="" and re.fullmatch("(.)",line):
-                return True
-            elif self.default!="" and re.fullmatch("(.[a-z0-9]+.)",line) or re.fullmatch("([a-z0-9]+.[a-z0-9]+.)",line):
-                return True
-            elif line == "@" and re.fullmatch("(.)",line):
-                return True
-        return False
+        if line == "@":
+            return True
+        else:
+            return re.fullmatch("(.+.)",line) or re.fullmatch("([a-z0-9.]+.)",line) or line == "."
 
     def is_plus_domain(self,id,line):
         '''

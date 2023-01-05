@@ -72,12 +72,13 @@ class Database:
         line without macros
         '''
         res = line
-        for macro in self.defaults:
-            if macro in res:
-                res = res.replace(macro,self.defaults.get(macro))
+        if len(self.defaults) != 0:
+            for macro in self.defaults:
+                if macro in res:
+                    res = res.replace(macro,self.defaults.get(macro))
         return res
 
-    def insertParsed(self,parsed):
+    def insertParsed(self,p):
         '''
         Given a line that has been parsed from a database file, it inserts its info into the database
 
@@ -85,7 +86,8 @@ class Database:
         parsed: line parsed from database file
         '''
 
-        parsed = parsed.strip()
+        p= p.strip()
+        parsed = self.macroReplace(p)
         splited = str.split(parsed," ")
 
         if len(splited) > 1:
@@ -108,19 +110,24 @@ class Database:
                 case "NS":
                     key = splited[2].split(".",1)[1]
 
-                    val = (splited[2].split(".",1)[0],self.macroReplace(parsed))
+                    if(self.defaults["@"] != "."):
+                        val = (splited[2].replace(self.defaults["@"],""),self.macroReplace(parsed))
+                    else:
+                        val = (splited[2][:-1], self.macroReplace(parsed))
 
                     if key not in self.typeNS.keys():
                         self.typeNS[key] = list()
                     list.append(self.typeNS[key],val)
 
                 case "MX":
+                    #key = splited[2].split(".", 1)[1]
                     key = splited[2].split(".", 1)[1]
 
                     if key[len(key) - 1] != ".":
                         key = key + "."
 
-                    val = (splited[2].split(".", 1)[0],self.macroReplace(parsed))
+                    #val = (splited[2].split(".", 1)[0],self.macroReplace(parsed))
+                    val = (splited[2].replace(self.defaults["@"],""), self.macroReplace(parsed))
 
                     if key not in self.typeMX.keys():
                         self.typeMX[key] = list()
@@ -128,6 +135,9 @@ class Database:
 
                 case "A":
                     key = splited[0]
+
+                    if key[len(key) - 1] == ".":
+                        key = key[:-1]
 
                     val = self.macroReplace(parsed)
 

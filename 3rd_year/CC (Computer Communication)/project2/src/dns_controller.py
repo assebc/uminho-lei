@@ -66,7 +66,8 @@ class Query:
             if val is not None:
                 i = 0
                 for aux in val:
-                    res = res + aux
+                    
+                    res = res + str(aux)
                     if (i < len(val)-1):
                         res = res + ","
                         i = i + 1
@@ -79,6 +80,7 @@ class Query:
         match self.query_type:
             case "MX":
                 if self.query_name not in db.typeMX.keys():
+                    
                     return False
 
             case "A":
@@ -88,6 +90,16 @@ class Query:
             case "NS":
                 if self.query_name not in db.typeNS.keys():
                     return False
+
+            case "SEARCH":
+                if self.query_name != "\n." and self.query_name != ".":
+                    for k in db.typeA.keys():
+                        
+                        look = self.query_name[:-1]
+                        
+                        if look in k:
+                            return True
+                return False
 
         return True
 
@@ -105,9 +117,10 @@ class Query:
                 levels.append(domain)
             levels.reverse()
             for domain in levels:
-                self.query_name = domain
+                
+                self.query_name = domain[1:] + "."
+                
                 if self.verifyDomainExistance(db):
-                    print("true")
                     return True
 
         return False
@@ -189,8 +202,10 @@ class Query:
 
                 case "A":
                     if self.query_name in db.typeA.keys():
+                        
                         for q in db.typeA[self.query_name]:
                             resV.append(q)
+                            
                     """
                     # Caso de pedir TODOS os valores de A
                     for v in db.typeA.values():
@@ -211,6 +226,16 @@ class Query:
                     for v in db.typeCN.values():
                         resV.append(v)
                     """
+
+                case "SEARCH":
+                    look = self.query_name[:-1]
+                    for k in db.typeA.keys():
+                        look = self.query_name[:-1]
+                        
+                        if look in k:
+                            for j in db.typeA[k]:
+                                resV.append(j)
+
 
                 # case _:
 
@@ -286,7 +311,6 @@ class Query:
         self.query_name = db.macroReplace(self.query_name)
         # clona original e altera flag
         res = self.clone()
-        # TODO: VERIFICAR ISTO DAS FLAGS
         res.flags = "A"
 
         # nome é dominio
@@ -294,17 +318,36 @@ class Query:
 
             isA = False
 
+            if self.query_type == "A":
+                isA = True
+                if (db.defaults["@"] != "."):
+                    backup = self.query_name
+                    find = self.query_name.replace(db.defaults["@"], "")
+                else:
+                    backup = self.query_name
+                    find = self.query_name[: -1]
+                self.query_name = find
+                
+
             #try:
             # response code 2
             if not self.verifyDomainExistance(db):
                 res.response_code = 2
+                if isA:
+                    self.query_name = backup
+                old_t = self.query_type
+                self.query_type = "SEARCH"
                 #se o domínio não existe verifica se conhece os servidores de topo desse domínio
                 if self.verifyPartialExistence(db):
+                    
                     res.response_code = 3
                     valR = self.getResponseVal(db, 0)
                     for a in valR:
-                        res.values_authorities.append(a[1])
+                        res.values_authorities.append(a)
+                self.query_type = old_t
                 return res
+
+            """
             #finally: 
             # para fazer do tipo A e necessario fazer MX e NS
             if self.query_type == "A" and (db.typeNS or db.typeMX):
@@ -319,6 +362,24 @@ class Query:
                 res.n_authorities = len(res.values_authorities)
                 res.n_extra = len(res.values_extra)
                 return res
+            """
+
+            if isA:
+                valR = self.getResponseVal(db,0)
+                res.values_response = valR
+                for v in db.typeNS:
+                    
+                    for t in db.typeNS[v]:
+                        #print(t)
+                        if t[0] == self.query_name:
+                            #print(t[0] == self.query_name)
+                            res.values_authorities.append(t[1])
+                self.query_type = "A"
+                res.n_values = len(res.values_response)
+                res.n_authorities = len(res.values_authorities)
+                res.n_extra = len(res.values_extra)
+                return res
+
 
 
 
@@ -350,10 +411,21 @@ class Query:
             res.values_extra = self.getExtraVal(db,chosen)
 
             # reformar resposta a tipo A
+            """
             if isA:
                 self.query_type = "A"
                 self.values_response = self.values_extra
                 self.values_extra = []
+                res.values_response = res.values_extra
+                res.values_extra = []
+            """
+
+            if isA:
+                self.query_type = "A"
+                self.values_authorities = self.values_response
+                self.values_response = self.values_extra
+                self.values_extra = []
+                res.values_authorities = res.values_response
                 res.values_response = res.values_extra
                 res.values_extra = []
 

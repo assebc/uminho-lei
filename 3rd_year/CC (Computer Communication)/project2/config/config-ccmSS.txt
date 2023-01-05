@@ -1,5 +1,5 @@
 # Configuration file for secondary server for .ccm
-.ccm SP 10.3.3.2:5353
+.ccm SP 10.3.3.2
 .ccm LG logs/ccm.log
 all LG logs/all.log
 root ST /home/core/CC32/db/rootservers.txt

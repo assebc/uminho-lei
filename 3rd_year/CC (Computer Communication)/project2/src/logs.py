@@ -16,7 +16,7 @@ class Logs:
                         # if "debug" insert into file and print into terminal
         client (Boolean): If its a client or not
         '''
-        self.loggers = {}        
+        self.loggers = {}
         self.path_exists = {}
         self.client = client
 
@@ -124,6 +124,7 @@ class Logger:
             self.logger = logging.getLogger(filepath.replace('.log',''))
             self.logger.addHandler(handler)
             self.logger.setLevel(logging.INFO)
+            
 
         elif level == "debug" and filepath == None:
             # escrever para o STDOUT

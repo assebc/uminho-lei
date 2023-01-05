@@ -21,7 +21,7 @@ class Application:
             "domain": "", # default domain
             "address": "0.0.0.0", # default address is localhost
             "port": 5353, # normalized port
-            "timeout": 255, # default timeout
+            "timeout": 25, # default timeout
             "debug_mode": "shy", # shy or debug in debug_mode
             "file_config": "", # path for config file
             "object_config": None,
