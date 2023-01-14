@@ -1,0 +1,62 @@
+\begin{theindex}
+
+  \item \LaTeX  , \hyperpage{10}
+    \subitem \texttt  {bibtex}, \hyperpage{10}
+    \subitem \texttt  {lhs2TeX}, \hyperpage{10}
+    \subitem \texttt  {makeindex}, \hyperpage{10}
+
+  \indexspace
+
+  \item C\IeC {\'a}lculo de Programas, \hyperpage{1}, \hyperpage{3}, 
+		\hyperpage{10, 11}
+    \subitem Material Pedag\IeC {\'o}gico, \hyperpage{9}
+      \subsubitem Exp.hs, \hyperpage{2, 3}, \hyperpage{13}
+      \subsubitem LTree.hs, \hyperpage{6--8}
+      \subsubitem Rose.hs, \hyperpage{4}
+  \item Combinador ``pointfree''
+    \subitem \emph  {either}, \hyperpage{7}, \hyperpage{9}
+
+  \indexspace
+
+  \item Fractal, \hyperpage{3}
+    \subitem Tapete de Sierpinski, \hyperpage{3}
+  \item Fun\IeC {\c c}\IeC {\~a}o
+    \subitem $\pi _1$, \hyperpage{10, 11}, \hyperpage{15}
+    \subitem $\pi _2$, \hyperpage{10}, \hyperpage{15}
+    \subitem \emph  {for}, \hyperpage{2}, \hyperpage{11}
+    \subitem \emph  {length}, \hyperpage{13}
+    \subitem \emph  {map}, \hyperpage{7, 8}, \hyperpage{13--15}
+  \item Functor, \hyperpage{5}, \hyperpage{8, 9}, \hyperpage{11, 12}, 
+		\hyperpage{15, 16}
+
+  \indexspace
+
+  \item Haskell, \hyperpage{1}, \hyperpage{10}
+    \subitem Biblioteca
+      \subsubitem PFP, \hyperpage{12}
+      \subsubitem Probability, \hyperpage{12}
+    \subitem interpretador
+      \subsubitem GHCi, \hyperpage{10}, \hyperpage{12}
+    \subitem Literate Haskell, \hyperpage{9}
+
+  \indexspace
+
+  \item N\IeC {\'u}meros naturais ($I\tmspace  -\thinmuskip {.1667em}\tmspace  -\thinmuskip {.1667em}N$), 
+		\hyperpage{11}
+
+  \indexspace
+
+  \item Programa\IeC {\c c}\IeC {\~a}o
+    \subitem din\IeC {\^a}mica, \hyperpage{11}
+    \subitem liter\IeC {\'a}ria, \hyperpage{9}
+
+  \indexspace
+
+  \item SVG (Scalable Vector Graphics), \hyperpage{13}
+
+  \indexspace
+
+  \item U.Minho
+    \subitem Departamento de Inform\IeC {\'a}tica, \hyperpage{1, 2}
+
+\end{theindex}
