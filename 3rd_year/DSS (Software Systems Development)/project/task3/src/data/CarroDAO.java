@@ -1,6 +1,6 @@
-package task3.src.data;
+package EntregaFinal.src.data;
 
-import task3.src.SubCarros.Carro;
+import EntregaFinal.src.SubCarros.Carro;
 
 import java.sql.*;
 import java.util.Collection;
@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class CarroDAO implements Map<String,Carro> {
+public class CarroDAO implements Map<Integer,Carro> {
 
 	private static CarroDAO singleton = null;
 
@@ -16,7 +16,7 @@ public class CarroDAO implements Map<String,Carro> {
 		try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
 			 Statement stm = conn.createStatement()) {
 			String sql = "CREATE TABLE IF NOT EXISTS carros (" +
-					"ID varchar(45) NOT NULL PRIMARY KEY," +
+					"ID int NOT NULL AUTO_INCREMENT PRIMARY KEY," +
 					"Marca varchar(45) DEFAULT ''," +
 					"Modelo varchar(45) DEFAULT ''," +
 					"Cilindrada int DEFAULT 0," +
@@ -97,9 +97,9 @@ public class CarroDAO implements Map<String,Carro> {
 			if (rs.next()) {  // A chave existe na tabela
 				a = new Carro(rs.getString("Marca"),
 						rs.getString("Modelo"),
-						Integer.parseInt(rs.getString("Cilindrada")),
-						Integer.parseInt(rs.getString("Potencia")),
-						Integer.parseInt(rs.getString("Fiabilidade")));
+						rs.getInt("Cilindrada"),
+						rs.getInt("Potencia"),
+						rs.getInt("Fiabilidade"));
 			}
 		} catch (SQLException e) {
 			// Database error!
@@ -110,18 +110,19 @@ public class CarroDAO implements Map<String,Carro> {
 	}
 
 	@Override
-	public Carro put(String key, Carro value) {
+	public Carro put(Integer key, Carro value) {
 		Carro res = null;
 		try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
 			 Statement stm = conn.createStatement()) {
 			try(PreparedStatement pstm = conn.prepareStatement("INSERT INTO carros(Marca,Modelo,Cilindrada,Potencia,Fiabilidade)" + "VALUES (?,?,?,?,?)")) {
 				pstm.setString(1,value.get_marca());
 				pstm.setString(2,value.get_modelo());
-				pstm.setString(3,String.valueOf(value.get_cilindrada()));
-				pstm.setString(4,String.valueOf(value.get_potencia()));
-				pstm.setString(5,String.valueOf(value.get_fiabilidade()));
+				pstm.setInt(3,value.get_cilindrada());
+				pstm.setInt(4,value.get_potencia());
+				pstm.setInt(5,value.get_fiabilidade());
 				pstm.execute();
 			}
+			res = value;
 		} catch (SQLException e) {
 			// Database error!
 			e.printStackTrace();
@@ -146,7 +147,7 @@ public class CarroDAO implements Map<String,Carro> {
 	}
 
 	@Override
-	public void putAll(Map<? extends String, ? extends Carro> m) {
+	public void putAll(Map<? extends Integer, ? extends Carro> m) {
 		for(Carro a : m.values()) {
 			this.put(a.get_iD(), a);
 		}
@@ -166,13 +167,13 @@ public class CarroDAO implements Map<String,Carro> {
 	}
 
 	@Override
-	public Set<String> keySet() {
-		Set<String> res = new HashSet<>();
+	public Set<Integer> keySet() {
+		Set<Integer> res = new HashSet<>();
         try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
              Statement stm = conn.createStatement();
              ResultSet rs = stm.executeQuery("SELECT Id FROM carros")) { // ResultSet com os nomes de todos os campeonatos
              while (rs.next()) {
-                String idt = rs.getString("Id"); // Obtemos um nome de carros do ResultSet
+                Integer idt = rs.getInt("Id"); // Obtemos um nome de carros do ResultSet
                 res.add(idt);                                 // Adiciona o carros ao resultado.
             }
         } catch (Exception e) {
@@ -203,7 +204,7 @@ public class CarroDAO implements Map<String,Carro> {
 	}
 
 	@Override
-	public Set<Entry<String, Carro>> entrySet() {
+	public Set<Entry<Integer, Carro>> entrySet() {
 		throw new NullPointerException("public Set<Map.Entry<String,Carro>> entrySet() not implemented!");
 	}
 }

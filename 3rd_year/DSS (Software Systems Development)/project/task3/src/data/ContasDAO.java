@@ -1,4 +1,4 @@
-package task3.src.data;
+package EntregaFinal.src.data;
 
 import java.sql.*;
 import java.util.Collection;
@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import task3.src.SubContas.Conta;
-import task3.src.SubContas.userType;
+import EntregaFinal.src.SubContas.Conta;
+import EntregaFinal.src.SubContas.userType;
 
 public class ContasDAO implements Map<String,Conta> {
 

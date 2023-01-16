@@ -1,8 +1,8 @@
-package task3.src.SubSimulacao;
+package EntregaFinal.src.SubSimulacao;
 
-import task3.src.SubCampeonatos.Campeonato;
-import task3.src.SubCarros.Carro;
-import task3.src.data.CampeonatoAtivoDAO;
+import EntregaFinal.src.SubCampeonatos.Campeonato;
+import EntregaFinal.src.SubCarros.Carro;
+import EntregaFinal.src.data.CampeonatoAtivoDAO;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,7 +26,7 @@ public class SubSimulacao implements ISubSimulacao {
 		return false;
 	}
 
-	public void registarJogador(int aCampeonato, String aJogadorID, String aCarro, String aPiloto) {
+	public void registarJogador(int aCampeonato, String aJogadorID, int aCarro, String aPiloto) {
 		CampeonatoAtivo cAtiv;	
 		if(!this._campeonatoMap.containsKey(aCampeonato)){
 			throw new IllegalArgumentException("CampeonatoAtivo não existe: " + aCampeonato);

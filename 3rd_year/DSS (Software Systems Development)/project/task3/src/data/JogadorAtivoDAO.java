@@ -1,4 +1,4 @@
-package task3.src.data;
+package EntregaFinal.src.data;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.Set;
 import java.sql.*;
 
-import task3.src.SubSimulacao.DadosJogador;
-import task3.src.SubSimulacao.JogadorAtivo;
+import EntregaFinal.src.SubSimulacao.DadosJogador;
+import EntregaFinal.src.SubSimulacao.JogadorAtivo;
 
 public class JogadorAtivoDAO implements Map<JogadorAtivoKey,JogadorAtivo> {
 
@@ -20,26 +20,26 @@ public class JogadorAtivoDAO implements Map<JogadorAtivoKey,JogadorAtivo> {
 
             String sql = "CREATE TABLE IF NOT EXISTS dados_jogador (" +
                 "DadosJogadorId int NOT NULL AUTO_INCREMENT," +
-                "CampeonatoAtivoId int NOT NULL," +
                 "JogadorId varchar(45) NOT NULL," +
-                "CarroId varchar(45) NOT NULL," +
+                "CampeonatoAtivoId int NOT NULL," +
+                "CarroId int NOT NULL," +
                 "PilotoId varchar(45) NOT NULL," +
                 "FOREIGN KEY (CarroId) REFERENCES carros(ID)," +
                 "FOREIGN KEY (PilotoId) REFERENCES pilotos(Nome)," +
                 "FOREIGN KEY (CampeonatoAtivoId) REFERENCES campeonatos_ativos(CampeonatoAtivoId)," +
-                "PRIMARY KEY(DadosJogadorId, JogadorId));";
+                "PRIMARY KEY(DadosJogadorId));";
 
             stm.execute(sql);
 
-            sql = "CREATE TABLE IF NOT EXISTS jogador_ativo (" +
+            sql = "CREATE TABLE IF NOT EXISTS jogadores_ativos (" +
                 "CampeonatoAtivoId int NOT NULL," +
                 "JogadorId varchar(45) NOT NULL," +
                 "DadosJogadorId int NOT NULL," +
                 "Pronto boolean DEFAULT false," +
                 "NrAfinacoes int DEFAULT 0," +
-                "FOREIGN KEY (JogadorId, DadosJogadorId) REFERENCES dados_jogador(JogadorId, DadosJogadorId)," +
+                "FOREIGN KEY (DadosJogadorId) REFERENCES dados_jogador(DadosJogadorId)," +
                 "FOREIGN KEY (CampeonatoAtivoId) REFERENCES campeonatos_ativos(CampeonatoAtivoId)," +
-                "PRIMARY KEY(JogadorId, CampeonatoAtivoId));";
+                "PRIMARY KEY(CampeonatoAtivoId, JogadorId));";
 
             stm.execute(sql);
 
@@ -228,7 +228,7 @@ public class JogadorAtivoDAO implements Map<JogadorAtivoKey,JogadorAtivo> {
 		Collection<JogadorAtivo> res = new HashSet<>();
         try (Connection conn = DriverManager.getConnection(DAOconfig.URL, DAOconfig.USERNAME, DAOconfig.PASSWORD);
              Statement stm = conn.createStatement();
-             ResultSet rs = stm.executeQuery("SELECT (CampeonatoAtivoId, JogadorId) FROM jogadores_ativos;")) { // ResultSet com os nomes de todos os campeonatos
+             ResultSet rs = stm.executeQuery("SELECT CampeonatoAtivoId, JogadorId FROM jogadores_ativos;")) { // ResultSet com os nomes de todos os campeonatos
             while (rs.next()) {
                 JogadorAtivo a = this.get(new JogadorAtivoKey(rs.getInt("CampeonatoAtivoId"),rs.getString("JogadorId"))); // Utilizamos o get para construir os campeonatos
                 res.add(a);                                 // Adiciona o campeonato ao resultado.

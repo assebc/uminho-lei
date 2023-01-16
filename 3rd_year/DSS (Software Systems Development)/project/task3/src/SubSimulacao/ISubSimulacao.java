@@ -1,14 +1,14 @@
-package task3.src.SubSimulacao;
+package EntregaFinal.src.SubSimulacao;
 
-import task3.src.SubCampeonatos.Campeonato;
-import task3.src.SubCarros.Carro;
+import EntregaFinal.src.SubCampeonatos.Campeonato;
+import EntregaFinal.src.SubCarros.Carro;
 
 import java.util.List;
 import java.util.Map;
 
 public interface ISubSimulacao {
 
-	public void registarJogador(int aCampeonato, String aJogadorID, String aCarro, String aPiloto);
+	public void registarJogador(int aCampeonato, String aJogadorID, int aCarro, String aPiloto);
 
 	public void jogadorPronto(int aCampeonato, String aJogadorID);
 

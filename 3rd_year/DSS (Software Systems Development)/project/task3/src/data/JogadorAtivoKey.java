@@ -1,3 +1,4 @@
-package task3.src.data;
+package EntregaFinal.src.data;
 
-public record JogadorAtivoKey(int campeonatoAtivoId, String jogadorId);
+public record JogadorAtivoKey(int campeonatoAtivoId, String jogadorId) {
+}

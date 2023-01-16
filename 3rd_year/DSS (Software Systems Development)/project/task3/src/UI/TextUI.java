@@ -1,4 +1,4 @@
-package task3.src.UI;
+package EntregaFinal.src.UI;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,19 +6,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-import task3.src.IRacingManager;
-import task3.src.RacingManagerFacade;
+import EntregaFinal.src.IRacingManager;
+import EntregaFinal.src.RacingManagerFacade;
 
 // Needed imports once diagrams were chosen to be like this
-import task3.src.SubContas.userType;
-import task3.src.SubCampeonatos.Campeonato;
-import task3.src.SubCampeonatos.Circuito;
-import task3.src.SubPilotos.Piloto;
-import task3.src.SubSimulacao.DadosJogador;
-import task3.src.SubSimulacao.JogadorAtivo;
-import task3.src.data.JogadorAtivoDAO;
-import task3.src.SubCarros.*;
-import task3.src.data.JogadorAtivoKey;
+import EntregaFinal.src.SubContas.userType;
+import EntregaFinal.src.SubCampeonatos.Campeonato;
+import EntregaFinal.src.SubCampeonatos.Circuito;
+import EntregaFinal.src.SubPilotos.Piloto;
+import EntregaFinal.src.SubSimulacao.DadosJogador;
+import EntregaFinal.src.SubSimulacao.JogadorAtivo;
+import EntregaFinal.src.data.JogadorAtivoDAO;
+import EntregaFinal.src.SubCarros.*;
+import EntregaFinal.src.data.JogadorAtivoKey;
 
 public class TextUI {
     private IRacingManager model;
@@ -140,7 +140,7 @@ public class TextUI {
             System.out.println("Insira o seu nome de utilizador");
             String name = this.scin.nextLine();
             if(!this.model.nomeDisponivel(name)){
-                while(true){
+                for(int i=0;i<3;++i){
                     System.out.println("Insira a sua palavra passe");
                     String password = this.scin.nextLine();
                     if(this.model.validarConta(name, password)){
@@ -161,7 +161,7 @@ public class TextUI {
 
     private void menuadmin(){
         try{
-            if(this.logged_in.get(last)==true){
+            if(this.logged_in.get(last)){
                 this.creation_menu.run();
             } else {
                 System.out.println("Não está logado como administrador, ou não é um administrador!");
@@ -185,9 +185,12 @@ public class TextUI {
                 this.model.registarCircuito(new Circuito(name,curves,chicanes,laps)); 
                 System.out.println("Circuito adicionado com sucesso!");
             }
+            else{
+                System.out.println("Nome de circuito não disponível!");
+            }
 
         } catch(NullPointerException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -202,25 +205,26 @@ public class TextUI {
                 System.out.println("Escolha o número de circuitos que pretende ter em " + name + " sendo que existem " + max_nr_circuitos + " circuitos");
                 int nr_circuitos = this.scin.nextInt();
                 int i = 0;
-                Campeonato campeonato = new Campeonato(name,false);
+                Campeonato campeonato = new Campeonato(name,true);
                 while(i<nr_circuitos){
-                    int dimension = campeonato.get_circuitos().size();
-                    System.out.println(circuitos.toString());
+                    circuitos.forEach(c -> System.out.println(c.get_nome()));
                     String option = this.scin.nextLine();
+                    boolean added = false;
                     for(Circuito c:circuitos){
                         if(c.get_nome().equals(option)){
                             campeonato.addCircuito(option);
+                            added = true;
                             break;
                         }
                     }
-                    if(campeonato.get_circuitos().size()>dimension) i++;
+                    if(added) i++;
                     else System.out.println("Nome de circuito inexistente!");       
                 }
                 this.model.registarCampeonato(campeonato);
                 System.out.println("Campeonato criado com sucesso!");
             }
         } catch(NullPointerException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -248,7 +252,7 @@ public class TextUI {
                 if(this.model.fiabilidadeValida(fiabilidade)){
                     String c = categoria.toUpperCase();
                     if(!c.equals("SC")){
-                        System.out.println("O carro é híbrido? Y/n");
+                        System.out.println("O carro é híbrido? y/N");
                         String hibrido = this.scin.nextLine();
                         hibrido = hibrido.toLowerCase();
                         if(hibrido.equals("y")){
@@ -278,10 +282,12 @@ public class TextUI {
                     System.out.println("Carro adicionado com sucesso!");
                 }
 
+            } else {
+                System.out.println("Cilindrada invalida!");
             }
 
         } catch(NullPointerException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -300,7 +306,7 @@ public class TextUI {
                 System.out.println("Piloto adicionado com sucesso!");
             }
         } catch(NullPointerException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -311,7 +317,7 @@ public class TextUI {
             for(Campeonato c: this.model.campeonatosIndisponiveis()){
                 campeonatos.add(c.get_nome());
             }
-            System.out.println(campeonatos.toString());
+            campeonatos.forEach(c -> System.out.println("->"+c));
             String name = this.scin.nextLine();
             while(true){
                 if(campeonatos.contains(name)){
@@ -352,7 +358,8 @@ public class TextUI {
 
     private void listaDisponivelCampeonato(){
         try{
-            System.out.println(this.model.campeonatosDisponiveis().toString());
+            this.model.campeonatosDisponiveis()
+                    .forEach(c -> System.out.println("->"+c.get_nome()));
         } catch(NullPointerException e){
             e.printStackTrace();
         }
@@ -360,7 +367,8 @@ public class TextUI {
 
     private void listaIndisponivelCampeonato(){
         try{
-            System.out.println(this.model.campeonatosIndisponiveis().toString());
+            this.model.campeonatosIndisponiveis()
+                    .forEach(c -> System.out.println("->"+c.get_nome()));
         } catch(NullPointerException e){
             e.printStackTrace();
         }
@@ -382,7 +390,7 @@ public class TextUI {
                 listaDisponivelCampeonato();
                 System.out.println("Escolha um campeonato!");
                 champ = this.scin.nextLine();
-            } while(!this.model.nomeCampeonatoDisponivel(champ));
+            } while(this.model.nomeCampeonatoDisponivel(champ));
             
             for(Campeonato c: this.model.campeonatosDisponiveis()){
                 if(c.get_nome().equals(champ)){
@@ -403,7 +411,8 @@ public class TextUI {
         try{
             String car;
             do{
-                System.out.println(this.model.listCarros().toString());
+                this.model.listCarros()
+                        .forEach(c -> System.out.println("->"+c.get_marca()+" "+c.get_modelo()));
                 System.out.println("Escolha um Carro inserindo um ID!");
                 car = this.scin.nextLine();
             } while(!this.model.hasCarro(car));
@@ -423,7 +432,7 @@ public class TextUI {
         try{
             String piloto;
             do{
-                System.out.println(this.model.listPilotos().toString());
+                this.model.listPilotos().forEach(p -> System.out.println("->"+p.get_nome()));
                 System.out.println("Escolha um Piloto!");
                 piloto = this.scin.nextLine();
             } while(!this.model.nomePilotoDisponivel(piloto));

@@ -1,18 +1,19 @@
-package task3.src.SubCarros;
+package EntregaFinal.src.SubCarros;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-import task3.src.data.CarroDAO;
+import EntregaFinal.src.data.CarroDAO;
 
 public class SubCarroFacade implements ISubCarro {
-	private CarroDAO _carros;
+	private final CarroDAO _carros = CarroDAO.getInstance();
 
 	@Override
 	public boolean categoriaValida(String aC) {
-		if(aC == "C1" || aC == "c1" || aC == "C2"|| aC == "c2" || aC == "GT" || aC == "gt" || aC == "SC" || aC == "sc")
-			return true;
-		return false;
+		return Objects.equals(aC, "C1") || Objects.equals(aC, "c1") || Objects.equals(aC, "C2") ||
+				Objects.equals(aC, "c2") || Objects.equals(aC, "GT") || Objects.equals(aC, "gt") ||
+				Objects.equals(aC, "SC") || Objects.equals(aC, "sc");
 	}
 
 	@Override
@@ -24,7 +25,7 @@ public class SubCarroFacade implements ISubCarro {
 
 	@Override
 	public void registarCarro(Carro aCarro) {
-		String id = String.valueOf(_carros.size());
+		int id = _carros.size();
 		aCarro.set_iD(id);
 		this._carros.put(id,aCarro);
 	}
@@ -32,16 +33,16 @@ public class SubCarroFacade implements ISubCarro {
 	@Override
 	public boolean cilindradaValida(int aCilindrada, String aCategoria) {
 		boolean b = false;
-		if((aCategoria == "C1" || aCategoria == "c1") && (aCilindrada == 6000) )
+		if((Objects.equals(aCategoria, "C1") || Objects.equals(aCategoria, "c1")) && (aCilindrada == 6000) )
 			b = true;
 
-		if((aCategoria == "C2" || aCategoria == "c2") && (2000 <= aCilindrada) && (aCilindrada <= 4000))
+		else if((Objects.equals(aCategoria, "C2") || Objects.equals(aCategoria, "c2")) && (2000 <= aCilindrada) && (aCilindrada <= 4000))
 			b = true;
 
-		if((aCategoria == "GT" || aCategoria == "gt") && (3000 <= aCilindrada) && (aCilindrada <= 5000))
+		else if((Objects.equals(aCategoria, "GT") || Objects.equals(aCategoria, "gt")) && (3000 <= aCilindrada) && (aCilindrada <= 5000))
 			b = true;
 
-		if((aCategoria == "SC" || aCategoria == "sc") && (aCilindrada == 2500) )
+		else if((Objects.equals(aCategoria, "SC") || Objects.equals(aCategoria, "sc")) && (aCilindrada == 2500) )
 			b = true;
 
 		return b;

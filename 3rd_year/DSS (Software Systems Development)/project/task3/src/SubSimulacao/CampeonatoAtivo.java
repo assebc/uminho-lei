@@ -1,14 +1,14 @@
-package task3.src.SubSimulacao;
+package EntregaFinal.src.SubSimulacao;
 
-import task3.src.SubCampeonatos.Campeonato;
-import task3.src.SubCampeonatos.Circuito;
-import task3.src.SubCarros.Carro;
-import task3.src.data.JogadorAtivoDAO;
-import task3.src.data.JogadorAtivoKey;
+import EntregaFinal.src.SubCampeonatos.Campeonato;
+import EntregaFinal.src.SubCampeonatos.Circuito;
+import EntregaFinal.src.SubCarros.Carro;
+import EntregaFinal.src.data.JogadorAtivoDAO;
+import EntregaFinal.src.data.JogadorAtivoKey;
 
 import java.util.*;
 
-import static task3.src.SubCampeonatos.TempoMetereologico.*;
+import static EntregaFinal.src.SubCampeonatos.TempoMetereologico.*;
 
 public class CampeonatoAtivo {
 	private static int idCount = 0;
@@ -130,7 +130,7 @@ public class CampeonatoAtivo {
 		this._jogadorAtivoMap.put(key, this._jogadorAtivoMap.get(key));
 	}
 
-	public void novoJogador(String aJogadorID, String aCarro, String aPiloto) {
+	public void novoJogador(String aJogadorID, int aCarro, String aPiloto) {
 		JogadorAtivo j = new JogadorAtivo(aJogadorID,aCarro,aPiloto,this._campeonato.get_circuitos().size(), id);
 		this._jogadorAtivoMap.put(new JogadorAtivoKey(this.id, aJogadorID),j);
 	}	

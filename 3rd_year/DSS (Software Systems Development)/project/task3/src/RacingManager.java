@@ -1,7 +1,7 @@
-package task3.src;
+package EntregaFinal.src;
 
-import task3.src.UI.TextUI;
-import task3.src.data.*;
+import EntregaFinal.src.UI.TextUI;
+import EntregaFinal.src.data.*;
 
 public class RacingManager {
     public static void main(String[]args){

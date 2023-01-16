@@ -80,7 +80,7 @@ public interface IRacingManager{
     
     // Simulação
 
-    void registarJogador(int aCampeonato, String aJogadorID, String aCarro, String aPiloto);
+    void registarJogador(int aCampeonato, String aJogadorID, int aCarro, String aPiloto);
 
     void jogadorPronto(int aCampeonato, String aJogadorID);
 

@@ -1,4 +1,4 @@
-package task3.src.data;
+package EntregaFinal.src.data;
 
 import java.sql.*;
 import java.util.Collection;
@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import task3.src.SubPilotos.Piloto;
+import EntregaFinal.src.SubPilotos.Piloto;
 
 public class PilotoDAO implements Map<String,Piloto> {
 
@@ -101,8 +101,8 @@ public class PilotoDAO implements Map<String,Piloto> {
              ResultSet rs = stm.executeQuery("SELECT * FROM pilotos WHERE Nome='"+key+"'")) {
             if (rs.next()) {  // A chave existe na tabela
                 a = new Piloto(rs.getString("Nome"),
-							Float.parseFloat(rs.getString("Cts")),
-							Float.parseFloat(rs.getString("Sva")));
+							rs.getFloat("Cts"),
+							rs.getFloat("Sva"));
             }
         } catch (SQLException e) {
             // Database error!
@@ -119,10 +119,11 @@ public class PilotoDAO implements Map<String,Piloto> {
              Statement stm = conn.createStatement()) {
             try(PreparedStatement pstm = conn.prepareStatement("INSERT INTO pilotos(Nome,Cts,Sva)" + "VALUES (?,?,?)")) {
                 pstm.setString(1,value.get_nome());
-                pstm.setString(2,String.valueOf(value.get_cts()));
-                pstm.setString(3,String.valueOf(value.get_sva()));
+                pstm.setFloat(2,value.get_cts());
+                pstm.setFloat(3,value.get_sva());
                 pstm.execute();
             }
+            res = value;
         } catch (SQLException e) {
             // Database error!
             e.printStackTrace();

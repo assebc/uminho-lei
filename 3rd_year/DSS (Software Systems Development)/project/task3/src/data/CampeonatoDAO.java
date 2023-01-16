@@ -111,9 +111,10 @@ public class CampeonatoDAO implements Map<String,Campeonato> {
              ResultSet rs = stm.executeQuery("SELECT * FROM campeonatos WHERE Nome='"+key+"'")) {
             if (rs.next()) {  // A chave existe na tabela
                 a = new Campeonato(rs.getString("Nome"),
-                            Integer.parseInt(rs.getString("Nr_circuitos")),
-                        Boolean.parseBoolean(rs.getString("Disponibilidade")));
+                            rs.getInt("Nr_circuitos"),
+                        rs.getBoolean("Disponibilidade"));
             }
+
         } catch (SQLException e) {
             // Database error!
             e.printStackTrace();
@@ -129,10 +130,11 @@ public class CampeonatoDAO implements Map<String,Campeonato> {
              Statement stm = conn.createStatement()) {
             try(PreparedStatement pstm = conn.prepareStatement("INSERT INTO campeonatos(Nome,Nr_circuitos,Disponibilidade)" + "VALUES (?,?,?)")) {
                 pstm.setString(1,value.get_nome());
-                pstm.setString(2,String.valueOf(value.get_nr_circuitos()));
-                pstm.setString(3,String.valueOf(value.get_disponibilidade()));
+                pstm.setInt(2,value.get_nr_circuitos());
+                pstm.setBoolean(3,value.get_disponibilidade());
                 pstm.execute();
             }
+            res = value;
         } catch (SQLException e) {
             // Database error!
             e.printStackTrace();

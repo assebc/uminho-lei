@@ -1,6 +1,6 @@
-package task3.src.SubContas;
+package EntregaFinal.src.SubContas;
 
-import task3.src.data.ContasDAO;
+import EntregaFinal.src.data.ContasDAO;
 
 public class SubContasFacade implements ISubContas {
 	private ContasDAO _contas = ContasDAO.getInstance();
@@ -14,8 +14,7 @@ public class SubContasFacade implements ISubContas {
 	}
 
 	public boolean validarConta(String aNome, String aPassword) {
-		if(_contas.containsKey(aNome) && _contas.get(aNome).get_password()==aPassword) return true;
-		else return false;
+		return _contas.containsKey(aNome) && _contas.get(aNome).get_password().equals(aPassword);
 	}
 
 	public userType autenticarConta(String aNome) {

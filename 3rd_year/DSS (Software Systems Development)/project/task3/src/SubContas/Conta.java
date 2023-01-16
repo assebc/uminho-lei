@@ -1,4 +1,4 @@
-package task3.src.SubContas;
+package EntregaFinal.src.SubContas;
 
 public class Conta {
 	private String _nome;

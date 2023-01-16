@@ -1,13 +1,13 @@
-package task3.src.SubSimulacao;
+package EntregaFinal.src.SubSimulacao;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import task3.src.SubCampeonatos.Circuito;
-import task3.src.SubCampeonatos.SubCampeonatosFacade;
-import task3.src.SubCampeonatos.TempoMetereologico;
+import EntregaFinal.src.SubCampeonatos.Circuito;
+import EntregaFinal.src.SubCampeonatos.SubCampeonatosFacade;
+import EntregaFinal.src.SubCampeonatos.TempoMetereologico;
 
 public class CorridaPremium extends Corrida {
 	private List<EstadoPremium> _listaEstados = new ArrayList<EstadoPremium>();

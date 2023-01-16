@@ -1,7 +1,7 @@
-package task3.src.SubSimulacao;
+package EntregaFinal.src.SubSimulacao;
 
-import task3.src.SubCarros.Carro;
-import task3.src.SubPilotos.Piloto;
+import EntregaFinal.src.SubCarros.Carro;
+import EntregaFinal.src.SubPilotos.Piloto;
 
 public class DadosJogador {
 	private static int idCount=0;

@@ -1,14 +1,14 @@
-package task3.src.SubCampeonatos;
+package EntregaFinal.src.SubCampeonatos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import task3.src.data.CircuitoDAO;
-import task3.src.data.CampeonatoDAO;
+import EntregaFinal.src.data.CircuitoDAO;
+import EntregaFinal.src.data.CampeonatoDAO;
 
 public class SubCampeonatosFacade implements ISubCampeonatos {
-	private CampeonatoDAO _campeonatos;
-	private CircuitoDAO _circuitos;
+	private final CampeonatoDAO _campeonatos = CampeonatoDAO.getInstance();
+	private final CircuitoDAO _circuitos = CircuitoDAO.getInstance();
 
 	public CircuitoDAO get_circuitos() {
 		return _circuitos;
@@ -19,11 +19,11 @@ public class SubCampeonatosFacade implements ISubCampeonatos {
 	}
 
 	public Boolean nomeCampeonatoDisponivel(String aNome) {
-		return this._campeonatos.containsKey(aNome);
+		return !this._campeonatos.containsKey(aNome);
 	}
 
 	public Boolean nomeCircuitoDisponivel(String aNome) {
-		return this._circuitos.containsKey(aNome);
+		return !this._circuitos.containsKey(aNome);
 	}
 
 	public void registarCircuito(Circuito aCircuito) {

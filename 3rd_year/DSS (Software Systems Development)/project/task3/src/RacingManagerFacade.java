@@ -1,13 +1,13 @@
-package task3.src;
+package EntregaFinal.src;
 
 import java.util.List;
 import java.util.Map;
 
-import task3.src.SubContas.*;
-import task3.src.SubCampeonatos.*;
-import task3.src.SubCarros.*;
-import task3.src.SubPilotos.*;
-import task3.src.SubSimulacao.*;
+import EntregaFinal.src.SubContas.*;
+import EntregaFinal.src.SubCampeonatos.*;
+import EntregaFinal.src.SubCarros.*;
+import EntregaFinal.src.SubPilotos.*;
+import EntregaFinal.src.SubSimulacao.*;
 
 public class RacingManagerFacade implements IRacingManager{
     
@@ -115,7 +115,7 @@ public class RacingManagerFacade implements IRacingManager{
     // Simulação
 
 	@Override
-	public void registarJogador(int aCampeonato, String aJogadorID, String aCarro, String aPiloto) {
+	public void registarJogador(int aCampeonato, String aJogadorID, int aCarro, String aPiloto) {
 		this.simulacaoFacade.registarJogador(aCampeonato, aJogadorID, aCarro, aPiloto);
 		
 	}

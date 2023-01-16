@@ -1,4 +1,4 @@
-package task3.src.SubContas;
+package EntregaFinal.src.SubContas;
 
 public enum userType {
 	Administrador(0), JogadorBase(1), JogadorPremium(2);
@@ -8,11 +8,11 @@ public enum userType {
 	}
 
 	public static userType fromInt(int i){
-		switch (i){
-			case 0: return Administrador;
-			case 1: return JogadorBase;
-			case 2: return JogadorPremium;
-			default: throw new IllegalStateException("Unexpected value: " + i);
-		}
+		return switch (i){
+			case 0 -> Administrador;
+			case 1 -> JogadorBase;
+			case 2 -> JogadorPremium;
+			default -> throw new IllegalStateException("Unexpected value: " + i);
+		};
 	}
 }

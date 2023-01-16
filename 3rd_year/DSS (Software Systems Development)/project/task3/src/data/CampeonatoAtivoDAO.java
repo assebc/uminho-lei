@@ -1,12 +1,12 @@
-package task3.src.data;
+package EntregaFinal.src.data;
 
 import java.util.*;
 import java.sql.*;
 
-import task3.src.SubCampeonatos.Campeonato;
-import task3.src.SubCampeonatos.Circuito;
-import task3.src.SubSimulacao.CampeonatoAtivo;
-import task3.src.SubSimulacao.DadosJogador;
+import EntregaFinal.src.SubCampeonatos.Campeonato;
+import EntregaFinal.src.SubCampeonatos.Circuito;
+import EntregaFinal.src.SubSimulacao.CampeonatoAtivo;
+import EntregaFinal.src.SubSimulacao.DadosJogador;
 public class CampeonatoAtivoDAO implements Map<Integer,CampeonatoAtivo> {
 
 	private static CampeonatoAtivoDAO singleton = null;
@@ -28,7 +28,7 @@ public class CampeonatoAtivoDAO implements Map<Integer,CampeonatoAtivo> {
                 "DadosJogadorId int NOT NULL PRIMARY KEY AUTO_INCREMENT," +
                 "CampeonatoAtivoId int NOT NULL," +
                 "JogadorId varchar(45) NOT NULL," +
-                "CarroId varchar(45) NOT NULL," + 
+                "CarroId int NOT NULL," +
                 "PilotoId varchar(45) NOT NULL," + 
                 "FOREIGN KEY (CarroId) REFERENCES carros(ID)," +
                 "FOREIGN KEY (PilotoId) REFERENCES pilotos(Nome)," +
@@ -130,11 +130,11 @@ public class CampeonatoAtivoDAO implements Map<Integer,CampeonatoAtivo> {
              ResultSet rs = stm.executeQuery("SELECT * FROM campeonatos_ativos WHERE CampeonatoAtivoId='"+key+"';")) {
             if (rs.next()) {  // A chave existe na tabela
                 Campeonato camp = CampeonatoDAO.getInstance().get(rs.getString("NomeCampeonato"));
-                int id = rs.getInt("Id");
+                int id = rs.getInt("CampeonatoAtivoId");
                 int nrCorridaAtual = rs.getInt("NrCorridaAtual");
 
-                String sql = "SELECT * FROM posicoes_campeonatos_ativos" +
-                    "NATURAL JOIN dados_jogador" + 
+                String sql = "SELECT * FROM posicoes_campeonatos_ativos " +
+                    "NATURAL JOIN dados_jogador " +
                     "WHERE CampeonatoAtivoId='"+key+"';";
 
                 Map<Integer, Map<Integer, List<DadosJogador>>> corrMap = new HashMap<>();
@@ -212,8 +212,8 @@ public class CampeonatoAtivoDAO implements Map<Integer,CampeonatoAtivo> {
             List<List<DadosJogador>> corrList = value.getPosPorCorridaJogadores();
             List<Circuito> circList = value.getListaOrdCircuitos();
 
-            String sql = "INSERT INTO campeonatos_ativos(CampeonatoAtivoId, NrCorridaAtual, NomeCampeonato)" +
-                        "VALUES (" + id + "," + nrCorridaAtual + "," + camp.get_nome() + ");";
+            String sql = "INSERT INTO campeonatos_ativos(CampeonatoAtivoId, NrCorridaAtual, NomeCampeonato) " +
+                        "VALUES ('" + id + "','" + nrCorridaAtual + "','" + camp.get_nome() + "');";
 
             stm.execute(sql);
 
@@ -224,7 +224,7 @@ public class CampeonatoAtivoDAO implements Map<Integer,CampeonatoAtivo> {
                         djStm.setInt(0, dj.getId());
                         djStm.setInt(1, key);
                         djStm.setString(2, dj.get_jogadorID());
-                        djStm.setString(3, dj.get_carro().get_iD());
+                        djStm.setInt(3, dj.get_carro().get_iD());
                         djStm.setString(4, dj.get_piloto().get_nome());
                         djStm.execute();
                     }

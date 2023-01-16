@@ -1,4 +1,6 @@
-package task3.src.SubCarros;
+package EntregaFinal.src.SubCarros;
+
+import java.util.Objects;
 
 public class Carro {
 	private String _marca;
@@ -6,13 +8,13 @@ public class Carro {
 	private int _cilindrada;
 	private int _potencia;
 	private int _fiabilidade;
-	private String _iD; // suponho que isto seja a categoria, depois dá fix nisto
+	private int _iD; // suponho que isto seja a categoria, depois dá fix nisto
 
 	public Carro(){
 		this._marca = "";
 		this._modelo = "";
 		this._potencia = 0;
-		this._iD = "";
+		this._iD = 0;
 		this._cilindrada = 0;
 		this._fiabilidade = 0;
 	}
@@ -45,7 +47,7 @@ public class Carro {
 		this._fiabilidade = _fiabilidade;
 	}
 
-	public void set_iD(String _iD) {
+	public void set_iD(int _iD) {
 		this._iD = _iD;
 	}
 
@@ -69,26 +71,10 @@ public class Carro {
 		return _fiabilidade;
 	}
 
-	public String get_iD() {
+	public int get_iD() {
 		return _iD;
 	}
 
-	public int hashCode() {
-		int lHashCode = 0;
-		if ( this._marca != null ) {
-			lHashCode += this._marca.hashCode();
-		}
-		if ( this._modelo != null ) {
-			lHashCode += this._modelo.hashCode();
-		}
-		if ( this._iD != null ) {
-			lHashCode += this._iD.hashCode();
-		}
-		if ( lHashCode == 0 ) {
-			lHashCode = super.hashCode();
-		}
-		return lHashCode;
-	}
 
 	public boolean equals(Object aObject) {
 		if (this == aObject) {
@@ -96,15 +82,15 @@ public class Carro {
 		} else if (aObject instanceof Carro) {
 			Carro lCarroObject = (Carro) aObject;
 			boolean lEquals = true;
-			lEquals &= ((this._marca == lCarroObject._marca)
+			lEquals &= ((Objects.equals(this._marca, lCarroObject._marca))
 				|| (this._marca != null && this._marca.equals(lCarroObject._marca)));
-			lEquals &= ((this._modelo == lCarroObject._modelo)
+			lEquals &= ((Objects.equals(this._modelo, lCarroObject._modelo))
 				|| (this._modelo != null && this._modelo.equals(lCarroObject._modelo)));
 			lEquals &= this._cilindrada == lCarroObject._cilindrada;
 			lEquals &= this._potencia == lCarroObject._potencia;
 			lEquals &= this._fiabilidade == lCarroObject._fiabilidade;
-			lEquals &= ((this._iD == lCarroObject._iD)
-				|| (this._iD != null && this._iD.equals(lCarroObject._iD)));
+			lEquals &= this._iD == lCarroObject._iD;
+
 			return lEquals;
 		}
 		return false;

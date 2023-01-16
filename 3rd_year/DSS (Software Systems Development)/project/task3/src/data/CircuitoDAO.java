@@ -1,9 +1,9 @@
-package task3.src.data;
+package EntregaFinal.src.data;
 
 import java.sql.*;
 import java.util.*;
 
-import task3.src.SubCampeonatos.Circuito;
+import EntregaFinal.src.SubCampeonatos.Circuito;
 
 public class CircuitoDAO implements Map<String,Circuito> {
 
@@ -17,6 +17,14 @@ public class CircuitoDAO implements Map<String,Circuito> {
                     "Nr_voltas int DEFAULT 0," +
 					"Nr_curvas int DEFAULT 0," +
 					"Nr_chicanes int DEFAULT 0);";
+            stm.executeUpdate(sql);
+
+            sql = "CREATE TABLE IF NOT EXISTS campeonatos_circuitos_join(" +
+                    "CampeonatoNome varchar(45) NOT NULL," +
+                    "CircuitoNome varchar(45) NOT NULL," +
+                    "FOREIGN KEY (CampeonatoNome) REFERENCES campeonatos(Nome)," +
+                    "FOREIGN KEY (CircuitoNome) REFERENCES circuitos(Nome));";
+
             stm.executeUpdate(sql);
         } catch (SQLException e) {
             // Erro a criar tabela...
@@ -92,9 +100,9 @@ public class CircuitoDAO implements Map<String,Circuito> {
              ResultSet rs = stm.executeQuery("SELECT * FROM circuitos WHERE Nome='"+key+"'")) {
             if (rs.next()) {  // A chave existe na tabela
                 a = new Circuito(rs.getString("Nome"),
-                            Integer.parseInt(rs.getString("Nr_voltas")),
-							Integer.parseInt(rs.getString("Nr_curvas")),
-							Integer.parseInt(rs.getString("Nr_chicanes")));
+                            rs.getInt("Nr_voltas"),
+							rs.getInt("Nr_curvas"),
+							rs.getInt("Nr_chicanes"));
             }
         } catch (SQLException e) {
             // Database error!
@@ -111,9 +119,9 @@ public class CircuitoDAO implements Map<String,Circuito> {
              Statement stm = conn.createStatement()) {
             try(PreparedStatement pstm = conn.prepareStatement("INSERT INTO circuitos(Nome,Nr_voltas,Nr_curvas,Nr_chicanes)" + "VALUES (?,?,?,?)")) {
                 pstm.setString(1,value.get_nome());
-                pstm.setString(2,String.valueOf(value.get_nr_voltas()));
-                pstm.setString(3,String.valueOf(value.get_nr_curvas()));
-				pstm.setString(4,String.valueOf(value.get_nr_chicanes()));
+                pstm.setInt(2,value.get_nr_voltas());
+                pstm.setInt(3,value.get_nr_curvas());
+				pstm.setInt(4,value.get_nr_chicanes());
                 pstm.execute();
             }
         } catch (SQLException e) {

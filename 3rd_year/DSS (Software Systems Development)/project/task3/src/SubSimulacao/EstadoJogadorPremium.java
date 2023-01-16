@@ -1,4 +1,4 @@
-package task3.src.SubSimulacao;
+package EntregaFinal.src.SubSimulacao;
 
 public class  EstadoJogadorPremium extends EstadoJogador {
 	private int _tempoTotal;

@@ -1,12 +1,12 @@
-package task3.src.SubSimulacao;
+package EntregaFinal.src.SubSimulacao;
 
 import java.util.*;
 
-import task3.src.SubCampeonatos.Circuito;
-import task3.src.SubCampeonatos.SubCampeonatosFacade;
-import task3.src.SubCampeonatos.TempoMetereologico;
+import EntregaFinal.src.SubCampeonatos.Circuito;
+import EntregaFinal.src.SubCampeonatos.SubCampeonatosFacade;
+import EntregaFinal.src.SubCampeonatos.TempoMetereologico;
 
-import static task3.src.SubSimulacao.EstadoCarro.*;
+import static EntregaFinal.src.SubSimulacao.EstadoCarro.*;
 
 public class CorridaBase extends Corrida {
 	public List<EstadoBase> _listaEstados = new ArrayList<EstadoBase>();

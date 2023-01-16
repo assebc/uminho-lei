@@ -1,12 +1,12 @@
-package task3.src.SubPilotos;
+package EntregaFinal.src.SubPilotos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import task3.src.data.PilotoDAO;
+import EntregaFinal.src.data.PilotoDAO;
 
 public class SubPilotoFacade implements ISubPiloto {
-	private PilotoDAO _pilotos;
+	private final PilotoDAO _pilotos = PilotoDAO.getInstance();
 
 	public boolean equals(Object aObject) {
 		if (this == aObject) {
@@ -22,7 +22,7 @@ public class SubPilotoFacade implements ISubPiloto {
 	}
 
 	public boolean nomePilotoDisponivel(String aNome) {
-		return this._pilotos.containsKey(aNome);
+		return !this._pilotos.containsKey(aNome);
 	}
 
 	public boolean niveisPericiaValidos(float aCts, float aSva) {
@@ -49,7 +49,6 @@ public class SubPilotoFacade implements ISubPiloto {
 
 	@Override
 	public List<Piloto> listPilotos() {
-		List<Piloto> listas = new ArrayList<>(_pilotos.values());
-		return listas;
+		return new ArrayList<>(_pilotos.values());
 	}
 }

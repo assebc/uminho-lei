@@ -1,6 +1,6 @@
-package task3.src.SubSimulacao;
+package EntregaFinal.src.SubSimulacao;
 
-import static task3.src.SubSimulacao.EstadoCarro.*;
+import static EntregaFinal.src.SubSimulacao.EstadoCarro.*;
 
 public class EstadoJogador {
 	protected int _segmento;

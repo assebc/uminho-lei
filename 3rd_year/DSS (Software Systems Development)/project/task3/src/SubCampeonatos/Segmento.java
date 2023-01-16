@@ -1,4 +1,4 @@
-package task3.src.SubCampeonatos;
+package EntregaFinal.src.SubCampeonatos;
 
 
 public class Segmento {
