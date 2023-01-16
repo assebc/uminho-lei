@@ -150,7 +150,7 @@ class Application:
         while True:
             msg, address = serverUDP.recvfrom(self.properties["size"])
 
-            threading.Thread(target=self.service,args=(msg, address,)).start()
+            self.service(msg, address)
     
     def service(self,msg,address):
         '''
@@ -163,7 +163,6 @@ class Application:
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             s.bind((self.properties["address"],self.properties["port"]+1))
-            s.settimeout(float(self.properties["timeout"]))
 
             #msg e a query do cliente
             # cria query request
@@ -203,8 +202,7 @@ class Application:
                             lista = self.parse_addresses(q_res.split(";"))
                             
                             for endereco in lista:
-                                
-                                if res_flag == 0 or res_flag == 3:
+                                if res_flag == 0:
                                     break
                                 
                                 s.sendto(msg, (str(endereco),self.properties["port"]))
