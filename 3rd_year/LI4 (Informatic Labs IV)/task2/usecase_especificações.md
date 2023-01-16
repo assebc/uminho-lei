@@ -599,7 +599,8 @@
 - Organizador cria uma nova feira fornecendo o título, a descrição, a fotografia , a data de começo e fim, o tipo e as etiquetas da feira
 
 ### Cenários:
-1. 
+1. Jorge pretende criar uma feira. Para isso Jorge clica em "Criar feira", e, de seguida, fornece o título da feira "Expo Calçado e Materiais", a descrição da feira "", a fotografia (em que foi buscar o ficheiro "calçado.png"), a data de começo 13/08/2022 e a data de fim 29/08/2022, seleciona as Etiquetas "Calçado, Materiais", e o seu tipo "Corporativa" e por fim clica em "Criar feira" outra vez.
+2. Jorge esqueceu-se de escrever uma descrição para a feira. Como tal, recebeu um aviso em relação ao facto de que nem todos os campos estavam preenchidos.    
 
 ### Mockups de referência:
 - Dashboard - organizador
@@ -614,13 +615,14 @@
 ### Fluxo normal:
 1. Organizador clica em "Criar feira"
 2. Organizador fornece o "Título" da feira, a "Descrição, a fotografia, a "Data começo"/"Data fim", as "Etiquetas" e o "Tipo"
-3. Sistema verifica que todos os campos foram preenchidos
-4. Sistema guarda a feira
+3. Organizador clica em "Criar feira"
+4. Sistema verifica que todos os campos foram preenchidos
+5. Sistema guarda a feira
 
 ### Fluxo alternativo(1)[Falta de campos preenchidos](passo 3):
-3.1 Sistema verifica que nem todos os campos foram preenchidos e salienta os campos que falta preencher
-3.2 Utilizador preenche os campos em falta
-3.3 Regressa a 3
+3.1 Sistema verifica que nem todos os campos foram preenchidos e mostra um aviso ao Organizador
+3.3 Utilizador preenche os campos em falta
+3.4 Regressa a 3
 
 
 

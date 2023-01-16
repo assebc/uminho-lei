@@ -1,0 +1,26 @@
+﻿<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(Program).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        </Found>
+        <NotFound>
+            <LayoutView>
+                <div class="main_login">
+                    <div class="half_screen_left">
+                        <img src="assets/navios.jpg" style="margin-left: 50vw;" alt="Página não encontrada">
+                    </div>
+                    <div class="half_screen_right">
+                        <div class="erro">
+                            <a href=""><img src="assets/logo.svg" alt="OnlyFeiras" width="121" height="35"></a>
+                            <h1>Erro 404</h1><br>
+                            <h2>Parece que a página que</h2>
+                            <h2>procuras não existe.</h2><br><br><br><br>
+                            <label for="register" style="font-weight: 600;">Podes ficar aqui a ver navios ou</label><br>
+                            <label><a href="" style="text-decoration: none; color: #00AFF0; font-weight: 600;">voltar à página inicial.</a></label>
+                        </div>
+                    </div>
+                </div>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>

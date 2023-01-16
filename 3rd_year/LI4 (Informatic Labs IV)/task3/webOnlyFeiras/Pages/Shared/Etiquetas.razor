@@ -1,0 +1,43 @@
+﻿@using webOnlyFeiras.Model
+
+<div style="margin-top:60px; background-color: #FFFFFF; border-radius: 12px; width: 365px; height: min-content;">
+    <div class="align-h" style="padding-right: 120px; padding-left: 20px; padding-top:20px;">
+        <h1 class="wheight600">Etiquetas</h1>
+        <img src="assets/tag.svg" alt="Tag" width="26">
+    </div>
+    <div style="padding:12px;">
+        
+            @foreach (var c in categorias)
+            {
+                <div class="chip"> @c.Nome </div>
+            }
+
+       
+    </div>
+</div>
+
+@code {
+    //[Parameter]
+    //public List<Categoria> categorias { get; set; }
+    private List<Categoria> categorias;
+    IEnumerable<int> multipleValuesChip = new int[] { 1, 2, 3, 4, 6, 7, 8 };
+
+    protected override void OnInitialized()
+    {
+        //está aqui para testar porque não tenho categorias na base de dados yet
+        base.OnInitialized();
+        categorias = new List<Categoria>();
+        categorias.Add(new Categoria { Id = 1, Nome = "Calçado" });
+        categorias.Add(new Categoria { Id = 2, Nome = "Corporativa cenas" });
+        categorias.Add(new Categoria { Id = 3, Nome = "Sapatos" });
+        categorias.Add(new Categoria { Id = 4, Nome = "Materiais" });
+        categorias.Add(new Categoria { Id = 5, Nome = "Ortopedia" });
+        categorias.Add(new Categoria { Id = 6, Nome = "Sapatilhas" });
+        categorias.Add(new Categoria { Id = 1, Nome = "Calçado" });
+        categorias.Add(new Categoria { Id = 2, Nome = "Corporativa cenas" });
+
+
+
+    }
+
+}

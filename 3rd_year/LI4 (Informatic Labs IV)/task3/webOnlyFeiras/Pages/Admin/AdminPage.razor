@@ -1,0 +1,147 @@
+﻿@page "/admin"
+@using webOnlyFeiras.Data
+@using webOnlyFeiras.Model
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.Rendering
+@using System.Security.Claims
+@using Microsoft.EntityFrameworkCore
+@inject IJSRuntime JsRuntime
+@inject IDbContextFactory<ApplicationDbContext> db
+@inject UserManager<Utilizador> _userManager
+@inject SignInManager<Utilizador> _signInManager
+@inject RoleManager<IdentityRole> _roleManager
+@inject NotificationService NotificationService
+
+<AuthorizeView>
+    <Authorized>
+    
+
+    @if (SuccessAlert)
+    {
+        <div class="alert alert-success">
+            @role @novoUtilizador.UserName criado com sucesso.
+        </div>
+    }
+
+    @if (ErrorAlert)
+    {
+        <div class="alert alert-warning">
+            Ocorreu um erro a criar o utilizador.
+        </div>
+    }
+
+    <h3>AdminPage</h3>
+
+
+        <EditForm Model="novoUtilizador" OnValidSubmit="@AddUserWithRole" Context="another_name">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+    
+    <div class="margin: 10px;">
+        <div>
+            <label for="email"> Email do utilizador</label>
+            <div>
+                    <RadzenTextBox Placeholder="Email" AutoComplete=true Change =@(args=> OnChange(args, "email")) Style="width:630px; border-radius: 15px 15px 15px 15px;" />
+            </div>
+        </div>
+
+        <div>
+            <label for="email">Username</label>
+            <div>
+                    <RadzenTextBox Placeholder="Username" AutoComplete=true Change =@(args => OnChange(args, "username")) Style="width:630px; border-radius: 15px 15px 15px 15px;" />
+            </div>
+        </div>
+
+        <div>
+            <label for="nome">Palavra-Passe</label>
+            <div>
+                    <RadzenTextBox Placeholder="Palavra-Passe" AutoComplete=true Change =@(args => OnChange(args, "password")) Style="width:630px; border-radius: 15px 15px 15px 15px;" />
+            </div>
+        </div>
+
+        <div>
+            <label for="nome"> Nome do utilizador</label>
+            <div>
+                    <RadzenTextBox Placeholder="Nome completo" AutoComplete=true Change=@(args => OnChange(args, "name")) Style="width:630px; border-radius: 15px 15px 15px 15px;" />
+            </div>
+        </div>
+
+        <div class="align-h" style="width: 300px;">
+                <div>
+                <label for="nome"> Estatuto</label>
+                    <RadzenDropDown AllowClear="false" TValue="string" Class="w-300" Placeholder="Estatuto" Data=@multipleValues Change=@(args => OnChange((string)args, "role")) Style="width:300px; border-radius: 15px 15px 15px 15px;" />
+                </div>
+        </div>
+    </div>
+        <button type="submit" class="pill-small load">Criar utilizador</button>
+    </EditForm>
+
+</Authorized>
+</AuthorizeView>
+
+    @code {
+        public bool SuccessAlert { get; set; } = false;
+        public bool ErrorAlert { get; set; } = false;
+
+
+        Utilizador novoUtilizador = new Utilizador();
+        List<SelectListItem> selectList = new List<SelectListItem>();
+        String role = String.Empty;
+        String Password = String.Empty;
+        IEnumerable<string> multipleValues = new string[] { "Admin", "Organizador", "Utilizador" };
+
+
+        void ShowNotification(NotificationMessage message)
+        {
+            NotificationService.Notify(message);
+        }
+
+        public async void AddUserWithRole()
+        {
+            //ApplicationDbContext context = db.CreateDbContext();
+            novoUtilizador.DataNascimento = DateTime.Now;
+            var result = await _userManager.CreateAsync(novoUtilizador, Password);
+            var userRole = new IdentityRole(role);
+            var addRoleResult = await _roleManager.CreateAsync(userRole);
+            var addUserRoleResult = await _userManager.AddToRoleAsync(novoUtilizador, role);
+            //context.Users.Add(novoUtilizador);
+            //int r = context.SaveChanges();
+            if (result.Succeeded && addUserRoleResult.Succeeded)
+            {
+                SuccessAlert = true;
+            }
+            else
+            {
+                ErrorAlert = true;
+            }
+        }
+
+        void OnChange(string txt, string name)
+        {
+            switch (name)
+            {
+                case "email":
+                    novoUtilizador.Email = txt;
+                    novoUtilizador.EmailConfirmed = true;
+                    break;
+
+                case "username":
+                    novoUtilizador.UserName = txt;
+                    break;
+            
+                case "password":
+                    Password = txt;
+                    break;
+            
+                case "name":
+                    novoUtilizador.Nome = txt;
+                    break;
+
+                case "role":
+                    role = txt;
+                    break;
+            }
+        }
+
+
+    }

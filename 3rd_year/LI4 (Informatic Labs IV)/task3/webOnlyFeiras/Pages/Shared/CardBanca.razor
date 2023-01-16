@@ -1,0 +1,13 @@
+﻿<a href=@referencia>
+    <div class="banca" style="text-align: center;display: flex; justify-content:center; align-items: center;">
+    <img src="assets/logo.svg" alt="OnlyFeiras" height="60px">
+    </div>
+</a>
+
+@code {
+    [Parameter]
+    public string referencia { get; set; } = "/banca";
+
+    [Parameter]
+    public string imagem { get; set; } = "assets/estofos.jpg";
+}

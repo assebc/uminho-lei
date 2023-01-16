@@ -1,0 +1,66 @@
+﻿@page "/banca"
+
+<div class="bancafeira">
+         
+    <div class="bancafeira_left">
+            <MudCarousel Class="mud-width-full" Style="height:400px;" ShowArrows="@arrows" ShowBullets="@bullets" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
+                <MudCarouselItem Transition="transition" Color="@Color.Primary">
+                    <div class="d-flex" style="height:100%">
+                        <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
+                    </div>
+                </MudCarouselItem>
+                <MudCarouselItem Transition="transition" Color="@Color.Secondary">
+                    <div class="d-flex" style="height:100%">
+                        <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
+                    </div>
+                </MudCarouselItem>
+                <MudCarouselItem Transition="transition">
+                    <div class="d-flex" style="height:100%">
+                        <img src="~/assets/camaras-vintage.jpg">
+                    </div>
+                </MudCarouselItem>
+            </MudCarousel>
+        <div class="bancafeira_grid_artigos">
+
+            <div class="bancafeira_artigo">
+                <div class="bancafeira_artigo_top">
+                    <h2>Descrição do produto</h2>
+                    <h3 class="txt-blue">Artigo</h3>
+                </div>
+            </div>
+            <div class="bancafeira_artigo">
+                <div class="bancafeira_artigo_top">
+                    <h2>Descrição do produto</h2>
+                    <h3 class="txt-blue">Artigo</h3>
+                </div>
+            </div>
+            <div class="bancafeira_artigo">
+                <div class="bancafeira_artigo_top">
+                    <h2>Descrição do produto</h2>
+                    <h3 class="txt-blue">Artigo</h3>
+                </div>
+            </div>
+            <div class="bancafeira_artigo">
+                <div class="bancafeira_artigo_top">
+                    <h2>Descrição do produto</h2>
+                    <h3 class="txt-blue">Artigo</h3>
+                </div>
+            </div>
+                    
+        </div>
+                
+    </div>
+
+    <Vendedor />
+            
+</div>
+        
+
+
+@code {
+    private bool arrows = true;
+    private bool bullets = true;
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+}

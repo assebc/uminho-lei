@@ -1,0 +1,64 @@
+﻿@page
+@model webOnlyFeiras.Areas.Identity.Pages.Account.RegisterModel
+
+@{
+    ViewData["Title"] = "Registo";
+}
+
+<div class="main_login">
+    <div class="half_screen_left">
+        <img src="assets/market.jpg" style="zoom:50%" alt="Página de Log In">
+    </div>
+    <div class="half_screen_right">
+        <div class="centered_menu">
+            <a href="~/"><img src="assets/logo.svg" alt="OnlyFeiras" width="121" height="35"></a>
+            <h1>Sign Up</h1>
+            <form id="account" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <label style="font-weight: 600;">Nome de usuário</label>
+                <input asp-for="Input.Username" class="ins" id="Username" name="Username" placeholder="Nome de usuário" autocomplete="username"><br><br>
+                <span asp-validation-for="Input.Username" class="text-danger"></span>
+
+                <label style="font-weight: 600;">Nome</label>
+                <input asp-for="Input.NomeCompleto" class="ins" id="NomeCompleto" name="NomeCompleto" placeholder="Nome e sobrenome" autocomplete="nome"><br><br>
+                <span asp-validation-for="Input.NomeCompleto" class="text-danger"></span>
+
+                <label style="font-weight: 600;">Email</label>
+                <input asp-for="Input.Email" class="ins" id="femail" name="email" placeholder="Email" autocomplete="on"><br><br>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                <label style="font-weight: 600;">Palavra-passe</label>
+                <input asp-for="Input.Password" type="password" class="ins" id="Password" name="Password" placeholder="Define uma palavra-passe" autocomplete="current-password"><br><br>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+
+                <div class="wrapper">
+                    <div>
+                        <label style="font-weight: 600;">Data de Nascimento</label>
+                        <input asp-for="Input.DataNascimento" class="ins" style="width:285px;" type="date" id="DataNascimento" name="data_nascimento"><br><br>
+                        <span asp-validation-for="Input.DataNascimento" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600;">
+                            Contacto<span style="color: #B6B6B6; text-align: left; padding-left: 4px;">(opcional)</span>
+                        </label>
+                        <input asp-for="Input.PhoneNumber" class="ins" style="width:285px; type="tel" id="PhoneNumber" name="PhoneNumber" placeholder="Telemóvel"><br><br>
+                    </div>
+                </div>
+
+
+                <div class="out">
+                    <label for="register" style="color: #B6B6B6;">
+                        Já tens conta? <a href="Identity/Account/Login"
+                                          style="text-decoration: none; color: #00AFF0;">Log In</a>
+                    </label>
+                    <button id="register-submit" type="submit">Registar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@{
+}

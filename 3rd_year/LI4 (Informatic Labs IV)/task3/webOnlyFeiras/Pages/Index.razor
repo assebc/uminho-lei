@@ -1,0 +1,51 @@
+﻿@page "/"
+@using webOnlyFeiras.Model
+@using webOnlyFeiras.Data
+@using Microsoft.EntityFrameworkCore
+@inject IDbContextFactory<ApplicationDbContext> db
+
+<Destaque imagem=@FeiraDestaque.PathFotografia titulo=@FeiraDestaque.Nome descricao=@FeiraDestaque.Descricao data=@FeiraDestaque.DataInicio />
+
+    <div>
+        <ul class="filters">
+            <li class="selected"><button>Todas</button></li>
+            <li><button>A decorrer</button></li>
+            <li><button>Futuramente</button></li>
+            <li><button>Corporativas</button></li>
+            <li><button>Individuais</button></li>
+            <li><button>Mistas</button></li>
+        </ul>
+    </div> 
+    <div class="grid">
+
+    @foreach (var obj in ListFeiras)
+    {
+        <CardFeira titulo=@obj.Nome data=@obj.DataInicio imagem=@obj.PathFotografia referencia=@($"/feiras/{obj.Id}") tipo=@Feira.TipoDeFeira.GetName(obj.Tipo) />
+    }
+
+
+    </div>
+
+    <button class="pill-small load">Carregar mais</button>
+
+
+@code{
+
+    public IEnumerable<Feira> ListFeiras
+    {
+        get
+        {
+            ApplicationDbContext context = db.CreateDbContext();
+            DbSet<Feira> set = context.Set<Feira>();
+            return set.OrderByDescending(x => x.DataInicio); //organiza dando as feiras mais próximas
+        }
+    }
+
+    public Feira FeiraDestaque
+    {
+        get{
+            Feira destaque = ListFeiras.OrderByDescending(x => x.DataInicio).FirstOrDefault() ?? new Feira();
+            return destaque;
+        }
+    }
+}

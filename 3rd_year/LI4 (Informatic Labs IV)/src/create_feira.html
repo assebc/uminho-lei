@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OnlyFeiras</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.svg">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body class="body">
+
+    <nav class="topnav">
+        <a href="#home"><img src="assets/logo.svg" alt="OnlyFeiras" width="217" height="63"></a>
+        <div class="auth grid-container">
+            <a href="login.html"><button class="black txt-mid">Log In</button></a>
+            <a href="register.html"><button class="blue txt-smaller">Sign Up</button></a>
+        </div>
+    </nav>
+
+    <div class="create_feira">
+        <form action="src/create_feira.html">
+            <div class="create_feira_lr">
+                <div class="create_feira_l">
+                    <h1>Criar feira</h1>
+                </div>
+                <div class="create_feira_r_header out">
+                    <button>Criar feira</button>
+                </div>
+            </div>
+
+            <div class="line"></div>
+        
+            <label>Título</label>
+            <input for="title" autocomplete="off" placeholder="Título da feira">
+            <label>Descrição</label>
+            <div class="desc"><input for="desc" autocomplete="off"></div>
+            
+            <div class="create_feira_lr">
+                <div class="create_feira_l">
+                    <label>Data começo</label>
+                    <input class="grey" type="date" for="data_init" autocomplete="off">
+                </div>
+                <div class="create_feira_r">
+                    <label>Tipo</label>
+                    <input for="tipo" list="tipos" class="grey" placeholder="Tipo de feira">
+                    <datalist id="tipos">
+                        <option value="Corporativa"></option>
+                        <option value="Informal"></option>
+                        <option value="Mista"></option>
+                    </datalist>
+                </div>
+            </div>
+            
+            <div class="create_feira_lr">
+                <div class="create_feira_l">
+                    <label>Data fim</label>
+                    <input type="date" for="data_end" autocomplete="off">
+                </div>
+                <div class="create_feira_r">
+                    <label>Etiquetas</label>
+                    <input class="grey" type="text" for="etiquetas" autocomplete="off" placeholder="Adicionar etiquetas">
+                </div>
+            </div>
+            <label>Adicionar fotografia</label>
+            <input type="file" style="border:none;">  
+        </form>
+    </div>
+      
+    <footer>
+        <a>Copyright © 2022-2022 OnlyFeiras Inc. All Rights Reserved.</a>
+        <a href="mailto:info@onlyfeiras.com">Contacts & Help</a>
+    </footer>
+
+
+</body>
+
+</html>

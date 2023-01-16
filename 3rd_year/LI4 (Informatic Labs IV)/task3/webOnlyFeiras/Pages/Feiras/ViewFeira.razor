@@ -1,0 +1,97 @@
+﻿@page "/feiras/{IdFeira:int}"
+@using webOnlyFeiras.Model
+@using webOnlyFeiras.Data
+@using System.Globalization;
+@using Microsoft.EntityFrameworkCore
+@inject IDbContextFactory<ApplicationDbContext> db
+
+<div class="destaque white" style="background-image: linear-gradient(120deg, #00AFF0 0%, rgba(217, 217, 217, 0) 60%), url(@ContextFeira.PathFotografia);">
+</div>
+
+<h3 style="font-weight: 600; color: #00AFF0;">@ContextFeira.DataInicio.ToString("d MMM", CultureInfo.CreateSpecificCulture("pt-pt"))</h3>
+<h1 style="font-weight: 600; font-size: 4em;">@ContextFeira.Nome</h1>
+<div class="line"></div>
+
+
+    
+<AuthorizeView>
+    <Authorized>
+        <div class="grid">
+            <CardBanca />
+            <CardBanca />
+            <CardBanca />
+            <CardBanca />
+            <CardBanca />
+            <CardBanca />
+            <CardBanca />
+        </div>
+     </Authorized>
+     <NotAuthorized>
+    </NotAuthorized>
+</AuthorizeView>
+
+
+
+        <div class="align-h">
+                
+            <div class="align-v">
+                <div style="padding-right: 40%; padding-bottom:5%;">
+                    <h2 style="font-size: 24px; font-weight: 600;">Acerca desta feira</h2><br>
+                    <p style="font-size: 16px;">@ContextFeira.Descricao</p>
+                </div>
+                <div class="align-h">
+
+                    <div class="align-h" >
+                        <a style="padding-right: 10px;"><img src="assets/calendar.svg" alt="Calendar" width="58"></a>
+                        <div class="align-v" style="margin-bottom: 0px; line-height: 14px;">
+                            <label class="font-weight-bold" style="padding-bottom:5px;">Data e hora</label>
+                                <p class="txt-grey">@ContextFeira.DataInicio.ToString("ddd, dd/MM/yyyy, hh:mm", CultureInfo.CreateSpecificCulture("pt-pt"))</p>
+                                <p class="txt-grey">@ContextFeira.DataFim.ToString("ddd, dd/MM/yyyy, hh:mm", CultureInfo.CreateSpecificCulture("pt-pt"))</p>
+                        </div>
+                    </div>
+
+                    <div class="align-h">
+                        <a style="padding-right: 10px;">
+                            @if (ContextFeira.Tipo == Feira.TipoDeFeira.Corporativa) //Corporativa
+                            {
+                                <img src="assets/corporate_only.svg" alt="Corporativa" width="58">
+                            }
+                            else if (ContextFeira.Tipo == Feira.TipoDeFeira.Mista) // Mista
+                            {
+                                <img src="assets/mixed.svg" alt="Mista" width="58">
+                            }
+                            else if (ContextFeira.Tipo == Feira.TipoDeFeira.Informal) // Informal
+                            {
+                            <img src="assets/individuals.svg" alt="Informal" width="70" class="filter-black">
+                            }
+                        </a>
+                        <div class="align-v" style="margin-bottom: 14px; line-height: 14px;">
+                            <label class="font-weight-bold">Tipo</label>
+                            <p class="txt-grey">@Feira.TipoDeFeira.GetName(ContextFeira.Tipo)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="align-self:start;">
+                <Etiquetas />
+            </div>
+            
+        </div>
+
+
+
+@code {
+    [Parameter]
+    public int IdFeira { get; set; }
+
+
+    public Feira ContextFeira
+    {
+        get
+        {
+            ApplicationDbContext context = db.CreateDbContext();
+            var feira = context.Feira.Find(IdFeira);
+            return feira;
+        }
+    }
+}

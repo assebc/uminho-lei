@@ -1,0 +1,20 @@
+﻿@using webOnlyFeiras.Model
+@using webOnlyFeiras.Data
+@using Microsoft.EntityFrameworkCore
+@inject IDbContextFactory<ApplicationDbContext> db
+
+@foreach (var obj in ListFeiras){
+    <CardFeira titulo=@obj.Nome data=@obj.DataInicio imagem=@obj.PathFotografia referencia=@($"/feira/{obj.Id}") tipo=@Feira.TipoDeFeira.GetName(obj.Tipo)/>
+}
+
+@code {
+    public IEnumerable<Feira> ListFeiras
+    {
+        get
+        {
+            ApplicationDbContext context = db.CreateDbContext();
+            DbSet<Feira> set = context.Set<Feira>();
+            return set;
+        }
+    }
+}

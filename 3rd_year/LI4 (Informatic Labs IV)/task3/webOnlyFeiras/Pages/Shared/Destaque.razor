@@ -1,0 +1,26 @@
+﻿@using System.Globalization;
+
+<div class="destaque txt-white" style="background-image: linear-gradient(120deg, #00AFF0 0%, rgba(217, 217, 217, 0) 60%), url(@imagem);">
+    <h1 class="wheight600">@titulo</h1>
+    <p class="txt-mid">@descricao</p>
+    <!--<h1 class="txt-small wheight600" style="padding-top: 100px;">@ExibirMes(data)</h1>-->
+</div>
+
+@code {
+    [Parameter]
+    public string imagem { get; set; } = "";
+    
+    [Parameter]
+    public string titulo { get; set; } = "";
+    
+    [Parameter]
+    public string descricao { get; set; } = "";
+    
+    [Parameter]
+    public DateTime data { get; set; }
+
+    public static string ExibirMes(DateTime data)
+    {
+        return data.ToString("dd MMM", CultureInfo.CreateSpecificCulture("pt-pt"));
+    }
+}

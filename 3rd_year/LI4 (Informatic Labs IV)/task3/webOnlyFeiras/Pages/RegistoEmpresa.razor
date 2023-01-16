@@ -1,0 +1,102 @@
+﻿@page "/marca/registo"
+@layout CleanLayout
+
+<div class="registo_empresa">
+
+    <div class="half_screen_left">
+        <img src="assets/corporate_registry.jpg">
+    </div>
+
+    <div class="registo_empresa_right" >
+        <div class="registo_empresa_right_menu" style="padding-top: 15%;">
+            <h1 class="wheight600">Registo de empresa</h1>
+
+            <form action="/src/registo_empresa.html">
+                <div class="registo_empresa_info">
+                    <h2 style="font-size:20px; font-weight: bold;">Informações pessoais do representante</h2><br>
+                    <label>Nome Completo</label>
+                    <input type="text" id="nome_completo" name="nome_completo" placeholder="Nome completo" autocomplete="off"><br><br>
+                    <div class="registo_empresa_lr">
+                        <div class="registo_empresa_l">
+                            <label>Email</label>
+                            <input type="email" id="femail" name="femail" placeholder="Email" autocomplete="off"><br><br>
+                        </div>
+                        <div class="registo_empresa_r">
+                            <label>Telemóvel</label>
+                            <input type="tel" id="telemovel" name="telemovel" placeholder="Nº telemóvel" autocomplete="off"><br><br>
+                        </div>
+                    </div>
+
+                    <div class="registo_empresa_lr">
+                        <div class="registo_empresa_l">
+                            <label>Morada</label>
+                            <input type="text" id="morada" name="morada" placeholder="Morada" autocomplete="off"><br><br>
+                        </div>
+                        <div class="registo_empresa_r">
+                            <label>Cargo que exerce na empresa</label>
+                            <input type="text" id="cargo" name="cargo" placeholder="Cargo exercido" autocomplete="off"><br><br>
+                        </div>
+                    </div>
+
+                    <div class="registo_empresa_2in1">
+                        <div class="registo_empresa_l">
+                            <label>Código-Postal</label>
+                            <input type="text" id="cod_potal" name="cod_postal" placeholder="Código-Postal" autocomplete="off">
+                        </div>
+                        <div class="registo_empresa_r">
+                            <label>Cidade</label>
+                            <input type="text" id="cidade" name="cidade" placeholder="Cidade" autocomplete="off">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="registo_empresa_empresa">
+                    <h2 style="font-size:20px; font-weight: bold;">Dados de empresa</h2>
+                    <div class="registo_empresa_lr">
+                        <div class="registo_empresa_l">
+                            <label>Morada da sede</label>
+                            <input type="text" id="morada_sede" name="morada_sede" placeholder="Morada" autocomplete="off"><br><br>
+                        </div>
+
+                        <div class="registo_empresa_2in1">
+                            <div class="registo_empresa_l">
+                                <label>Código-Postal</label>
+                                <input type="text" id="cod_potal" name="cod_postal" placeholder="Código-Postal" autocomplete="off">
+                            </div>
+                            <div class="registo_empresa_r">
+                                <label>Cidade</label>
+                                <input type="text" id="cidade" name="cidade" placeholder="Cidade" autocomplete="off">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="registo_empresa_lr">
+                        <div class="registo_empresa_l">
+                            <label>Nome de registo da empresa</label>
+                            <input type="text" id="nome_registo" name="nome_registo" placeholder="Nome registo da empresa" autocomplete="off"><br><br>
+                        </div>
+                        <div class="registo_empresa_r">
+                            <label>Número de Identificação de Pessoa Coletiva</label>
+                            <input type="text" id="nipc" name="nipc" placeholder="NIPC" autocomplete="off"><br><br>
+                        </div>
+                    </div>
+                    <div class="registo_empresa_lr">
+                        <div class="registo_empresa_l">
+                            <label>Contacto telefónico</label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="Telefone" autocomplete="off"><br><br>
+                        </div>
+                        <div class="registo_empresa_r">
+                            <label>Imagem de Marca</label>
+                            <input style="border:none; margin-top: 5px;" type="file" id="marca_img" name="marca_img"><br><br>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 60px; justify-content: flex-end;" class="out"><button>Enviar</button></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

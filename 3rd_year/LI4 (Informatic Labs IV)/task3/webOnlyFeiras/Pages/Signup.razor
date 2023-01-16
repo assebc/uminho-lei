@@ -1,0 +1,56 @@
+﻿@page "/registo"
+@layout CleanLayout
+
+<div class="main_login">
+    <div class="half_screen_left">
+        <img src="assets/market.jpg" style="zoom:50%" alt="Página de Log In">
+    </div>
+    <div class="half_screen_right">
+        <div class="centered_menu" style="margin-right: 10%;">
+            <a href="index.html"><img src="assets/logo.svg" alt="OnlyFeiras" width="121" height="35"></a>
+            <h1 class="wheight600">Sign Up</h1>
+            
+            
+            <form action="/src/register.html">
+                <div>
+                    <label style="font-weight: 600;">Nome</label>
+                    <input type="text" class="ins" id="rnome" name="rname" placeholder="Nome" autocomplete="off"><br><br>
+                </div>
+                
+                <div>
+                    <label style="font-weight: 600;">Email</label>
+                    <input type="email" class="ins" id="femail" name="femail" placeholder="Indica o teu email" autocomplete="off"><br><br>
+                </div>
+                
+                <div>
+                    <label style="font-weight: 600;">Palavra-passe</label>
+                    <input type="password" class="ins" id="lpass" name="lpass" placeholder="Define uma palavra-passe" autocomplete="off"><br><br>
+                </div>
+
+
+                <div class="wrapper">
+                    <div>
+                        <label style="font-weight: 600;">Data de Nascimento</label>
+                        <input class="ins2" type="date" id="data_nascimento" name="data_nascimento"><br><br>
+                    </div>
+                    <div>
+                        <label style="font-weight: 600;">
+                            Contacto<span style="color: #B6B6B6; text-align: left; padding-left: 4px;">(opcional)</span>
+                        </label>
+                        <input class="ins2" type="tel" id="telemovel" name="telemovel" placeholder="Nº telemóvel"
+                               autocomplete="off"><br><br>
+                    </div>
+                </div>
+
+
+                <div class="out">
+                    <label for="register" style="color: #B6B6B6;">
+                        Já tens conta? <a href="login.html"
+                                          style="text-decoration: none; color: #00AFF0;">Log In</a>
+                    </label>
+                    <button>Registar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

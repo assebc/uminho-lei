@@ -1,0 +1,39 @@
+﻿@page
+@model webOnlyFeiras.Areas.Identity.Pages.Account.LoginModel
+
+@{
+    ViewData["Title"] = "Registo";
+}
+
+<div class="main_login">
+        <div class="half_screen_left" > 
+            <img src="assets/bag.jpg" style="margin-left: 50vw;"alt="Página de Log In">
+        </div>
+        <div class="half_screen_right">
+            <div class="centered_menu">
+                <a href="/"><img src="assets/logo.svg" alt="OnlyFeiras" width="121" height="35"></a>
+                <h1>Log In</h1>
+                <form id="account" method="post">
+
+                    <label style="font-weight: 600;">Email</label>
+                    <input asp-for="Input.Email" class="ins" id="Email" name="Email" placeholder="Email" autocomplete="on"><br><br>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                    <label style="font-weight: 600;">Palavra-passe</label>
+                    <input asp-for="Input.Password" type="password" class="ins" id="Password" name="Password" placeholder="Define uma palavra-passe" autocomplete="current-password"><br><br>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                    <div class="out">
+                    <label for="register" style="color: #B6B6B6;">
+                        Não tens conta? <a href="Identity/Account/Register"
+                                style="text-decoration: none; color: #00AFF0;">Regista-te</a></label>
+                    <button id="login-submit" type="submit">Entrar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>      
+   </div>
+
+@{
+}

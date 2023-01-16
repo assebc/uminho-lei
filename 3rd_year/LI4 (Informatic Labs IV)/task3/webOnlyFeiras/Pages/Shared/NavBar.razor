@@ -1,0 +1,59 @@
+﻿<div class="topnav">
+        <a class="logo" href=""><img src="assets/logo.svg" alt="OnlyFeiras" width="217" height="63"></a>
+
+
+        <AuthorizeView Roles="Admin">
+            <Authorized>
+                <a class="txt-black txt-mid" href="/admin">Área de administrador</a>
+             </Authorized>
+        </AuthorizeView>
+
+        <AuthorizeView Roles="Admin, Organizador">
+            <Authorized>
+                <a class="txt-black txt-mid" href="/feiras/criar">Criar feira</a>
+            </Authorized>
+        </AuthorizeView>
+        
+        <AuthorizeView>
+            <Authorized>
+                <div class="grid-container-authorized">
+
+                    
+
+                    <div class="navbar-icons">
+
+                        <a class="icon" href="/feiravoritos"><img src="assets/fav.svg" alt="Feiravoritos" height="25"></a>
+
+                        <a class="icon" href="/banca"><img src="assets/stall-logo.svg" alt="Banca" height="25"></a>
+
+                        <a class="icon" href="/carrinho"><img src="assets/shopping cart.svg" alt="Carrinho de Compras" height="25"></a>
+                    </div>
+
+                    <div class="user-info">
+
+                        <a class="txt-black txt-mid" >@context.User.Identity.Name</a>
+                        
+                        <div class="dropdown">
+                            <span  class="avatar"></span>
+                            <div class="dropdown-content">
+                                <a href="Identity/Account/Manage">Definições</a>
+                                <form method="post" action="Identity/Account/LogOut">
+                                    <button type="submit">Log out</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="grid-container auth">
+                <a class="txt-black txt-mid" href="Identity/Account/Login">Entrar</a>
+                <a class="txt-blue txt-smaller" href="Identity/Account/Register">Registar</a>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+</div>
+
+@code {
+
+}
