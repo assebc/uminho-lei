@@ -1,0 +1,15 @@
+Notes on phase IV:
+
+- the light direction is assumed to be the direction towards the light.
+- For lighting to work properly when scales are applied to models, the following code should be added to the initialization:
+
+	glEnable(GL_RESCALE_NORMAL);
+	
+	Activating this feature will result in normalized normals after applying the geometric transformations, and before applying lighting. This is relevant when using scales-
+	
+- To allow for ambient colors to be reproduced without having to activate the ambient component for all lights, the following code should be added to the initialization:
+
+	float amb[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, amb);
+	
+- Regarding texture mapping as provided in the screen shots, groups may offer different mappings for the cone and box, in which case the group should build a project XML file to illustrate their mapping.
