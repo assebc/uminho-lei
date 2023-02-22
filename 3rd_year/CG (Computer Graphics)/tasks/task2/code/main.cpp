@@ -32,10 +32,17 @@ void changeSize(int w, int h) {
 }
 
 GLfloat x_trans = 0.0f, y_trans = 0.0f, z_trans = 0.0f, angle = 0.0f, y_scale = 1.0f;
+GLenum draw_mode = GL_FILL;
 
 void drawPyramid() {
+
+	glPolygonMode(GL_FRONT_AND_BACK, draw_mode);
+	if (draw_mode == GL_POINT) { glPointSize(5.0f);}
+	else if (draw_mode == GL_LINE) glLineWidth(2.0f);
+
 	glBegin(GL_TRIANGLES);
-	if (y_scale >= 0) {
+
+	if (y_scale > 0) {
 		glColor3f(0.0f, 0.0f, 1.0f); // blue
 		glVertex3f(1.0f, 0.0f, 1.0f);
 		glVertex3f(0.0f, 1.0f, 0.0f);
@@ -77,18 +84,20 @@ void drawPyramid() {
 		glVertex3f(0.0f, 1.0f, 0.0f);
 		glVertex3f(-1.0f, 0.0f, -1.0f);
 
+		//bottom
+		glColor3f(1.0f, 0.0f, 1.0f);
+		glVertex3f(-1.0f, 0.0f, 1.0f);
+		glVertex3f(1.0f, 0.0f, 1.0f);
+		glVertex3f(1.0f, 0.0f, -1.0f);
+
+		glVertex3f(1.0f, 0.0f, -1.0f);
+		glVertex3f(-1.0f, 0.0f, -1.0f);
+		glVertex3f(-1.0f, 0.0f, 1.0f);
 	}
 
-	//bottom
-	glColor3f(1.0f, 0.0f, 1.0f);
-	glVertex3f(-1.0f, 0.0f, 1.0f);
-	glVertex3f(1.0f, 0.0f, 1.0f);
-	glVertex3f(1.0f, 0.0f, -1.0f);
 
-	glVertex3f(1.0f, 0.0f, -1.0f);
-	glVertex3f(-1.0f, 0.0f, -1.0f);
-	glVertex3f(-1.0f, 0.0f, 1.0f);
 	glEnd();
+
 }
 
 
@@ -106,18 +115,20 @@ void renderScene(void) {
 // put axis drawing in here
 
 	glBegin(GL_LINES);
-		// X Axis in Red
-		glColor3f(1.0f, 0.0f, 0.0f);
-		glVertex3f(- 100.0f, 0.0f, 0.0f);
-		glVertex3f(100.0f, 0.0f, 0.0f);
-		// Y Axis in Green
-		glColor3f(0.0f, 1.0f, 0.0f);
-		glVertex3f(0.0f,-100.0f, 0.0f);
-		glVertex3f(0.0f, 100.0f, 0.0f);
-		// Z Axis in Blue
-		glColor3f(0.0f, 0.0f, 1.0f);
-		glVertex3f(0.0f, 0.0f, -100.0f);
-		glVertex3f(0.0f, 0.0f, 100.0f);
+
+	// X Axis in Red
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glVertex3f(- 100.0f, 0.0f, 0.0f);
+	glVertex3f(100.0f, 0.0f, 0.0f);
+	// Y Axis in Green
+	glColor3f(0.0f, 1.0f, 0.0f);
+	glVertex3f(0.0f,-100.0f, 0.0f);
+	glVertex3f(0.0f, 100.0f, 0.0f);
+	// Z Axis in Blue
+	glColor3f(0.0f, 0.0f, 1.0f);
+	glVertex3f(0.0f, 0.0f, -100.0f);
+	glVertex3f(0.0f, 0.0f, 100.0f);
+
 	glEnd();	
 	
 
@@ -152,10 +163,11 @@ void keyboardEvents(unsigned char key, int x, int y) {
 			x_trans += 0.1f;
 			break;
 		
-		case 'F': case 'f':
+		case 'Z': case 'z':
 			z_trans -= 0.5f;
 			break;
-			case 'G': case 'g':
+
+		case 'X': case 'x':
 			z_trans += 0.5f;
 			break;
 
@@ -166,6 +178,18 @@ void keyboardEvents(unsigned char key, int x, int y) {
 		case 'Q': case 'q':
 			angle += 5.0f;
 			break;
+
+		case 'P': case 'p':
+			draw_mode = GL_POINT;
+			break;
+
+		case 'L': case 'l':
+			draw_mode = GL_LINE;
+			break;
+
+		case 'F': case 'f':
+			draw_mode = GL_FILL;
+
 	}
 	glutPostRedisplay();
 }
