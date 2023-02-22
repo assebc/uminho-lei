@@ -107,6 +107,7 @@ void mynl(char * file){
     write(STDOUT_FILENO,res,bytesRead+sizeof(index));
     index = int_to_str(++id);
   }
+  close(fd);
 }
 
 typedef struct person {
