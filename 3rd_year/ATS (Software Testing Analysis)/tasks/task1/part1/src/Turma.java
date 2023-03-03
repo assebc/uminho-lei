@@ -71,6 +71,27 @@ public class Turma {
         return r;
     }
 
+    public List<Aluno> merito(){
+        List<Aluno> r = new ArrayList<>();
+        for (Aluno a : alunos){
+            if (a.media()>9.5){
+                int negativas = 0;
+                for (Double d: a.getNota().values()){
+                    if (d <10) negativas = negativas +1;
+                }
+                if (negativas < 3) r.add(a.clone());
+            }
+        }
+        Comparator<Aluno> c = (a1,a2) -> {
+            double diff = a1.media() - a2.media();
+            if (diff > 0.05) return -1;
+            if (diff < -0.05) return 1;
+            return 0;
+        };
+        r.sort(c);
+        return r;
+    }
+
 }
 
 
