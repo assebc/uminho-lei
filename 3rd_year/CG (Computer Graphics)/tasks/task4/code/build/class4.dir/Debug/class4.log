@@ -1,3 +1,0 @@
-﻿  main.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\ucrt\stdlib.h(56,48): error C2381: 'exit': redefinição; 'noreturn' difere
-D:\github\uminho-lei\3rd_year\CG (Computer Graphics)\toolkits\glut\GL/glut.h(146,29): message : consulte a declaração de 'exit'
