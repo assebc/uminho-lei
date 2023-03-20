@@ -1,39 +1,36 @@
 import ply.lex as lex
 
-states = (
-  ('tago', 'exclusive'),
-)
-
 tokens = (
   'TAG',
   'OPEN_TAG',
   'CLOSE_TAG',
-  'COMMA'
+  'COMMA',
   'KEY',
-  'VALUE'
-  'EQUALS',
+  'VALUE',
+  'EQUALS'
 )
 
+t_TAG = r'@\w+' 
 t_EQUALS = r'='
 t_KEY = r'\w+'
-t_VALUE = r'[{"]\w+["}]'
 t_COMMA = r','
+t_OPEN_TAG = r'\{'
+t_CLOSE_TAG = r'\}'
+
 t_ignore = r' \t\n'
 
 
-def t_TAG(t):
-  r'^@\w+'
-  t.lexer.stack.append(t.value)
-  return t
+def t_ANY_error(t): # regra válida para todos os estados
+  print(f"Ilegal char: {t.value[0]}")
+  t.lexer.skip(1)
 
-def t_OPEN_TAG(t):
-  r'\{'
-  t.lexer.begin('tago')
-  return t
+def t_VALUE(t):
+  r'[\"\{]\s*(.*)[\"\}]'
+  if len(t.value) > 2:
+    t.value = t.value[1:-1]
+  else: 
+    t.value = None
 
-def t_CLOSE_TAG(t):
-  r'\}'
-  t.lexer.begin('INITIAL')
   return t
 
 data ='''
@@ -47,8 +44,6 @@ volume="353",
 pages="403-409",
 year = "2015",
 month =  "April"
-}
-
 
 @book {H787,
 author = {Vitor T. Martins and Pedro Rangel Henriques and Daniela da Cruz},
@@ -72,6 +67,7 @@ month =   {},
 publisher = {Fundaci ́on General UCM},
 annote = {Keywords: software, plagiarism, detection, comparison, test}
 }
+
 '''
 
 lexer = lex.lex()
