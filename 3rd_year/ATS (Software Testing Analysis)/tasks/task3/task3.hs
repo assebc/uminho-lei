@@ -58,21 +58,33 @@ genCarro xs = do
     autonomia <- genAutonomia
     return (Carro tipo marca matricula nif cpkm autonomia) 
 
+-- exercise 2
+
+data Regist = Normal | Militar | Trabalhador deriving Show 
+
+data Student = Student String Int Regist deriving Show
+
+genStudent :: Gen Student
+genStudent = do 
+    name <- elements ["Joao", "Carlos", "Ze", "Bessa"]
+    num <- choose (0,999999999 :: Int)
+    reg <- frequency [
+                (80, return (Normal)),
+                (15, return (Trabalhador)),
+                (5, return (Militar))
+                ]
+    return (Student name num reg)
 
 -- exercise 3
 
-data Expr = Add Expr Expr
-          | Mul Expr Expr
+data Expr a = Add (Expr a) (Expr a)
+          | Mul (Expr a) (Expr a)
           | Const Float
             deriving Show
 
--- 80 add & 20 mul / 50/50 aritmathic expression or constant value
-
-
-
 
 -- exercise 3a
-genExpr :: Gen Expr
+genExpr :: Gen (Expr a)
 genExpr = do 
     expr1 <- genExpr
     expr2 <- genExpr
@@ -86,3 +98,25 @@ genExpr = do
                     (50, return operation)
                     ]
     return (expr_const)
+
+-- exercise 3b 
+genExprSized :: Int -> Gen (Expr a)
+genExprSized 0 = do 
+    v <- arbitrary
+    return (Const v)
+genExprSized n = do 
+    v <- arbitrary
+    expr1 <- genExprSized (v-1)
+    expr2 <- genExprSized (v-1)
+    operation <- frequency [
+                    (80, return (Add expr1 expr2)), 
+                    (20, return (Mul expr1 expr2))
+                    ]
+    expr_const <- frequency [
+                    (50, genExprSized 0),
+                    (50, return operation)
+                    ]
+    return (expr_const)
+
+instance Arbitrary a => Arbitrary (Expr a) where
+    arbitrary = sized $ genExprSized
