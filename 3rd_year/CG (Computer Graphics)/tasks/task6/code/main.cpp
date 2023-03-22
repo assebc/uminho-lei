@@ -59,11 +59,12 @@ void drawTerrain() {
     // colocar aqui o código de desnho do terreno usando VBOs com TRIANGLE_STRIPS
 	for (int strip = 0; strip < th - 1; strip++) {
 		glBindBuffer(GL_ARRAY_BUFFER, vertices[strip]);
+		if (strip % 2 == 0) glColor3f(0.5f, 0.35f, 0.05f);
+		else glColor3f(0.5f, 1.0f, 0.0f);
 		glVertexPointer(3, GL_FLOAT, 0, 0);
 
 		glDrawArrays(GL_TRIANGLE_STRIP, 0, vertexCount);
 	}
-
 
 }
 
@@ -220,7 +221,7 @@ int main(int argc, char **argv) {
 // init GLUT and the window
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH|GLUT_DOUBLE|GLUT_RGBA);
-	glutInitWindowPosition(100,100);
+	glutInitWindowPosition(800,500);
 	glutInitWindowSize(320,320);
 	glutCreateWindow("CG@DI-UM");
 		
