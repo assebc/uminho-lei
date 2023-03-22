@@ -1,0 +1,10 @@
+^D:\GITHUB\UMINHO-LEI\3RD_YEAR\CG (COMPUTER GRAPHICS)\TASKS\TASK6\CODE\BUILD\CMAKEFILES\10A363D77329F28E7EA8076B1DB6B728\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SD:/github/uminho-lei/3rd_year/CG (Computer Graphics)/tasks/task6/code" "-BD:/github/uminho-lei/3rd_year/CG (Computer Graphics)/tasks/task6/code/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/github/uminho-lei/3rd_year/CG (Computer Graphics)/tasks/task6/code/build/class6.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

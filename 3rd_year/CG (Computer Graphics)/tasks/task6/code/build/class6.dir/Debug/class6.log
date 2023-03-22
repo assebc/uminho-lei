@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1096,5): error MSB6006: "link.exe" foi encerrado com o código 1168.
+LINK : fatal error LNK1168: não foi possível abrir D:\github\uminho-lei\3rd_year\CG (Computer Graphics)\tasks\task6\code\build\Debug\class6.exe para escrita
