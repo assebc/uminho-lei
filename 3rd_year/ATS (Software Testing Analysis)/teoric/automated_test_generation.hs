@@ -60,3 +60,14 @@ genStudent = do nome <- elements ["Ana", "To", "Ze", "Maria"]
                 inscr <- frequency [(79, return Regular), (15, return TE), (5, return Militar)]
                 notas <- vectorOf 6 (choose (0,20))
                 return (Student nome numero inscr notas)
+
+-- another class
+
+intersperse' :: a -> [a] -> [a]
+intersperse' x [] = []
+intersperse' x [a] = [a]
+intersperse' x (h:t) = h : x : intersperse' x t
+
+prop_inter :: a -> [a] -> Property
+prop_inter s l = not (null l) ==> 
+                length(intersperse' s l) == ((length l * 2) - 1)
