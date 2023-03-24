@@ -171,9 +171,6 @@ float h(int i, int j) {
 
 void init() {
 
-	ilGenImages(1, &t);
-	ilBindImage(t);
-
 	// 	Load the height map "terreno.jpg"
 	ilGenImages(1, &t);
 	ilBindImage(t);
