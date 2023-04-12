@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.lang.InterruptedException;
 import java.lang.ProcessBuilder;
@@ -128,61 +129,71 @@ public class View{
         int res = sc.nextInt();
         sc.nextLine();
         switch (res) {
-            case 1 -> { //Editar cidade
+            case 1 : //Editar cidade
                 clearConsole();
                 try {
                     createMenu();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-            case 2 -> { //Consultar SmartHouses existentes
+                break;
+
+            case 2 : //Consultar SmartHouses existentes
                 clearConsole();
                 this.c.listSmartHouses();
                 menuInicial();
-            }
-            case 3 -> { //Consultar comercializadores de energia existentes
+                break;
+
+            case 3 ://Consultar comercializadores de energia existentes
                 clearConsole();
                 System.out.println(this.c.listComercializadores());
                 menuInicial();
-            }
-            case 4 -> { //Editar comercializadores de energia existentes
+                break;
+
+            case 4 : //Editar comercializadores de energia existentes
                 clearConsole();
                 editComercializadores();
                 menuInicial();
-            }
-            case 5 -> { //Consultar marcas existentes
+                break;
+
+            case 5 : //Consultar marcas existentes
                 clearConsole();
                 this.c.listMarcas();
                 menuInicial();
-            }
-            case 6 -> { //Editar marcas existentes
+                break;
+
+            case 6 : //Editar marcas existentes
                 clearConsole();
                 editMarcasMenu();
                 menuInicial();
-            }
-            case 7 -> { //Consultar SmartDevices presets
+                break;
+
+            case 7 : //Consultar SmartDevices presets
                 clearConsole();
                 this.c.listSmartDevicesPresets();
                 menuInicial();
-            }
-            case 8 -> { //Carregar um estado de programa
+                break;
+
+            case 8 : //Carregar um estado de programa
                 clearConsole();
                 loadMenu();
                 menuInicial();
-            }
-            case 9 -> { //Guardar estado
+                break;
+
+            case 9 : //Guardar estado
                 clearConsole();
                 saveState();
                 System.out.println("Estado do programa guardado");
                 menuInicial();
-            }
-            case 10 -> { //Começar Simulação
+                break;
+
+            case 10 : //Começar Simulação
                 clearConsole();
                 simulationMenu();
                 menuInicial();
-            }
-            case 11 -> { //Sair
+                break;
+
+            case 11 : //Sair
                 clearConsole();
                 System.out.println("Tem a certeza que quer sair?");
                 if (response(sc) == 1) {
@@ -190,12 +201,12 @@ public class View{
                 } else {
                     menuInicial();
                 }
-            }
-            default -> {
+                break;
+
+            default :
                 clearConsole();
                 System.out.println("Opção inválida.");
                 menuInicial();
-            }
         }
     }
 
@@ -220,18 +231,19 @@ public class View{
         System.out.println("2 - Retroceder");
         String option = sc.nextLine();
         switch (option) {
-            case ("1") -> {
+            case "1" :
                 clearConsole();
                 System.out.println("Qual o novo consumo diário desta marca?");
                 option = sc.nextLine();
                 this.c.alteraConsumoDiario(marca, option);
                 clearConsole();
                 System.out.println("Novo consumo diário definido com sucesso.");
-            }
-            case ("2") -> {
+                break;
+
+            case "2" :
                 clearConsole();
                 editMarcasMenu();
-            }
+                break;
         }
 
     }
@@ -276,7 +288,7 @@ public class View{
         System.out.println("3 - Retroceder");
         String choice = sc.nextLine();
         switch (choice) {
-            case ("1") -> {
+            case "1" :
                 clearConsole();
                 System.out.println("Valor atual do KWh: " + this.c.getComercializadorPrecoBaseKW(nome));
                 System.out.print("Selecione um novo preço por KWh:");
@@ -288,8 +300,9 @@ public class View{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-            case ("2") -> {
+                break;
+
+            case "2" :
                 clearConsole();
                 System.out.println("Valor atual do imposto: " + this.c.getComercializadorFatorImposto(nome));
                 System.out.print("Selecione um novo valor do imposto:");
@@ -297,11 +310,11 @@ public class View{
                 clearConsole();
                 System.out.println("Valor do imposto atualizado com sucesso!");
                 menuInicial();
-            }
-            default -> {
+                break;
+
+            default :
                 clearConsole();
                 menuInicial();
-            }
         }
     }
 
@@ -325,43 +338,48 @@ public class View{
         sc.nextLine();
 
         switch (res) {
-            case 1 -> { //Criar SmartHouse
+            case 1 : //Criar SmartHouse
                 createSmartHouseMenu();
                 createMenu();
-            }
-            case 2 -> { //Editar uma smartHouse(Ligar e desligar todos os dispostivios/dispostivos individuais)
+                break;
+            case 2 : //Editar uma smartHouse(Ligar e desligar todos os dispostivios/dispostivos individuais)
 
                 editSmartHouse();
                 createMenu();
-            }
-            case 3 -> { //Criar Comercializador de Energia
+                break;
+
+            case 3 : //Criar Comercializador de Energia
                 createComercializadorMenu();
                 createMenu();
-            }
-            case 4 -> { //Criar marca de SmartSpeaker
+                break;
+
+            case 4 : //Criar marca de SmartSpeaker
                 createMarcaMenu();
                 createMenu();
-            }
-            case 5 -> { //Criar preset de SmartDevice
+                break;
+
+            case 5 : //Criar preset de SmartDevice
                 createSmartDevicePresetMenu();
                 createMenu();
-            }
-            case 6 -> { //Adicionar apartir de log
+                break;
+
+            case 6 : //Adicionar apartir de log
                 clearConsole();
                 System.out.println("Selecione o nome do ficheiro de log(.txt) que pretende importar: ");
                 String nameOfFile = this.sc.nextLine();
                 this.c.parse(nameOfFile);
 
                 createMenu();
-            }
-            case 7 -> { //Retroceder
+                break;
+
+            case 7 : //Retroceder
                 clearConsole();
                 try {
                     menuInicial();
                 } catch (Exception e) {
                     System.out.println("Failed to load menuInicial");
                 }
-            }
+                break;
         }
     }
 
@@ -460,8 +478,8 @@ public class View{
         this.sc.nextLine();
 
         switch (res) {
-            case 1 -> addPresetToDivisaoMenu(house_id, nome_divisao);
-            case 2 -> createSmartDeviceMenu(house_id, nome_divisao); //adiciona um dispositivo criado no momento
+            case 1 : addPresetToDivisaoMenu(house_id, nome_divisao); break;
+            case 2 : createSmartDeviceMenu(house_id, nome_divisao); break; //adiciona um dispositivo criado no momento
         }
                   
     }
@@ -503,13 +521,13 @@ public class View{
         this.sc.nextLine();
 
         switch (res) {
-            case 1 -> createSmartSpeakerMenu(house_id, divisao);
-            case 2 -> createSmartCameraMenu(house_id, divisao);
-            case 3 -> createSmartBulbMenu(house_id,divisao);
-            default -> {
+            case 1 : createSmartSpeakerMenu(house_id, divisao); break;
+            case 2 : createSmartCameraMenu(house_id, divisao); break;
+            case 3 : createSmartBulbMenu(house_id,divisao); break;
+            default :
                 System.out.println("Opção inexistente");
                 createSmartDeviceMenu(house_id,divisao);
-            }
+            
         }
     
     }
@@ -660,13 +678,13 @@ public class View{
         this.sc.nextLine();
 
         switch (res) {
-            case 1 -> createSmartSpeakerMenu(-1,nome);
-            case 2 -> createSmartCameraMenu(-1,nome);
-            case 3 -> createSmartBulbMenu(-1,nome);
-            default -> {
+            case 1 : createSmartSpeakerMenu(-1,nome); break;
+            case 2 : createSmartCameraMenu(-1,nome); break;
+            case 3 : createSmartBulbMenu(-1,nome); break;
+            default :
                 System.out.println("Opção inexistente");
                 createSmartDeviceMenu(-1,nome);
-            }
+            
         }
     }
 
@@ -680,20 +698,21 @@ public class View{
         System.out.println("2 - Retroceder.");
         String choice = this.sc.nextLine();
         switch (choice) {
-            case ("1") -> {
+            case ("1") : 
                 System.out.println("Indique a data: (X dias ou DD.MM.YYYY)");
                 String time = this.sc.nextLine();
                 clearConsole();
                 simulationOptions(time);
-            }
-            case ("2") -> {
+                break;
+            
+            case ("2") : 
                 clearConsole();
                 try {
                     menuInicial();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
+                break;
         }
     }
 
@@ -723,27 +742,27 @@ public class View{
         System.out.println("5 - Retroceder.");
         String choice = this.sc.nextLine();
         switch (choice) {
-            case ("1") -> {
+            case ("1") : 
                 System.out.println("A casa mais gastadora neste período de tempo é a casa: " + this.c.getCasaMaisGastadora(time).getID());
                 System.out.println("KW's consumidos: " + this.c.getCasaMaisGastadora(time).getConsumo());
                 System.out.println("1 - Mais dados da casa.");
                 System.out.println("2 - Retroceder.");
                 choice = this.sc.nextLine();
                 switch (choice) {
-                    case ("1") -> {
+                    case ("1") : 
                         clearConsole();
                         System.out.println("Dados da casa: ");
                         System.out.println("KW's consumidos: " + this.c.getCasaMaisGastadora(time).getConsumo());
                         System.out.println(this.c.getCasaMaisGastadora());
                         simulationOptions(time);
-                    }
-                    case ("2") -> {
+                        break;
+                    case ("2") : 
                         clearConsole();
                         simulationOptions(time);
+                        break;
                     }
-                }
-            }
-            case ("2") -> {
+                break;
+            case ("2") : 
                 clearConsole();
 
                 System.out.println("Comercializador de Energia com maior faturação: " + this.c.getComercializadorMaiorFaturacaoNome());
@@ -751,19 +770,21 @@ public class View{
                 System.out.println("2 - Retroceder.");
                 choice = this.sc.nextLine();
                 switch (choice) {
-                    case ("1") -> {
+                    case ("1") : 
                         clearConsole();
                         System.out.println("Dados do Comercializador: ");
                         System.out.println(this.c.getComercializadorMaiorFaturacao());
                         simulationOptions(time);
-                    }
-                    case ("2") -> {
+                        break;
+
+                    case ("2") : 
                         clearConsole();
                         simulationOptions(time);
-                    }
+                        break;
                 }
-            }
-            case ("3") -> {
+                
+                break;
+            case ("3") : 
                 clearConsole();
                 System.out.println(this.c.listComercializadores());
                 System.out.println("Indique o nome do Comercializador do qual pretende obter faturas.");
@@ -778,8 +799,9 @@ public class View{
                 this.c.ComercializadorFaturacao(choice,time); //ver isto com a data data a data
                 System.out.println(this.c.getListaFaturacaoComercializador(choice)); 
                 simulationOptions(time);
-            }
-            case ("4") -> {
+                break;
+
+            case ("4") : 
                 clearConsole();
                 try{
                     System.out.println("Data inicial (dd.MM.AAAA).");
@@ -804,21 +826,22 @@ public class View{
                     time = Long.toString(ChronoUnit.DAYS.between(dataInicial, dataFinal));
                     List<SmartHouse> casasMaisGastadoras = this.c.getCasasMaisGastadoras(time);
                     clearConsole();
-                    System.out.println(casasMaisGastadoras.stream().map(SmartHouse::basicToString).collect(Collectors.toCollection(ArrayList::new)));
+                    System.out.println(casasMaisGastadoras.stream().map(SmartHouse::basicToString).collect((Collector<? super String, Object, ArrayList<Object>>) Collectors.toCollection(ArrayList::new)));
                 }
                 catch(Exception e){
                     System.out.println("Erro a simular.");
                 }
                 simulationOptions(time);
-            }
-            case ("5") -> {
+                break;
+            
+            case ("5") : 
                 clearConsole();
                 simulationMenu();
-            }
-            default -> {
+                break;
+
+            default : 
                 clearConsole();
                 simulationOptions(time);
-            }
         }
     }
     
@@ -875,16 +898,16 @@ public class View{
                 choice = this.sc.nextInt();
                 this.sc.nextLine();
                 switch (choice) {
-                    case (0) -> {
+                    case (0) : {
                         this.c.setHouseOFF(id);
                         System.out.println("Energia da Casa desligada com sucesso.");
                     }
-                    case (1) -> {
+                    case (1) : {
                         this.c.setHouseOn(id);
 
                         System.out.println("Energia da Casa ligada com sucesso.");
                     }
-                    default -> menuInteracaoCasas(id);
+                    default : menuInteracaoCasas(id);
                 }
                 menuInteracaoCasas(id);
             case(4):
@@ -901,19 +924,19 @@ public class View{
                 choice = sc.nextInt();
                 sc.nextLine();
                 switch (choice) {
-                    case (0) -> {
+                    case (0) : {
                         this.c.setCasaDivisaoOFF(id,escolha);
                         clearConsole();
                         System.out.println("Energia da divisão desligada com sucesso.");
                         menuInteracaoCasas(id);
                     }
-                    case (1) -> {
+                    case (1) : {
                         this.c.setCasaDivisaoOn(id,escolha);
                         clearConsole();
                         System.out.println("Energia da divisão ligada com sucesso.");
                         menuInteracaoCasas(id);
                     }
-                    default -> menuInteracaoCasas(id);
+                    default : menuInteracaoCasas(id);
                 }
             case(5):
                 System.out.println("Comercializador Atual: "+this.c.getComercializadoratual(id));
