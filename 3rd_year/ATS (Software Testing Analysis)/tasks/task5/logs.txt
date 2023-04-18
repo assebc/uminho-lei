@@ -1,0 +1,5 @@
+STUDENT: j, 18 years old, studies LEI with the following notes {'POO': [0]}
+STUDENT: w, 60 years old, studies LCC with the following notes {'SO': [19], 'DSS': [18, 14, 1, 20], 'LI3': [11], 'PI': [11], 'IPM': [2, 7, 1, 3]}
+STUDENT: RBERtmpBc, 42 years old, studies LCC with the following notes {'IPM': [2], 'SO': [1], 'ADI': [20, 18, 20, 15], 'DSS': [10], 'IA': [16, 12, 9], 'LI4': [8, 19]}
+STUDENT: B, 18 years old, studies LCC with the following notes {'LI2': [13, 1, 4], 'IA': [10, 9], 'SO': [15, 12, 7], 'LI1': [18, 5], 'DSS': [18], 'LI4': [17], 'ATS': [9], 'PF': [2, 8, 4, 18]}
+STUDENT: QmqGb, 20 years old, studies LCC with the following notes {'LI1': [0, 8], 'LI4': [10, 5]}
