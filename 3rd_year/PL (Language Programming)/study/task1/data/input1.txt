@@ -1,0 +1,4 @@
+eu: ola como estás?
+ele: estou bem
+eu: batata
+ele: arroz

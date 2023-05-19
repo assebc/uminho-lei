@@ -1,0 +1,4 @@
+entrevistador: batata
+entrevistado: batatita
+entrevistador: macaco
+entrevistado: macacas

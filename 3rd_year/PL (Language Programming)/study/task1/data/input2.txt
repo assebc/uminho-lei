@@ -1,0 +1,4 @@
+eu:batata
+ele:batatita
+eu:macaco
+ele:macacas

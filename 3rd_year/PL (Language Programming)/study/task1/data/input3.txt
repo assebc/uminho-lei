@@ -1,0 +1,6 @@
+eu=pai natal ele=mae natal
+eu: batas
+ele: camisas
+eu: polo
+ele: camisa
+eu: macacos
