@@ -1,0 +1,7 @@
+\def:qq=qualquer;\def:q=que
+Eu como \qq \q seja o pão, eu gosto é de comer
+\def:n=não;
+Eu \n sei o \q me deu estava maluco.
+\def:mm=mesmo;
+Juro \mm.
+infelizmente cenas
