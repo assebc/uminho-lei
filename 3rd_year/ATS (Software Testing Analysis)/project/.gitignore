@@ -1,0 +1,6 @@
+out/
+.idea/
+POO-Pratico.iml
+.DS_Store
+*.class
+state
