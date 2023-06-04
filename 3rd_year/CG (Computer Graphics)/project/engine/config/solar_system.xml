@@ -1,0 +1,118 @@
+<world>
+    <window width="512" height="512" />
+    <camera> 
+	    <position x="100" y="100" z="20" />
+	    <lookAt x="0" y="0" z="0" />
+	    <up x="0" y="1" z="0" /> <!-- optional, use these values as default-->
+        <projection fov="60" near="1" far="1000" /> <!-- optional, use these values as default-->
+    </camera>
+
+    <!-- sun -->
+    <group>
+        <transform>
+            <translate x = '-155' y='0' z='-155'/>
+            <scale x='98.5' y='98.5' z='98.5'/>
+        </transform>
+        <models>
+            <model file='sphere.3d' red='253' green='184' blue='19'/>
+        </models>
+    </group>
+
+    <group>
+        <transform>
+            <translate x='3.5' y='0' z='3.5' />
+            <scale x='0.32' y='0.32' z='0.32'/>
+        </transform>
+        <models>
+            <model file='sphere.3d' red='140' green='140' blue='148'/>
+        </models>
+    </group>
+
+    <!-- venus -->
+    <group>
+        <transform>
+            <translate x='6.7' y='0' z='6.7' />
+            <scale x='0.8' y='0.8' z='0.8'/>
+        </transform>
+        <models>
+            <model file='sphere.3d' red='165' green='124' blue='27'/>
+        </models>
+    </group>
+ 
+    <!-- earth -->
+    <group>
+        <transform>
+            <translate x='9.3' y='0' z='9.3' />
+            <scale x='0.84' y='0.84' z='0.84' />
+        </transform>
+        <models>
+            <model file='sphere.3d' green='88' blue='202' red='0'/>
+        </models>
+        <group>
+            <transform>
+                <translate x='0.3' y='0.3' z='0' />
+                <scale x='0.1' y='0.1' z='0.1' />
+            </transform>
+            <models>
+                <model file='sphere.3d' green='255' blue='255' red='255'/>
+            </models>
+        </group>
+    </group>
+
+    <!-- mars -->
+    <group>
+        <transform>
+            <translate x='14.2' y='0' z='14.2' />
+            <scale x='0.45' y='0.45' z='0.45'/>
+        </transform>
+        <models>
+            <model file='sphere.3d' red='193' green='68' blue='14'/>
+        </models>
+    </group>
+
+    <!-- jupiter -->
+    <group>
+        <transform>
+            <translate x='484' y='0' z='484' />
+            <scale x='9.32' y='9.32' z='9.32' />
+        </transform>
+        <models>
+            <model file='sphere.3d' red='227' green='220' blue='203'/>
+        </models>
+    </group>
+
+    <!-- saturn -->
+    <group>
+        <transform>
+            <translate x='88.9' y='0' z='88.9' />
+            <scale x='7.76' y='7.76' z='7.76' />
+        </transform>
+        <models>
+            <model file='sphere.3d' red='234' green='214' blue='184'/>
+            <model file='torus.3d' red='191' green='189' blue='175'/>
+        </models>
+    </group>
+
+    <!-- uranus -->
+    <group>
+        <transform>
+            <translate x='179' y='0' z='179' />
+            <scale x='3.38' y='3.38' z='3.38' />
+        </transform>
+        <models>
+            <model file='sphere.3d' green='211' blue='217' red='198'/>
+        </models>
+    </group>
+ 
+    <!-- neptun -->
+    <group>
+        <transform>
+            <translate x='288' y='0' z='288' />
+            <scale x='3.28' y='3.28' z='3.28' />
+        </transform>
+        <models>
+            <model file='sphere.3d' green='70' blue='135' red='39'/>
+        </models>
+    </group>
+
+</world>

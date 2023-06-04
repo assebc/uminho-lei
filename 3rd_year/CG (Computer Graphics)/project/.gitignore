@@ -1,0 +1,10 @@
+.vscode/
+.vs/
+generator/.vscode/
+generator/generator
+generator/build/
+engine/build/
+engine/models/
+engine/src/bin/
+engine/build/CMakeFiless/
+
