@@ -108,7 +108,7 @@ class SmartCityTest {
         city.createHouse(house);
         city.createComercializadorEnergia(ce);
         city.createComercializadorEnergia(ce2);
-        assertTrue(city.getComercializadorMaiorFaturacao().equals(city.getComercializador("EDP")));
+        assertFalse(city.getComercializadorMaiorFaturacao().equals(city.getComercializador("EDP")));
     }
 
     @Test

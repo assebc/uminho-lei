@@ -55,7 +55,7 @@ def gen_smart_camera(draw):
 @composite
 def gen_smart_speaker(draw):
     volume = draw(integers(min_value=1, max_value=100))
-    name = draw(gen_name())
+    name = draw(sampled_from(["RFM", "MEGAHITS", "Radio Comercial", "RUM", "TSF", "Radio Renascenca", "Radio Santiago"]))
     brand = draw(sampled_from(["JBL", "Marshall", "Sony", "LG", "XIAOMI", "Goodis", "Sonos", "Echo", "Apple", "Bose", "Anker", "Alcatel", "Amazon", "Next"]))
     consume = draw(floats(min_value=1,max_value=20))
     consume = format(consume, ".2f")

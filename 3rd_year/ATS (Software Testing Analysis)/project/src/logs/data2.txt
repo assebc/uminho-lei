@@ -1,0 +1,22 @@
+Fornecedor:MEO Energia
+Fornecedor:Iberdola
+Casa:Joana Costa,356876489,Iberdola
+Divisao:Cozinha
+SmartBulb:Cold,7,20.00
+SmartCamera:(1280x720),18,2.00
+SmartCamera:(1980x1080),130,20.00
+SmartCamera:(2160x1440),77,13.52
+SmartCamera:(1280x720),148,2.00
+SmartCamera:(1980x1080),129,1.00
+SmartSpeaker:4,RFM,Next,1.50
+SmartSpeaker:79,Radio Renascenca,XIAOMI,2.00
+SmartSpeaker:60,RUM,Echo,1.90
+SmartSpeaker:35,Radio Santiago,Apple,1.10
+SmartSpeaker:69,Radio Santiago,Anker,2.00
+Casa:Joana Costa,356876489,Iberdola
+Divisao:Hall
+SmartBulb:Neutral,8,19.00
+SmartBulb:Neutral,8,1.00
+SmartBulb:Cold,6,2.49
+SmartBulb:Neutral,10,19.00
+SmartCamera:(1366x768),11,2.00

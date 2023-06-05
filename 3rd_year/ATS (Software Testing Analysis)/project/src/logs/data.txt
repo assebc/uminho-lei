@@ -1,0 +1,84 @@
+Fornecedor:Gold Energy
+Fornecedor:MEO Energia
+Fornecedor:EDP
+Casa:Marcelo Martins,941514503,EDP
+Divisao:Ninho
+SmartBulb:Warm,3,6.66
+SmartBulb:Warm,14,18.83
+SmartBulb:Neutral,23,14.36
+SmartBulb:Neutral,25,7.64
+SmartCamera:(1980x1080),63,14.72
+SmartCamera:(3840x2160),20,18.91
+SmartCamera:(1280x720),45,7.95
+SmartCamera:(1366x768),96,12.22
+SmartCamera:(2160x1440),171,17.09
+SmartSpeaker:88,TSF,XIAOMI,12.35
+SmartSpeaker:68,Radio Santiago,Alcatel,19.59
+SmartSpeaker:95,RFM,Anker,9.58
+Divisao:Quarto
+SmartBulb:Neutral,7,14.89
+SmartBulb:Cold,7,17.73
+SmartBulb:Warm,2,14.57
+SmartBulb:Warm,10,19.78
+SmartBulb:Warm,14,12.27
+SmartCamera:(2160x1440),138,6.14
+SmartCamera:(3840x2160),29,6.85
+SmartCamera:(1366x768),178,1.29
+SmartSpeaker:10,RFM,JBL,1.86
+SmartSpeaker:1,Radio Santiago,Marshall,13.16
+SmartSpeaker:44,TSF,LG,7.88
+SmartSpeaker:56,RUM,Marshall,14.28
+SmartSpeaker:83,TSF,Bose,10.85
+Divisao:Hall
+SmartBulb:Warm,9,10.37
+SmartBulb:Neutral,16,14.37
+SmartBulb:Warm,9,4.79
+SmartBulb:Neutral,4,11.86
+SmartBulb:Neutral,12,19.99
+SmartCamera:(1024x768),21,6.67
+SmartCamera:(3840x2160),162,1.70
+SmartCamera:(2160x1440),175,8.00
+SmartCamera:(1366x768),31,16.75
+SmartSpeaker:5,Radio Renascenca,Marshall,3.30
+SmartSpeaker:0,MEGAHITS,Alcatel,1.12
+SmartSpeaker:54,RFM,Anker,18.91
+Casa:Ines Bessa,459723440,EDP
+Divisao:Casa de Banho
+SmartBulb:Warm,1,1.55
+SmartBulb:Neutral,25,5.46
+SmartCamera:(1280x720),138,4.05
+SmartCamera:(1980x1080),128,14.66
+SmartCamera:(2160x1440),198,13.22
+SmartCamera:(1980x1080),90,6.84
+SmartSpeaker:83,Radio Renascenca,Apple,2.24
+Divisao:Sala
+SmartBulb:Neutral,5,10.16
+SmartBulb:Neutral,19,19.83
+SmartBulb:Warm,15,2.26
+SmartBulb:Warm,3,16.76
+SmartBulb:Neutral,9,5.91
+SmartCamera:(1980x1080),189,15.78
+SmartCamera:(3840x2160),76,4.54
+SmartCamera:(1280x720),42,5.38
+SmartCamera:(3840x2160),93,1.69
+SmartCamera:(2160x1440),167,5.88
+SmartSpeaker:68,RUM,Marshall,13.60
+SmartSpeaker:3,Radio Renascenca,Amazon,3.01
+SmartSpeaker:17,MEGAHITS,Apple,17.51
+Divisao:Sala
+SmartCamera:(1366x768),120,6.40
+SmartCamera:(1366x768),162,10.21
+SmartCamera:(1280x720),49,3.59
+SmartSpeaker:80,Radio Santiago,Anker,2.02
+SmartSpeaker:85,Radio Comercial,Alcatel,15.67
+SmartSpeaker:72,Radio Renascenca,Apple,6.72
+SmartSpeaker:43,Radio Santiago,Amazon,16.96
+SmartSpeaker:42,Radio Renascenca,Marshall,6.83
+Casa:Marcelo Ribeiro,797049947,EDP
+Divisao:Garagem
+SmartBulb:Neutral,24,19.41
+SmartBulb:Warm,2,14.95
+SmartCamera:(3840x2160),179,7.47
+SmartCamera:(3840x2160),99,12.42
+SmartSpeaker:32,Radio Comercial,JBL,5.26
+SmartSpeaker:25,MEGAHITS,Sony,14.56

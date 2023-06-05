@@ -117,9 +117,10 @@ genHouse forns = do
         division <- genDivisao
         n1 <- choose (0, 5)
         n2 <- choose (0, 5)
+        n3 <- choose (0, 5)
         smartBulbs <- replicateM n1 genSmartBulbAux
         smartCameras <- replicateM n2 genSmartCameraAux
-        smartSpeakers <- replicateM n2 genSmartSpeakerAux
+        smartSpeakers <- replicateM n3 genSmartSpeakerAux
         let smartBulbsStr = map (\(SmartBulb mode dimension consume) -> printf "SmartBulb:%s,%d,%.2f" mode dimension consume) smartBulbs
         let smartCamerasStr = map (\(SmartCamera res dimension consume) -> printf "SmartCamera:%s,%d,%.2f" res dimension consume) smartCameras
         let smartSpeakersStr = map (\(SmartSpeaker vol name brand consume) -> printf "SmartSpeaker:%d,%s,%s,%.2f" vol name brand consume) smartSpeakers
